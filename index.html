@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sitgesmorzart · Taller Creativo en Sitges. Crea tu objeto de madera único. Talleres todos los sábados. Creaciones personalizadas a medida.">
+<meta name="theme-color" content="#FFFFFF">
+
+<title>Sitgesmorzart · Taller Creativo en Sitges</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="Sitgesmorzart · Taller Creativo">
+<meta property="og:description" content="Creaciones en madera para pequeños y grandes artistas. Sitges.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/atelier.jpg">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Foundations DS -->
+<link rel="stylesheet" href="foundations.css">
+
+<style>
+/* ============================================================================
+   PAGE STYLES — Sitgesmorzart
+   Construits sur foundations.css. N'utilise QUE des tokens sémantiques.
+   ============================================================================ */
+
+/* --- Layout général ---------------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+
+section { padding: var(--spacing-16) 0; }
+
+@media (max-width: 768px) {
+  section { padding: var(--spacing-12) 0; }
+}
+
+/* --- Language switcher ------------------------------------------------- */
+.lang-switcher {
+  position: fixed;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  z-index: 100;
+  display: flex;
+  gap: var(--spacing-1);
+  background: var(--surface-default);
+  padding: var(--spacing-1);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-default);
+}
+
+.lang-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  color: var(--text-primary);
+}
+
+.lang-btn:hover { background: var(--brand-turquoise-100); }
+.lang-btn.is-active { background: var(--action-primary-bg); transform: scale(1.05); }
+
+@media (max-width: 640px) {
+  .lang-switcher { top: var(--spacing-2); right: var(--spacing-2); }
+  .lang-btn { width: 36px; height: 36px; font-size: 1rem; }
+}
+
+/* --- Boutons (consomment les tokens action-*) -------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-8);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px solid transparent;
+  min-height: 48px;
+}
+
+.btn-primary {
+  background: var(--action-primary-bg);
+  color: var(--action-primary-text);
+}
+.btn-primary:hover { background: var(--action-primary-bg-hover); transform: translateY(-2px); }
+
+.btn-secondary {
+  background: var(--action-secondary-bg);
+  color: var(--action-secondary-text);
+  border-color: var(--action-secondary-border);
+}
+.btn-secondary:hover { background: var(--action-secondary-bg-hover); transform: translateY(-2px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--action-ghost-text);
+}
+.btn-ghost:hover { background: var(--action-ghost-bg-hover); }
+
+.btn-whatsapp {
+  background: #25D366;
+  color: var(--neutral-white);
+}
+.btn-whatsapp:hover { background: #1fb858; transform: translateY(-2px); }
+
+.btn-lg { padding: var(--spacing-4) var(--spacing-12); font-size: var(--body-large-size); }
+
+/* --- Section heads ----------------------------------------------------- */
+.section-head { text-align: center; max-width: 720px; margin: 0 auto var(--spacing-12); }
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brand-turquoise-700);
+  margin-bottom: var(--spacing-3);
+}
+
+.section-head h2 { margin-bottom: var(--spacing-4); }
+.section-head p { font-size: var(--body-large-size); color: var(--text-secondary); }
+
+
+/* ============================================================================
+   HERO
+   ============================================================================ */
+.hero {
+  padding: var(--spacing-16) 0 var(--spacing-12);
+  position: relative;
+}
+
+@media (min-width: 769px) {
+  .hero { padding-top: var(--spacing-16); }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: var(--spacing-12);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: var(--spacing-8); }
+}
+
+.hero-brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-turquoise-700);
+  margin-bottom: var(--spacing-4);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.hero-brand::before {
+  content: "";
+  width: 32px;
+  height: 2px;
+  background: var(--brand-turquoise-500);
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: var(--spacing-6);
+}
+
+.hero h1 .accent {
+  color: var(--brand-turquoise-500);
+  font-style: italic;
+  font-weight: var(--weight-bold);
+}
+
+.hero-tagline {
+  font-size: clamp(1.125rem, 2vw, 1.375rem);
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin-bottom: var(--spacing-8);
+  line-height: 1.5;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+}
+
+.hero-image {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .hero-image { aspect-ratio: 3 / 4; max-height: 500px; }
+}
+
+
+/* ============================================================================
+   ACTIVITY INTRO (2 cards : ateliers + créations)
+   ============================================================================ */
+.activities {
+  background: var(--surface-default);
+  padding-top: var(--spacing-8);
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6);
+}
+
+@media (max-width: 768px) {
+  .activities-grid { grid-template-columns: 1fr; }
+}
+
+.activity-card {
+  background: var(--surface-default);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-8);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.activity-card:hover {
+  border-color: var(--border-brand);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.activity-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background: var(--brand-turquoise-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.activity-card h3 { font-size: 1.5rem; margin-bottom: 0; }
+
+.activity-card p { color: var(--text-secondary); flex: 1; }
+
+.activity-link {
+  color: var(--brand-turquoise-700);
+  font-weight: var(--weight-semibold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-2);
+}
+
+.activity-link::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.activity-card:hover .activity-link::after { transform: translateX(4px); }
+
+
+/* ============================================================================
+   STEPS
+   ============================================================================ */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-8);
+  counter-reset: step;
+}
+
+.step { text-align: center; counter-increment: step; }
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-4);
+  background: var(--brand-turquoise-100);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.step:hover .step-icon { transform: rotate(-4deg) scale(1.05); }
+
+.step-icon::before {
+  content: counter(step);
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 28px;
+  height: 28px;
+  background: var(--surface-emphasis);
+  color: var(--text-inverse);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--body-small-size);
+}
+
+.step h3 { font-size: 1.25rem; margin-bottom: var(--spacing-2); }
+.step p { font-size: var(--body-small-size); color: var(--text-secondary); }
+
+
+/* ============================================================================
+   GALLERY
+   ============================================================================ */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-8);
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--brand-turquoise-100);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover { transform: scale(1.03); }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img { transform: scale(1.08); }
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-3);
+  background: linear-gradient(to top, rgba(40, 55, 75, 0.9), rgba(40, 55, 75, 0));
+  color: var(--text-inverse);
+  font-size: var(--body-small-size);
+  font-weight: var(--weight-medium);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-caption { opacity: 1; }
+
+
+/* ============================================================================
+   PRICING — Calculateur interactif
+   ============================================================================ */
+.pricing {
+  background: var(--surface-subtle);
+}
+
+.calculator {
+  background: var(--surface-default);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-12) var(--spacing-8);
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+}
+
+.calculator-question {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-6);
+}
+
+.calc-buttons {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-8);
+}
+
+.calc-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: var(--surface-default);
+  border: 2px solid var(--border-default);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 1.125rem;
+  transition: all 0.2s ease;
+}
+
+.calc-btn:hover {
+  border-color: var(--border-brand);
+  color: var(--brand-turquoise-700);
+}
+
+.calc-btn.is-active {
+  background: var(--action-primary-bg);
+  border-color: var(--action-primary-bg);
+  color: var(--action-primary-text);
+  transform: scale(1.05);
+}
+
+.calc-result {
+  background: var(--brand-turquoise-100);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+}
+
+.calc-total {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 3rem;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.calc-total .currency {
+  font-size: 1.5rem;
+  vertical-align: super;
+  margin-right: 4px;
+}
+
+.calc-detail {
+  margin-top: var(--spacing-2);
+  color: var(--text-secondary);
+  font-size: var(--body-medium-size);
+}
+
+.calc-savings {
+  display: inline-block;
+  margin-top: var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-3);
+  background: var(--brand-green-100);
+  color: var(--brand-green-700);
+  border-radius: var(--radius-full);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.calc-savings.is-visible { opacity: 1; }
+
+.calc-cta {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- Tableau dégressif clair ------------------------------------------ */
+.pricing-table {
+  max-width: 720px;
+  margin: var(--spacing-8) auto 0;
+  background: var(--surface-default);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+}
+
+.pricing-table-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: var(--spacing-4) var(--spacing-6);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.pricing-table-row:last-child { border-bottom: none; }
+
+.pricing-table-row.is-header {
+  background: var(--surface-subtle);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--brand-turquoise-700);
+}
+
+.pricing-table-label { color: var(--text-primary); font-weight: var(--weight-medium); }
+.pricing-table-price {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+}
+
+
+/* ============================================================================
+   SCHEDULE
+   ============================================================================ */
+.schedule { background: var(--surface-default); }
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-4);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-8);
+}
+
+.schedule-card {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6);
+  text-align: center;
+  border: 2px solid transparent;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.schedule-card:hover { border-color: var(--border-brand); transform: translateY(-2px); }
+
+.schedule-day {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.schedule-time {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 1.125rem;
+  color: var(--brand-turquoise-700);
+}
+
+.schedule-extras {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-4);
+}
+
+.extra-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-3);
+  padding: var(--spacing-4);
+  border-left: 3px solid var(--brand-turquoise-500);
+  background: var(--surface-default);
+}
+
+.extra-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+.extra-text {
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.extra-text strong {
+  display: block;
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+  margin-bottom: 2px;
+}
+
+
+/* ============================================================================
+   CRÉATIONS
+   ============================================================================ */
+.creations { background: var(--surface-default); }
+
+.creations-types {
+  max-width: 800px;
+  margin: 0 auto var(--spacing-8);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-2);
+}
+
+.creation-type {
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--surface-subtle);
+  color: var(--brand-turquoise-700);
+  border-radius: var(--radius-full);
+  font-size: var(--body-small-size);
+  font-weight: var(--weight-medium);
+}
+
+.creations-cta {
+  text-align: center;
+  margin-top: var(--spacing-12);
+  padding: var(--spacing-8);
+  background: var(--surface-emphasis);
+  color: var(--text-inverse);
+  border-radius: var(--radius-2xl);
+}
+
+.creations-cta h3 {
+  color: var(--text-inverse);
+  margin-bottom: var(--spacing-3);
+}
+
+.creations-cta p {
+  color: var(--neutral-grey-300);
+  margin-bottom: var(--spacing-6);
+  font-size: var(--body-large-size);
+}
+
+.creations-price {
+  display: inline-block;
+  background: var(--brand-turquoise-500);
+  color: var(--text-primary);
+  padding: var(--spacing-1) var(--spacing-4);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  margin-bottom: var(--spacing-6);
+}
+
+
+/* ============================================================================
+   LOCATION
+   ============================================================================ */
+.location { background: var(--surface-subtle); }
+
+.location-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--surface-default);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-12) var(--spacing-8);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.location-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-4);
+  background: var(--action-primary-bg);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+.location-name {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 1.125rem;
+  color: var(--brand-turquoise-700);
+  margin-bottom: var(--spacing-2);
+}
+
+.location-address {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-6);
+  line-height: 1.3;
+}
+
+.location-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  color: var(--brand-turquoise-700);
+  font-weight: var(--weight-semibold);
+  border-bottom: 2px solid var(--brand-turquoise-500);
+  padding-bottom: 2px;
+}
+
+
+/* ============================================================================
+   FAQ
+   ============================================================================ */
+.faq-list {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.faq-item {
+  background: var(--surface-default);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.faq-item[open] { border-color: var(--border-brand); }
+
+.faq-question {
+  padding: var(--spacing-4) var(--spacing-6);
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: 1.0625rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-4);
+  list-style: none;
+}
+
+.faq-question::-webkit-details-marker { display: none; }
+
+.faq-question::after {
+  content: "+";
+  font-size: 1.5rem;
+  color: var(--brand-turquoise-500);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  font-weight: var(--weight-regular);
+}
+
+.faq-item[open] .faq-question::after { transform: rotate(45deg); }
+
+.faq-answer { padding: 0 var(--spacing-6) var(--spacing-4); color: var(--text-secondary); }
+
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+footer {
+  background: var(--surface-emphasis);
+  color: var(--neutral-grey-300);
+  padding: var(--spacing-12) 0 var(--spacing-6);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--spacing-8);
+  margin-bottom: var(--spacing-8);
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: var(--spacing-6); }
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 1.25rem;
+  color: var(--text-inverse);
+  margin-bottom: var(--spacing-3);
+}
+
+.footer-tagline { color: var(--neutral-grey-300); font-size: var(--body-small-size); }
+
+.footer-section h4 {
+  color: var(--text-inverse);
+  font-size: var(--body-small-size);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-3);
+}
+
+.footer-section ul { list-style: none; }
+.footer-section li { margin-bottom: var(--spacing-2); }
+.footer-section a { color: var(--neutral-grey-300); font-size: var(--body-small-size); transition: color 0.2s; }
+.footer-section a:hover { color: var(--brand-turquoise-300); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: var(--spacing-6);
+  text-align: center;
+  font-size: var(--body-small-size);
+}
+
+/* ============================================================================
+   I18N — Affichage par langue
+   ============================================================================ */
+[data-lang]:not(.is-active-lang) { display: none !important; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================================
+     LANGUAGE SWITCHER
+     ============================================================================ -->
+<nav class="lang-switcher" aria-label="Sélecteur de langue">
+  <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+  <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+  <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+</nav>
+
+
+<!-- ============================================================================
+     HERO
+     ============================================================================ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-text">
+        <span class="hero-brand" data-lang="es">Sitgesmorzart · Taller Creativo</span>
+        <span class="hero-brand" data-lang="fr">Sitgesmorzart · Atelier Créatif</span>
+        <span class="hero-brand" data-lang="en">Sitgesmorzart · Creative Workshop</span>
+
+        <!-- ES -->
+        <div data-lang="es" class="is-active-lang">
+          <h1>Creaciones en madera para <span class="accent">pequeños y grandes artistas</span></h1>
+          <p class="hero-tagline">Talleres todos los sábados en Sitges, y creaciones personalizadas a medida. Tú lo diseñas, nosotros lo cortamos, te lo llevas a casa.</p>
+          <div class="hero-ctas">
+            <a href="#talleres" class="btn btn-primary btn-lg">Talleres niños</a>
+            <a href="#creaciones" class="btn btn-secondary btn-lg">Nuestras creaciones</a>
+          </div>
+        </div>
+
+        <!-- FR -->
+        <div data-lang="fr">
+          <h1>Créations sur bois pour <span class="accent">petits et grands artistes</span></h1>
+          <p class="hero-tagline">Ateliers tous les samedis à Sitges, et créations personnalisées sur mesure. Tu dessines, nous découpons, tu repars avec.</p>
+          <div class="hero-ctas">
+            <a href="#talleres" class="btn btn-primary btn-lg">Ateliers enfants</a>
+            <a href="#creaciones" class="btn btn-secondary btn-lg">Nos créations</a>
+          </div>
+        </div>
+
+        <!-- EN -->
+        <div data-lang="en">
+          <h1>Wood creations for <span class="accent">young and grown-up artists</span></h1>
+          <p class="hero-tagline">Workshops every Saturday in Sitges, and custom creations on demand. You design it, we cut it, you take it home.</p>
+          <div class="hero-ctas">
+            <a href="#talleres" class="btn btn-primary btn-lg">Kids' workshops</a>
+            <a href="#creaciones" class="btn btn-secondary btn-lg">Our creations</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <picture>
+          <source srcset="images/atelier.webp" type="image/webp">
+          <img src="images/atelier.jpg" alt="Niños creando en el taller" loading="eager" width="900" height="1200">
+        </picture>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+<!-- ============================================================================
+     ACTIVITIES OVERVIEW
+     ============================================================================ -->
+<section class="activities">
+  <div class="container">
+    <div class="activities-grid">
+
+      <a href="#talleres" class="activity-card">
+        <div class="activity-icon" aria-hidden="true">🎨</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Talleres niños</h3>
+          <p>Cada sábado, los niños y niñas crean su propio objeto de madera. Animales, manga, cómics, Lego, lo que imaginen.</p>
+          <span class="activity-link">Reservar plaza</span>
+        </div>
+        <div data-lang="fr">
+          <h3>Ateliers enfants</h3>
+          <p>Chaque samedi, les enfants créent leur propre objet en bois. Animaux, manga, BD, Lego, tout ce qu'ils imaginent.</p>
+          <span class="activity-link">Réserver une place</span>
+        </div>
+        <div data-lang="en">
+          <h3>Kids' workshops</h3>
+          <p>Every Saturday, children create their own wooden object. Animals, manga, comics, Lego — anything they imagine.</p>
+          <span class="activity-link">Book a spot</span>
+        </div>
+      </a>
+
+      <a href="#creaciones" class="activity-card">
+        <div class="activity-icon" aria-hidden="true">🪵</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Nuestras creaciones</h3>
+          <p>Objetos personalizados a medida: nombres, rótulos, decoración, customización, lienzos, esculturas en 3D.</p>
+          <span class="activity-link">Pedir presupuesto</span>
+        </div>
+        <div data-lang="fr">
+          <h3>Nos créations</h3>
+          <p>Objets personnalisés sur mesure : prénoms, enseignes, décoration, customisation, toiles, sculptures 3D.</p>
+          <span class="activity-link">Demander un devis</span>
+        </div>
+        <div data-lang="en">
+          <h3>Our creations</h3>
+          <p>Custom-made objects: names, signs, decoration, customisation, canvases, 3D sculptures.</p>
+          <span class="activity-link">Request a quote</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================================
+     TALLERES — Section ateliers détaillée
+     ============================================================================ -->
+<section id="talleres">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Talleres en Sitges</span>
+      <span class="kicker" data-lang="fr">Ateliers à Sitges</span>
+      <span class="kicker" data-lang="en">Workshops in Sitges</span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h2>Crea tu propio objeto de madera</h2>
+        <p>A partir de 6 años · Máximo 10 personas · Animales, flores, manga, cómics, Lego, dibujos animados o tus propias creaciones.</p>
+      </div>
+      <div data-lang="fr">
+        <h2>Crée ton propre objet en bois</h2>
+        <p>À partir de 6 ans · Maximum 10 personnes · Animaux, fleurs, manga, BD, Lego, dessins animés ou tes propres créations.</p>
+      </div>
+      <div data-lang="en">
+        <h2>Create your own wooden object</h2>
+        <p>Ages 6+ · Maximum 10 people · Animals, flowers, manga, comics, Lego, cartoons or your own designs.</p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="steps">
+      <div class="step">
+        <div class="step-icon" aria-hidden="true">✏️</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Tú lo diseñas</h3>
+          <p>Eliges un modelo o creas el tuyo propio.</p>
+        </div>
+        <div data-lang="fr">
+          <h3>Tu le dessines</h3>
+          <p>Tu choisis un modèle ou tu crées le tien.</p>
+        </div>
+        <div data-lang="en">
+          <h3>You design it</h3>
+          <p>Pick a template or invent your own.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon" aria-hidden="true">🪚</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Guillermo lo corta</h3>
+          <p>Tu soporte de madera, hecho a medida.</p>
+        </div>
+        <div data-lang="fr">
+          <h3>Guillaume le découpe</h3>
+          <p>Ton support en bois, fait sur mesure.</p>
+        </div>
+        <div data-lang="en">
+          <h3>Guillaume cuts it</h3>
+          <p>Your wooden base, made to order.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon" aria-hidden="true">🎨</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Lo pintas</h3>
+          <p>Materiales incluidos. ¡Da rienda suelta a tu creatividad!</p>
+        </div>
+        <div data-lang="fr">
+          <h3>Tu le peins</h3>
+          <p>Matériel inclus. Laisse libre cours à ta créativité !</p>
+        </div>
+        <div data-lang="en">
+          <h3>You paint it</h3>
+          <p>All materials included. Unleash your creativity!</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-icon" aria-hidden="true">✨</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Te lo llevas</h3>
+          <p>Lo barnizamos y te llevas tu obra única.</p>
+        </div>
+        <div data-lang="fr">
+          <h3>Tu repars avec</h3>
+          <p>On le vernit et tu repars avec ton œuvre unique.</p>
+        </div>
+        <div data-lang="en">
+          <h3>You take it home</h3>
+          <p>We varnish it and you leave with your unique piece.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gallery ateliers -->
+    <div class="gallery">
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/petit-lapin.webp" type="image/webp">
+          <img src="images/petit-lapin.jpg" alt="Lapin en bois peint" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Conejo</div>
+        <div class="gallery-caption" data-lang="fr">Lapin</div>
+        <div class="gallery-caption" data-lang="en">Rabbit</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/batman-dessin.webp" type="image/webp">
+          <img src="images/batman-dessin.jpg" alt="Figure Batman en bois" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Batman</div>
+        <div class="gallery-caption" data-lang="fr">Batman</div>
+        <div class="gallery-caption" data-lang="en">Batman</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/mister-marvel.webp" type="image/webp">
+          <img src="images/mister-marvel.jpg" alt="Personnage Marvel en bois" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Marvel</div>
+        <div class="gallery-caption" data-lang="fr">Marvel</div>
+        <div class="gallery-caption" data-lang="en">Marvel</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/cochon-rose.webp" type="image/webp">
+          <img src="images/cochon-rose.jpg" alt="Cerdito rosa en bois" loading="lazy" width="1200" height="900">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Cerdito</div>
+        <div class="gallery-caption" data-lang="fr">Cochon</div>
+        <div class="gallery-caption" data-lang="en">Pig</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/quedarte-studio.webp" type="image/webp">
+          <img src="images/quedarte-studio.jpg" alt="Studio Quedarte" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">El estudio</div>
+        <div class="gallery-caption" data-lang="fr">L'atelier</div>
+        <div class="gallery-caption" data-lang="en">The studio</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================================
+     PRICING — Calculateur interactif
+     ============================================================================ -->
+<section class="pricing">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Tarifas</span>
+      <span class="kicker" data-lang="fr">Tarifs</span>
+      <span class="kicker" data-lang="en">Pricing</span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h2>Cuántos más, mejor precio</h2>
+        <p>Tarifas degresivas: cuanto más grande es el grupo, menor es el precio por persona.</p>
+      </div>
+      <div data-lang="fr">
+        <h2>Plus on est nombreux, mieux c'est</h2>
+        <p>Tarifs dégressifs : plus le groupe est grand, plus le prix par personne baisse.</p>
+      </div>
+      <div data-lang="en">
+        <h2>The more, the merrier</h2>
+        <p>Group discounts: the bigger the group, the lower the price per person.</p>
+      </div>
+    </div>
+
+    <div class="calculator">
+      <div class="calculator-question" data-lang="es">¿Cuántos seréis?</div>
+      <div class="calculator-question" data-lang="fr">Vous serez combien ?</div>
+      <div class="calculator-question" data-lang="en">How many will you be?</div>
+
+      <div class="calc-buttons" id="calc-buttons" role="radiogroup" aria-label="Number of participants">
+        <!-- Boutons générés en JS -->
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-total"><span class="currency">€</span><span id="calc-amount">30</span></div>
+        <div class="calc-detail">
+          <span data-lang="es" class="is-active-lang"><span id="calc-people-es">1 persona</span> · <span id="calc-perperson-es">30 € por persona</span></span>
+          <span data-lang="fr"><span id="calc-people-fr">1 personne</span> · <span id="calc-perperson-fr">30 € par personne</span></span>
+          <span data-lang="en"><span id="calc-people-en">1 person</span> · <span id="calc-perperson-en">€30 per person</span></span>
+        </div>
+        <div class="calc-savings" id="calc-savings">
+          <span data-lang="es" class="is-active-lang"><span id="calc-savings-es"></span></span>
+          <span data-lang="fr"><span id="calc-savings-fr"></span></span>
+          <span data-lang="en"><span id="calc-savings-en"></span></span>
+        </div>
+      </div>
+
+      <div class="calc-cta">
+        <a href="https://wa.me/33679827387" class="btn btn-whatsapp btn-lg">
+          <span data-lang="es" class="is-active-lang">Reservar por WhatsApp</span>
+          <span data-lang="fr">Réserver par WhatsApp</span>
+          <span data-lang="en">Book via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Tableau dégressif clair -->
+    <div class="pricing-table">
+      <div class="pricing-table-row is-header">
+        <div data-lang="es" class="is-active-lang">Tamaño del grupo</div>
+        <div data-lang="fr">Taille du groupe</div>
+        <div data-lang="en">Group size</div>
+
+        <div data-lang="es">Precio por persona</div>
+        <div data-lang="fr">Prix par personne</div>
+        <div data-lang="en">Price per person</div>
+      </div>
+
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">1 persona</span>
+          <span data-lang="fr">1 personne</span>
+          <span data-lang="en">1 person</span>
+        </div>
+        <div class="pricing-table-price">30 €</div>
+      </div>
+
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">Grupo de 2 a 4 personas</span>
+          <span data-lang="fr">Groupe de 2 à 4 personnes</span>
+          <span data-lang="en">Group of 2 to 4 people</span>
+        </div>
+        <div class="pricing-table-price">25 € / pers.</div>
+      </div>
+
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">Grupo de 5 personas o más</span>
+          <span data-lang="fr">Groupe de 5 personnes ou plus</span>
+          <span data-lang="en">Group of 5 or more</span>
+        </div>
+        <div class="pricing-table-price">20 € / pers.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================================
+     SCHEDULE
+     ============================================================================ -->
+<section class="schedule">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Horarios</span>
+      <span class="kicker" data-lang="fr">Horaires</span>
+      <span class="kicker" data-lang="en">Schedule</span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h2>Dos sesiones todos los sábados</h2>
+        <p>Para otros días, contáctanos por WhatsApp.</p>
+      </div>
+      <div data-lang="fr">
+        <h2>Deux sessions tous les samedis</h2>
+        <p>Pour d'autres jours, contacte-nous par WhatsApp.</p>
+      </div>
+      <div data-lang="en">
+        <h2>Two sessions every Saturday</h2>
+        <p>For other days, message us on WhatsApp.</p>
+      </div>
+    </div>
+
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <div class="schedule-day" data-lang="es">Sábado · Mañana</div>
+        <div class="schedule-day" data-lang="fr">Samedi · Matin</div>
+        <div class="schedule-day" data-lang="en">Saturday · Morning</div>
+        <div class="schedule-time">10:30 → 13:30</div>
+      </div>
+      <div class="schedule-card">
+        <div class="schedule-day" data-lang="es">Sábado · Tarde</div>
+        <div class="schedule-day" data-lang="fr">Samedi · Après-midi</div>
+        <div class="schedule-day" data-lang="en">Saturday · Afternoon</div>
+        <div class="schedule-time">15:00 → 18:00</div>
+      </div>
+    </div>
+
+    <!-- Extras / options -->
+    <div class="schedule-extras">
+      <div class="extra-item">
+        <span class="extra-icon" aria-hidden="true">🌅</span>
+        <div class="extra-text">
+          <strong data-lang="es" class="is-active-lang">Día completo</strong>
+          <strong data-lang="fr">Journée complète</strong>
+          <strong data-lang="en">Full day</strong>
+          <span data-lang="es" class="is-active-lang">Posibilidad de reservar un taller más largo.</span>
+          <span data-lang="fr">Possibilité de réserver un atelier plus long.</span>
+          <span data-lang="en">Option to book an extended workshop.</span>
+        </div>
+      </div>
+      <div class="extra-item">
+        <span class="extra-icon" aria-hidden="true">🏖️</span>
+        <div class="extra-text">
+          <strong data-lang="es" class="is-active-lang">Picnic en la playa</strong>
+          <strong data-lang="fr">Pique-nique à la plage</strong>
+          <strong data-lang="en">Beach picnic</strong>
+          <span data-lang="es" class="is-active-lang">Combinable con el taller para una experiencia completa.</span>
+          <span data-lang="fr">Combinable avec l'atelier pour une expérience complète.</span>
+          <span data-lang="en">Pair it with the workshop for the full experience.</span>
+        </div>
+      </div>
+      <div class="extra-item">
+        <span class="extra-icon" aria-hidden="true">👨‍👩‍👧</span>
+        <div class="extra-text">
+          <strong data-lang="es" class="is-active-lang">Adultos y familias</strong>
+          <strong data-lang="fr">Adultes et familles</strong>
+          <strong data-lang="en">Adults &amp; families</strong>
+          <span data-lang="es" class="is-active-lang">Los talleres también están abiertos a adultos.</span>
+          <span data-lang="fr">Les ateliers sont aussi ouverts aux adultes.</span>
+          <span data-lang="en">Workshops are open to adults too.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================================
+     CRÉATIONS
+     ============================================================================ -->
+<section class="creations" id="creaciones">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Nuestras creaciones</span>
+      <span class="kicker" data-lang="fr">Nos créations</span>
+      <span class="kicker" data-lang="en">Our creations</span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h2>Objetos únicos hechos a medida</h2>
+        <p>Guillermo crea piezas personalizadas para particulares y empresas. Desde un nombre de madera hasta un rótulo completo, todo se hace a mano en el taller.</p>
+      </div>
+      <div data-lang="fr">
+        <h2>Des objets uniques faits sur mesure</h2>
+        <p>Guillaume crée des pièces personnalisées pour particuliers et entreprises. D'un prénom en bois à une enseigne complète, tout est fait main à l'atelier.</p>
+      </div>
+      <div data-lang="en">
+        <h2>Unique objects, made to order</h2>
+        <p>Guillaume crafts custom pieces for individuals and businesses. From a wooden name to a full storefront sign, everything is handmade in the studio.</p>
+      </div>
+    </div>
+
+    <!-- Tags des types -->
+    <div class="creations-types">
+      <span class="creation-type" data-lang="es">Personalización</span>
+      <span class="creation-type" data-lang="fr">Customisation</span>
+      <span class="creation-type" data-lang="en">Customisation</span>
+
+      <span class="creation-type" data-lang="es">Lienzos</span>
+      <span class="creation-type" data-lang="fr">Toiles</span>
+      <span class="creation-type" data-lang="en">Canvases</span>
+
+      <span class="creation-type" data-lang="es">Objetos 3D</span>
+      <span class="creation-type" data-lang="fr">Objets 3D</span>
+      <span class="creation-type" data-lang="en">3D objects</span>
+
+      <span class="creation-type" data-lang="es">Nombres</span>
+      <span class="creation-type" data-lang="fr">Prénoms</span>
+      <span class="creation-type" data-lang="en">Names</span>
+
+      <span class="creation-type" data-lang="es">Rótulos</span>
+      <span class="creation-type" data-lang="fr">Enseignes</span>
+      <span class="creation-type" data-lang="en">Signs</span>
+
+      <span class="creation-type" data-lang="es">Decoración</span>
+      <span class="creation-type" data-lang="fr">Décoration</span>
+      <span class="creation-type" data-lang="en">Decoration</span>
+    </div>
+
+    <!-- Gallery créations -->
+    <div class="gallery">
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/foodtruck-bigpapi.webp" type="image/webp">
+          <img src="images/foodtruck-bigpapi.jpg" alt="Foodtruck Big Papi customisé" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Rótulo Big Papi</div>
+        <div class="gallery-caption" data-lang="fr">Enseigne Big Papi</div>
+        <div class="gallery-caption" data-lang="en">Big Papi sign</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/calligraphie-bois.webp" type="image/webp">
+          <img src="images/calligraphie-bois.jpg" alt="Calligraphie sur bois" loading="lazy" width="1200" height="900">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Caligrafía</div>
+        <div class="gallery-caption" data-lang="fr">Calligraphie</div>
+        <div class="gallery-caption" data-lang="en">Calligraphy</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/masque-azteque.webp" type="image/webp">
+          <img src="images/masque-azteque.jpg" alt="Masque aztèque sur bois" loading="lazy" width="1200" height="900">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Máscara azteca</div>
+        <div class="gallery-caption" data-lang="fr">Masque aztèque</div>
+        <div class="gallery-caption" data-lang="en">Aztec mask</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/marche-pied-tigre.webp" type="image/webp">
+          <img src="images/marche-pied-tigre.jpg" alt="Marche-pied tigre 3D" loading="lazy" width="1117" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Escabel tigre</div>
+        <div class="gallery-caption" data-lang="fr">Marche-pied tigre</div>
+        <div class="gallery-caption" data-lang="en">Tiger step stool</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/barcelona-2.webp" type="image/webp">
+          <img src="images/barcelona-2.jpg" alt="Décoration Barcelone" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Barcelona</div>
+        <div class="gallery-caption" data-lang="fr">Barcelone</div>
+        <div class="gallery-caption" data-lang="en">Barcelona</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/toile-masque.webp" type="image/webp">
+          <img src="images/toile-masque.jpg" alt="Toile peinte" loading="lazy" width="1146" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Lienzo</div>
+        <div class="gallery-caption" data-lang="fr">Toile</div>
+        <div class="gallery-caption" data-lang="en">Canvas</div>
+      </div>
+    </div>
+
+    <!-- CTA créations -->
+    <div class="creations-cta">
+      <span class="creations-price">
+        <span data-lang="es" class="is-active-lang">Desde 30 €</span>
+        <span data-lang="fr">À partir de 30 €</span>
+        <span data-lang="en">From €30</span>
+      </span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h3>¿Tienes un proyecto en mente?</h3>
+        <p>Cuéntanos lo que imaginas y te enviamos un presupuesto a medida.</p>
+      </div>
+      <div data-lang="fr">
+        <h3>Tu as un projet en tête ?</h3>
+        <p>Dis-nous ce que tu imagines et on te fait un devis sur mesure.</p>
+      </div>
+      <div data-lang="en">
+        <h3>Got a project in mind?</h3>
+        <p>Tell us what you imagine and we'll send you a custom quote.</p>
+      </div>
+
+      <a href="https://wa.me/33679827387?text=Hola%20Guillermo%2C%20tengo%20un%20proyecto%20de%20creaci%C3%B3n%20personalizada" class="btn btn-whatsapp btn-lg">
+        💬 WhatsApp Guillermo
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================================
+     LOCATION
+     ============================================================================ -->
+<section class="location">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Dónde estamos</span>
+      <span class="kicker" data-lang="fr">Où nous trouver</span>
+      <span class="kicker" data-lang="en">Find us</span>
+    </div>
+
+    <div class="location-card">
+      <div class="location-icon" aria-hidden="true">📍</div>
+      <div class="location-name">Studio Quedarte</div>
+      <div class="location-address">Carrer Sant Damià, 7<br>08870 Sitges, Barcelona</div>
+      <a href="https://www.google.com/maps/search/?api=1&query=Carrer+Sant+Dami%C3%A0+7+Sitges" class="location-link" target="_blank" rel="noopener">
+        <span data-lang="es" class="is-active-lang">Ver en Google Maps</span>
+        <span data-lang="fr">Voir sur Google Maps</span>
+        <span data-lang="en">Open in Google Maps</span>
+        →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================================
+     FAQ
+     ============================================================================ -->
+<section>
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Preguntas frecuentes</span>
+      <span class="kicker" data-lang="fr">Questions fréquentes</span>
+      <span class="kicker" data-lang="en">Frequently asked</span>
+
+      <div data-lang="es" class="is-active-lang"><h2>Todo lo que necesitas saber</h2></div>
+      <div data-lang="fr"><h2>Tout ce qu'il faut savoir</h2></div>
+      <div data-lang="en"><h2>Everything you need to know</h2></div>
+    </div>
+
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span data-lang="es" class="is-active-lang">¿A partir de qué edad?</span>
+          <span data-lang="fr">À partir de quel âge ?</span>
+          <span data-lang="en">What age is it for?</span>
+        </summary>
+        <div class="faq-answer">
+          <span data-lang="es" class="is-active-lang">A partir de 6 años. Los talleres también están abiertos a adultos al mismo precio.</span>
+          <span data-lang="fr">À partir de 6 ans. Les ateliers sont aussi ouverts aux adultes au même tarif.</span>
+          <span data-lang="en">Ages 6 and up. Workshops are open to adults too, at the same price.</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span data-lang="es" class="is-active-lang">¿Qué hay que traer?</span>
+          <span data-lang="fr">Que faut-il apporter ?</span>
+          <span data-lang="en">What should we bring?</span>
+        </summary>
+        <div class="faq-answer">
+          <span data-lang="es" class="is-active-lang">Nada. Todos los materiales (madera, pinturas, pinceles, barniz) están incluidos. Si quieres, puedes traer una bata o ropa que pueda mancharse.</span>
+          <span data-lang="fr">Rien. Tout le matériel (bois, peintures, pinceaux, vernis) est inclus. Si tu veux, tu peux apporter une blouse ou des vêtements qui peuvent se tacher.</span>
+          <span data-lang="en">Nothing. All materials (wood, paint, brushes, varnish) are included. Optionally, bring a smock or clothes that can get a bit messy.</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span data-lang="es" class="is-active-lang">¿Cómo se reserva?</span>
+          <span data-lang="fr">Comment réserver ?</span>
+          <span data-lang="en">How do I book?</span>
+        </summary>
+        <div class="faq-answer">
+          <span data-lang="es" class="is-active-lang">Por WhatsApp al +33 6 79 82 73 87 (Guillermo). El pago se puede hacer en el sitio (efectivo o tarjeta) o por adelantado por Stripe.</span>
+          <span data-lang="fr">Par WhatsApp au +33 6 79 82 73 87 (Guillaume). Le paiement peut se faire sur place (espèces ou carte) ou à l'avance via Stripe.</span>
+          <span data-lang="en">Via WhatsApp at +33 6 79 82 73 87 (Guillaume). Payment can be made on-site (cash or card) or in advance via Stripe.</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span data-lang="es" class="is-active-lang">¿Hablan otros idiomas?</span>
+          <span data-lang="fr">Parlez-vous d'autres langues ?</span>
+          <span data-lang="en">Do you speak other languages?</span>
+        </summary>
+        <div class="faq-answer">
+          <span data-lang="es" class="is-active-lang">Sí: español, catalán, inglés y francés.</span>
+          <span data-lang="fr">Oui : espagnol, catalan, anglais et français.</span>
+          <span data-lang="en">Yes: Spanish, Catalan, English and French.</span>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span data-lang="es" class="is-active-lang">¿Y para cumpleaños o eventos?</span>
+          <span data-lang="fr">Et pour les anniversaires ou événements ?</span>
+          <span data-lang="en">What about birthdays or events?</span>
+        </summary>
+        <div class="faq-answer">
+          <span data-lang="es" class="is-active-lang">Sí, organizamos talleres privados para grupos. Hasta 10 personas. Contáctanos por WhatsApp para más información.</span>
+          <span data-lang="fr">Oui, nous organisons des ateliers privés pour groupes. Jusqu'à 10 personnes. Contacte-nous par WhatsApp pour plus d'infos.</span>
+          <span data-lang="en">Yes, we organise private workshops for groups. Up to 10 people. Get in touch via WhatsApp for more details.</span>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================================
+     FOOTER
+     ============================================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div>
+        <div class="footer-brand">Sitgesmorzart · Taller Creativo</div>
+        <p class="footer-tagline" data-lang="es">Creaciones en madera para pequeños y grandes artistas. Sitges, Barcelona.</p>
+        <p class="footer-tagline" data-lang="fr">Créations sur bois pour petits et grands artistes. Sitges, Barcelone.</p>
+        <p class="footer-tagline" data-lang="en">Wood creations for young and grown-up artists. Sitges, Barcelona.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4 data-lang="es">Contacto</h4>
+        <h4 data-lang="fr">Contact</h4>
+        <h4 data-lang="en">Contact</h4>
+        <ul>
+          <li><a href="https://wa.me/33679827387">WhatsApp +33 6 79 82 73 87</a></li>
+          <li><a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">Instagram @sitgesmorzart</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4 data-lang="es">Estudio</h4>
+        <h4 data-lang="fr">Atelier</h4>
+        <h4 data-lang="en">Studio</h4>
+        <ul>
+          <li>Studio Quedarte</li>
+          <li>Carrer Sant Damià, 7</li>
+          <li>08870 Sitges</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Sitgesmorzart · Taller Creativo
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================================
+     SCRIPTS
+     ============================================================================ -->
+<script>
+(function() {
+
+  /* ==========================================================================
+     LANGUAGE SWITCHER
+     ========================================================================== */
+  const STORAGE_KEY = 'sitgesmorzart-lang';
+  const DEFAULT_LANG = 'es';
+  const SUPPORTED = ['es', 'fr', 'en'];
+
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+  }
+
+  let initialLang = DEFAULT_LANG;
+  try { initialLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; } catch(e) {}
+  setLang(initialLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-switch')));
+  });
+
+
+  /* ==========================================================================
+     PRICING CALCULATOR
+     ========================================================================== */
+  const PRICES = {
+    1:    { perPerson: 30 },
+    2:    { perPerson: 25 },
+    3:    { perPerson: 25 },
+    4:    { perPerson: 25 },
+    5:    { perPerson: 20 },
+    6:    { perPerson: 20 },
+    7:    { perPerson: 20 },
+    8:    { perPerson: 20 },
+    9:    { perPerson: 20 },
+    10:   { perPerson: 20 }
+  };
+
+  const SAVINGS_TEXTS = {
+    es: { 1: '', tier2: '¡Ahorras 5 €/persona!', tier3: '¡Ahorras 10 €/persona!' },
+    fr: { 1: '', tier2: 'Vous économisez 5 €/personne !', tier3: 'Vous économisez 10 €/personne !' },
+    en: { 1: '', tier2: 'You save €5/person!', tier3: 'You save €10/person!' }
+  };
+
+  const PEOPLE_TEXTS = {
+    es: n => n === 1 ? '1 persona' : n + ' personas',
+    fr: n => n === 1 ? '1 personne' : n + ' personnes',
+    en: n => n === 1 ? '1 person'   : n + ' people'
+  };
+
+  const PERPERSON_TEXTS = {
+    es: p => p + ' € por persona',
+    fr: p => p + ' € par personne',
+    en: p => '€' + p + ' per person'
+  };
+
+  let currentCount = 1;
+
+  function buildButtons() {
+    const wrap = document.getElementById('calc-buttons');
+    if (!wrap) return;
+    for (let i = 1; i <= 10; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'calc-btn';
+      btn.textContent = i;
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-checked', i === 1 ? 'true' : 'false');
+      btn.setAttribute('aria-label', i + (i === 1 ? ' person' : ' people'));
+      if (i === 1) btn.classList.add('is-active');
+      btn.addEventListener('click', () => updateCalc(i));
+      wrap.appendChild(btn);
+    }
+  }
+
+  function updateCalc(count) {
+    currentCount = count;
+    const perPerson = PRICES[count].perPerson;
+    const total = perPerson * count;
+
+    document.getElementById('calc-amount').textContent = total;
+
+    // Update all language texts
+    SUPPORTED.forEach(lang => {
+      document.getElementById('calc-people-' + lang).textContent = PEOPLE_TEXTS[lang](count);
+      document.getElementById('calc-perperson-' + lang).textContent = PERPERSON_TEXTS[lang](perPerson);
+
+      const savingsEl = document.getElementById('calc-savings-' + lang);
+      let savingsText = '';
+      if (count >= 5) savingsText = SAVINGS_TEXTS[lang].tier3;
+      else if (count >= 2) savingsText = SAVINGS_TEXTS[lang].tier2;
+      savingsEl.textContent = savingsText;
+    });
+
+    const savingsBlock = document.getElementById('calc-savings');
+    if (count >= 2) savingsBlock.classList.add('is-visible');
+    else savingsBlock.classList.remove('is-visible');
+
+    // Update active state on buttons
+    document.querySelectorAll('.calc-btn').forEach((btn, idx) => {
+      const isActive = (idx + 1) === count;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-checked', isActive ? 'true' : 'false');
+    });
+  }
+
+  buildButtons();
+  updateCalc(1);
+
+})();
+</script>
+
+</body>
+</html>
