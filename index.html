@@ -8,11 +8,32 @@
 
 <title>Sitgesmorzart · Taller Creativo en Sitges</title>
 
-<!-- Open Graph -->
-<meta property="og:title" content="Sitgesmorzart · Taller Creativo">
-<meta property="og:description" content="Creaciones en madera para pequeños y grandes artistas. Sitges.">
+<!-- Canonical URL -->
+<link rel="canonical" href="https://sitgesmorzart-taller.vercel.app/">
+
+<!-- Open Graph (Facebook, WhatsApp, Insta DM, LinkedIn, Slack, etc.) -->
+<!-- 💡 Pour switcher l'image preview : remplacer "og-cover-atelier.jpg" par "og-cover.jpg" (variante Marvel) dans les 3 lignes ci-dessous + dans twitter:image -->
 <meta property="og:type" content="website">
-<meta property="og:image" content="images/atelier.jpg">
+<meta property="og:site_name" content="Sitgesmorzart · Taller Creativo">
+<meta property="og:title" content="Sitgesmorzart · Taller Creativo en Sitges">
+<meta property="og:description" content="Creaciones en madera para pequeños y grandes artistas. Talleres todos los sábados en Sitges, y creaciones personalizadas a medida.">
+<meta property="og:url" content="https://sitgesmorzart-taller.vercel.app/">
+<meta property="og:image" content="https://sitgesmorzart-taller.vercel.app/images/og-cover-atelier.jpg">
+<meta property="og:image:secure_url" content="https://sitgesmorzart-taller.vercel.app/images/og-cover-atelier.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sitgesmorzart · Taller Creativo · Creaciones en madera para pequeños y grandes artistas">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+
+<!-- Twitter / X Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sitgesmorzart · Taller Creativo en Sitges">
+<meta name="twitter:description" content="Creaciones en madera para pequeños y grandes artistas. Talleres todos los sábados en Sitges.">
+<meta name="twitter:image" content="https://sitgesmorzart-taller.vercel.app/images/og-cover-atelier.jpg">
+<meta name="twitter:image:alt" content="Sitgesmorzart · Taller Creativo">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +49,17 @@
    Construits sur foundations.css. N'utilise QUE des tokens sémantiques.
    ============================================================================ */
 
+/* Scroll fluide : laisser de la place pour le header sticky lors d'un saut d'ancre */
+html { scroll-padding-top: 80px; }
+
+/* Body : padding pour compenser le header fixed */
+body { padding-top: 72px; }
+
+@media (max-width: 768px) {
+  html { scroll-padding-top: 72px; }
+  body { padding-top: 64px; }
+}
+
 /* --- Layout général ---------------------------------------------------- */
 .container {
   max-width: 1200px;
@@ -41,39 +73,225 @@ section { padding: var(--spacing-16) 0; }
   section { padding: var(--spacing-12) 0; }
 }
 
-/* --- Language switcher ------------------------------------------------- */
-.lang-switcher {
+
+/* ============================================================================
+   SITE HEADER — sticky navigation
+   ============================================================================ */
+.site-header {
   position: fixed;
-  top: var(--spacing-4);
-  right: var(--spacing-4);
-  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 90;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border-default);
+  height: 72px;
   display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .site-header { height: 64px; }
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  width: 100%;
+}
+
+.site-brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  text-decoration: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.site-brand-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-md);
+  background: var(--brand-gradient);
+  flex-shrink: 0;
+}
+
+.site-brand-name { letter-spacing: -0.01em; }
+
+@media (max-width: 480px) {
+  .site-brand-name { font-size: 0.875rem; }
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
   gap: var(--spacing-1);
-  background: var(--surface-default);
-  padding: var(--spacing-1);
+}
+
+.site-nav-link {
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  font-weight: var(--weight-medium);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s, background-color 0.2s;
+  white-space: nowrap;
+}
+
+.site-nav-link:hover {
+  color: var(--text-primary);
+  background: var(--brand-turquoise-100);
+}
+
+.site-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.site-cta {
+  padding: var(--spacing-2) var(--spacing-4);
+  background: var(--action-primary-bg);
+  color: var(--action-primary-text);
   border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.site-cta:hover {
+  background: var(--action-primary-bg-hover);
+  transform: translateY(-1px);
+}
+
+/* --- Burger button (mobile only) -------------------------------------- */
+.site-burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-burger:hover { background: var(--brand-turquoise-100); }
+
+.site-burger-icon {
+  width: 20px;
+  height: 14px;
+  position: relative;
+  display: block;
+}
+
+.site-burger-icon::before,
+.site-burger-icon::after,
+.site-burger-icon span {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.site-burger-icon::before { top: 0; }
+.site-burger-icon span { top: 50%; transform: translateY(-50%); }
+.site-burger-icon::after { bottom: 0; }
+
+.site-burger.is-open .site-burger-icon::before { transform: translateY(6px) rotate(45deg); }
+.site-burger.is-open .site-burger-icon span { opacity: 0; }
+.site-burger.is-open .site-burger-icon::after { transform: translateY(-6px) rotate(-45deg); }
+
+/* --- Mobile breakpoint ------------------------------------------------- */
+@media (max-width: 1024px) {
+  .site-nav,
+  .site-cta {
+    display: none;
+  }
+  .site-burger { display: flex; }
+}
+
+/* --- Mobile menu panel ------------------------------------------------- */
+.site-mobile-panel {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background: var(--surface-default);
+  border-bottom: 1px solid var(--border-default);
   box-shadow: var(--shadow-md);
-  border: 1px solid var(--border-default);
+  padding: var(--spacing-4) var(--spacing-6);
+  transform: translateY(-110%);
+  transition: transform 0.3s ease;
+  z-index: 89;
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.site-mobile-panel.is-open { transform: translateY(0); }
+
+.site-mobile-panel .site-nav-link {
+  display: block;
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--body-medium-size);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-1);
+}
+
+.site-mobile-panel .site-cta {
+  display: block;
+  text-align: center;
+  margin-top: var(--spacing-4);
+  padding: var(--spacing-3);
+  font-size: var(--body-medium-size);
+}
+
+@media (min-width: 1025px) {
+  .site-mobile-panel { display: none; }
+}
+
+/* --- Language switcher (intégré au header) ----------------------------- */
+.lang-switcher {
+  display: flex;
+  gap: 2px;
+  background: var(--brand-turquoise-100);
+  padding: 3px;
+  border-radius: var(--radius-full);
 }
 
 .lang-btn {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1rem;
   transition: background-color 0.2s ease, transform 0.2s ease;
   color: var(--text-primary);
 }
 
-.lang-btn:hover { background: var(--brand-turquoise-100); }
+.lang-btn:hover { background: var(--surface-default); }
 .lang-btn.is-active { background: var(--action-primary-bg); transform: scale(1.05); }
 
-@media (max-width: 640px) {
-  .lang-switcher { top: var(--spacing-2); right: var(--spacing-2); }
-  .lang-btn { width: 36px; height: 36px; font-size: 1rem; }
+@media (max-width: 480px) {
+  .lang-btn { width: 28px; height: 28px; font-size: 0.875rem; }
 }
 
 /* --- Boutons (consomment les tokens action-*) -------------------------- */
@@ -144,12 +362,12 @@ section { padding: var(--spacing-16) 0; }
    HERO
    ============================================================================ */
 .hero {
-  padding: var(--spacing-16) 0 var(--spacing-12);
+  padding: var(--spacing-12) 0 var(--spacing-12);
   position: relative;
 }
 
 @media (min-width: 769px) {
-  .hero { padding-top: var(--spacing-16); }
+  .hero { padding-top: var(--spacing-12); }
 }
 
 .hero-grid {
@@ -295,6 +513,25 @@ section { padding: var(--spacing-16) 0; }
 }
 
 .activity-card:hover .activity-link::after { transform: translateX(4px); }
+
+
+/* ============================================================================
+   SECONDARY GALLERY SECTION
+   Section galerie compacte (entre tarifas et horarios, après CTA créations)
+   ============================================================================ */
+.gallery-section {
+  background: var(--surface-default);
+  padding-top: var(--spacing-12);
+  padding-bottom: var(--spacing-12);
+}
+
+.section-head--compact { margin-bottom: var(--spacing-8); }
+
+.section-subhead {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
 
 
 /* ============================================================================
@@ -833,13 +1070,98 @@ footer {
 <body>
 
 <!-- ============================================================================
-     LANGUAGE SWITCHER
+     SITE HEADER — sticky navigation
      ============================================================================ -->
-<nav class="lang-switcher" aria-label="Sélecteur de langue">
-  <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
-  <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
-  <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
-</nav>
+<header class="site-header" role="banner">
+  <div class="container">
+
+    <a href="#" class="site-brand" aria-label="Sitgesmorzart Taller Creativo">
+      <span class="site-brand-mark" aria-hidden="true"></span>
+      <span class="site-brand-name">Sitgesmorzart</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="#talleres" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Talleres</span>
+        <span data-lang="fr">Ateliers</span>
+        <span data-lang="en">Workshops</span>
+      </a>
+      <a href="#tarifas" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Tarifas</span>
+        <span data-lang="fr">Tarifs</span>
+        <span data-lang="en">Pricing</span>
+      </a>
+      <a href="#horarios" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Horarios</span>
+        <span data-lang="fr">Horaires</span>
+        <span data-lang="en">Schedule</span>
+      </a>
+      <a href="#creaciones" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Creaciones</span>
+        <span data-lang="fr">Créations</span>
+        <span data-lang="en">Creations</span>
+      </a>
+      <a href="#donde" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Dónde</span>
+        <span data-lang="fr">Où</span>
+        <span data-lang="en">Where</span>
+      </a>
+    </nav>
+
+    <div class="site-actions">
+      <nav class="lang-switcher" aria-label="Sélecteur de langue">
+        <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+        <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+        <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+      </nav>
+
+      <a href="#tarifas" class="site-cta">
+        <span data-lang="es" class="is-active-lang">Reservar</span>
+        <span data-lang="fr">Réserver</span>
+        <span data-lang="en">Book</span>
+      </a>
+
+      <button class="site-burger" id="site-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-mobile-panel">
+        <span class="site-burger-icon" aria-hidden="true"><span></span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile panel (visible only when burger is open) -->
+<div class="site-mobile-panel" id="site-mobile-panel">
+  <a href="#talleres" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Talleres</span>
+    <span data-lang="fr">Ateliers</span>
+    <span data-lang="en">Workshops</span>
+  </a>
+  <a href="#tarifas" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Tarifas</span>
+    <span data-lang="fr">Tarifs</span>
+    <span data-lang="en">Pricing</span>
+  </a>
+  <a href="#horarios" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Horarios</span>
+    <span data-lang="fr">Horaires</span>
+    <span data-lang="en">Schedule</span>
+  </a>
+  <a href="#creaciones" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Creaciones</span>
+    <span data-lang="fr">Créations</span>
+    <span data-lang="en">Creations</span>
+  </a>
+  <a href="#donde" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Dónde estamos</span>
+    <span data-lang="fr">Où nous trouver</span>
+    <span data-lang="en">Find us</span>
+  </a>
+  <a href="#tarifas" class="site-cta">
+    <span data-lang="es" class="is-active-lang">Reservar</span>
+    <span data-lang="fr">Réserver</span>
+    <span data-lang="en">Book</span>
+  </a>
+</div>
 
 
 <!-- ============================================================================
@@ -993,7 +1315,7 @@ footer {
       <div class="step">
         <div class="step-icon" aria-hidden="true">🪚</div>
         <div data-lang="es" class="is-active-lang">
-          <h3>Guillermo lo corta</h3>
+          <h3>Guillaume lo corta</h3>
           <p>Tu soporte de madera, hecho a medida.</p>
         </div>
         <div data-lang="fr">
@@ -1043,30 +1365,21 @@ footer {
     <div class="gallery">
       <div class="gallery-item">
         <picture>
+          <source srcset="images/mister-marvel.webp" type="image/webp">
+          <img src="images/mister-marvel.jpg" alt="Personnages Marvel en bois" loading="lazy" width="900" height="900">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Marvel</div>
+        <div class="gallery-caption" data-lang="fr">Marvel</div>
+        <div class="gallery-caption" data-lang="en">Marvel</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
           <source srcset="images/petit-lapin.webp" type="image/webp">
           <img src="images/petit-lapin.jpg" alt="Lapin en bois peint" loading="lazy" width="900" height="1200">
         </picture>
         <div class="gallery-caption" data-lang="es">Conejo</div>
         <div class="gallery-caption" data-lang="fr">Lapin</div>
         <div class="gallery-caption" data-lang="en">Rabbit</div>
-      </div>
-      <div class="gallery-item">
-        <picture>
-          <source srcset="images/batman-dessin.webp" type="image/webp">
-          <img src="images/batman-dessin.jpg" alt="Figure Batman en bois" loading="lazy" width="900" height="1200">
-        </picture>
-        <div class="gallery-caption" data-lang="es">Batman</div>
-        <div class="gallery-caption" data-lang="fr">Batman</div>
-        <div class="gallery-caption" data-lang="en">Batman</div>
-      </div>
-      <div class="gallery-item">
-        <picture>
-          <source srcset="images/mister-marvel.webp" type="image/webp">
-          <img src="images/mister-marvel.jpg" alt="Personnage Marvel en bois" loading="lazy" width="900" height="1200">
-        </picture>
-        <div class="gallery-caption" data-lang="es">Marvel</div>
-        <div class="gallery-caption" data-lang="fr">Marvel</div>
-        <div class="gallery-caption" data-lang="en">Marvel</div>
       </div>
       <div class="gallery-item">
         <picture>
@@ -1077,15 +1390,6 @@ footer {
         <div class="gallery-caption" data-lang="fr">Cochon</div>
         <div class="gallery-caption" data-lang="en">Pig</div>
       </div>
-      <div class="gallery-item">
-        <picture>
-          <source srcset="images/quedarte-studio.webp" type="image/webp">
-          <img src="images/quedarte-studio.jpg" alt="Studio Quedarte" loading="lazy" width="900" height="1200">
-        </picture>
-        <div class="gallery-caption" data-lang="es">El estudio</div>
-        <div class="gallery-caption" data-lang="fr">L'atelier</div>
-        <div class="gallery-caption" data-lang="en">The studio</div>
-      </div>
     </div>
 
   </div>
@@ -1095,7 +1399,7 @@ footer {
 <!-- ============================================================================
      PRICING — Calculateur interactif
      ============================================================================ -->
-<section class="pricing">
+<section class="pricing" id="tarifas">
   <div class="container">
 
     <div class="section-head">
@@ -1194,9 +1498,65 @@ footer {
 
 
 <!-- ============================================================================
+     GALLERY 2 — Du croquis à l'œuvre finie
+     ============================================================================ -->
+<section class="gallery-section">
+  <div class="container">
+
+    <div class="section-head section-head--compact">
+      <span class="kicker" data-lang="es">Más obras del taller</span>
+      <span class="kicker" data-lang="fr">Plus d'œuvres de l'atelier</span>
+      <span class="kicker" data-lang="en">More from the workshop</span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h3 class="section-subhead">Del boceto a la obra final</h3>
+      </div>
+      <div data-lang="fr">
+        <h3 class="section-subhead">Du croquis à l'œuvre finie</h3>
+      </div>
+      <div data-lang="en">
+        <h3 class="section-subhead">From sketch to finished piece</h3>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/batman-dessin.webp" type="image/webp">
+          <img src="images/batman-dessin.jpg" alt="Dessin Batman sur bois" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Boceto Batman</div>
+        <div class="gallery-caption" data-lang="fr">Croquis Batman</div>
+        <div class="gallery-caption" data-lang="en">Batman sketch</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/batman-fini.webp" type="image/webp">
+          <img src="images/batman-fini.jpg" alt="Batman LEGO peint et fini" loading="lazy" width="1200" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">Batman acabado</div>
+        <div class="gallery-caption" data-lang="fr">Batman fini</div>
+        <div class="gallery-caption" data-lang="en">Finished Batman</div>
+      </div>
+      <div class="gallery-item">
+        <picture>
+          <source srcset="images/quedarte-studio.webp" type="image/webp">
+          <img src="images/quedarte-studio.jpg" alt="Studio Quedarte" loading="lazy" width="900" height="1200">
+        </picture>
+        <div class="gallery-caption" data-lang="es">El estudio</div>
+        <div class="gallery-caption" data-lang="fr">L'atelier</div>
+        <div class="gallery-caption" data-lang="en">The studio</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================================
      SCHEDULE
      ============================================================================ -->
-<section class="schedule">
+<section class="schedule" id="horarios">
   <div class="container">
 
     <div class="section-head">
@@ -1287,7 +1647,7 @@ footer {
 
       <div data-lang="es" class="is-active-lang">
         <h2>Objetos únicos hechos a medida</h2>
-        <p>Guillermo crea piezas personalizadas para particulares y empresas. Desde un nombre de madera hasta un rótulo completo, todo se hace a mano en el taller.</p>
+        <p>Guillaume crea piezas personalizadas para particulares y empresas. Desde un nombre de madera hasta un rótulo completo, todo se hace a mano en el taller.</p>
       </div>
       <div data-lang="fr">
         <h2>Des objets uniques faits sur mesure</h2>
@@ -1355,6 +1715,36 @@ footer {
         <div class="gallery-caption" data-lang="fr">Masque aztèque</div>
         <div class="gallery-caption" data-lang="en">Aztec mask</div>
       </div>
+    </div>
+
+    <!-- CTA créations -->
+    <div class="creations-cta">
+      <span class="creations-price">
+        <span data-lang="es" class="is-active-lang">Desde 30 €</span>
+        <span data-lang="fr">À partir de 30 €</span>
+        <span data-lang="en">From €30</span>
+      </span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h3>¿Tienes un proyecto en mente?</h3>
+        <p>Cuéntanos lo que imaginas y te enviamos un presupuesto a medida.</p>
+      </div>
+      <div data-lang="fr">
+        <h3>Tu as un projet en tête ?</h3>
+        <p>Dis-nous ce que tu imagines et on te fait un devis sur mesure.</p>
+      </div>
+      <div data-lang="en">
+        <h3>Got a project in mind?</h3>
+        <p>Tell us what you imagine and we'll send you a custom quote.</p>
+      </div>
+
+      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20tengo%20un%20proyecto%20de%20creaci%C3%B3n%20personalizada" class="btn btn-whatsapp btn-lg">
+        💬 WhatsApp Guillaume
+      </a>
+    </div>
+
+    <!-- Gallery créations 2/2 -->
+    <div class="gallery" style="margin-top: var(--spacing-12);">
       <div class="gallery-item">
         <picture>
           <source srcset="images/marche-pied-tigre.webp" type="image/webp">
@@ -1384,32 +1774,6 @@ footer {
       </div>
     </div>
 
-    <!-- CTA créations -->
-    <div class="creations-cta">
-      <span class="creations-price">
-        <span data-lang="es" class="is-active-lang">Desde 30 €</span>
-        <span data-lang="fr">À partir de 30 €</span>
-        <span data-lang="en">From €30</span>
-      </span>
-
-      <div data-lang="es" class="is-active-lang">
-        <h3>¿Tienes un proyecto en mente?</h3>
-        <p>Cuéntanos lo que imaginas y te enviamos un presupuesto a medida.</p>
-      </div>
-      <div data-lang="fr">
-        <h3>Tu as un projet en tête ?</h3>
-        <p>Dis-nous ce que tu imagines et on te fait un devis sur mesure.</p>
-      </div>
-      <div data-lang="en">
-        <h3>Got a project in mind?</h3>
-        <p>Tell us what you imagine and we'll send you a custom quote.</p>
-      </div>
-
-      <a href="https://wa.me/33679827387?text=Hola%20Guillermo%2C%20tengo%20un%20proyecto%20de%20creaci%C3%B3n%20personalizada" class="btn btn-whatsapp btn-lg">
-        💬 WhatsApp Guillermo
-      </a>
-    </div>
-
   </div>
 </section>
 
@@ -1417,7 +1781,7 @@ footer {
 <!-- ============================================================================
      LOCATION
      ============================================================================ -->
-<section class="location">
+<section class="location" id="donde">
   <div class="container">
 
     <div class="section-head">
@@ -1430,7 +1794,7 @@ footer {
       <div class="location-icon" aria-hidden="true">📍</div>
       <div class="location-name">Studio Quedarte</div>
       <div class="location-address">Carrer Sant Damià, 7<br>08870 Sitges, Barcelona</div>
-      <a href="https://www.google.com/maps/search/?api=1&query=Carrer+Sant+Dami%C3%A0+7+Sitges" class="location-link" target="_blank" rel="noopener">
+      <a href="https://www.google.com/maps/place/QuedArte+Studio/@41.2364958,1.8094729,17z/data=!3m1!4b1!4m6!3m5!1s0x12a381cccb92f5ff:0x52dd97cdaaa13646!8m2!3d41.2364918!4d1.8120478!16s%2Fg%2F11x_cjyxdv" class="location-link" target="_blank" rel="noopener">
         <span data-lang="es" class="is-active-lang">Ver en Google Maps</span>
         <span data-lang="fr">Voir sur Google Maps</span>
         <span data-lang="en">Open in Google Maps</span>
@@ -1493,7 +1857,7 @@ footer {
           <span data-lang="en">How do I book?</span>
         </summary>
         <div class="faq-answer">
-          <span data-lang="es" class="is-active-lang">Por WhatsApp al +33 6 79 82 73 87 (Guillermo). El pago se puede hacer en el sitio (efectivo o tarjeta) o por adelantado por Stripe.</span>
+          <span data-lang="es" class="is-active-lang">Por WhatsApp al +33 6 79 82 73 87 (Guillaume). El pago se puede hacer en el sitio (efectivo o tarjeta) o por adelantado por Stripe.</span>
           <span data-lang="fr">Par WhatsApp au +33 6 79 82 73 87 (Guillaume). Le paiement peut se faire sur place (espèces ou carte) ou à l'avance via Stripe.</span>
           <span data-lang="en">Via WhatsApp at +33 6 79 82 73 87 (Guillaume). Payment can be made on-site (cash or card) or in advance via Stripe.</span>
         </div>
@@ -1698,6 +2062,41 @@ footer {
 
   buildButtons();
   updateCalc(1);
+
+
+  /* ==========================================================================
+     MOBILE BURGER MENU
+     ========================================================================== */
+  const burger = document.getElementById('site-burger');
+  const panel = document.getElementById('site-mobile-panel');
+
+  function closePanel() {
+    burger.classList.remove('is-open');
+    panel.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Ouvrir le menu');
+  }
+
+  function togglePanel() {
+    const isOpen = panel.classList.toggle('is-open');
+    burger.classList.toggle('is-open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    burger.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu');
+  }
+
+  if (burger && panel) {
+    burger.addEventListener('click', togglePanel);
+
+    // Fermer le panel quand on clique sur un lien
+    panel.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closePanel);
+    });
+
+    // Fermer le panel avec Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) closePanel();
+    });
+  }
 
 })();
 </script>
