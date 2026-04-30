@@ -592,6 +592,10 @@ section { padding: var(--spacing-16) 0; }
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: var(--spacing-3);
   margin-top: var(--spacing-8);
+  justify-content: center;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .gallery-item {
@@ -601,18 +605,133 @@ section { padding: var(--spacing-16) 0; }
   position: relative;
   background: var(--brand-turquoise-100);
   transition: transform 0.3s ease;
+  cursor: zoom-in;
 }
 
 .gallery-item:hover { transform: scale(1.03); }
+
+.gallery-item picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
   transition: transform 0.4s ease;
 }
 
 .gallery-item:hover img { transform: scale(1.08); }
+
+
+/* ============================================================================
+   LIGHTBOX (clic sur galerie)
+   ============================================================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 55, 75, 0.92);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-6);
+  cursor: zoom-out;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lightbox.is-open {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-img {
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  cursor: default;
+  object-fit: contain;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  width: 48px;
+  height: 48px;
+  background: var(--surface-default);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lightbox-close:hover { transform: scale(1.1); }
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: var(--surface-default);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.lightbox-prev { left: var(--spacing-4); }
+.lightbox-next { right: var(--spacing-4); }
+
+.lightbox-prev:hover { transform: translateY(-50%) scale(1.1); }
+.lightbox-next:hover { transform: translateY(-50%) scale(1.1); }
+
+.lightbox-caption {
+  position: absolute;
+  bottom: var(--spacing-6);
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-inverse);
+  font-family: var(--font-body);
+  font-size: var(--body-medium-size);
+  background: rgba(40, 55, 75, 0.6);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+}
+
+@media (max-width: 640px) {
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+  .lightbox-close {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
 
 .gallery-caption {
   position: absolute;
@@ -775,6 +894,48 @@ section { padding: var(--spacing-16) 0; }
   font-size: 1.125rem;
   color: var(--text-primary);
 }
+
+/* --- Note abonnement mensuel ----------------------------------------- */
+.pricing-note {
+  max-width: 720px;
+  margin: var(--spacing-6) auto 0;
+  padding: var(--spacing-4) var(--spacing-6);
+  background: var(--surface-default);
+  border: 2px dashed var(--border-brand);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+}
+
+.pricing-note-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.pricing-note-text {
+  font-size: var(--body-medium-size);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.pricing-note-text strong {
+  color: var(--text-primary);
+  font-weight: var(--weight-semibold);
+}
+
+.pricing-note-link {
+  color: var(--brand-turquoise-700);
+  font-weight: var(--weight-semibold);
+  margin-left: var(--spacing-2);
+  border-bottom: 2px solid var(--brand-turquoise-500);
+  padding-bottom: 1px;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.pricing-note-link:hover { color: var(--brand-turquoise-500); }
 
 
 /* ============================================================================
@@ -1493,6 +1654,25 @@ footer {
       </div>
     </div>
 
+    <!-- Abonnements mensuels -->
+    <div class="pricing-note">
+      <div class="pricing-note-icon" aria-hidden="true">📅</div>
+      <div class="pricing-note-text">
+        <div data-lang="es" class="is-active-lang">
+          <strong>¿Vienes cada mes?</strong> También ofrecemos abonos mensuales con tarifas degresivas adicionales.
+          <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20me%20interesa%20un%20abono%20mensual" class="pricing-note-link">Contáctanos →</a>
+        </div>
+        <div data-lang="fr">
+          <strong>Tu viens chaque mois ?</strong> Nous proposons aussi des abonnements mensuels avec des tarifs dégressifs supplémentaires.
+          <a href="https://wa.me/33679827387?text=Bonjour%20Guillaume%2C%20je%20suis%20int%C3%A9ress%C3%A9%C2%B7e%20par%20un%20abonnement%20mensuel" class="pricing-note-link">Nous contacter →</a>
+        </div>
+        <div data-lang="en">
+          <strong>Coming back regularly?</strong> We also offer monthly subscriptions with extra discounted rates.
+          <a href="https://wa.me/33679827387?text=Hi%20Guillaume%2C%20I%27m%20interested%20in%20a%20monthly%20subscription" class="pricing-note-link">Get in touch →</a>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1569,7 +1749,7 @@ footer {
         <p>Para otros días, contáctanos por WhatsApp.</p>
       </div>
       <div data-lang="fr">
-        <h2>Deux sessions tous les samedis</h2>
+        <h2>Deux ateliers tous les samedis</h2>
         <p>Pour d'autres jours, contacte-nous par WhatsApp.</p>
       </div>
       <div data-lang="en">
@@ -1895,6 +2075,18 @@ footer {
 
 
 <!-- ============================================================================
+     LIGHTBOX (gallery zoom on click)
+     ============================================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-caption" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fermer" type="button">×</button>
+  <button class="lightbox-prev" id="lightbox-prev" aria-label="Image précédente" type="button">‹</button>
+  <button class="lightbox-next" id="lightbox-next" aria-label="Image suivante" type="button">›</button>
+  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+
+<!-- ============================================================================
      FOOTER
      ============================================================================ -->
 <footer>
@@ -2097,6 +2289,108 @@ footer {
       if (e.key === 'Escape' && panel.classList.contains('is-open')) closePanel();
     });
   }
+
+
+  /* ==========================================================================
+     LIGHTBOX (clic sur image galerie)
+     ========================================================================== */
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+
+  // Construire la liste de toutes les images cliquables (toutes les galeries)
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+  let currentIndex = 0;
+
+  function getItemData(item) {
+    const img = item.querySelector('img');
+    if (!img) return null;
+    // Récupérer la caption dans la langue active
+    const activeCaption = item.querySelector('.gallery-caption.is-active-lang');
+    return {
+      src: img.src,
+      alt: img.alt || '',
+      caption: activeCaption ? activeCaption.textContent.trim() : (img.alt || '')
+    };
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    const data = getItemData(galleryItems[index]);
+    if (!data) return;
+    lightboxImg.src = data.src;
+    lightboxImg.alt = data.alt;
+    lightboxCaption.textContent = data.caption;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function showPrev() {
+    const newIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+    openLightbox(newIndex);
+  }
+
+  function showNext() {
+    const newIndex = (currentIndex + 1) % galleryItems.length;
+    openLightbox(newIndex);
+  }
+
+  // Rendre chaque item cliquable + accessible clavier
+  galleryItems.forEach((item, idx) => {
+    item.setAttribute('role', 'button');
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('aria-label', 'Voir l\'image en grand');
+
+    item.addEventListener('click', () => openLightbox(idx));
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openLightbox(idx);
+      }
+    });
+  });
+
+  // Fermer la lightbox
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+
+  // Cliquer sur le fond ferme aussi
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+  }
+
+  // Navigation prev/next
+  if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showPrev();
+  });
+  if (lightboxNext) lightboxNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    showNext();
+  });
+
+  // Empêcher les clics sur l'image de fermer la lightbox
+  if (lightboxImg) lightboxImg.addEventListener('click', (e) => e.stopPropagation());
+
+  // Raccourcis clavier
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
 
 })();
 </script>
