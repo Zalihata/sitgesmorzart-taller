@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Confirma tu pago para tu taller creativo Sitgesmorzart en Sitges.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Confirma tu pago · Sitgesmorzart</title>
+
+<link rel="canonical" href="https://sitgesmorzart-taller.vercel.app/pago.html">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Foundations DS -->
+<link rel="stylesheet" href="foundations.css">
+
+<!-- Vercel Web Analytics (cookieless, GDPR compliant) -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+/* ============================================================================
+   PAGO PAGE STYLES — Sitgesmorzart
+   Page de confirmation avant redirection Stripe.
+   ============================================================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-default);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-lang]:not(.is-active-lang) { display: none !important; }
+
+/* --- Header ----------------------------------------------------------- */
+.page-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--spacing-4) 0;
+}
+
+.page-header .container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.page-brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.page-brand img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 0;
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--body-medium-size);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  opacity: 0.45;
+  transition: opacity 0.2s, background-color 0.2s;
+  line-height: 1;
+}
+
+.lang-btn:hover { opacity: 0.8; background: var(--brand-turquoise-100); }
+.lang-btn.is-active { opacity: 1; }
+
+/* --- Main ------------------------------------------------------------- */
+.page-main {
+  flex: 1;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-12) var(--spacing-6) var(--spacing-16);
+}
+
+/* --- States ----------------------------------------------------------- */
+.state-block {
+  text-align: center;
+}
+
+.state-block[hidden] { display: none; }
+
+/* --- Pago : OK state -------------------------------------------------- */
+.pago-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  background: var(--brand-green-100);
+  color: var(--brand-green-700);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--spacing-4);
+}
+
+.pago-eyebrow svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.pago-title {
+  font-family: var(--font-display);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
+  margin-bottom: var(--spacing-3);
+  letter-spacing: -0.02em;
+}
+
+.pago-lead {
+  color: var(--text-secondary);
+  font-size: var(--body-large-size);
+  margin-bottom: var(--spacing-8);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Payment card ----------------------------------------------------- */
+.payment-card {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-12) var(--spacing-6);
+  margin-bottom: var(--spacing-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.payment-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 60%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+  pointer-events: none;
+}
+
+.payment-label {
+  position: relative;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--spacing-3);
+}
+
+.payment-total {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+  margin-bottom: var(--spacing-4);
+}
+
+.payment-total .currency {
+  font-size: 2rem;
+  vertical-align: top;
+  margin-right: 4px;
+  font-weight: var(--weight-semibold);
+  position: relative;
+  top: 12px;
+}
+
+.payment-detail {
+  position: relative;
+  color: var(--text-primary);
+  font-size: var(--body-medium-size);
+}
+
+.payment-detail strong {
+  font-weight: var(--weight-semibold);
+}
+
+@media (max-width: 540px) {
+  .payment-total { font-size: 4rem; }
+  .payment-card { padding: var(--spacing-8) var(--spacing-4); }
+}
+
+/* --- CTA Stripe ------------------------------------------------------- */
+.cta-stripe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  width: 100%;
+  max-width: 420px;
+  padding: var(--spacing-4) var(--spacing-6);
+  background: var(--action-primary-bg);
+  color: var(--action-primary-text);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-large-size);
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-4);
+}
+
+.cta-stripe:hover {
+  background: var(--action-primary-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cta-stripe svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.cta-secure {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-8);
+}
+
+.cta-secure svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* --- Notice timer ----------------------------------------------------- */
+.payment-notice {
+  background: var(--semantic-yellow-100);
+  border-left: 4px solid var(--semantic-yellow-500);
+  padding: var(--spacing-4) var(--spacing-6);
+  border-radius: var(--radius-md);
+  text-align: left;
+  margin-bottom: var(--spacing-8);
+  font-size: var(--body-small-size);
+  color: var(--text-primary);
+}
+
+.payment-notice strong { font-weight: var(--weight-semibold); }
+
+.link-back {
+  display: inline-block;
+  color: var(--text-secondary);
+  font-size: var(--body-small-size);
+  text-decoration: none;
+  padding: var(--spacing-2);
+  transition: color 0.2s;
+}
+
+.link-back:hover { color: var(--brand-turquoise-700); text-decoration: underline; }
+
+/* --- Error state ------------------------------------------------------ */
+.error-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-4);
+  display: block;
+  color: var(--feedback-warning);
+}
+
+.error-title {
+  font-family: var(--font-display);
+  font-size: var(--h4-size);
+  line-height: var(--h4-line);
+  margin-bottom: var(--spacing-3);
+}
+
+.error-message {
+  color: var(--text-secondary);
+  font-size: var(--body-medium-size);
+  margin-bottom: var(--spacing-8);
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-6);
+  background: var(--action-primary-bg);
+  color: var(--action-primary-text);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--action-primary-bg-hover);
+  transform: translateY(-1px);
+}
+
+/* --- Footer ----------------------------------------------------------- */
+.page-footer {
+  border-top: 1px solid var(--border-default);
+  padding: var(--spacing-6) 0;
+  text-align: center;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.page-footer .container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2) var(--spacing-3);
+}
+
+.page-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.page-footer a:hover { color: var(--brand-turquoise-700); text-decoration: underline; }
+
+.footer-sep { opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="page-brand">
+      <img src="/images/logo-header.png" alt="" aria-hidden="true">
+      <span>Sitgesmorzart</span>
+    </a>
+    <nav class="lang-switcher" aria-label="Idioma / Langue / Language">
+      <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+      <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+      <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+    </nav>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <!-- ===================== STATE: OK ===================== -->
+  <div id="state-ok" class="state-block" hidden>
+
+    <span class="pago-eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span data-lang="es" class="is-active-lang">Reserva pendiente</span>
+      <span data-lang="fr">Réservation en attente</span>
+      <span data-lang="en">Booking pending</span>
+    </span>
+
+    <h1 class="pago-title">
+      <span data-lang="es" class="is-active-lang">Confirma tu pago</span>
+      <span data-lang="fr">Confirme ton paiement</span>
+      <span data-lang="en">Confirm your payment</span>
+    </h1>
+
+    <p class="pago-lead">
+      <span data-lang="es" class="is-active-lang">Estás a un paso de reservar tu taller. Revisa el resumen y procede al pago seguro.</span>
+      <span data-lang="fr">Tu es à une étape de la réservation de ton atelier. Vérifie le récap et passe au paiement sécurisé.</span>
+      <span data-lang="en">You're one step away from booking your workshop. Review the summary and proceed to secure payment.</span>
+    </p>
+
+    <div class="payment-card">
+      <div class="payment-label">
+        <span data-lang="es" class="is-active-lang">Total a pagar</span>
+        <span data-lang="fr">Total à payer</span>
+        <span data-lang="en">Total to pay</span>
+      </div>
+
+      <div class="payment-total">
+        <span class="currency">€</span><span id="amount-total">0</span>
+      </div>
+
+      <div class="payment-detail">
+        <span data-lang="es" class="is-active-lang">
+          <strong><span id="seats-es">0</span> personas</strong> · <span id="perperson-es">0</span> € por persona
+        </span>
+        <span data-lang="fr">
+          <strong><span id="seats-fr">0</span> personnes</strong> · <span id="perperson-fr">0</span> € par personne
+        </span>
+        <span data-lang="en">
+          <strong><span id="seats-en">0</span> people</strong> · €<span id="perperson-en">0</span> per person
+        </span>
+      </div>
+    </div>
+
+    <a id="cta-stripe" class="cta-stripe" href="#" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      <span data-lang="es" class="is-active-lang">Pagar <span id="cta-amount-es">0</span> € de forma segura</span>
+      <span data-lang="fr">Payer <span id="cta-amount-fr">0</span> € en toute sécurité</span>
+      <span data-lang="en">Pay <span id="cta-amount-en">0</span> € securely</span>
+    </a>
+
+    <div class="cta-secure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+      <span data-lang="es" class="is-active-lang">Pago 100% seguro vía Stripe</span>
+      <span data-lang="fr">Paiement 100% sécurisé via Stripe</span>
+      <span data-lang="en">100% secure payment via Stripe</span>
+    </div>
+
+    <div class="payment-notice">
+      <span data-lang="es" class="is-active-lang">
+        <strong>⏱ Importante :</strong> si no realizas el pago en las próximas <strong>2 horas</strong>, tu reserva se cancelará automáticamente y tu plaza se liberará.
+      </span>
+      <span data-lang="fr">
+        <strong>⏱ Important :</strong> si tu n'effectues pas le paiement dans les <strong>2 prochaines heures</strong>, ta réservation sera annulée automatiquement et ta place libérée.
+      </span>
+      <span data-lang="en">
+        <strong>⏱ Important:</strong> if you don't complete the payment within the next <strong>2 hours</strong>, your booking will be automatically cancelled and your slot released.
+      </span>
+    </div>
+
+    <a href="javascript:history.back()" class="link-back">
+      <span data-lang="es" class="is-active-lang">← Volver atrás</span>
+      <span data-lang="fr">← Retour</span>
+      <span data-lang="en">← Go back</span>
+    </a>
+
+  </div>
+
+  <!-- ===================== STATE: ERROR ===================== -->
+  <div id="state-error" class="state-block" hidden>
+
+    <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+
+    <h1 class="error-title">
+      <span data-lang="es" class="is-active-lang">No encontramos tu reserva</span>
+      <span data-lang="fr">Réservation introuvable</span>
+      <span data-lang="en">Booking not found</span>
+    </h1>
+
+    <p class="error-message">
+      <span data-lang="es" class="is-active-lang">Parece que llegaste a esta página sin pasar por el calendario de reserva. Vuelve a la página de tarifas y elige el número de participantes.</span>
+      <span data-lang="fr">Il semble que tu sois arrivée·e sur cette page sans passer par le calendrier de réservation. Retourne à la page tarifs et choisis le nombre de participants.</span>
+      <span data-lang="en">You seem to have arrived on this page without going through the booking calendar. Go back to the pricing page and choose the number of participants.</span>
+    </p>
+
+    <a href="/#tarifas" class="btn-secondary">
+      <span data-lang="es" class="is-active-lang">Volver a las tarifas</span>
+      <span data-lang="fr">Retour aux tarifs</span>
+      <span data-lang="en">Back to pricing</span>
+    </a>
+
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <div class="container">
+    <span>© 2026 Sitgesmorzart</span>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/mentions-legales.html" data-lang="es">Aviso legal</a>
+    <a href="/mentions-legales.html" data-lang="fr">Mentions légales</a>
+    <a href="/mentions-legales.html" data-lang="en">Legal notice</a>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/cgv.html" data-lang="es">Términos y condiciones</a>
+    <a href="/cgv.html" data-lang="fr">CGV</a>
+    <a href="/cgv.html" data-lang="en">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+
+  /* ==========================================================================
+     CONFIG — Stripe Payment Links et table de prix
+     Source de vérité unique. À modifier ici si jamais les prix changent.
+     ========================================================================== */
+  const STRIPE_LINKS = {
+    1:  'https://buy.stripe.com/4gMcN584o2kRe4Y5ibgfu00',
+    2:  'https://buy.stripe.com/8x2fZhgAUcZv3qk4e7gfu01',
+    3:  'https://buy.stripe.com/9B68wP3O84sZf92eSLgfu02',
+    4:  'https://buy.stripe.com/fZu14nbgA5x35ys7qjgfu03',
+    5:  'https://buy.stripe.com/6oU9AT70kgbH5ys6mfgfu04',
+    6:  'https://buy.stripe.com/fZu5kD4Scf7D7GAh0Tgfu05',
+    7:  'https://buy.stripe.com/00w28resMbVrd0UcKDgfu06',
+    8:  'https://buy.stripe.com/dRmaEXbgA6B72mg6mfgfu07',
+    9:  'https://buy.stripe.com/bJedR9gAU5x30e86mfgfu08',
+    10: 'https://buy.stripe.com/fZueVdacw8Jfd0U11Vgfu09'
+  };
+
+  // Tarifs dégressifs : 1p=30 | 2-4p=25/p | 5-10p=20/p
+  const PRICE_TABLE = {
+    1: 30, 2: 50, 3: 75, 4: 100, 5: 100,
+    6: 120, 7: 140, 8: 160, 9: 180, 10: 200
+  };
+
+  const STORAGE_KEY_LANG    = 'sitgesmorzart-lang';
+  const STORAGE_KEY_BOOKING = 'sitgesmorzart-booking';
+  const DEFAULT_LANG = 'es';
+  const SUPPORTED = ['es', 'fr', 'en'];
+
+
+  /* ==========================================================================
+     I18N — Switcher de langue partagé avec le reste du site
+     ========================================================================== */
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(STORAGE_KEY_LANG, lang); } catch (e) {}
+  }
+
+  let initialLang = DEFAULT_LANG;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY_LANG);
+    if (stored && SUPPORTED.includes(stored)) initialLang = stored;
+  } catch (e) {}
+  setLang(initialLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-switch')));
+  });
+
+
+  /* ==========================================================================
+     BOOKING LOOKUP
+     Stratégie : URL params en primaire, localStorage en backup.
+     ========================================================================== */
+  function getBookingFromContext() {
+    const params = new URLSearchParams(window.location.search);
+    let seats = parseInt(params.get('seats'), 10);
+
+    // Fallback localStorage si l'URL n'a pas les params
+    // (cas où Cal.com n'a pas pass-through ou redirect direct sans query string)
+    if (!seats || isNaN(seats)) {
+      try {
+        const backup = JSON.parse(localStorage.getItem(STORAGE_KEY_BOOKING) || '{}');
+        seats = parseInt(backup.seats, 10);
+      } catch (e) {}
+    }
+
+    // Validation
+    if (!seats || isNaN(seats) || seats < 1 || seats > 10) return null;
+    if (!STRIPE_LINKS[seats] || !PRICE_TABLE[seats]) return null;
+
+    return {
+      seats: seats,
+      total: PRICE_TABLE[seats],
+      perPerson: PRICE_TABLE[seats] / seats,
+      stripeLink: STRIPE_LINKS[seats]
+    };
+  }
+
+
+  /* ==========================================================================
+     RENDER
+     ========================================================================== */
+  function renderOk(booking) {
+    document.getElementById('amount-total').textContent = booking.total;
+
+    SUPPORTED.forEach(lang => {
+      document.getElementById('seats-' + lang).textContent = booking.seats;
+      document.getElementById('perperson-' + lang).textContent = booking.perPerson;
+      document.getElementById('cta-amount-' + lang).textContent = booking.total;
+    });
+
+    const cta = document.getElementById('cta-stripe');
+    cta.setAttribute('href', booking.stripeLink);
+
+    // Persister la réservation pour /merci.html (qui n'aura pas les params)
+    try {
+      localStorage.setItem(STORAGE_KEY_BOOKING, JSON.stringify({
+        seats: booking.seats,
+        total: booking.total,
+        perPerson: booking.perPerson,
+        timestamp: Date.now()
+      }));
+    } catch (e) {}
+
+    document.getElementById('state-ok').hidden = false;
+  }
+
+  function renderError() {
+    document.getElementById('state-error').hidden = false;
+  }
+
+  const booking = getBookingFromContext();
+  if (booking) renderOk(booking);
+  else renderError();
+
+})();
+</script>
+
+</body>
+</html>
