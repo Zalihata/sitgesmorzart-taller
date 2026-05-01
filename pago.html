@@ -355,6 +355,134 @@ body {
   transform: translateY(-1px);
 }
 
+/* --- Cash state (paiement en espèces) -------------------------------- */
+.success-mark {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto var(--spacing-6);
+  position: relative;
+}
+
+.success-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.success-mark .circle {
+  fill: var(--brand-green-100);
+  stroke: var(--brand-green-500);
+  stroke-width: 3;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCircle 0.6s ease-out forwards;
+}
+
+.success-mark .check {
+  fill: none;
+  stroke: var(--brand-green-700);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawCheck 0.4s ease-out 0.5s forwards;
+}
+
+@keyframes drawCircle {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .success-mark .circle,
+  .success-mark .check {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+.cash-title {
+  font-family: var(--font-display);
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
+  margin-bottom: var(--spacing-3);
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.cash-lead {
+  color: var(--text-secondary);
+  font-size: var(--body-large-size);
+  margin-bottom: var(--spacing-8);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.cash-card {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-8) var(--spacing-6);
+  margin: 0 auto var(--spacing-8);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  min-width: 280px;
+}
+
+.cash-card-label {
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: var(--weight-semibold);
+}
+
+.cash-card-amount {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: -0.04em;
+}
+
+.cash-card-amount .currency {
+  font-size: 1.5rem;
+  vertical-align: top;
+  margin-right: 4px;
+  font-weight: var(--weight-semibold);
+  position: relative;
+  top: 8px;
+}
+
+.cash-card-detail {
+  color: var(--text-primary);
+  font-size: var(--body-medium-size);
+}
+
+.cash-info {
+  background: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-4) var(--spacing-6);
+  margin: 0 auto var(--spacing-8);
+  text-align: left;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  display: inline-block;
+  max-width: 480px;
+}
+
+.cash-cta {
+  text-align: center;
+}
+
 /* --- Footer ----------------------------------------------------------- */
 .page-footer {
   border-top: 1px solid var(--border-default);
@@ -524,6 +652,60 @@ body {
 
   </div>
 
+  <!-- ===================== STATE: CASH (paiement en espèces) ===================== -->
+  <div id="state-cash" class="state-block" hidden>
+
+    <div class="success-mark" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <circle class="circle" cx="50" cy="50" r="45" pathLength="100"></circle>
+        <path class="check" d="M30 52 L45 67 L72 36" pathLength="100"></path>
+      </svg>
+    </div>
+
+    <h1 class="cash-title">
+      <span data-lang="es" class="is-active-lang">¡Reserva confirmada!</span>
+      <span data-lang="fr">Réservation confirmée !</span>
+      <span data-lang="en">Booking confirmed!</span>
+    </h1>
+
+    <p class="cash-lead">
+      <span data-lang="es" class="is-active-lang">Tu plaza está apartada en el calendario. Pagarás directamente en el taller el día de tu reserva.</span>
+      <span data-lang="fr">Ta place est bloquée dans le calendrier. Tu paieras directement à l'atelier le jour de ta réservation.</span>
+      <span data-lang="en">Your slot is held in the calendar. You'll pay directly at the workshop on the day of your booking.</span>
+    </p>
+
+    <div class="cash-card">
+      <div class="cash-card-label">
+        <span data-lang="es" class="is-active-lang">A pagar el día del taller</span>
+        <span data-lang="fr">À payer le jour de l'atelier</span>
+        <span data-lang="en">To pay on the day of the workshop</span>
+      </div>
+      <div class="cash-card-amount">
+        <span class="currency">€</span><span id="cash-amount">0</span>
+      </div>
+      <div class="cash-card-detail">
+        <span data-lang="es" class="is-active-lang"><span id="cash-seats-es">0</span> personas</span>
+        <span data-lang="fr"><span id="cash-seats-fr">0</span> personnes</span>
+        <span data-lang="en"><span id="cash-seats-en">0</span> people</span>
+      </div>
+    </div>
+
+    <div class="cash-info">
+      <span data-lang="es" class="is-active-lang">📍 Studio Quedarte, Carrer Sant Damià 7, 08870 Sitges<br>📧 Recibirás un correo de confirmación con todos los detalles.</span>
+      <span data-lang="fr">📍 Studio Quedarte, Carrer Sant Damià 7, 08870 Sitges<br>📧 Tu vas recevoir un email de confirmation avec tous les détails.</span>
+      <span data-lang="en">📍 Studio Quedarte, Carrer Sant Damià 7, 08870 Sitges<br>📧 You'll receive a confirmation email with all the details.</span>
+    </div>
+
+    <div class="cash-cta">
+      <a href="/" class="btn-secondary">
+        <span data-lang="es" class="is-active-lang">Volver al inicio</span>
+        <span data-lang="fr">Retour à l'accueil</span>
+        <span data-lang="en">Back to home</span>
+      </a>
+    </div>
+
+  </div>
+
 </main>
 
 <footer class="page-footer">
@@ -666,9 +848,42 @@ body {
     document.getElementById('state-error').hidden = false;
   }
 
+  function renderCash(booking) {
+    document.getElementById('cash-amount').textContent = booking.total;
+
+    SUPPORTED.forEach(lang => {
+      document.getElementById('cash-seats-' + lang).textContent = booking.seats;
+    });
+
+    // Persister la réservation (au cas où l'utilisateur revient)
+    try {
+      localStorage.setItem(STORAGE_KEY_BOOKING, JSON.stringify({
+        seats: booking.seats,
+        total: booking.total,
+        perPerson: booking.perPerson,
+        paymentMode: 'efectivo',
+        timestamp: Date.now()
+      }));
+    } catch (e) {}
+
+    document.getElementById('state-cash').hidden = false;
+  }
+
   const booking = getBookingFromContext();
-  if (booking) renderOk(booking);
-  else renderError();
+  if (!booking) {
+    renderError();
+  } else {
+    // Détecter le mode de paiement choisi sur Cal.com
+    const params = new URLSearchParams(window.location.search);
+    const pagoPref = (params.get('pago_pref') || '').toLowerCase();
+
+    if (pagoPref === 'efectivo' || pagoPref === 'cash') {
+      renderCash(booking);
+    } else {
+      // Par défaut (online ou vide) → flow Stripe
+      renderOk(booking);
+    }
+  }
 
 })();
 </script>
