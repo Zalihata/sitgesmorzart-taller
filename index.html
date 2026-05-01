@@ -1629,13 +1629,18 @@ footer {
         </div>
       </div>
 
-      <div class="calc-cta">
-        <a href="https://wa.me/33679827387" class="btn btn-whatsapp btn-lg">
+     <div class="calc-cta">
+        <a href="#" id="cta-online" class="btn btn-primary btn-lg" rel="noopener">
+          <span data-lang="es" class="is-active-lang">Reservar online · <span id="cta-online-amount-es">30</span> €</span>
+          <span data-lang="fr">Réserver en ligne · <span id="cta-online-amount-fr">30</span> €</span>
+          <span data-lang="en">Book online · <span id="cta-online-amount-en">30</span> €</span>
+        </a>
+        <a href="https://wa.me/33679827387" class="btn btn-secondary btn-lg">
           <span data-lang="es" class="is-active-lang">Reservar por WhatsApp</span>
           <span data-lang="fr">Réserver par WhatsApp</span>
           <span data-lang="en">Book via WhatsApp</span>
         </a>
-      </div>
+      </div> 
     </div>
 
     <!-- Tableau dégressif clair -->
@@ -2270,6 +2275,10 @@ footer {
       if (count >= 5) savingsText = SAVINGS_TEXTS[lang].tier3;
       else if (count >= 2) savingsText = SAVINGS_TEXTS[lang].tier2;
       savingsEl.textContent = savingsText;
+
+      // Update label du bouton "Reservar online · X €"
+      const ctaAmountEl = document.getElementById('cta-online-amount-' + lang);
+      if (ctaAmountEl) ctaAmountEl.textContent = total;
     });
 
     const savingsBlock = document.getElementById('calc-savings');
@@ -2289,8 +2298,32 @@ footer {
 
 
   /* ==========================================================================
-     MOBILE BURGER MENU
+     CTA "Reservar online" — redirection vers Cal.com
+     Stocke seats/total en localStorage (backup pour /pago.html) puis redirige
+     vers Cal.com avec ?seats=N&price=Z en query params.
      ========================================================================== */
+  const ctaOnline = document.getElementById('cta-online');
+  if (ctaOnline) {
+    ctaOnline.addEventListener('click', (e) => {
+      e.preventDefault();
+      const seats = currentCount;
+      const total = PRICES[seats].perPerson * seats;
+
+      try {
+        localStorage.setItem('sitgesmorzart-booking', JSON.stringify({
+          seats: seats,
+          total: total,
+          timestamp: Date.now()
+        }));
+      } catch (err) {}
+
+      window.location.href = 'https://cal.com/sitgesmorzart/taller-sitgesmorzart?seats=' + seats + '&price=' + total;
+    });
+  }
+
+
+  /* ==========================================================================
+     MOBILE BURGER MENU
   const burger = document.getElementById('site-burger');
   const panel = document.getElementById('site-mobile-panel');
 
