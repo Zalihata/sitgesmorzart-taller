@@ -294,6 +294,22 @@ body {
 
 .link-back:hover { color: var(--brand-turquoise-700); text-decoration: underline; }
 
+.cash-option {
+  margin-top: var(--spacing-6);
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.cash-option a {
+  color: var(--brand-turquoise-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cash-option a:hover {
+  text-decoration-thickness: 2px;
+}
+
 /* --- Error state ------------------------------------------------------ */
 .error-icon {
   width: 64px;
@@ -393,9 +409,9 @@ body {
 
     <span class="pago-eyebrow">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-      <span data-lang="es" class="is-active-lang">Reserva pendiente</span>
-      <span data-lang="fr">Réservation en attente</span>
-      <span data-lang="en">Booking pending</span>
+      <span data-lang="es" class="is-active-lang">Plaza apartada en el calendario</span>
+      <span data-lang="fr">Place réservée dans le calendrier</span>
+      <span data-lang="en">Slot held in the calendar</span>
     </span>
 
     <h1 class="pago-title">
@@ -405,9 +421,9 @@ body {
     </h1>
 
     <p class="pago-lead">
-      <span data-lang="es" class="is-active-lang">Estás a un paso de reservar tu taller. Revisa el resumen y procede al pago seguro.</span>
-      <span data-lang="fr">Tu es à une étape de la réservation de ton atelier. Vérifie le récap et passe au paiement sécurisé.</span>
-      <span data-lang="en">You're one step away from booking your workshop. Review the summary and proceed to secure payment.</span>
+      <span data-lang="es" class="is-active-lang">Tu plaza ya está apartada en nuestro calendario. Para confirmar tu reserva, completa el pago seguro a continuación.</span>
+      <span data-lang="fr">Ta place est déjà bloquée dans notre calendrier. Pour confirmer ta réservation, complète le paiement sécurisé ci-dessous.</span>
+      <span data-lang="en">Your slot is already held in our calendar. To confirm your booking, complete the secure payment below.</span>
     </p>
 
     <div class="payment-card">
@@ -470,6 +486,12 @@ body {
       <span data-lang="fr">← Retour</span>
       <span data-lang="en">← Go back</span>
     </a>
+
+    <p class="cash-option">
+      <span data-lang="es" class="is-active-lang">¿Prefieres pagar en efectivo en el taller? <a href="https://wa.me/33679827387">Escríbenos por WhatsApp</a></span>
+      <span data-lang="fr">Tu préfères payer en espèces à l'atelier ? <a href="https://wa.me/33679827387">Écris-nous sur WhatsApp</a></span>
+      <span data-lang="en">Prefer to pay in cash at the workshop? <a href="https://wa.me/33679827387">Message us on WhatsApp</a></span>
+    </p>
 
   </div>
 
