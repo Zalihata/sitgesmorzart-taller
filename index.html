@@ -8,6 +8,14 @@
 
 <title>Sitgesmorzart · Taller Creativo en Sitges</title>
 
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+
 <!-- Canonical URL -->
 <link rel="canonical" href="https://sitgesmorzart-taller.vercel.app/">
 
@@ -119,9 +127,8 @@ section { padding: var(--spacing-16) 0; }
 .site-brand-mark {
   width: 28px;
   height: 28px;
-  border-radius: var(--radius-md);
-  background: var(--brand-gradient);
   flex-shrink: 0;
+  display: block;
 }
 
 .site-brand-name { letter-spacing: -0.01em; }
@@ -1237,7 +1244,7 @@ footer {
   <div class="container">
 
     <a href="#" class="site-brand" aria-label="Sitgesmorzart Taller Creativo">
-      <span class="site-brand-mark" aria-hidden="true"></span>
+      <img class="site-brand-mark" src="/images/logo-header.png" alt="" aria-hidden="true">
       <span class="site-brand-name">Sitgesmorzart</span>
     </a>
 
@@ -1712,7 +1719,7 @@ footer {
       <div class="gallery-item">
         <picture>
           <source srcset="images/batman-fini.webp" type="image/webp">
-          <img src="images/batman-fini.jpg" alt="Batman LEGO peint et fini" loading="lazy" width="1200" height="1200">
+          <img src="images/batman-fini.jpg" alt="Batman LEGO peint et fini" loading="lazy" width="900" height="1200" style="object-position: top;">
         </picture>
         <div class="gallery-caption" data-lang="es">Batman acabado</div>
         <div class="gallery-caption" data-lang="fr">Batman fini</div>
@@ -1937,7 +1944,7 @@ footer {
       <div class="gallery-item">
         <picture>
           <source srcset="images/barcelona-2.webp" type="image/webp">
-          <img src="images/barcelona-2.jpg" alt="Décoration Barcelone" loading="lazy" width="900" height="1200">
+          <img src="images/barcelona-2.jpg" alt="Décoration Barcelone" loading="lazy" width="900" height="1200" style="object-position: bottom;">
         </picture>
         <div class="gallery-caption" data-lang="es">Barcelona</div>
         <div class="gallery-caption" data-lang="fr">Barcelone</div>
