@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Condiciones Generales de Venta de Sitgesmorzart, marca explotada por la SASU Life and Learning. Talleres creativos sobre madera en Sitges.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index, follow">
+
+<title>Condiciones Generales de Venta · Sitgesmorzart</title>
+
+<link rel="canonical" href="https://sitgesmorzart-taller.vercel.app/cgv.html">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Foundations DS -->
+<link rel="stylesheet" href="foundations.css">
+
+<style>
+/* ============================================================================
+   CGV PAGE STYLES — Sitgesmorzart
+   Sobre, lisible, accessible. Utilise les tokens DS uniquement.
+   ============================================================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-default);
+  line-height: 1.6;
+}
+
+/* --- I18N : masquer langues non actives ------------------------------- */
+[data-lang]:not(.is-active-lang) { display: none !important; }
+
+/* --- Header simple ----------------------------------------------------- */
+.cgv-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--spacing-4) 0;
+}
+
+.cgv-header .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.cgv-brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.cgv-brand img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.cgv-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.cgv-back {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--brand-turquoise-700);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+}
+.cgv-back:hover { text-decoration: underline; }
+
+/* --- Lang switcher (même style que la home) --------------------------- */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 0;
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--body-medium-size);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  opacity: 0.45;
+  transition: opacity 0.2s, background-color 0.2s;
+  line-height: 1;
+}
+
+.lang-btn:hover { opacity: 0.8; background: var(--brand-turquoise-100); }
+.lang-btn.is-active { opacity: 1; }
+
+@media (max-width: 540px) {
+  .cgv-header .container { gap: var(--spacing-2); }
+  .cgv-back { display: none; }
+}
+
+/* --- Main content ------------------------------------------------------ */
+.cgv-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-12) var(--spacing-6) var(--spacing-16);
+}
+
+.cgv-main h1 {
+  font-family: var(--font-display);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.cgv-meta {
+  color: var(--text-secondary);
+  font-size: var(--body-small-size);
+  margin-bottom: var(--spacing-8);
+  padding-bottom: var(--spacing-6);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.cgv-main h2 {
+  font-family: var(--font-display);
+  font-size: var(--h4-size);
+  line-height: var(--h4-line);
+  color: var(--text-primary);
+  margin-top: var(--spacing-12);
+  margin-bottom: var(--spacing-4);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--border-default);
+}
+
+.cgv-main h2:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: var(--spacing-8);
+}
+
+.cgv-main h3 {
+  font-family: var(--font-display);
+  font-size: var(--h6-size);
+  line-height: var(--h6-line);
+  color: var(--text-primary);
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-2);
+}
+
+.cgv-main p,
+.cgv-main li {
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-3);
+}
+
+.cgv-main ul,
+.cgv-main ol {
+  padding-left: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+}
+
+.cgv-main li { margin-bottom: var(--spacing-2); }
+
+.cgv-main strong { font-weight: var(--weight-semibold); }
+.cgv-main em { font-style: italic; }
+
+.cgv-main a {
+  color: var(--brand-turquoise-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cgv-main a:hover { text-decoration-thickness: 2px; }
+
+.cgv-quote {
+  background: var(--surface-subtle);
+  border-left: 4px solid var(--brand-turquoise-500);
+  padding: var(--spacing-4) var(--spacing-6);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-4) 0;
+  font-style: italic;
+}
+
+.cgv-quote p:last-child { margin-bottom: 0; }
+
+.cgv-callout {
+  background: var(--surface-subtle);
+  padding: var(--spacing-4) var(--spacing-6);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-4) 0;
+  border-left: 4px solid var(--brand-turquoise-500);
+}
+
+.cgv-callout strong { color: var(--brand-turquoise-700); }
+.cgv-callout p:last-child { margin-bottom: 0; }
+
+/* --- Table of contents ------------------------------------------------- */
+.cgv-toc {
+  background: var(--surface-subtle);
+  padding: var(--spacing-6);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-8);
+}
+
+.cgv-toc h2 {
+  font-size: var(--body-large-size);
+  margin: 0 0 var(--spacing-3);
+  border: 0;
+  padding: 0;
+}
+
+.cgv-toc ol {
+  margin: 0;
+  padding-left: var(--spacing-6);
+  font-size: var(--body-small-size);
+}
+
+.cgv-toc li {
+  margin-bottom: var(--spacing-1);
+  font-size: var(--body-small-size);
+}
+
+.cgv-toc a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.cgv-toc a:hover {
+  color: var(--brand-turquoise-700);
+  text-decoration: underline;
+}
+
+/* --- Footer ------------------------------------------------------------ */
+.cgv-footer {
+  border-top: 1px solid var(--border-default);
+  padding: var(--spacing-6) 0;
+  text-align: center;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.cgv-footer .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+
+.cgv-footer a {
+  color: var(--brand-turquoise-700);
+  text-decoration: none;
+}
+
+.cgv-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="cgv-header">
+  <div class="container">
+    <a href="/" class="cgv-brand">
+      <img src="/images/logo-header.png" alt="" aria-hidden="true">
+      <span>Sitgesmorzart</span>
+    </a>
+    <div class="cgv-header-actions">
+      <nav class="lang-switcher" aria-label="Idioma / Langue / Language">
+        <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+        <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+        <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+      </nav>
+      <a href="/" class="cgv-back"><span data-lang="es" class="is-active-lang">← Volver al inicio</span><span data-lang="fr">← Retour à l’accueil</span><span data-lang="en">← Back to home</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="cgv-main">
+
+  <h1><span data-lang="es" class="is-active-lang">Condiciones Generales de Venta</span><span data-lang="fr">Conditions Générales de Vente</span><span data-lang="en">General Terms and Conditions of Sale</span></h1>
+  <p class="cgv-meta"><span data-lang="es" class="is-active-lang">Versión 1.0 — En vigor desde el <strong>1 de mayo de 2026</strong></span><span data-lang="fr">Version 1.0 — En vigueur au <strong>1<sup>er</sup> mai 2026</strong></span><span data-lang="en">Version 1.0 — In effect from <strong>1 May 2026</strong></span></p>
+
+  <nav class="cgv-toc" aria-label="Sumario / Sommaire / Contents">
+    <h2><span data-lang="es" class="is-active-lang">Sumario</span><span data-lang="fr">Sommaire</span><span data-lang="en">Contents</span></h2>
+    <ol>
+      <li><a href="#art-1"><span data-lang="es" class="is-active-lang">Ámbito de aplicación</span><span data-lang="fr">Champ d’application</span><span data-lang="en">Scope of application</span></a></li>
+      <li><a href="#art-2"><span data-lang="es" class="is-active-lang">Precios</span><span data-lang="fr">Prix</span><span data-lang="en">Prices</span></a></li>
+      <li><a href="#art-3"><span data-lang="es" class="is-active-lang">Reservas y pedidos</span><span data-lang="fr">Réservations et commandes</span><span data-lang="en">Bookings and orders</span></a></li>
+      <li><a href="#art-4"><span data-lang="es" class="is-active-lang">Condiciones de pago</span><span data-lang="fr">Conditions de paiement</span><span data-lang="en">Payment terms</span></a></li>
+      <li><a href="#art-5"><span data-lang="es" class="is-active-lang">Realización de los talleres</span><span data-lang="fr">Réalisation des ateliers</span><span data-lang="en">Conduct of the workshops</span></a></li>
+      <li><a href="#art-6"><span data-lang="es" class="is-active-lang">Participantes menores de edad</span><span data-lang="fr">Participants mineurs</span><span data-lang="en">Minor participants</span></a></li>
+      <li><a href="#art-7"><span data-lang="es" class="is-active-lang">Cancelación y reembolso</span><span data-lang="fr">Annulation et remboursement</span><span data-lang="en">Cancellation and refund</span></a></li>
+      <li><a href="#art-8"><span data-lang="es" class="is-active-lang">Ausencia de derecho de desistimiento</span><span data-lang="fr">Absence de droit de rétractation</span><span data-lang="en">No right of withdrawal</span></a></li>
+      <li><a href="#art-9"><span data-lang="es" class="is-active-lang">Seguridad, materiales y alergias</span><span data-lang="fr">Sécurité, matériaux et allergies</span><span data-lang="en">Safety, materials and allergies</span></a></li>
+      <li><a href="#art-10"><span data-lang="es" class="is-active-lang">Creaciones a medida</span><span data-lang="fr">Créations sur mesure</span><span data-lang="en">Bespoke creations</span></a></li>
+      <li><a href="#art-11"><span data-lang="es" class="is-active-lang">Responsabilidad del Prestador — Garantías</span><span data-lang="fr">Responsabilité du Prestataire — Garanties</span><span data-lang="en">Provider’s liability — Warranties</span></a></li>
+      <li><a href="#art-12"><span data-lang="es" class="is-active-lang">Datos personales (RGPD)</span><span data-lang="fr">Données personnelles (RGPD)</span><span data-lang="en">Personal data (GDPR)</span></a></li>
+      <li><a href="#art-13"><span data-lang="es" class="is-active-lang">Propiedad intelectual y derechos de imagen</span><span data-lang="fr">Propriété intellectuelle et droit à l’image</span><span data-lang="en">Intellectual property and image rights</span></a></li>
+      <li><a href="#art-14"><span data-lang="es" class="is-active-lang">Fuerza mayor</span><span data-lang="fr">Force majeure</span><span data-lang="en">Force majeure</span></a></li>
+      <li><a href="#art-15"><span data-lang="es" class="is-active-lang">Derecho aplicable — Idioma</span><span data-lang="fr">Droit applicable — Langue</span><span data-lang="en">Applicable law — Language</span></a></li>
+      <li><a href="#art-16"><span data-lang="es" class="is-active-lang">Litigios y mediación</span><span data-lang="fr">Litiges et médiation</span><span data-lang="en">Disputes and mediation</span></a></li>
+      <li><a href="#art-17"><span data-lang="es" class="is-active-lang">Modificación de las CGV</span><span data-lang="fr">Modification des CGV</span><span data-lang="en">Amendment of the GTC</span></a></li>
+    </ol>
+  </nav>
+
+  <h2 id="art-1"><span data-lang="es" class="is-active-lang">ARTÍCULO 1 — Ámbito de aplicación</span><span data-lang="fr">ARTICLE 1 — Champ d’application</span><span data-lang="en">ARTICLE 1 — Scope of application</span></h2>
+
+<p data-lang="es" class="is-active-lang">Las presentes Condiciones Generales de Venta (en adelante, «CGV») se aplican, sin restricción ni reserva, a toda reserva de los siguientes servicios: <strong>talleres creativos sobre madera</strong> y <strong>creaciones de madera a medida</strong>, ofrecidos por el Prestador a clientes no profesionales («el Cliente» o «los Clientes») en el sitio web <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a>, así como por mensajería WhatsApp para los pedidos a medida.</p>
+<p data-lang="fr">Les présentes Conditions Générales de Vente (dites «&nbsp;CGV&nbsp;») s’appliquent, sans restriction ni réserve, à toute réservation des services suivants : <strong>ateliers créatifs sur bois</strong> et <strong>créations en bois sur mesure</strong>, tels que proposés par le Prestataire aux clients non professionnels («&nbsp;le Client&nbsp;» ou «&nbsp;les Clients&nbsp;») sur le site <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> ainsi que par messagerie WhatsApp pour les commandes sur mesure.</p>
+<p data-lang="en">These General Terms and Conditions of Sale (hereinafter "GTC") apply, without restriction or reservation, to any booking of the following services: <strong>creative wood workshops</strong> and <strong>bespoke wooden creations</strong>, as offered by the Provider to non-professional customers ("the Customer" or "the Customers") on the website <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> as well as via WhatsApp messaging for custom orders.</p>
+
+<p data-lang="es" class="is-active-lang">Las características principales de los Servicios se presentan en el sitio web. El Cliente debe tomar conocimiento de las mismas antes de cualquier reserva. La elección y reserva de un Servicio son responsabilidad exclusiva del Cliente.</p>
+<p data-lang="fr">Les caractéristiques principales des Services sont présentées sur le site internet. Le Client est tenu d’en prendre connaissance avant toute passation de réservation. Le choix et la réservation d’un Service sont de la seule responsabilité du Client.</p>
+<p data-lang="en">The main features of the Services are presented on the website. The Customer is required to read them before any booking. The choice and booking of a Service are the sole responsibility of the Customer.</p>
+
+<p data-lang="es" class="is-active-lang">Las presentes CGV son accesibles en todo momento en el sitio web y prevalecerán sobre cualquier otro documento. El Cliente declara haber leído las presentes CGV y haberlas aceptado marcando la casilla prevista a tal efecto antes de proceder al pago en línea.</p>
+<p data-lang="fr">Ces CGV sont accessibles à tout moment sur le site et prévaudront sur tout autre document. Le Client déclare avoir pris connaissance des présentes CGV et les avoir acceptées en cochant la case prévue à cet effet avant la mise en œuvre de la procédure de paiement en ligne.</p>
+<p data-lang="en">These GTC are accessible at any time on the website and shall prevail over any other document. The Customer declares to have read these GTC and to have accepted them by ticking the box provided for this purpose before proceeding with online payment.</p>
+
+<p data-lang="es" class="is-active-lang">Salvo prueba en contrario, los datos registrados en el sistema informático del Prestador y de sus subcontratistas (en particular Cal.com y Stripe) constituyen la prueba del conjunto de las transacciones celebradas con el Cliente.</p>
+<p data-lang="fr">Sauf preuve contraire, les données enregistrées dans le système informatique du Prestataire et de ses sous-traitants (notamment Cal.com et Stripe) constituent la preuve de l’ensemble des transactions conclues avec le Client.</p>
+<p data-lang="en">Unless proven otherwise, the data recorded in the IT system of the Provider and its sub-processors (in particular Cal.com and Stripe) constitute proof of all transactions concluded with the Customer.</p>
+
+<h3 id="art-1-coords"><span data-lang="es" class="is-active-lang">Datos del Prestador</span><span data-lang="fr">Coordonnées du Prestataire</span><span data-lang="en">Provider details</span></h3>
+
+<p data-lang="es" class="is-active-lang"><strong>Sitgesmorzart</strong> es una marca comercial explotada por la sociedad <strong>Life and Learning</strong>, sociedad francesa por acciones simplificada unipersonal (SASU) con un capital social de 100&nbsp;€, inscrita en el Registro Mercantil de Bobigny con el número <strong>985&nbsp;377&nbsp;357</strong>, con domicilio social en <strong>4 rue Parmentier, 93360 Neuilly-Plaisance, Francia</strong>, representada por su Presidenta, la Sra. Zalihata Ahamada.</p>
+<p data-lang="fr"><strong>Sitgesmorzart</strong> est une marque commerciale exploitée par la société <strong>Life and Learning</strong>, Société par Actions Simplifiée à Associé Unique (SASU) au capital social de 100&nbsp;€, immatriculée au Registre du Commerce et des Sociétés de Bobigny sous le numéro <strong>985&nbsp;377&nbsp;357</strong>, dont le siège social est situé <strong>4 rue Parmentier, 93360 Neuilly-Plaisance, France</strong>, représentée par sa Présidente, Madame Zalihata Ahamada.</p>
+<p data-lang="en"><strong>Sitgesmorzart</strong> is a trade name operated by <strong>Life and Learning</strong>, a French simplified joint-stock company with a sole shareholder (SASU), with a share capital of €100, registered in the Bobigny Trade and Companies Register under number <strong>985&nbsp;377&nbsp;357</strong>, whose registered office is located at <strong>4 rue Parmentier, 93360 Neuilly-Plaisance, France</strong>, represented by its President, Mrs. Zalihata Ahamada.</p>
+
+<p data-lang="es" class="is-active-lang">El taller físico está situado en: Studio Quedarte, <strong>Carrer Sant Damià 7, 08870 Sitges, España</strong>.</p>
+<p data-lang="fr">L’atelier physique est situé : Studio Quedarte, <strong>Carrer Sant Damià 7, 08870 Sitges, Espagne</strong>.</p>
+<p data-lang="en">The physical workshop is located at: Studio Quedarte, <strong>Carrer Sant Damià 7, 08870 Sitges, Spain</strong>.</p>
+
+<p data-lang="es" class="is-active-lang">Email: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a><br>WhatsApp del taller: <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a><br>Instagram: <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a></p>
+<p data-lang="fr">Email : <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a><br>WhatsApp atelier : <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a><br>Instagram : <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a></p>
+<p data-lang="en">Email: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a><br>Workshop WhatsApp: <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a><br>Instagram: <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a></p>
+
+<h2 id="art-2"><span data-lang="es" class="is-active-lang">ARTÍCULO 2 — Precios</span><span data-lang="fr">ARTICLE 2 — Prix</span><span data-lang="en">ARTICLE 2 — Prices</span></h2>
+
+<p data-lang="es" class="is-active-lang">Los Servicios se ofrecen a las tarifas vigentes que figuran en el sitio web <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> en el momento del registro de la reserva por el Prestador.</p>
+<p data-lang="fr">Les Services sont fournis aux tarifs en vigueur figurant sur le site <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> lors de l’enregistrement de la réservation par le Prestataire.</p>
+<p data-lang="en">The Services are provided at the rates in effect listed on the website <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> at the time of booking registration by the Provider.</p>
+
+<p data-lang="es" class="is-active-lang">Los precios se expresan en <strong>euros (EUR)</strong>, impuestos incluidos. El régimen de IVA aplicable se indica en la factura entregada al Cliente tras el pago.</p>
+<p data-lang="fr">Les prix sont exprimés en <strong>Euros (EUR)</strong>, toutes taxes comprises (TTC). Le régime de TVA applicable est précisé sur la facture remise au Client après paiement.</p>
+<p data-lang="en">Prices are expressed in <strong>euros (EUR)</strong>, all taxes included. The applicable VAT regime is specified on the invoice provided to the Customer after payment.</p>
+
+<h3 id="art-2-talleres"><span data-lang="es" class="is-active-lang">Tarifas de los talleres (por participante)</span><span data-lang="fr">Tarifs des ateliers (par participant)</span><span data-lang="en">Workshop rates (per participant)</span></h3>
+
+<ul data-lang="es" class="is-active-lang">
+    <li><strong>1 persona</strong>: 30&nbsp;€</li>
+    <li><strong>De 2 a 4 personas</strong>: 25&nbsp;€ por persona</li>
+    <li><strong>A partir de 5 personas (hasta 10 máximo por sesión)</strong>: 20&nbsp;€ por persona</li>
+  </ul>
+<ul data-lang="fr">
+    <li><strong>1 personne</strong> : 30&nbsp;€</li>
+    <li><strong>De 2 à 4 personnes</strong> : 25&nbsp;€ par personne</li>
+    <li><strong>À partir de 5 personnes (jusqu’à 10 maximum par session)</strong> : 20&nbsp;€ par personne</li>
+  </ul>
+<ul data-lang="en">
+    <li><strong>1 person</strong>: €30</li>
+    <li><strong>2 to 4 people</strong>: €25 per person</li>
+    <li><strong>5 people or more (up to 10 maximum per session)</strong>: €20 per person</li>
+  </ul>
+
+<p data-lang="es" class="is-active-lang">El material (rotuladores Posca, marcadores, barniz, soportes de madera precortados) está incluido en la tarifa. No se factura ningún coste adicional sobre el precio indicado.</p>
+<p data-lang="fr">Le matériel (peintures Posca, marqueurs, vernis, supports en bois prédécoupés) est inclus dans le tarif. Aucun frais supplémentaire n’est facturé au-delà du prix indiqué.</p>
+<p data-lang="en">Materials (Posca paints, markers, varnish, pre-cut wooden bases) are included in the price. No additional charge is invoiced beyond the stated price.</p>
+
+<p data-lang="es" class="is-active-lang">Estas tarifas son firmes y no revisables durante su período de validez, pero el Prestador se reserva el derecho, fuera del período de validez, de modificar los precios en cualquier momento.</p>
+<p data-lang="fr">Ces tarifs sont fermes et non révisables pendant leur période de validité, mais le Prestataire se réserve le droit, hors période de validité, d’en modifier les prix à tout moment.</p>
+<p data-lang="en">These rates are firm and non-revisable during their period of validity, but the Provider reserves the right, outside the period of validity, to modify prices at any time.</p>
+
+<p data-lang="es" class="is-active-lang">Una factura es emitida por el Prestador y entregada al Cliente tras el pago.</p>
+<p data-lang="fr">Une facture est établie par le Prestataire et remise au Client après paiement.</p>
+<p data-lang="en">An invoice is issued by the Provider and provided to the Customer after payment.</p>
+
+<h3 id="art-2-medida"><span data-lang="es" class="is-active-lang">Creaciones a medida</span><span data-lang="fr">Créations sur mesure</span><span data-lang="en">Bespoke creations</span></h3>
+
+<p data-lang="es" class="is-active-lang">Los pedidos de creaciones a medida son objeto de un presupuesto previo establecido por el Prestador. Los presupuestos son válidos durante <strong>30 días</strong> a partir de su emisión.</p>
+<p data-lang="fr">Les commandes de créations sur mesure font l’objet d’un devis préalable établi par le Prestataire. Les devis sont valables <strong>30 jours</strong> à compter de leur établissement.</p>
+<p data-lang="en">Bespoke creation orders are subject to a prior quote issued by the Provider. Quotes are valid for <strong>30 days</strong> from their issue date.</p>
+
+<h2 id="art-3"><span data-lang="es" class="is-active-lang">ARTÍCULO 3 — Reservas y pedidos</span><span data-lang="fr">ARTICLE 3 — Réservations et commandes</span><span data-lang="en">ARTICLE 3 — Bookings and orders</span></h2>
+
+<h3 id="art-3-talleres"><span data-lang="es" class="is-active-lang">Talleres</span><span data-lang="fr">Ateliers</span><span data-lang="en">Workshops</span></h3>
+
+<p data-lang="es" class="is-active-lang">Corresponde al Cliente reservar su sesión de taller en el sitio web <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> según las modalidades siguientes:</p>
+<p data-lang="fr">Il appartient au Client de réserver son créneau d’atelier sur le site <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> selon les modalités suivantes :</p>
+<p data-lang="en">It is the Customer's responsibility to book their workshop slot on the website <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> according to the following terms:</p>
+
+<ol data-lang="es" class="is-active-lang">
+    <li>El Cliente selecciona una sesión disponible en el calendario en línea.</li>
+    <li>El Cliente introduce sus datos (nombre, apellido, email, teléfono), el número de participantes, sus preferencias de pago (en línea o en efectivo en el lugar), así como cualquier información útil para el Prestador (alergias, edad de los participantes, modelo deseado, etc.).</li>
+    <li>El Cliente confirma su solicitud de reserva.</li>
+    <li>La reserva se considera firme y definitiva únicamente tras la recepción del pago íntegro según las modalidades previstas en el <a href="#art-4">ARTÍCULO 4</a>.</li>
+    <li>Se envía una confirmación al Cliente por correo electrónico tras la validación.</li>
+  </ol>
+<ol data-lang="fr">
+    <li>Le Client sélectionne un créneau disponible sur le calendrier en ligne.</li>
+    <li>Le Client renseigne ses coordonnées (nom, prénom, email, téléphone), le nombre de participants, ses préférences de paiement (en ligne ou en espèces sur place), ainsi que toute information utile au Prestataire (allergies, âges des participants, modèle souhaité, etc.).</li>
+    <li>Le Client confirme sa demande de réservation.</li>
+    <li>La réservation devient ferme et définitive uniquement après réception du paiement intégral selon les modalités prévues à l’<a href="#art-4">ARTICLE 4</a>.</li>
+    <li>Une confirmation est envoyée au Client par email après validation.</li>
+  </ol>
+<ol data-lang="en">
+    <li>The Customer selects an available slot on the online calendar.</li>
+    <li>The Customer provides their details (first name, last name, email, phone), the number of participants, their payment preferences (online or cash on-site), as well as any useful information for the Provider (allergies, ages of participants, desired model, etc.).</li>
+    <li>The Customer confirms their booking request.</li>
+    <li>The booking becomes firm and final only after receipt of full payment according to the terms set out in <a href="#art-4">ARTICLE 4</a>.</li>
+    <li>A confirmation is sent to the Customer by email after validation.</li>
+  </ol>
+
+<p data-lang="es" class="is-active-lang">Toda reserva realizada constituye la formación de un contrato celebrado a distancia entre el Cliente y el Prestador. Corresponde al Cliente verificar la exactitud de su reserva y señalar inmediatamente cualquier error.</p>
+<p data-lang="fr">Toute réservation passée constitue la formation d’un contrat conclu à distance entre le Client et le Prestataire. Il appartient au Client de vérifier l’exactitude de sa réservation et de signaler immédiatement toute erreur.</p>
+<p data-lang="en">Any booking made constitutes the formation of a distance contract between the Customer and the Provider. It is the Customer's responsibility to verify the accuracy of their booking and to report any error immediately.</p>
+
+<h3 id="art-3-medida"><span data-lang="es" class="is-active-lang">Creaciones a medida</span><span data-lang="fr">Créations sur mesure</span><span data-lang="en">Bespoke creations</span></h3>
+
+<p data-lang="es" class="is-active-lang">Los pedidos a medida se gestionan mediante intercambio por WhatsApp o email con el Prestador. El pedido se valida tras la aceptación escrita del presupuesto por el Cliente y el pago de la señal exigida (cf. <a href="#art-10">ARTÍCULO 10</a>).</p>
+<p data-lang="fr">Les commandes sur mesure sont gérées par échange WhatsApp ou email avec le Prestataire. La commande est validée après acceptation écrite du devis par le Client et versement de l’acompte demandé (cf. <a href="#art-10">ARTICLE 10</a>).</p>
+<p data-lang="en">Bespoke orders are managed via WhatsApp or email exchanges with the Provider. The order is validated after the Customer's written acceptance of the quote and payment of the requested deposit (cf. <a href="#art-10">ARTICLE 10</a>).</p>
+
+<p data-lang="es" class="is-active-lang">El Prestador se reserva el derecho de anular o rechazar toda reserva manifiestamente abusiva, en caso de aforo completo, o con un Cliente con quien existiera un litigio relativo al pago de un pedido anterior.</p>
+<p data-lang="fr">Le Prestataire se réserve le droit d’annuler ou de refuser toute réservation manifestement abusive, en cas de complet du créneau, ou avec un Client avec lequel il existerait un litige relatif au paiement d’une commande antérieure.</p>
+<p data-lang="en">The Provider reserves the right to cancel or refuse any clearly abusive booking, in case of a fully booked slot, or with a Customer with whom there is a dispute regarding payment of a previous order.</p>
+
+<h2 id="art-4"><span data-lang="es" class="is-active-lang">ARTÍCULO 4 — Condiciones de pago</span><span data-lang="fr">ARTICLE 4 — Conditions de paiement</span><span data-lang="en">ARTICLE 4 — Payment terms</span></h2>
+
+<p data-lang="es" class="is-active-lang">El pago de los talleres se efectúa según las modalidades siguientes, a elección del Cliente en el momento de la reserva:</p>
+<p data-lang="fr">Le paiement des ateliers s’effectue selon les modalités suivantes, au choix du Client lors de la réservation :</p>
+<p data-lang="en">Payment for workshops is made according to the following terms, at the Customer's choice at the time of booking:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li><strong>Pago en línea con tarjeta bancaria</strong> a través de la plataforma segura Stripe, a efectuar en las 24 horas siguientes a la confirmación de la reserva. A falta de pago en este plazo, la reserva se cancela automáticamente y la plaza se libera.</li>
+    <li><strong>Pago en efectivo en el lugar</strong> el día del taller. En este caso, la plaza del Cliente está condicionada a su presencia efectiva a la hora prevista del taller.</li>
+  </ul>
+<ul data-lang="fr">
+    <li><strong>Paiement en ligne par carte bancaire</strong> via la plateforme sécurisée Stripe, à effectuer dans les 24 heures suivant la confirmation de la réservation. À défaut de paiement dans ce délai, la réservation est automatiquement annulée et la place libérée.</li>
+    <li><strong>Paiement en espèces sur place</strong> le jour de l’atelier. Dans ce cas, la place du Client est conditionnée à sa présence effective à l’heure prévue de l’atelier.</li>
+  </ul>
+<ul data-lang="en">
+    <li><strong>Online payment by credit card</strong> via the secure Stripe platform, to be made within 24 hours of booking confirmation. Failing payment within this period, the booking is automatically cancelled and the slot released.</li>
+    <li><strong>Cash payment on-site</strong> on the day of the workshop. In this case, the Customer's slot is conditional on their actual presence at the scheduled time of the workshop.</li>
+  </ul>
+
+<p data-lang="es" class="is-active-lang">Para las <strong>creaciones a medida</strong>, se abona una señal del <strong>50&nbsp;%</strong> en el momento del pedido, siendo el saldo pagadero a la entrega o retirada de la obra.</p>
+<p data-lang="fr">Pour les <strong>créations sur mesure</strong>, un acompte de <strong>50&nbsp;%</strong> est versé à la commande, le solde étant payable à la livraison ou au retrait de l’œuvre.</p>
+<p data-lang="en">For <strong>bespoke creations</strong>, a deposit of <strong>50%</strong> is paid at the time of order, with the balance payable upon delivery or collection of the work.</p>
+
+<p data-lang="es" class="is-active-lang">Los pagos en línea son seguros gracias al prestador de pago Stripe (Stripe Technology Europe Limited). Los datos bancarios del Cliente se intercambian en modo cifrado y no transitan por los servidores del Prestador.</p>
+<p data-lang="fr">Les paiements en ligne sont sécurisés par le prestataire de paiement Stripe (Stripe Technology Europe Limited). Les données bancaires du Client sont échangées en mode chiffré et ne transitent pas par les serveurs du Prestataire.</p>
+<p data-lang="en">Online payments are secured by the payment provider Stripe (Stripe Technology Europe Limited). The Customer's banking data is exchanged in encrypted mode and does not pass through the Provider's servers.</p>
+
+<p data-lang="es" class="is-active-lang">Los pagos efectuados por el Cliente solo se considerarán definitivos tras el cobro efectivo de las cantidades adeudadas. El Prestador no estará obligado a prestar el Servicio si el Cliente no ha pagado el precio íntegro en las condiciones arriba indicadas.</p>
+<p data-lang="fr">Les paiements effectués par le Client ne seront considérés comme définitifs qu’après encaissement effectif des sommes dues. Le Prestataire ne sera pas tenu de fournir le Service si le Client n’en a pas payé le prix dans les conditions ci-dessus indiquées.</p>
+<p data-lang="en">Payments made by the Customer shall only be considered final after actual collection of the sums due. The Provider shall not be obliged to provide the Service if the Customer has not paid the full price under the above conditions.</p>
+
+<p data-lang="es" class="is-active-lang">En caso de retraso o falta de pago, el Prestador se reserva el derecho de suspender o anular la prestación de los Servicios.</p>
+<p data-lang="fr">En cas de retard ou de défaut de paiement, le Prestataire se réserve le droit de suspendre ou d’annuler la fourniture des Services.</p>
+<p data-lang="en">In case of late payment or failure to pay, the Provider reserves the right to suspend or cancel the provision of Services.</p>
+
+<h2 id="art-5"><span data-lang="es" class="is-active-lang">ARTÍCULO 5 — Realización de los talleres</span><span data-lang="fr">ARTICLE 5 — Réalisation des ateliers</span><span data-lang="en">ARTICLE 5 — Conduct of the workshops</span></h2>
+
+<p data-lang="es" class="is-active-lang">Los talleres se desarrollan en los locales del Studio Quedarte, situados en <strong>Carrer Sant Damià 7, 08870 Sitges, España</strong>, según las sesiones siguientes:</p>
+<p data-lang="fr">Les ateliers se déroulent dans les locaux du Studio Quedarte, situés <strong>Carrer Sant Damià 7, 08870 Sitges, Espagne</strong>, selon les créneaux suivants :</p>
+<p data-lang="en">Workshops take place at the premises of Studio Quedarte, located at <strong>Carrer Sant Damià 7, 08870 Sitges, Spain</strong>, in the following slots:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li>Viernes mañana: 10:30 – 13:30</li>
+    <li>Viernes tarde: 17:20 – 20:20</li>
+    <li>Sábado mañana: 10:30 – 13:30</li>
+    <li>Sábado tarde: 15:00 – 18:00</li>
+  </ul>
+<ul data-lang="fr">
+    <li>Vendredi matin : 10h30 – 13h30</li>
+    <li>Vendredi soir : 17h20 – 20h20</li>
+    <li>Samedi matin : 10h30 – 13h30</li>
+    <li>Samedi après-midi : 15h00 – 18h00</li>
+  </ul>
+<ul data-lang="en">
+    <li>Friday morning: 10:30 – 13:30</li>
+    <li>Friday evening: 17:20 – 20:20</li>
+    <li>Saturday morning: 10:30 – 13:30</li>
+    <li>Saturday afternoon: 15:00 – 18:00</li>
+  </ul>
+
+<p data-lang="es" class="is-active-lang">La duración de un taller es de <strong>tres (3) horas</strong>. El Prestador se compromete a poner a disposición los materiales y la supervisión necesarios para la realización de la obra por el Cliente. El Cliente se lleva su creación barnizada el mismo día.</p>
+<p data-lang="fr">La durée d’un atelier est de <strong>trois (3) heures</strong>. Le Prestataire s’engage à mettre à disposition les matériaux et l’encadrement nécessaires à la réalisation de l’œuvre par le Client. Le Client repart avec sa création vernie le jour-même.</p>
+<p data-lang="en">A workshop lasts <strong>three (3) hours</strong>. The Provider undertakes to provide the materials and supervision necessary for the Customer to create their work. The Customer leaves with their varnished creation on the same day.</p>
+
+<p data-lang="es" class="is-active-lang">El Prestador está sujeto a una <strong>obligación de medios</strong> en la conducción de los talleres, dependiendo la obra final en parte de la realización por el Cliente mismo.</p>
+<p data-lang="fr">Le Prestataire est tenu d’une <strong>obligation de moyens</strong> dans la conduite des ateliers, l’œuvre finale dépendant pour partie de la réalisation par le Client lui-même.</p>
+<p data-lang="en">The Provider is bound by a <strong>best-efforts obligation</strong> in conducting the workshops, the final work depending in part on the execution by the Customer themselves.</p>
+
+<p data-lang="es" class="is-active-lang">El Prestador se reserva el derecho de anular o aplazar un taller en caso de fuerza mayor (cf. <a href="#art-14">ARTÍCULO 14</a>) o por razones imperativas relacionadas con la seguridad (incidente material, corte de agua o electricidad, etc.). En este caso, se ofrece al Cliente un aplazamiento a otra sesión o un reembolso íntegro de las cantidades abonadas, a su elección.</p>
+<p data-lang="fr">Le Prestataire se réserve le droit d’annuler ou de reporter un atelier en cas de force majeure (cf. <a href="#art-14">ARTICLE 14</a>) ou pour des raisons impératives liées à la sécurité (incident matériel, panne d’eau ou électricité, etc.). Dans ce cas, le Client se voit proposer un report sur un autre créneau ou un remboursement intégral des sommes versées, à son choix.</p>
+<p data-lang="en">The Provider reserves the right to cancel or postpone a workshop in case of force majeure (see <a href="#art-14">ARTICLE 14</a>) or for imperative safety reasons (equipment incident, water or electricity outage, etc.). In this case, the Customer is offered either a rescheduling to another slot or a full refund of the sums paid, at their choice.</p>
+
+<p data-lang="es" class="is-active-lang">A falta de reservas o reclamaciones expresamente formuladas por el Cliente al final del taller, la prestación se considerará conforme al pedido, en cantidad y calidad.</p>
+<p data-lang="fr">À défaut de réserves ou réclamations expressément émises par le Client à l’issue de l’atelier, la prestation sera réputée conforme à la commande, en quantité et en qualité.</p>
+<p data-lang="en">In the absence of reservations or claims expressly made by the Customer at the end of the workshop, the service shall be deemed compliant with the order, in quantity and quality.</p>
+
+<p data-lang="es" class="is-active-lang">El Cliente dispone de un plazo de <strong>14 días</strong> a partir de la prestación del Servicio para presentar una reclamación por correo electrónico a <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>, con todos los justificantes correspondientes.</p>
+<p data-lang="fr">Le Client dispose d’un délai de <strong>14 jours</strong> à compter de la fourniture du Service pour effectuer une réclamation par email à <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>, avec tous les justificatifs y afférents.</p>
+<p data-lang="en">The Customer has a period of <strong>14 days</strong> from the provision of the Service to make a claim by email to <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>, with all relevant supporting documents.</p>
+
+<h2 id="art-6"><span data-lang="es" class="is-active-lang">ARTÍCULO 6 — Participantes menores de edad</span><span data-lang="fr">ARTICLE 6 — Participants mineurs</span><span data-lang="en">ARTICLE 6 — Minor participants</span></h2>
+
+<p data-lang="es" class="is-active-lang">Los talleres Sitgesmorzart están abiertos a los niños a partir de <strong>6 años</strong> y a los adultos. Las condiciones siguientes se aplican a los participantes menores de edad:</p>
+<p data-lang="fr">Les ateliers Sitgesmorzart sont ouverts aux enfants à partir de <strong>6 ans</strong> ainsi qu’aux adultes. Les conditions suivantes s’appliquent aux participants mineurs :</p>
+<p data-lang="en">Sitgesmorzart workshops are open to children aged <strong>6 and above</strong>, as well as to adults. The following conditions apply to minor participants:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li>La edad mínima de admisión es de <strong>6 años cumplidos</strong> a la fecha del taller.</li>
+    <li><strong>Los menores pueden participar solos en los talleres, sin presencia parental obligatoria durante la sesión.</strong></li>
+    <li>Para todo menor, debe transmitirse al Prestador (por email o WhatsApp) una <strong>autorización parental escrita previa</strong> antes del comienzo del taller. Esta autorización debe mencionar también cualquier información útil (alergias, condiciones médicas, persona autorizada para recoger al niño al final del taller, etc.).</li>
+    <li>Los datos (teléfono, email) de un adulto referente <strong>localizable durante toda la duración del taller</strong> deben comunicarse al Prestador en el momento de la reserva.</li>
+    <li>En caso de reserva para un menor, el Cliente firmante (que debe ser mayor de edad) reconoce ser el padre, madre o tutor legal del menor, o estar expresamente autorizado por este.</li>
+  </ul>
+<ul data-lang="fr">
+    <li>L’âge minimum d’admission est de <strong>6 ans révolus</strong> à la date de l’atelier.</li>
+    <li><strong>Les mineurs peuvent participer seuls aux ateliers, sans présence parentale obligatoire pendant la séance.</strong></li>
+    <li>Pour tout mineur, une <strong>autorisation parentale écrite préalable</strong> doit être transmise au Prestataire (par email ou WhatsApp) avant le début de l’atelier. Cette autorisation doit également mentionner toute information utile (allergies, conditions médicales, personne autorisée à récupérer l’enfant à la fin de l’atelier, etc.).</li>
+    <li>Les coordonnées (téléphone, email) d’un référent adulte <strong>joignable durant toute la durée de l’atelier</strong> doivent être communiquées au Prestataire à la réservation.</li>
+    <li>En cas de réservation pour un mineur, le Client signataire (qui doit être majeur) reconnaît être le parent ou tuteur légal du mineur, ou être expressément mandaté par celui-ci.</li>
+  </ul>
+<ul data-lang="en">
+    <li>The minimum admission age is <strong>6 years old</strong> on the date of the workshop.</li>
+    <li><strong>Minors may participate in workshops on their own, without mandatory parental presence during the session.</strong></li>
+    <li>For any minor, a <strong>prior written parental authorisation</strong> must be sent to the Provider (by email or WhatsApp) before the start of the workshop. This authorisation must also mention any useful information (allergies, medical conditions, person authorised to collect the child at the end of the workshop, etc.).</li>
+    <li>The contact details (phone, email) of an adult guardian <strong>reachable throughout the duration of the workshop</strong> must be communicated to the Provider at the time of booking.</li>
+    <li>In case of booking for a minor, the signing Customer (who must be of legal age) acknowledges being the parent or legal guardian of the minor, or being expressly authorised by them.</li>
+  </ul>
+
+<p data-lang="es" class="is-active-lang">El Prestador supervisa con atención a los participantes menores durante toda la duración del taller. Sin embargo, el padre, madre o tutor legal sigue siendo responsable del comportamiento y los efectos personales del menor.</p>
+<p data-lang="fr">Le Prestataire encadre les participants mineurs avec attention pendant toute la durée de l’atelier. Cependant, le parent ou tuteur légal demeure responsable du comportement et des effets personnels du mineur.</p>
+<p data-lang="en">The Provider supervises minor participants attentively throughout the duration of the workshop. However, the parent or legal guardian remains responsible for the minor's behaviour and personal belongings.</p>
+
+<p data-lang="es" class="is-active-lang">Al finalizar el taller, el menor solo podrá abandonar los locales con una persona autorizada por el padre, madre o tutor legal (a precisar en el momento de la reserva).</p>
+<p data-lang="fr">À l’issue de l’atelier, le mineur ne pourra quitter les locaux qu’avec une personne autorisée par le parent ou tuteur légal (mention à préciser à la réservation).</p>
+<p data-lang="en">At the end of the workshop, the minor may only leave the premises with a person authorised by the parent or legal guardian (to be specified at the time of booking).</p>
+
+<p data-lang="es" class="is-active-lang">El Prestador se reserva el derecho de denegar el acceso al taller a todo menor cuya seguridad no esté garantizada, o cuyo comportamiento perturbe gravemente el buen desarrollo del taller. No se deberá ningún reembolso en este supuesto.</p>
+<p data-lang="fr">Le Prestataire se réserve le droit de refuser l’accès à l’atelier à tout mineur dont la sécurité ne serait pas assurée, ou dont le comportement perturberait gravement le bon déroulement de l’atelier. Aucun remboursement ne sera dû dans cette hypothèse.</p>
+<p data-lang="en">The Provider reserves the right to deny access to the workshop to any minor whose safety is not assured, or whose behaviour seriously disrupts the smooth running of the workshop. No refund will be due in this case.</p>
+
+<h2 id="art-7"><span data-lang="es" class="is-active-lang">ARTÍCULO 7 — Cancelación y reembolso</span><span data-lang="fr">ARTICLE 7 — Annulation et remboursement</span><span data-lang="en">ARTICLE 7 — Cancellation and refund</span></h2>
+
+<h3 id="art-7-client"><span data-lang="es" class="is-active-lang">Cancelación por parte del Cliente</span><span data-lang="fr">Annulation par le Client</span><span data-lang="en">Cancellation by the Customer</span></h3>
+
+<p data-lang="es" class="is-active-lang">Las condiciones de cancelación por parte del Cliente son las siguientes:</p>
+<p data-lang="fr">Les conditions d’annulation par le Client sont les suivantes :</p>
+<p data-lang="en">The cancellation conditions by the Customer are as follows:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li><strong>Más de 7 días antes de la fecha</strong>: reembolso íntegro.</li>
+    <li><strong>Entre 7 días y 48 horas antes de la fecha</strong>: reembolso del 50&nbsp;%, o posibilidad de aplazamiento a otra sesión en un plazo de 3 meses (sin costes adicionales), a elección del Cliente.</li>
+    <li><strong>Menos de 48 horas antes de la fecha</strong>: ningún reembolso. Excepcionalmente puede concederse un aplazamiento con el acuerdo del Prestador y según disponibilidad.</li>
+    <li><strong>No presentación al taller sin cancelación previa</strong> («no-show»): ningún reembolso, ningún aplazamiento.</li>
+  </ul>
+<ul data-lang="fr">
+    <li><strong>Plus de 7 jours avant la date</strong> : remboursement intégral.</li>
+    <li><strong>Entre 7 jours et 48 heures avant la date</strong> : remboursement à hauteur de 50&nbsp;%, ou possibilité de report sur un autre créneau dans un délai de 3 mois (sans frais supplémentaires), au choix du Client.</li>
+    <li><strong>Moins de 48 heures avant la date</strong> : aucun remboursement. Un report peut être accordé exceptionnellement avec l’accord du Prestataire et selon disponibilité.</li>
+    <li><strong>Non-présentation à l’atelier sans annulation préalable</strong> («&nbsp;no-show&nbsp;») : aucun remboursement, aucun report.</li>
+  </ul>
+<ul data-lang="en">
+    <li><strong>More than 7 days before the date</strong>: full refund.</li>
+    <li><strong>Between 7 days and 48 hours before the date</strong>: 50% refund, or option to reschedule to another slot within 3 months (no additional fee), at the Customer's choice.</li>
+    <li><strong>Less than 48 hours before the date</strong>: no refund. Rescheduling may exceptionally be granted with the Provider's agreement and subject to availability.</li>
+    <li><strong>No-show without prior cancellation</strong>: no refund, no rescheduling.</li>
+  </ul>
+
+<p data-lang="es" class="is-active-lang">Para efectuar una solicitud de cancelación, el Cliente debe contactar con el Prestador por email a <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a> o por WhatsApp al <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a>. La fecha de la solicitud da fe.</p>
+<p data-lang="fr">Pour effectuer une demande d’annulation, le Client doit contacter le Prestataire par email à <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a> ou par WhatsApp au <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a>. La date de la demande fait foi.</p>
+<p data-lang="en">To submit a cancellation request, the Customer must contact the Provider by email at <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a> or via WhatsApp at <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a>. The date of the request shall prevail.</p>
+
+<h3 id="art-7-prest"><span data-lang="es" class="is-active-lang">Cancelación por parte del Prestador</span><span data-lang="fr">Annulation par le Prestataire</span><span data-lang="en">Cancellation by the Provider</span></h3>
+
+<p data-lang="es" class="is-active-lang">En caso de cancelación a iniciativa del Prestador (fuerza mayor, problema logístico, indisponibilidad del animador, etc.), se ofrece al Cliente un aplazamiento a otra sesión o un <strong>reembolso íntegro</strong> de las cantidades abonadas, a su elección. No se debe ninguna indemnización adicional.</p>
+<p data-lang="fr">En cas d’annulation à l’initiative du Prestataire (force majeure, problème logistique, indisponibilité de l’animateur, etc.), un report sur un autre créneau ou un <strong>remboursement intégral</strong> des sommes versées est proposé au Client, à son choix. Aucune indemnité supplémentaire n’est due.</p>
+<p data-lang="en">In case of cancellation at the Provider's initiative (force majeure, logistical problem, instructor unavailability, etc.), the Customer is offered either a rescheduling to another slot or a <strong>full refund</strong> of the sums paid, at their choice. No additional compensation is due.</p>
+
+<p data-lang="es" class="is-active-lang">Los reembolsos se efectúan en un plazo de <strong>14 días</strong> a partir de la fecha de la solicitud de cancelación, por el medio de pago utilizado inicialmente.</p>
+<p data-lang="fr">Les remboursements sont effectués dans un délai de <strong>14 jours</strong> à compter de la date de demande d’annulation, par le moyen de paiement initialement utilisé.</p>
+<p data-lang="en">Refunds are processed within <strong>14 days</strong> from the date of the cancellation request, using the original payment method.</p>
+
+<h2 id="art-8"><span data-lang="es" class="is-active-lang">ARTÍCULO 8 — Ausencia de derecho de desistimiento</span><span data-lang="fr">ARTICLE 8 — Absence de droit de rétractation</span><span data-lang="en">ARTICLE 8 — No right of withdrawal</span></h2>
+
+<div class="cgv-callout">
+<p data-lang="es" class="is-active-lang"><strong>Importante:</strong> de conformidad con el artículo L221-28 12° del <em>Code de la consommation</em> (Código de Consumo francés), el derecho de desistimiento previsto en los artículos L221-18 y siguientes <strong>NO SE APLICA</strong> a los contratos relativos a «la prestación […] de actividades de ocio que deban facilitarse en una fecha o período determinados».</p>
+<p data-lang="fr"><strong>Important :</strong> conformément à l’article L221-28 12° du Code de la consommation français, le droit de rétractation prévu par les articles L221-18 et suivants <strong>NE S’APPLIQUE PAS</strong> aux contrats relatifs à <em>«&nbsp;la fourniture […] d’activités de loisirs qui doivent être fournis à une date ou à une période déterminée&nbsp;»</em>.</p>
+<p data-lang="en"><strong>Important:</strong> in accordance with Article L221-28 12° of the French Consumer Code (<em>Code de la consommation</em>), the right of withdrawal provided for in Articles L221-18 and following <strong>DOES NOT APPLY</strong> to contracts relating to "the supply […] of leisure activities to be provided on a specific date or during a specific period".</p>
+</div>
+
+<p data-lang="es" class="is-active-lang">Siendo los talleres Sitgesmorzart actividades de ocio en fechas determinadas, <strong>el Cliente no dispone de ningún derecho de desistimiento</strong> tras la confirmación y el pago de su reserva. Solo se aplican las condiciones de cancelación previstas en el <a href="#art-7">ARTÍCULO 7</a>.</p>
+<p data-lang="fr">Les ateliers Sitgesmorzart étant des activités de loisirs à dates déterminées, <strong>le Client ne dispose d’aucun droit de rétractation</strong> après confirmation et paiement de sa réservation. Seules les conditions d’annulation prévues à l’<a href="#art-7">ARTICLE 7</a> s’appliquent.</p>
+<p data-lang="en">As Sitgesmorzart workshops are leisure activities on specific dates, <strong>the Customer has no right of withdrawal</strong> after confirmation and payment of their booking. Only the cancellation conditions set out in <a href="#art-7">ARTICLE 7</a> apply.</p>
+
+<p data-lang="es" class="is-active-lang">El Cliente queda expresamente informado de esta ausencia de derecho de desistimiento antes de cualquier reserva, y reconoce haber tomado conocimiento al aceptar las presentes CGV.</p>
+<p data-lang="fr">Le Client est expressément informé de cette absence de droit de rétractation avant toute réservation, et reconnaît en avoir pris connaissance en acceptant les présentes CGV.</p>
+<p data-lang="en">The Customer is expressly informed of this absence of right of withdrawal before any booking, and acknowledges having been so informed by accepting these GTC.</p>
+
+<p data-lang="es" class="is-active-lang">Asimismo, de conformidad con el artículo L221-28 3° del <em>Code de la consommation</em>, las <strong>creaciones a medida</strong> (bienes confeccionados según las especificaciones del Cliente o claramente personalizados) tampoco generan derecho de desistimiento.</p>
+<p data-lang="fr">De même, conformément à l’article L221-28 3° du Code de la consommation, les <strong>créations sur mesure</strong> (biens confectionnés selon les spécifications du Client ou nettement personnalisés) ne donnent lieu à aucun droit de rétractation.</p>
+<p data-lang="en">Likewise, in accordance with Article L221-28 3° of the French Consumer Code, <strong>bespoke creations</strong> (goods made according to the Customer's specifications or clearly personalised) do not give rise to any right of withdrawal.</p>
+
+<h2 id="art-9"><span data-lang="es" class="is-active-lang">ARTÍCULO 9 — Seguridad, materiales y alergias</span><span data-lang="fr">ARTICLE 9 — Sécurité, matériaux et allergies</span><span data-lang="en">ARTICLE 9 — Safety, materials and allergies</span></h2>
+
+<p data-lang="es" class="is-active-lang">Los talleres utilizan materiales artísticos (rotuladores Posca de base acuosa, marcadores, barniz no tóxico, lápices) así como soportes de madera precortados. <strong>Ningún utensilio cortante o eléctrico es manipulado por los participantes.</strong></p>
+<p data-lang="fr">Les ateliers utilisent des matériaux artistiques (peintures Posca à base d’eau, marqueurs, vernis non toxiques, crayons) ainsi que des supports en bois prédécoupés. <strong>Aucun outil tranchant ou électrique n’est manipulé par les participants.</strong></p>
+<p data-lang="en">Workshops use artistic materials (water-based Posca paints, markers, non-toxic varnish, pencils) as well as pre-cut wooden bases. <strong>No sharp or electrical tools are handled by participants.</strong></p>
+
+<p data-lang="es" class="is-active-lang">El Cliente está obligado a <strong>informar al Prestador en el momento de la reserva</strong> de toda alergia conocida (pinturas, barnices, látex, serrín de madera, etc.) o de toda condición médica particular del participante o de sus hijos. A falta de información previa, no podrá responsabilizarse al Prestador.</p>
+<p data-lang="fr">Le Client est tenu d’<strong>informer le Prestataire à la réservation</strong> de toute allergie connue (peintures, vernis, latex, sciure de bois, etc.) ou de toute condition médicale particulière du participant ou de ses enfants. À défaut d’information préalable, la responsabilité du Prestataire ne saurait être engagée.</p>
+<p data-lang="en">The Customer is required to <strong>inform the Provider at the time of booking</strong> of any known allergies (paints, varnishes, latex, wood sawdust, etc.) or any particular medical condition of the participant or their children. In the absence of prior information, the Provider cannot be held liable.</p>
+
+<p data-lang="es" class="is-active-lang">Se recomienda llevar ropa adecuada (que pueda mancharse). Pueden facilitarse delantales bajo petición.</p>
+<p data-lang="fr">Des vêtements adaptés (pouvant être tachés) sont recommandés. Des tabliers peuvent être mis à disposition sur demande.</p>
+<p data-lang="en">Suitable clothing (that can be stained) is recommended. Aprons can be made available on request.</p>
+
+<p data-lang="es" class="is-active-lang">Durante el taller, el Cliente (o su tutor legal para un menor) sigue siendo responsable de sus efectos personales y de la seguridad del participante. No podrá responsabilizarse al Prestador de los objetos perdidos, robados o dañados en los locales del taller.</p>
+<p data-lang="fr">Pendant l’atelier, le Client (ou son tuteur légal pour un mineur) demeure responsable de ses effets personnels et de la sécurité du participant. Le Prestataire ne saurait être tenu pour responsable des objets perdus, volés ou endommagés dans les locaux de l’atelier.</p>
+<p data-lang="en">During the workshop, the Customer (or their legal guardian for a minor) remains responsible for their personal belongings and the participant's safety. The Provider cannot be held liable for items lost, stolen, or damaged on the workshop premises.</p>
+
+<p data-lang="es" class="is-active-lang">El Prestador es titular de un seguro de responsabilidad civil profesional que cubre su actividad de taller.</p>
+<p data-lang="fr">Le Prestataire est titulaire d’une assurance responsabilité civile professionnelle couvrant son activité d’atelier.</p>
+<p data-lang="en">The Provider holds professional civil liability insurance covering its workshop activity.</p>
+
+<h2 id="art-10"><span data-lang="es" class="is-active-lang">ARTÍCULO 10 — Creaciones a medida</span><span data-lang="fr">ARTICLE 10 — Créations sur mesure</span><span data-lang="en">ARTICLE 10 — Bespoke creations</span></h2>
+
+<p data-lang="es" class="is-active-lang">Los pedidos de creaciones de madera a medida se gestionan por WhatsApp con el Prestador en el <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a>.</p>
+<p data-lang="fr">Les commandes de créations en bois sur mesure sont gérées via WhatsApp avec le Prestataire au <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a>.</p>
+<p data-lang="en">Bespoke wooden creation orders are managed via WhatsApp with the Provider at <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a>.</p>
+
+<p data-lang="es" class="is-active-lang">El proceso es el siguiente:</p>
+<p data-lang="fr">Le processus est le suivant :</p>
+<p data-lang="en">The process is as follows:</p>
+
+<ol data-lang="es" class="is-active-lang">
+    <li>El Cliente transmite su solicitud al Prestador (referencia visual, dimensiones deseadas, uso previsto, etc.).</li>
+    <li>El Prestador establece un presupuesto que indica el precio, el plazo de realización y las condiciones de retirada o entrega.</li>
+    <li>El Cliente acepta el presupuesto por escrito (respuesta WhatsApp o email) y abona una señal del 50&nbsp;% del importe total.</li>
+    <li>El Prestador procede a la realización. El saldo es pagadero a la entrega o retirada.</li>
+  </ol>
+<ol data-lang="fr">
+    <li>Le Client transmet sa demande au Prestataire (référence visuelle, dimensions souhaitées, usage prévu, etc.).</li>
+    <li>Le Prestataire établit un devis indiquant le prix, le délai de réalisation et les conditions de retrait ou de livraison.</li>
+    <li>Le Client accepte le devis par écrit (réponse WhatsApp ou email) et verse un acompte de 50&nbsp;% du montant total.</li>
+    <li>Le Prestataire procède à la réalisation. Le solde est payable à la livraison ou au retrait.</li>
+  </ol>
+<ol data-lang="en">
+    <li>The Customer sends their request to the Provider (visual reference, desired dimensions, intended use, etc.).</li>
+    <li>The Provider issues a quote indicating the price, completion time, and collection or delivery terms.</li>
+    <li>The Customer accepts the quote in writing (WhatsApp reply or email) and pays a 50% deposit of the total amount.</li>
+    <li>The Provider proceeds with the work. The balance is payable upon delivery or collection.</li>
+  </ol>
+
+<p data-lang="es" class="is-active-lang"><strong>Plazos de realización</strong>: variables según la complejidad de la creación, comunicados en el presupuesto. Cualquier retraso significativo será notificado al Cliente por WhatsApp en el plazo más breve posible.</p>
+<p data-lang="fr"><strong>Délais de réalisation</strong> : variables selon la complexité de la création, communiqués dans le devis. Tout retard significatif sera notifié au Client par WhatsApp dans les meilleurs délais.</p>
+<p data-lang="en"><strong>Completion times</strong>: vary according to the complexity of the creation, communicated in the quote. Any significant delay will be notified to the Customer via WhatsApp as soon as possible.</p>
+
+<p data-lang="es" class="is-active-lang">Al fabricarse las creaciones a medida según las especificaciones únicas del Cliente, no generan ningún derecho de desistimiento (cf. <a href="#art-8">ARTÍCULO 8</a>). En caso de cancelación por parte del Cliente tras la aceptación del presupuesto, la señal abonada queda en posesión del Prestador en concepto de indemnización por los gastos en que haya incurrido.</p>
+<p data-lang="fr">Les créations sur mesure étant fabriquées selon les spécifications uniques du Client, elles ne donnent droit à aucune rétractation (cf. <a href="#art-8">ARTICLE 8</a>). En cas d’annulation par le Client après acceptation du devis, l’acompte versé reste acquis au Prestataire à titre de dédommagement pour les frais engagés.</p>
+<p data-lang="en">As bespoke creations are made according to the Customer's unique specifications, they give no right of withdrawal (see <a href="#art-8">ARTICLE 8</a>). In case of cancellation by the Customer after acceptance of the quote, the deposit paid is retained by the Provider as compensation for the costs incurred.</p>
+
+<h2 id="art-11"><span data-lang="es" class="is-active-lang">ARTÍCULO 11 — Responsabilidad del Prestador — Garantías</span><span data-lang="fr">ARTICLE 11 — Responsabilité du Prestataire — Garanties</span><span data-lang="en">ARTICLE 11 — Provider’s liability — Warranties</span></h2>
+
+<p data-lang="es" class="is-active-lang">El Prestador está sujeto a una obligación de medios en la conducción de los talleres y la realización de las creaciones a medida. Garantiza al Cliente, conforme a las disposiciones legales y sin pago adicional, contra todo defecto de conformidad o vicio oculto procedente de un defecto de diseño o de realización de las creaciones a medida pedidas.</p>
+<p data-lang="fr">Le Prestataire est tenu d’une obligation de moyens dans la conduite des ateliers et la réalisation des créations sur mesure. Il garantit, conformément aux dispositions légales et sans paiement complémentaire, le Client contre tout défaut de conformité ou vice caché provenant d’un défaut de conception ou de réalisation des créations sur mesure commandées.</p>
+<p data-lang="en">The Provider is bound by a best-efforts obligation in conducting workshops and producing bespoke creations. It warrants, in accordance with legal provisions and without additional payment, the Customer against any defect of conformity or hidden defect resulting from a design or production fault in the bespoke creations ordered.</p>
+
+<h3 id="art-11-garanties"><span data-lang="es" class="is-active-lang">Disposiciones relativas a las garantías legales</span><span data-lang="fr">Dispositions relatives aux garanties légales</span><span data-lang="en">Provisions relating to legal warranties</span></h3>
+
+<p data-lang="es" class="is-active-lang">A continuación se reproducen los textos oficiales aplicables del <em>Code de la consommation</em> francés, en su versión original. Estos textos prevalecen sobre toda traducción.</p>
+<p data-lang="fr">Ci-dessous sont reproduits les textes officiels applicables du Code de la consommation français, dans leur version originale.</p>
+<p data-lang="en">Below are reproduced the applicable official texts of the French Consumer Code, in their original version. These texts prevail over any translation.</p>
+
+<div class="cgv-quote" lang="fr">
+<p><strong>Article L217-4 du Code de la consommation</strong></p>
+<p>«&nbsp;Le vendeur est tenu de livrer un bien conforme au contrat et répond des défauts de conformité existant lors de la délivrance. Il répond également des défauts de conformité résultant de l’emballage, des instructions de montage ou de l’installation lorsque celle-ci a été mise à sa charge par le contrat ou a été réalisée sous sa responsabilité.&nbsp;»</p>
+</div>
+<div class="cgv-quote" lang="fr">
+<p><strong>Article L217-5 du Code de la consommation</strong></p>
+<p>«&nbsp;Le bien est conforme au contrat&nbsp;:</p>
+<p>1° S’il est propre à l’usage habituellement attendu d’un bien semblable et, le cas échéant&nbsp;: s’il correspond à la description donnée par le vendeur et possède les qualités que celui-ci a présentées à l’acheteur sous forme d’échantillon ou de modèle&nbsp;; s’il présente les qualités qu’un acheteur peut légitimement attendre eu égard aux déclarations publiques faites par le vendeur, par le producteur ou par son représentant, notamment dans la publicité ou l’étiquetage&nbsp;;</p>
+<p>2° Ou s’il présente les caractéristiques définies d’un commun accord par les parties ou est propre à tout usage spécial recherché par l’acheteur, porté à la connaissance du vendeur et que ce dernier a accepté.&nbsp;»</p>
+</div>
+<div class="cgv-quote" lang="fr">
+<p><strong>Article L217-12 du Code de la consommation</strong></p>
+<p>«&nbsp;L’action résultant du défaut de conformité se prescrit par deux ans à compter de la délivrance du bien.&nbsp;»</p>
+</div>
+
+<p data-lang="es" class="is-active-lang">Para hacer valer sus derechos, el Cliente deberá informar al Prestador por escrito (email o correo postal) de la existencia de los vicios o defectos de conformidad.</p>
+<p data-lang="fr">Afin de faire valoir ses droits, le Client devra informer le Prestataire par écrit (email ou courrier) de l’existence des vices ou défauts de conformité.</p>
+<p data-lang="en">To exercise their rights, the Customer must inform the Provider in writing (email or post) of the existence of defects or non-conformity.</p>
+
+<p data-lang="es" class="is-active-lang">El Prestador reembolsará o rectificará (en la medida de lo posible) las creaciones consideradas defectuosas en los plazos más breves posibles y, a más tardar, en los 14 días siguientes a la constatación por el Prestador del defecto o vicio.</p>
+<p data-lang="fr">Le Prestataire remboursera ou rectifiera (dans la mesure du possible) les créations jugées défectueuses dans les meilleurs délais et au plus tard dans les 14 jours suivant la constatation par le Prestataire du défaut ou du vice.</p>
+<p data-lang="en">The Provider will refund or correct (where possible) creations deemed defective as soon as possible and no later than 14 days after the Provider's acknowledgement of the defect.</p>
+
+<p data-lang="es" class="is-active-lang">No podrá responsabilizarse al Prestador:</p>
+<p data-lang="fr">La responsabilité du Prestataire ne saurait être engagée :</p>
+<p data-lang="en">The Provider cannot be held liable:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li>por los defectos resultantes de un mal uso, mantenimiento incorrecto o desgaste normal por parte del Cliente tras la entrega de la obra;</li>
+    <li>por las obras realizadas por el propio Cliente en el taller, cuya calidad depende de la ejecución por parte del Cliente;</li>
+    <li>en caso de fuerza mayor (cf. <a href="#art-14">ARTÍCULO 14</a>).</li>
+  </ul>
+<ul data-lang="fr">
+    <li>pour les défauts résultant d’une mauvaise utilisation, d’un mauvais entretien ou d’une usure normale par le Client après remise de l’œuvre ;</li>
+    <li>pour les œuvres réalisées par le Client lui-même en atelier, dont la qualité dépend de l’exécution par le Client ;</li>
+    <li>en cas de force majeure (cf. <a href="#art-14">ARTICLE 14</a>).</li>
+  </ul>
+<ul data-lang="en">
+    <li>for defects resulting from misuse, poor maintenance, or normal wear and tear by the Customer after delivery of the work;</li>
+    <li>for works made by the Customer themselves at the workshop, the quality of which depends on the Customer's execution;</li>
+    <li>in case of force majeure (see <a href="#art-14">ARTICLE 14</a>).</li>
+  </ul>
+
+<p data-lang="es" class="is-active-lang">La garantía del Prestador se limita al reembolso de las cantidades efectivamente abonadas por el Cliente.</p>
+<p data-lang="fr">La garantie du Prestataire est limitée au remboursement des sommes effectivement payées par le Client.</p>
+<p data-lang="en">The Provider's warranty is limited to the refund of sums actually paid by the Customer.</p>
+
+<h2 id="art-12"><span data-lang="es" class="is-active-lang">ARTÍCULO 12 — Datos personales (RGPD)</span><span data-lang="fr">ARTICLE 12 — Données personnelles (RGPD)</span><span data-lang="en">ARTICLE 12 — Personal data (GDPR)</span></h2>
+
+<p data-lang="es" class="is-active-lang">El Cliente queda informado de que la recopilación de sus datos personales es necesaria para la gestión de su reserva, el pago de los Servicios y su realización. Estos datos se recopilan exclusivamente para la ejecución del contrato de prestación de servicios.</p>
+<p data-lang="fr">Le Client est informé que la collecte de ses données à caractère personnel est nécessaire à la gestion de sa réservation, au paiement des Services et à leur réalisation. Ces données sont collectées exclusivement pour l’exécution du contrat de prestations de services.</p>
+<p data-lang="en">The Customer is informed that the collection of their personal data is necessary for the management of their booking, payment of Services, and their delivery. This data is collected exclusively for the performance of the service contract.</p>
+
+<h3 id="art-12-data"><span data-lang="es" class="is-active-lang">12.1 Datos recopilados</span><span data-lang="fr">12.1 Données collectées</span><span data-lang="en">12.1 Data collected</span></h3>
+
+<ul data-lang="es" class="is-active-lang">
+    <li><strong>En el momento de la reserva</strong> (vía Cal.com): nombre, apellido, dirección email, número de teléfono, idioma preferido, preferencias de pago, alergias declaradas, edad de los participantes si se indica.</li>
+    <li><strong>En el momento del pago</strong> (vía Stripe): nombre y email asociados al pago, datos bancarios (Stripe es el único responsable de su tratamiento, conforme a sus propias condiciones).</li>
+    <li><strong>Emails transaccionales</strong> (vía Brevo): email del destinatario y contenido de los mensajes enviados.</li>
+  </ul>
+<ul data-lang="fr">
+    <li><strong>À la réservation</strong> (via Cal.com) : nom, prénom, adresse email, numéro de téléphone, langue préférée, préférences de paiement, allergies signalées, âges des participants si renseignés.</li>
+    <li><strong>Au paiement</strong> (via Stripe) : nom et email associés au paiement, données bancaires (Stripe est seul responsable de leur traitement, conformément à ses propres conditions).</li>
+    <li><strong>Emails transactionnels</strong> (via Brevo) : email du destinataire et contenu des messages envoyés.</li>
+  </ul>
+<ul data-lang="en">
+    <li><strong>At booking</strong> (via Cal.com): first name, last name, email address, phone number, preferred language, payment preferences, declared allergies, ages of participants if indicated.</li>
+    <li><strong>At payment</strong> (via Stripe): name and email associated with the payment, banking data (Stripe is solely responsible for their processing, in accordance with its own terms).</li>
+    <li><strong>Transactional emails</strong> (via Brevo): recipient email and content of messages sent.</li>
+  </ul>
+
+<h3 id="art-12-finalites"><span data-lang="es" class="is-active-lang">12.2 Finalidades del tratamiento</span><span data-lang="fr">12.2 Finalités du traitement</span><span data-lang="en">12.2 Purposes of processing</span></h3>
+
+<ul data-lang="es" class="is-active-lang">
+    <li>gestión de las reservas de talleres y creaciones a medida;</li>
+    <li>envío de confirmaciones, recordatorios y facturas;</li>
+    <li>cumplimiento de las obligaciones contables y fiscales del Prestador;</li>
+    <li>gestión de eventuales reclamaciones.</li>
+  </ul>
+<ul data-lang="fr">
+    <li>gestion des réservations d’ateliers et créations sur mesure ;</li>
+    <li>envoi de confirmations, rappels et factures ;</li>
+    <li>respect des obligations comptables et fiscales du Prestataire ;</li>
+    <li>gestion d’éventuelles réclamations.</li>
+  </ul>
+<ul data-lang="en">
+    <li>management of workshop bookings and bespoke creations;</li>
+    <li>sending of confirmations, reminders, and invoices;</li>
+    <li>compliance with the Provider's accounting and tax obligations;</li>
+    <li>management of any claims.</li>
+  </ul>
+
+<h3 id="art-12-sub"><span data-lang="es" class="is-active-lang">12.3 Subcontratistas</span><span data-lang="fr">12.3 Sous-traitants</span><span data-lang="en">12.3 Sub-processors</span></h3>
+
+<p data-lang="es" class="is-active-lang">El Prestador recurre a los siguientes subcontratistas para el tratamiento de los datos:</p>
+<p data-lang="fr">Le Prestataire fait appel aux sous-traitants suivants pour le traitement des données :</p>
+<p data-lang="en">The Provider uses the following sub-processors for data processing:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li><strong>Cal.com</strong> (gestión de las reservas)</li>
+    <li><strong>Stripe</strong> (Stripe Technology Europe Limited, Dublín, Irlanda) para los pagos</li>
+    <li><strong>Brevo</strong> (Francia) para los emails transaccionales</li>
+    <li><strong>Vercel</strong> (alojamiento del sitio web) — datos técnicos (logs)</li>
+  </ul>
+<ul data-lang="fr">
+    <li><strong>Cal.com</strong> (gestion des réservations)</li>
+    <li><strong>Stripe</strong> (Stripe Technology Europe Limited, Dublin, Irlande) pour les paiements</li>
+    <li><strong>Brevo</strong> (France) pour les emails transactionnels</li>
+    <li><strong>Vercel</strong> (hébergement du site) — données techniques (logs)</li>
+  </ul>
+<ul data-lang="en">
+    <li><strong>Cal.com</strong> (booking management)</li>
+    <li><strong>Stripe</strong> (Stripe Technology Europe Limited, Dublin, Ireland) for payments</li>
+    <li><strong>Brevo</strong> (France) for transactional emails</li>
+    <li><strong>Vercel</strong> (website hosting) — technical data (logs)</li>
+  </ul>
+
+<h3 id="art-12-duree"><span data-lang="es" class="is-active-lang">12.4 Duración de conservación</span><span data-lang="fr">12.4 Durée de conservation</span><span data-lang="en">12.4 Retention period</span></h3>
+
+<p data-lang="es" class="is-active-lang">Los datos de reserva y facturación se conservan durante <strong>5 años</strong>, conforme a las obligaciones contables y al plazo de prescripción de la responsabilidad civil contractual aplicable.</p>
+<p data-lang="fr">Les données de réservation et de facturation sont conservées <strong>5 ans</strong>, conformément aux obligations comptables et au délai de prescription de la responsabilité civile contractuelle applicable.</p>
+<p data-lang="en">Booking and invoicing data is retained for <strong>5 years</strong>, in accordance with accounting obligations and the applicable contractual civil liability limitation period.</p>
+
+<p data-lang="es" class="is-active-lang">Los datos técnicos (logs) se conservan durante el plazo por defecto de su prestador de alojamiento.</p>
+<p data-lang="fr">Les données techniques (logs) sont conservées pour la durée par défaut de leur prestataire d’hébergement.</p>
+<p data-lang="en">Technical data (logs) is retained for the default period of its hosting provider.</p>
+
+<h3 id="art-12-limitation"><span data-lang="es" class="is-active-lang">12.5 Limitación del tratamiento</span><span data-lang="fr">12.5 Limitation du traitement</span><span data-lang="en">12.5 Processing limitation</span></h3>
+
+<p data-lang="es" class="is-active-lang">Salvo que el Cliente exprese su consentimiento expreso, sus datos personales no se utilizan con fines publicitarios o de marketing.</p>
+<p data-lang="fr">Sauf si le Client exprime son accord exprès, ses données personnelles ne sont pas utilisées à des fins publicitaires ou marketing.</p>
+<p data-lang="en">Unless the Customer gives their express consent, their personal data is not used for advertising or marketing purposes.</p>
+
+<h3 id="art-12-secu"><span data-lang="es" class="is-active-lang">12.6 Seguridad y confidencialidad</span><span data-lang="fr">12.6 Sécurité et confidentialité</span><span data-lang="en">12.6 Security and confidentiality</span></h3>
+
+<p data-lang="es" class="is-active-lang">El Prestador y sus subcontratistas aplican medidas organizativas, técnicas y de software de seguridad digital para proteger los datos personales contra alteraciones, destrucciones y accesos no autorizados. No obstante, se recuerda que Internet no es un entorno completamente seguro.</p>
+<p data-lang="fr">Le Prestataire et ses sous-traitants mettent en œuvre des mesures organisationnelles, techniques et logicielles de sécurité du numérique pour protéger les données personnelles contre les altérations, destructions et accès non autorisés. Toutefois, il est rappelé qu’Internet n’est pas un environnement complètement sécurisé.</p>
+<p data-lang="en">The Provider and its sub-processors implement organisational, technical, and software digital security measures to protect personal data against alteration, destruction, and unauthorised access. However, it is recalled that the Internet is not a fully secure environment.</p>
+
+<h3 id="art-12-droits"><span data-lang="es" class="is-active-lang">12.7 Derechos del Cliente</span><span data-lang="fr">12.7 Droits du Client</span><span data-lang="en">12.7 Customer rights</span></h3>
+
+<p data-lang="es" class="is-active-lang">De conformidad con el Reglamento General de Protección de Datos (Reglamento UE 2016/679) y la legislación nacional aplicable, el Cliente dispone de los siguientes derechos:</p>
+<p data-lang="fr">Conformément au Règlement Général sur la Protection des Données (Règlement UE 2016/679) et à la Loi Informatique et Libertés modifiée, le Client dispose des droits suivants :</p>
+<p data-lang="en">In accordance with the General Data Protection Regulation (EU Regulation 2016/679) and applicable national legislation, the Customer has the following rights:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li>derecho de acceso, rectificación y supresión de sus datos;</li>
+    <li>derecho a la limitación y oposición al tratamiento;</li>
+    <li>derecho a la portabilidad de los datos.</li>
+  </ul>
+<ul data-lang="fr">
+    <li>droit d’accès, de rectification et de suppression de ses données ;</li>
+    <li>droit à la limitation et à l’opposition au traitement ;</li>
+    <li>droit à la portabilité des données.</li>
+  </ul>
+<ul data-lang="en">
+    <li>right of access, rectification, and erasure of their data;</li>
+    <li>right to restriction of and objection to processing;</li>
+    <li>right to data portability.</li>
+  </ul>
+
+<p data-lang="es" class="is-active-lang">Para ejercer estos derechos, el Cliente puede contactar con el Prestador en: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>. El responsable del tratamiento aportará una respuesta en un plazo máximo de un mes.</p>
+<p data-lang="fr">Pour exercer ces droits, le Client peut contacter le Prestataire à : <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>. Le responsable de traitement apportera une réponse dans un délai maximum d’un mois.</p>
+<p data-lang="en">To exercise these rights, the Customer can contact the Provider at: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>. The data controller will respond within a maximum of one month.</p>
+
+<p data-lang="es" class="is-active-lang">En caso de denegación motivada o de ausencia de respuesta, el Cliente puede presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (C/ Jorge Juan, 6, 28001 Madrid) o ante la <strong>CNIL</strong> francesa (3 place de Fontenoy, 75007 Paris).</p>
+<p data-lang="fr">En cas de refus motivé ou d’absence de réponse, le Client peut introduire une réclamation auprès de la <strong>CNIL</strong> (3 place de Fontenoy, 75007 Paris) ou de l’autorité de protection des données équivalente en Espagne (<strong>Agencia Española de Protección de Datos</strong>, C/ Jorge Juan, 6, 28001 Madrid).</p>
+<p data-lang="en">In case of a reasoned refusal or absence of response, the Customer can lodge a complaint with the <strong>Spanish Data Protection Agency</strong> (C/ Jorge Juan, 6, 28001 Madrid) or the French <strong>CNIL</strong> (3 place de Fontenoy, 75007 Paris).</p>
+
+<h2 id="art-13"><span data-lang="es" class="is-active-lang">ARTÍCULO 13 — Propiedad intelectual y derechos de imagen</span><span data-lang="fr">ARTICLE 13 — Propriété intellectuelle et droit à l’image</span><span data-lang="en">ARTICLE 13 — Intellectual property and image rights</span></h2>
+
+<h3 id="art-13-oeuvres"><span data-lang="es" class="is-active-lang">Obras realizadas por los Clientes</span><span data-lang="fr">Œuvres réalisées par les Clients</span><span data-lang="en">Works created by Customers</span></h3>
+
+<p data-lang="es" class="is-active-lang">Las obras realizadas por el Cliente en el taller <strong>le pertenecen</strong> desde su finalización. El Cliente puede disponer libremente de ellas (uso personal, reventa, exposición, etc.).</p>
+<p data-lang="fr">Les œuvres réalisées par le Client en atelier <strong>lui appartiennent</strong> dès leur achèvement. Le Client peut en disposer librement (usage personnel, revente, exposition, etc.).</p>
+<p data-lang="en">Works created by the Customer in the workshop <strong>belong to them</strong> from their completion. The Customer may dispose of them freely (personal use, resale, exhibition, etc.).</p>
+
+<h3 id="art-13-marque"><span data-lang="es" class="is-active-lang">Contenido del sitio y marca</span><span data-lang="fr">Contenu du site et marque</span><span data-lang="en">Website content and brand</span></h3>
+
+<p data-lang="es" class="is-active-lang">El contenido del sitio web <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> (textos, fotografías, ilustraciones, logo, caligrafía «S» del logo) así como la marca <strong>Sitgesmorzart</strong> son propiedad exclusiva del Prestador y están protegidos por las leyes francesas e internacionales relativas a la propiedad intelectual.</p>
+<p data-lang="fr">Le contenu du site <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> (textes, photographies, illustrations, logo, calligraphie «&nbsp;S&nbsp;» du logo) ainsi que la marque <strong>Sitgesmorzart</strong> sont la propriété exclusive du Prestataire et sont protégés par les lois françaises et internationales relatives à la propriété intellectuelle.</p>
+<p data-lang="en">The content of the website <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> (texts, photographs, illustrations, logo, "S" calligraphy of the logo) as well as the <strong>Sitgesmorzart</strong> brand are the exclusive property of the Provider and are protected by French and international intellectual property laws.</p>
+
+<p data-lang="es" class="is-active-lang">Toda reproducción, total o parcial, del contenido del sitio sin autorización escrita previa está estrictamente prohibida y puede constituir un delito de falsificación.</p>
+<p data-lang="fr">Toute reproduction, totale ou partielle, du contenu du site sans autorisation écrite préalable est strictement interdite et est susceptible de constituer un délit de contrefaçon.</p>
+<p data-lang="en">Any reproduction, total or partial, of the website content without prior written authorisation is strictly prohibited and may constitute a counterfeiting offence.</p>
+
+<h3 id="art-13-image"><span data-lang="es" class="is-active-lang">Derechos de imagen</span><span data-lang="fr">Droit à l’image</span><span data-lang="en">Image rights</span></h3>
+
+<p data-lang="es" class="is-active-lang">Durante los talleres, el Prestador puede tomar fotografías de las obras y creaciones en curso y terminadas, con vistas a su difusión en sus cuentas de redes sociales (en particular Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a>) y en su sitio web.</p>
+<p data-lang="fr">Lors des ateliers, le Prestataire peut être amené à prendre des photographies des œuvres et créations en cours et finies, en vue de leur diffusion sur ses comptes de réseaux sociaux (notamment Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a>) et sur son site internet.</p>
+<p data-lang="en">During workshops, the Provider may take photographs of works and creations in progress and finished, with a view to publishing them on its social media accounts (in particular Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a>) and on its website.</p>
+
+<p data-lang="es" class="is-active-lang">El Cliente (y el tutor legal en el caso de un menor) consiente en la toma y uso de tales fotografías, precisándose que:</p>
+<p data-lang="fr">Le Client (et le tuteur légal pour un mineur) consent à la prise et à l’utilisation de telles photographies, étant précisé que :</p>
+<p data-lang="en">The Customer (and the legal guardian for a minor) consents to the taking and use of such photographs, it being specified that:</p>
+
+<ul data-lang="es" class="is-active-lang">
+    <li>las fotografías se centran prioritariamente en las obras y creaciones, y no en los rostros de los participantes;</li>
+    <li>toda fotografía que identifique claramente a un participante será objeto de un consentimiento específico, expreso y previo;</li>
+    <li>el Cliente puede, en cualquier momento, solicitar la retirada de una fotografía ya publicada por simple email a <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</li>
+  </ul>
+<ul data-lang="fr">
+    <li>les photographies se concentrent prioritairement sur les œuvres et créations, et non sur les visages des participants ;</li>
+    <li>toute photographie identifiant clairement un participant fera l’objet d’un consentement spécifique, exprès et préalable ;</li>
+    <li>le Client peut, à tout moment, demander le retrait d’une photographie déjà publiée par simple email à <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</li>
+  </ul>
+<ul data-lang="en">
+    <li>photographs focus primarily on works and creations, not on participants' faces;</li>
+    <li>any photograph clearly identifying a participant will be subject to specific, express, and prior consent;</li>
+    <li>the Customer may, at any time, request the withdrawal of a photograph already published by simple email to <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</li>
+  </ul>
+
+<h2 id="art-14"><span data-lang="es" class="is-active-lang">ARTÍCULO 14 — Fuerza mayor</span><span data-lang="fr">ARTICLE 14 — Force majeure</span><span data-lang="en">ARTICLE 14 — Force majeure</span></h2>
+
+<p data-lang="es" class="is-active-lang">No podrá responsabilizarse al Prestador de un retraso o de un incumplimiento consecutivos a un caso de fuerza mayor habitualmente reconocido por la jurisprudencia francesa: intemperies graves, huelgas, pandemias, restricciones sanitarias, corte general de agua o electricidad, siniestro de los locales, etc.</p>
+<p data-lang="fr">Le Prestataire ne pourra être tenu pour responsable d’un retard ou d’une inexécution consécutifs à un cas de force majeure habituellement reconnu par la jurisprudence française : intempéries graves, grèves, pandémies, restrictions sanitaires, panne générale d’eau ou d’électricité, sinistre des locaux, etc.</p>
+<p data-lang="en">The Provider cannot be held liable for a delay or non-performance resulting from a case of force majeure as usually recognised by French case law: severe weather, strikes, pandemics, health restrictions, general water or electricity outages, premises disaster, etc.</p>
+
+<p data-lang="es" class="is-active-lang">En caso de aparición de un caso de fuerza mayor, el Prestador informará al Cliente en el plazo más breve posible y le ofrecerá un aplazamiento o un reembolso íntegro de las cantidades abonadas.</p>
+<p data-lang="fr">En cas de survenance d’un cas de force majeure, le Prestataire informera le Client dans les meilleurs délais et lui proposera un report ou un remboursement intégral des sommes versées.</p>
+<p data-lang="en">If a force majeure event occurs, the Provider will inform the Customer as soon as possible and offer either a rescheduling or a full refund of the sums paid.</p>
+
+<h2 id="art-15"><span data-lang="es" class="is-active-lang">ARTÍCULO 15 — Derecho aplicable — Idioma</span><span data-lang="fr">ARTICLE 15 — Droit applicable — Langue</span><span data-lang="en">ARTICLE 15 — Applicable law — Language</span></h2>
+
+<p data-lang="es" class="is-active-lang">Las presentes CGV y las operaciones que de ellas se derivan se rigen y se someten al <strong>derecho francés</strong>.</p>
+<p data-lang="fr">Les présentes CGV et les opérations qui en découlent sont régies et soumises au <strong>droit français</strong>.</p>
+<p data-lang="en">These GTC and the operations arising from them are governed by and subject to <strong>French law</strong>.</p>
+
+<p data-lang="es" class="is-active-lang">Sin embargo, conforme a las disposiciones del Reglamento (CE) n.º 593/2008 («Roma I»), un consumidor residente en otro Estado miembro de la Unión Europea (en particular España) goza de la protección de las disposiciones imperativas de la ley de su residencia habitual, cuando estas son más protectoras que la ley francesa.</p>
+<p data-lang="fr">Toutefois, conformément aux dispositions du Règlement (CE) n° 593/2008 («&nbsp;Rome I&nbsp;»), un consommateur résidant dans un autre État membre de l’Union européenne (notamment l’Espagne) bénéficie de la protection des dispositions impératives de la loi de sa résidence habituelle, lorsque celles-ci sont plus protectrices que la loi française.</p>
+<p data-lang="en">However, in accordance with the provisions of Regulation (EC) No 593/2008 ("Rome I"), a consumer residing in another EU Member State (in particular Spain) benefits from the protection of the mandatory provisions of the law of their habitual residence, when these are more protective than French law.</p>
+
+<p data-lang="es" class="is-active-lang">Las presentes CGV están redactadas en lengua francesa. Pueden proponerse traducciones al español y al inglés a título informativo. <strong>En caso de divergencia de interpretación entre las versiones, solo el texto francés da fe.</strong></p>
+<p data-lang="fr">Les présentes CGV sont rédigées en langue française. Des traductions en espagnol et en anglais peuvent être proposées à titre informatif. <strong>En cas de divergence d’interprétation entre les versions, seul le texte français fait foi.</strong></p>
+<p data-lang="en">These GTC are drafted in French. Spanish and English translations may be provided for information. <strong>In case of any divergence in interpretation between versions, only the French text is authoritative.</strong></p>
+
+<h2 id="art-16"><span data-lang="es" class="is-active-lang">ARTÍCULO 16 — Litigios y mediación</span><span data-lang="fr">ARTICLE 16 — Litiges et médiation</span><span data-lang="en">ARTICLE 16 — Disputes and mediation</span></h2>
+
+<p data-lang="es" class="is-active-lang">Para cualquier reclamación, se invita al Cliente a contactar con el servicio de atención al cliente del Prestador en la dirección postal o email indicada en el <a href="#art-1">ARTÍCULO 1</a>.</p>
+<p data-lang="fr">Pour toute réclamation, le Client est invité à contacter le service client du Prestataire à l’adresse postale ou email indiquée à l’<a href="#art-1">ARTICLE 1</a>.</p>
+<p data-lang="en">For any claim, the Customer is invited to contact the Provider's customer service at the postal or email address indicated in <a href="#art-1">ARTICLE 1</a>.</p>
+
+<p data-lang="es" class="is-active-lang">El Cliente queda informado de que puede, en todo caso, recurrir a una mediación convencional ante las instancias de mediación sectoriales existentes o a cualquier modo alternativo de resolución de litigios (conciliación, por ejemplo) en caso de impugnación.</p>
+<p data-lang="fr">Le Client est informé qu’il peut, en tout état de cause, recourir à une médiation conventionnelle, auprès des instances de médiation sectorielles existantes ou à tout mode alternatif de règlement des différends (conciliation, par exemple) en cas de contestation.</p>
+<p data-lang="en">The Customer is informed that they may, in any event, resort to conventional mediation, with existing sectoral mediation bodies or any alternative dispute resolution method (conciliation, for example) in case of dispute.</p>
+
+<p data-lang="es" class="is-active-lang">En este caso, el mediador de consumo designado es:</p>
+<p data-lang="fr">En l’espèce, le médiateur de la consommation désigné est :</p>
+<p data-lang="en">In this case, the designated consumer mediator is:</p>
+
+<p data-lang="es" class="is-active-lang"><strong>ANM Consommation</strong><br>2, rue de Colmar — 94300 Vincennes (Francia)<br><a href="https://www.anm-conso.com" target="_blank" rel="noopener">https://www.anm-conso.com</a></p>
+<p data-lang="fr"><strong>ANM Consommation</strong><br>2, rue de Colmar — 94300 Vincennes<br><a href="https://www.anm-conso.com" target="_blank" rel="noopener">https://www.anm-conso.com</a></p>
+<p data-lang="en"><strong>ANM Consommation</strong><br>2, rue de Colmar — 94300 Vincennes (France)<br><a href="https://www.anm-conso.com" target="_blank" rel="noopener">https://www.anm-conso.com</a></p>
+
+<p data-lang="es" class="is-active-lang">El Cliente queda asimismo informado de que puede recurrir a la plataforma europea de Resolución en Línea de Litigios (RLL):</p>
+<p data-lang="fr">Le Client est également informé qu’il peut recourir à la plateforme européenne de Règlement en Ligne des Litiges (RLL) :</p>
+<p data-lang="en">The Customer is also informed that they may use the European Online Dispute Resolution (ODR) platform:</p>
+
+<p data-lang="es" class="is-active-lang"><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
+<p data-lang="fr"><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
+<p data-lang="en"><a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
+
+<p data-lang="es" class="is-active-lang">Todos los litigios a los que pudieran dar lugar las operaciones celebradas en aplicación de las presentes CGV, y que no hubieren sido objeto de una resolución amistosa entre las partes o por mediación, serán sometidos a los tribunales competentes conforme a las normas del derecho común, sin perjuicio de las disposiciones protectoras del derecho del consumo aplicable al consumidor.</p>
+<p data-lang="fr">Tous litiges auxquels les opérations conclues en application des présentes CGV pourraient donner lieu, et qui n’auraient pas fait l’objet d’un règlement amiable entre les parties ou par médiation, seront soumis aux tribunaux compétents conformément aux règles du droit commun, sous réserve des dispositions protectrices du droit de la consommation applicable au consommateur.</p>
+<p data-lang="en">All disputes that may arise from operations concluded under these GTC, and that have not been the subject of an amicable settlement between the parties or by mediation, will be submitted to the competent courts in accordance with the rules of common law, subject to the protective provisions of consumer law applicable to the consumer.</p>
+
+<h2 id="art-17"><span data-lang="es" class="is-active-lang">ARTÍCULO 17 — Modificación de las CGV</span><span data-lang="fr">ARTICLE 17 — Modification des CGV</span><span data-lang="en">ARTICLE 17 — Amendment of the GTC</span></h2>
+
+<p data-lang="es" class="is-active-lang">El Prestador se reserva el derecho de modificar las presentes CGV en cualquier momento. Las CGV aplicables a una reserva son las vigentes en la fecha de dicha reserva.</p>
+<p data-lang="fr">Le Prestataire se réserve le droit de modifier les présentes CGV à tout moment. Les CGV applicables à une réservation sont celles en vigueur à la date de cette réservation.</p>
+<p data-lang="en">The Provider reserves the right to amend these GTC at any time. The GTC applicable to a booking are those in effect on the date of that booking.</p>
+
+<p data-lang="es" class="is-active-lang">Toda modificación dará lugar a una nueva versión datada publicada en el sitio web <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a>.</p>
+<p data-lang="fr">Toute modification fera l’objet d’une nouvelle version datée publiée sur le site <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a>.</p>
+<p data-lang="en">Any amendment will result in a new dated version published on the website <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a>.</p>
+
+</main>
+
+<footer class="cgv-footer">
+  <div class="container">
+    <p>
+      <span data-lang="es" class="is-active-lang">Sitgesmorzart es una marca comercial explotada por la SASU Life and Learning.<br>© 2026 Life and Learning · <a href="/">sitgesmorzart-taller.vercel.app</a></span>
+      <span data-lang="fr">Sitgesmorzart est une marque commerciale exploitée par la SASU Life and Learning.<br>© 2026 Life and Learning · <a href="/">sitgesmorzart-taller.vercel.app</a></span>
+      <span data-lang="en">Sitgesmorzart is a trade name operated by the SASU Life and Learning.<br>© 2026 Life and Learning · <a href="/">sitgesmorzart-taller.vercel.app</a></span>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Same localStorage key as the home page → langue partagée
+  const STORAGE_KEY = 'sitgesmorzart-lang';
+  const DEFAULT_LANG = 'es';
+  const SUPPORTED = ['es', 'fr', 'en'];
+
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  // Init from localStorage or default
+  let initial = DEFAULT_LANG;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && SUPPORTED.includes(stored)) initial = stored;
+  } catch (e) {}
+  setLang(initial);
+
+  // Wire up buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLang(btn.getAttribute('data-switch'));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
