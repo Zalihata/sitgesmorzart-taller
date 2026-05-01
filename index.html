@@ -958,6 +958,20 @@ section { padding: var(--spacing-16) 0; }
   margin: 0 auto var(--spacing-8);
 }
 
+a.schedule-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+a.schedule-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-brand);
+}
+
 .schedule-card {
   background: var(--surface-subtle);
   border-radius: var(--radius-xl);
@@ -1788,30 +1802,30 @@ footer {
     </div>
 
     <div class="schedule-grid">
-      <div class="schedule-card">
+      <a href="#" class="schedule-card" data-cal-link>
         <div class="schedule-day" data-lang="es">Viernes · Mañana</div>
         <div class="schedule-day" data-lang="fr">Vendredi · Matin</div>
         <div class="schedule-day" data-lang="en">Friday · Morning</div>
-        <div class="schedule-time">10:30 → 13:30</div>
-      </div>
-      <div class="schedule-card">
+        <div class="schedule-time">10:30 → 13:00</div>
+      </a>
+      <a href="#" class="schedule-card" data-cal-link>
         <div class="schedule-day" data-lang="es">Viernes · Tarde</div>
         <div class="schedule-day" data-lang="fr">Vendredi · Soir</div>
         <div class="schedule-day" data-lang="en">Friday · Evening</div>
-        <div class="schedule-time">17:20 → 20:20</div>
-      </div>
-      <div class="schedule-card">
+        <div class="schedule-time">17:00 → 19:30</div>
+      </a>
+      <a href="#" class="schedule-card" data-cal-link>
         <div class="schedule-day" data-lang="es">Sábado · Mañana</div>
         <div class="schedule-day" data-lang="fr">Samedi · Matin</div>
         <div class="schedule-day" data-lang="en">Saturday · Morning</div>
-        <div class="schedule-time">10:30 → 13:30</div>
-      </div>
-      <div class="schedule-card">
+        <div class="schedule-time">10:30 → 13:00</div>
+      </a>
+      <a href="#" class="schedule-card" data-cal-link>
         <div class="schedule-day" data-lang="es">Sábado · Tarde</div>
         <div class="schedule-day" data-lang="fr">Samedi · Après-midi</div>
         <div class="schedule-day" data-lang="en">Saturday · Afternoon</div>
         <div class="schedule-time">15:00 → 18:00</div>
-      </div>
+      </a>
     </div>
 
     <!-- Extras / options -->
@@ -2332,6 +2346,30 @@ footer {
       window.location.href = 'https://cal.com/sitgesmorzart/taller-sitgesmorzart?seats=' + seats + '&price=' + total;
     });
   }
+
+
+  /* ==========================================================================
+     SCHEDULE CARDS — cliquables vers Cal.com avec passage du nb de participants
+     Si l'utilisateur a interagi avec le calculator, on prend currentCount.
+     Sinon, par défaut 1 participant (Cal.com lui demandera de saisir).
+     ========================================================================== */
+  document.querySelectorAll('.schedule-card[data-cal-link]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
+      const seats = currentCount;
+      const total = PRICES[seats].perPerson * seats;
+
+      try {
+        localStorage.setItem('sitgesmorzart-booking', JSON.stringify({
+          seats: seats,
+          total: total,
+          timestamp: Date.now()
+        }));
+      } catch (err) {}
+
+      window.location.href = 'https://cal.com/sitgesmorzart/taller-sitgesmorzart?seats=' + seats + '&price=' + total;
+    });
+  });
 
 
   /* ==========================================================================
