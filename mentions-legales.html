@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aviso legal de Sitgesmorzart, marca explotada por la SASU Life and Learning. Talleres creativos sobre madera en Sitges.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="index, follow">
+
+<title>Aviso legal · Sitgesmorzart</title>
+
+<link rel="canonical" href="https://sitgesmorzart-taller.vercel.app/mentions-legales.html">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Foundations DS -->
+<link rel="stylesheet" href="foundations.css">
+
+<style>
+/* ============================================================================
+   LEGAL PAGE STYLES — Sitgesmorzart
+   Mêmes classes que cgv.html pour réutilisation directe.
+   À terme : extraire dans un fichier legal.css partagé.
+   ============================================================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-default);
+  line-height: 1.6;
+}
+
+/* --- I18N : masquer langues non actives ------------------------------- */
+[data-lang]:not(.is-active-lang) { display: none !important; }
+
+/* --- Header simple ----------------------------------------------------- */
+.cgv-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--spacing-4) 0;
+}
+
+.cgv-header .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.cgv-brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.cgv-brand img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.cgv-header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.cgv-back {
+  font-family: var(--font-body);
+  font-size: var(--body-small-size);
+  color: var(--brand-turquoise-700);
+  text-decoration: none;
+  font-weight: var(--weight-medium);
+}
+.cgv-back:hover { text-decoration: underline; }
+
+/* --- Lang switcher ----------------------------------------------------- */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 0;
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--body-medium-size);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  opacity: 0.45;
+  transition: opacity 0.2s, background-color 0.2s;
+  line-height: 1;
+}
+
+.lang-btn:hover { opacity: 0.8; background: var(--brand-turquoise-100); }
+.lang-btn.is-active { opacity: 1; }
+
+@media (max-width: 540px) {
+  .cgv-header .container { gap: var(--spacing-2); }
+  .cgv-back { display: none; }
+}
+
+/* --- Main content ------------------------------------------------------ */
+.cgv-main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--spacing-12) var(--spacing-6) var(--spacing-16);
+}
+
+.cgv-main h1 {
+  font-family: var(--font-display);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-2);
+}
+
+.cgv-meta {
+  color: var(--text-secondary);
+  font-size: var(--body-small-size);
+  margin-bottom: var(--spacing-8);
+  padding-bottom: var(--spacing-6);
+  border-bottom: 1px solid var(--border-default);
+}
+
+.cgv-main h2 {
+  font-family: var(--font-display);
+  font-size: var(--h4-size);
+  line-height: var(--h4-line);
+  color: var(--text-primary);
+  margin-top: var(--spacing-12);
+  margin-bottom: var(--spacing-4);
+  padding-top: var(--spacing-4);
+  border-top: 1px solid var(--border-default);
+}
+
+.cgv-main h2:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: var(--spacing-8);
+}
+
+.cgv-main h3 {
+  font-family: var(--font-display);
+  font-size: var(--h6-size);
+  line-height: var(--h6-line);
+  color: var(--text-primary);
+  margin-top: var(--spacing-6);
+  margin-bottom: var(--spacing-2);
+}
+
+.cgv-main p,
+.cgv-main li {
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-3);
+}
+
+.cgv-main ul {
+  padding-left: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+}
+
+.cgv-main li { margin-bottom: var(--spacing-2); }
+
+.cgv-main strong { font-weight: var(--weight-semibold); }
+.cgv-main em { font-style: italic; }
+
+.cgv-main a {
+  color: var(--brand-turquoise-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cgv-main a:hover { text-decoration-thickness: 2px; }
+
+.cgv-callout {
+  background: var(--surface-subtle);
+  padding: var(--spacing-4) var(--spacing-6);
+  border-radius: var(--radius-md);
+  margin: var(--spacing-4) 0;
+  border-left: 4px solid var(--brand-turquoise-500);
+}
+
+.cgv-callout strong { color: var(--brand-turquoise-700); }
+.cgv-callout p:last-child { margin-bottom: 0; }
+
+/* --- Identity card ---------------------------------------------------- */
+.legal-card {
+  background: var(--surface-subtle);
+  padding: var(--spacing-6);
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-4) 0;
+}
+
+.legal-card p { margin-bottom: var(--spacing-2); }
+.legal-card p:last-child { margin-bottom: 0; }
+
+/* --- Footer ----------------------------------------------------------- */
+.cgv-footer {
+  border-top: 1px solid var(--border-default);
+  padding: var(--spacing-6) 0;
+  text-align: center;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.cgv-footer .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+}
+
+.cgv-footer a {
+  color: var(--brand-turquoise-700);
+  text-decoration: none;
+}
+
+.cgv-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="cgv-header">
+  <div class="container">
+    <a href="/" class="cgv-brand">
+      <img src="/images/logo-header.png" alt="" aria-hidden="true">
+      <span>Sitgesmorzart</span>
+    </a>
+    <div class="cgv-header-actions">
+      <nav class="lang-switcher" aria-label="Idioma / Langue / Language">
+        <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+        <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+        <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+      </nav>
+      <a href="/" class="cgv-back"><span data-lang="es" class="is-active-lang">← Volver al inicio</span><span data-lang="fr">← Retour à l’accueil</span><span data-lang="en">← Back to home</span></a>
+    </div>
+  </div>
+</header>
+
+<main class="cgv-main">
+
+  <h1><span data-lang="es" class="is-active-lang">Aviso legal</span><span data-lang="fr">Mentions légales</span><span data-lang="en">Legal notice</span></h1>
+  <p class="cgv-meta"><span data-lang="es" class="is-active-lang">Última actualización: <strong>1 de mayo de 2026</strong></span><span data-lang="fr">Dernière mise à jour : <strong>1<sup>er</sup> mai 2026</strong></span><span data-lang="en">Last updated: <strong>1 May 2026</strong></span></p>
+
+  <h2><span data-lang="es" class="is-active-lang">Editor del sitio</span><span data-lang="fr">Éditeur du site</span><span data-lang="en">Site publisher</span></h2>
+
+  <p data-lang="es" class="is-active-lang">El sitio web <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> es publicado por:</p>
+  <p data-lang="fr">Le site <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> est édité par :</p>
+  <p data-lang="en">The website <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> is published by:</p>
+
+  <div class="legal-card">
+    <p data-lang="es" class="is-active-lang"><strong>LIFE AND LEARNING</strong> — Sociedad francesa por acciones simplificada unipersonal (SASU)<br>
+    Capital social: 100&nbsp;€<br>
+    Domicilio social: 4 rue Parmentier, 93360 Neuilly-Plaisance, Francia<br>
+    SIRET: 985&nbsp;377&nbsp;357&nbsp;00019<br>
+    RCS Bobigny: 985&nbsp;377&nbsp;357<br>
+    N.º IVA intracomunitario: FR47&nbsp;985&nbsp;377&nbsp;357<br>
+    Representada por su Presidenta: <strong>Sra. Zalihata Ahamada</strong><br>
+    Directora de la publicación: Sra. Zalihata Ahamada<br>
+    Email: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a></p>
+
+    <p data-lang="fr"><strong>LIFE AND LEARNING</strong> — Société par Actions Simplifiée à Associé Unique (SASU)<br>
+    Capital social : 100&nbsp;€<br>
+    Siège social : 4 rue Parmentier, 93360 Neuilly-Plaisance, France<br>
+    SIRET : 985&nbsp;377&nbsp;357&nbsp;00019<br>
+    RCS Bobigny : 985&nbsp;377&nbsp;357<br>
+    N° TVA intracommunautaire : FR47&nbsp;985&nbsp;377&nbsp;357<br>
+    Représentée par sa Présidente : <strong>Madame Zalihata Ahamada</strong><br>
+    Directrice de la publication : Madame Zalihata Ahamada<br>
+    Email : <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a></p>
+
+    <p data-lang="en"><strong>LIFE AND LEARNING</strong> — French simplified joint-stock company with a sole shareholder (SASU)<br>
+    Share capital: €100<br>
+    Registered office: 4 rue Parmentier, 93360 Neuilly-Plaisance, France<br>
+    SIRET: 985&nbsp;377&nbsp;357&nbsp;00019<br>
+    RCS Bobigny: 985&nbsp;377&nbsp;357<br>
+    Intra-community VAT no.: FR47&nbsp;985&nbsp;377&nbsp;357<br>
+    Represented by its President: <strong>Mrs. Zalihata Ahamada</strong><br>
+    Publication director: Mrs. Zalihata Ahamada<br>
+    Email: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a></p>
+  </div>
+
+  <p data-lang="es" class="is-active-lang"><strong>Sitgesmorzart</strong> es una marca comercial explotada por la SASU Life and Learning. El taller físico está situado en: Studio Quedarte, Carrer Sant Damià&nbsp;7, 08870 Sitges, España.</p>
+  <p data-lang="fr"><strong>Sitgesmorzart</strong> est une marque commerciale exploitée par la SASU Life and Learning. L’atelier physique est situé : Studio Quedarte, Carrer Sant Damià&nbsp;7, 08870 Sitges, Espagne.</p>
+  <p data-lang="en"><strong>Sitgesmorzart</strong> is a trade name operated by the SASU Life and Learning. The physical workshop is located at: Studio Quedarte, Carrer Sant Damià&nbsp;7, 08870 Sitges, Spain.</p>
+
+  <p data-lang="es" class="is-active-lang">Contacto del taller: WhatsApp <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a> · Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a></p>
+  <p data-lang="fr">Contact atelier : WhatsApp <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a> · Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a></p>
+  <p data-lang="en">Workshop contact: WhatsApp <a href="https://wa.me/33679827387">+33&nbsp;6&nbsp;79&nbsp;82&nbsp;73&nbsp;87</a> · Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a></p>
+
+  <h2><span data-lang="es" class="is-active-lang">Alojamiento del sitio</span><span data-lang="fr">Hébergement du site</span><span data-lang="en">Website hosting</span></h2>
+
+  <div class="legal-card">
+    <p data-lang="es" class="is-active-lang">El sitio está alojado por:<br>
+    <strong>Vercel Inc.</strong><br>
+    440 N Barranca Avenue #4133, Covina, CA 91723, Estados Unidos<br>
+    Sitio web: <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></p>
+
+    <p data-lang="fr">Le site est hébergé par :<br>
+    <strong>Vercel Inc.</strong><br>
+    440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis<br>
+    Site web : <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></p>
+
+    <p data-lang="en">The website is hosted by:<br>
+    <strong>Vercel Inc.</strong><br>
+    440 N Barranca Avenue #4133, Covina, CA 91723, United States<br>
+    Website: <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></p>
+  </div>
+
+  <p data-lang="es" class="is-active-lang">Vercel Inc. está certificada bajo el <strong>Data Privacy Framework</strong> entre la Unión Europea y los Estados Unidos, y aplica las cláusulas contractuales tipo de la Comisión Europea para las transferencias de datos personales fuera del Espacio Económico Europeo.</p>
+  <p data-lang="fr">Vercel Inc. est certifiée au titre du <strong>Data Privacy Framework</strong> entre l’Union européenne et les États-Unis, et applique les clauses contractuelles types de la Commission européenne pour les transferts de données personnelles hors de l’Espace économique européen.</p>
+  <p data-lang="en">Vercel Inc. is certified under the <strong>EU-U.S. Data Privacy Framework</strong> and applies the European Commission's standard contractual clauses for transfers of personal data outside the European Economic Area.</p>
+
+  <h2><span data-lang="es" class="is-active-lang">Delegado de protección de datos</span><span data-lang="fr">Délégué à la protection des données</span><span data-lang="en">Data protection officer</span></h2>
+
+  <p data-lang="es" class="is-active-lang">El delegado de protección de datos puede ser contactado en: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="fr">Le délégué à la protection des données peut être contacté à l’adresse : <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="en">The data protection officer can be contacted at: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+
+  <h2><span data-lang="es" class="is-active-lang">Propiedad intelectual</span><span data-lang="fr">Propriété intellectuelle</span><span data-lang="en">Intellectual property</span></h2>
+
+  <p data-lang="es" class="is-active-lang">El conjunto del contenido del sitio web <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> (textos, fotografías, ilustraciones, logotipo, caligrafía «S» del logo, vídeos, gráficos, estructura del sitio) así como la marca <strong>Sitgesmorzart</strong> son propiedad exclusiva de la SASU Life and Learning y están protegidos por las leyes francesas y europeas relativas a la propiedad intelectual.</p>
+  <p data-lang="fr">L’ensemble du contenu du site <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> (textes, photographies, illustrations, logotype, calligraphie «&nbsp;S&nbsp;» du logo, vidéos, graphiques, structure du site) ainsi que la marque <strong>Sitgesmorzart</strong> sont la propriété exclusive de la SASU Life and Learning et sont protégés par les lois françaises et européennes relatives à la propriété intellectuelle.</p>
+  <p data-lang="en">All content of the website <a href="https://sitgesmorzart-taller.vercel.app">sitgesmorzart-taller.vercel.app</a> (texts, photographs, illustrations, logo, "S" calligraphy, videos, graphics, website structure) as well as the <strong>Sitgesmorzart</strong> brand are the exclusive property of the SASU Life and Learning and are protected by French and European intellectual property laws.</p>
+
+  <p data-lang="es" class="is-active-lang">Toda reproducción, representación, modificación, publicación, adaptación, total o parcial, de los elementos del sitio, cualquiera que sea el medio o el procedimiento utilizado, está prohibida sin autorización escrita previa de la SASU Life and Learning.</p>
+  <p data-lang="fr">Toute reproduction, représentation, modification, publication, adaptation, totale ou partielle des éléments du site, quel que soit le moyen ou le procédé utilisé, est interdite sans autorisation écrite préalable de la SASU Life and Learning.</p>
+  <p data-lang="en">Any reproduction, representation, modification, publication, adaptation, total or partial, of the website elements, by any means or process whatsoever, is prohibited without prior written authorisation from the SASU Life and Learning.</p>
+
+  <p data-lang="es" class="is-active-lang">Toda explotación no autorizada del sitio o de cualquiera de sus elementos podrá dar lugar a acciones por falsificación previstas en los artículos L.335-2 y siguientes del <em>Code de la propriété intellectuelle</em> francés.</p>
+  <p data-lang="fr">Toute exploitation non autorisée du site ou de l’un quelconque de ses éléments pourra faire l’objet de poursuites au titre de la contrefaçon visée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.</p>
+  <p data-lang="en">Any unauthorised use of the website or any of its elements may give rise to legal action for counterfeiting under Articles L.335-2 et seq. of the French Intellectual Property Code.</p>
+
+  <h2><span data-lang="es" class="is-active-lang">Datos personales</span><span data-lang="fr">Données personnelles</span><span data-lang="en">Personal data</span></h2>
+
+  <p data-lang="es" class="is-active-lang">El tratamiento de los datos personales recopilados en el sitio se rige por las disposiciones del Reglamento General de Protección de Datos (Reglamento UE 2016/679) y la legislación nacional aplicable.</p>
+  <p data-lang="fr">Le traitement des données personnelles collectées sur le site est régi par les dispositions du Règlement Général sur la Protection des Données (Règlement UE 2016/679) et par la Loi Informatique et Libertés modifiée.</p>
+  <p data-lang="en">The processing of personal data collected on the website is governed by the provisions of the General Data Protection Regulation (EU Regulation 2016/679) and applicable national legislation.</p>
+
+  <p data-lang="es" class="is-active-lang">Las modalidades detalladas del tratamiento (datos recopilados, finalidades, subcontratistas, duración de conservación, derechos del usuario) figuran en el <strong>artículo 12 de las <a href="/cgv.html#art-12">Condiciones Generales de Venta</a></strong>, al que se invita al usuario a remitirse.</p>
+  <p data-lang="fr">Les modalités détaillées du traitement (données collectées, finalités, sous-traitants, durée de conservation, droits de l’utilisateur) figurent à l’<strong>article 12 des <a href="/cgv.html#art-12">Conditions Générales de Vente</a></strong>, auquel l’utilisateur est invité à se reporter.</p>
+  <p data-lang="en">The detailed processing terms (data collected, purposes, sub-processors, retention period, user rights) are set out in <strong>Article 12 of the <a href="/cgv.html#art-12">General Terms and Conditions of Sale</a></strong>, to which the user is invited to refer.</p>
+
+  <p data-lang="es" class="is-active-lang">El usuario dispone en todo momento de los derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad de sus datos. Estos derechos pueden ejercerse enviando un correo electrónico a <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="fr">L’utilisateur dispose à tout moment des droits d’accès, de rectification, de suppression, de limitation, d’opposition et de portabilité de ses données. Ces droits peuvent être exercés en adressant un email à <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="en">The user has, at all times, the rights of access, rectification, erasure, restriction, objection, and portability of their data. These rights can be exercised by emailing <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+
+  <p data-lang="es" class="is-active-lang">En caso de denegación motivada o de ausencia de respuesta, el usuario puede presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>) o ante la <strong>CNIL</strong> francesa (<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>).</p>
+  <p data-lang="fr">En cas de refus motivé ou d’absence de réponse, l’utilisateur peut introduire une réclamation auprès de la <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>) ou de l’<strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+  <p data-lang="en">In the event of a reasoned refusal or absence of response, the user may lodge a complaint with the <strong>Spanish Data Protection Agency</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>) or with the French <strong>CNIL</strong> (<a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>).</p>
+
+  <h2><span data-lang="es" class="is-active-lang">Cookies y rastreadores</span><span data-lang="fr">Cookies et traceurs</span><span data-lang="en">Cookies and trackers</span></h2>
+
+  <p data-lang="es" class="is-active-lang">El presente sitio web tiene como prioridad limitar la huella digital de sus visitantes. <strong>No se utiliza ninguna cookie publicitaria, de seguimiento ni de identificación individual de los visitantes.</strong></p>
+  <p data-lang="fr">Le présent site a pour priorité de limiter l’empreinte numérique de ses visiteurs. <strong>Aucun cookie publicitaire, de suivi ou d’identification individuelle des visiteurs n’est utilisé.</strong></p>
+  <p data-lang="en">This website prioritises limiting the digital footprint of its visitors. <strong>No advertising, tracking, or individual visitor identification cookies are used.</strong></p>
+
+  <h3><span data-lang="es" class="is-active-lang">Almacenamiento técnico estrictamente necesario</span><span data-lang="fr">Stockage technique strictement nécessaire</span><span data-lang="en">Strictly necessary technical storage</span></h3>
+
+  <p data-lang="es" class="is-active-lang">El sitio utiliza únicamente un almacenamiento local del navegador (<code>localStorage</code>) para conservar el idioma elegido por el visitante de una visita a otra. Este almacenamiento:</p>
+  <p data-lang="fr">Le site utilise uniquement un stockage local du navigateur (<code>localStorage</code>) pour conserver la langue choisie par le visiteur d’une visite à l’autre. Ce stockage :</p>
+  <p data-lang="en">The website uses only the browser's local storage (<code>localStorage</code>) to remember the visitor's chosen language between visits. This storage:</p>
+
+  <ul data-lang="es" class="is-active-lang">
+    <li>es <strong>estrictamente necesario</strong> para el confort del usuario;</li>
+    <li>no contiene ningún dato de identificación personal;</li>
+    <li>no se transmite a terceros;</li>
+    <li>está exento de consentimiento previo en aplicación del artículo 82 de la <em>Loi Informatique et Libertés</em> francesa y del artículo 22.2 de la LSSI-CE española.</li>
+  </ul>
+  <ul data-lang="fr">
+    <li>est <strong>strictement nécessaire</strong> au confort de l’utilisateur ;</li>
+    <li>ne contient aucune donnée d’identification personnelle ;</li>
+    <li>n’est transmis à aucun tiers ;</li>
+    <li>est exempté de consentement préalable en application de l’article 82 de la Loi Informatique et Libertés et de l’article 22.2 de la LSSI-CE espagnole.</li>
+  </ul>
+  <ul data-lang="en">
+    <li>is <strong>strictly necessary</strong> for user convenience;</li>
+    <li>contains no personal identification data;</li>
+    <li>is not transmitted to any third party;</li>
+    <li>is exempt from prior consent under Article 82 of the French Data Protection Act and Article 22.2 of the Spanish LSSI-CE.</li>
+  </ul>
+
+  <p data-lang="es" class="is-active-lang">El usuario puede en cualquier momento eliminar este almacenamiento local mediante los ajustes de su navegador.</p>
+  <p data-lang="fr">L’utilisateur peut à tout moment supprimer ce stockage local via les paramètres de son navigateur.</p>
+  <p data-lang="en">The user may delete this local storage at any time via their browser settings.</p>
+
+  <h3><span data-lang="es" class="is-active-lang">Medición de audiencia</span><span data-lang="fr">Mesure d’audience</span><span data-lang="en">Audience measurement</span></h3>
+
+  <p data-lang="es" class="is-active-lang">El sitio utiliza <strong>Vercel Web Analytics</strong>, una solución de medición de audiencia <strong>sin cookies</strong> y respetuosa de la vida privada. Los datos recopilados (páginas vistas, fuentes de tráfico, país, tipo de navegador) son agregados y anonimizados, y no permiten identificar a los visitantes. Esta solución está exenta de consentimiento previo conforme a las recomendaciones de la CNIL y de la Agencia Española de Protección de Datos.</p>
+  <p data-lang="fr">Le site utilise <strong>Vercel Web Analytics</strong>, une solution de mesure d’audience <strong>sans cookies</strong> et respectueuse de la vie privée. Les données collectées (pages vues, sources de trafic, pays, type de navigateur) sont agrégées et anonymisées, et ne permettent pas d’identifier les visiteurs. Cette solution est exemptée de consentement préalable conformément aux recommandations de la CNIL et de l’Agencia Española de Protección de Datos.</p>
+  <p data-lang="en">The website uses <strong>Vercel Web Analytics</strong>, a <strong>cookieless</strong>, privacy-respecting audience measurement solution. The data collected (page views, traffic sources, country, browser type) is aggregated and anonymised and does not allow identification of visitors. This solution is exempt from prior consent in accordance with the recommendations of the French CNIL and the Spanish Data Protection Agency.</p>
+
+  <p data-lang="es" class="is-active-lang">Más información: <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener">vercel.com/docs/analytics/privacy-policy</a>.</p>
+  <p data-lang="fr">Plus d’informations : <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener">vercel.com/docs/analytics/privacy-policy</a>.</p>
+  <p data-lang="en">More information: <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener">vercel.com/docs/analytics/privacy-policy</a>.</p>
+
+  <h3><span data-lang="es" class="is-active-lang">Servicios de terceros</span><span data-lang="fr">Services tiers</span><span data-lang="en">Third-party services</span></h3>
+
+  <p data-lang="es" class="is-active-lang">La reserva en línea de los talleres se realiza mediante un <strong>módulo Cal.com integrado</strong> en la página de reserva. Cuando el visitante interactúa con este módulo, Cal.com puede depositar cookies o equivalentes <em>en su propio dominio</em> con vistas al funcionamiento del servicio de reserva solicitado por el usuario.</p>
+  <p data-lang="fr">La réservation en ligne des ateliers s’effectue via un <strong>module Cal.com intégré</strong> sur la page de réservation. Lorsque le visiteur interagit avec ce module, Cal.com peut déposer des cookies ou équivalents <em>sur son propre domaine</em> en vue du fonctionnement du service de réservation demandé par l’utilisateur.</p>
+  <p data-lang="en">Online workshop booking is carried out via a <strong>Cal.com module embedded</strong> on the booking page. When the visitor interacts with this module, Cal.com may deposit cookies or equivalents <em>on its own domain</em> for the operation of the booking service requested by the user.</p>
+
+  <p data-lang="es" class="is-active-lang">El pago seguro se efectúa por <strong>redirección hacia la plataforma Stripe</strong> (Payment Links). Stripe aplica entonces su propia política de cookies en su dominio <code>buy.stripe.com</code>, fuera del control del editor.</p>
+  <p data-lang="fr">Le paiement sécurisé s’effectue par <strong>redirection vers la plateforme Stripe</strong> (Payment Links). Stripe applique alors sa propre politique de cookies sur son domaine <code>buy.stripe.com</code>, hors du contrôle de l’éditeur.</p>
+  <p data-lang="en">Secure payment is made by <strong>redirection to the Stripe platform</strong> (Payment Links). Stripe then applies its own cookie policy on its <code>buy.stripe.com</code> domain, outside the publisher's control.</p>
+
+  <p data-lang="es" class="is-active-lang">Para más información sobre las políticas de estos servicios:</p>
+  <p data-lang="fr">Pour plus d’informations sur les politiques de ces services :</p>
+  <p data-lang="en">For more information on these services' policies:</p>
+
+  <ul data-lang="es" class="is-active-lang">
+    <li>Cal.com: <a href="https://cal.com/privacy" target="_blank" rel="noopener">cal.com/privacy</a></li>
+    <li>Stripe: <a href="https://stripe.com/legal/privacy-center" target="_blank" rel="noopener">stripe.com/legal/privacy-center</a></li>
+    <li>Vercel: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></li>
+  </ul>
+  <ul data-lang="fr">
+    <li>Cal.com : <a href="https://cal.com/privacy" target="_blank" rel="noopener">cal.com/privacy</a></li>
+    <li>Stripe : <a href="https://stripe.com/legal/privacy-center" target="_blank" rel="noopener">stripe.com/legal/privacy-center</a></li>
+    <li>Vercel : <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></li>
+  </ul>
+  <ul data-lang="en">
+    <li>Cal.com: <a href="https://cal.com/privacy" target="_blank" rel="noopener">cal.com/privacy</a></li>
+    <li>Stripe: <a href="https://stripe.com/legal/privacy-center" target="_blank" rel="noopener">stripe.com/legal/privacy-center</a></li>
+    <li>Vercel: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></li>
+  </ul>
+
+  <h2><span data-lang="es" class="is-active-lang">Enlaces hipertextuales</span><span data-lang="fr">Liens hypertextes</span><span data-lang="en">Hypertext links</span></h2>
+
+  <p data-lang="es" class="is-active-lang">El sitio puede contener enlaces hipertextuales hacia otros sitios. La SASU Life and Learning no asume ninguna responsabilidad respecto al contenido de estos sitios externos ni a la utilización que pudiera hacerse de ellos.</p>
+  <p data-lang="fr">Le site peut contenir des liens hypertextes vers d’autres sites. La SASU Life and Learning n’assume aucune responsabilité quant au contenu de ces sites externes ni quant à l’utilisation qui pourrait en être faite.</p>
+  <p data-lang="en">The website may contain hypertext links to other sites. The SASU Life and Learning assumes no responsibility for the content of these external sites or for any use that may be made of them.</p>
+
+  <h2><span data-lang="es" class="is-active-lang">Accesibilidad</span><span data-lang="fr">Accessibilité</span><span data-lang="en">Accessibility</span></h2>
+
+  <p data-lang="es" class="is-active-lang">La SASU Life and Learning se compromete a hacer accesible el sitio al mayor número posible de personas, conforme a los criterios del Referencial General de Mejora de la Accesibilidad (RGAA) y de las Directrices de Accesibilidad para el Contenido Web (WCAG). Toda dificultad de acceso encontrada puede señalarse a: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="fr">La SASU Life and Learning s’engage à rendre le site accessible au plus grand nombre, conformément aux critères du Référentiel Général d’Amélioration de l’Accessibilité (RGAA) et des Web Content Accessibility Guidelines (WCAG). Toute difficulté d’accès rencontrée peut être signalée à : <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="en">The SASU Life and Learning is committed to making the website accessible to as many people as possible, in accordance with the criteria of the French General Accessibility Improvement Framework (RGAA) and the Web Content Accessibility Guidelines (WCAG). Any difficulty in accessing the site can be reported to: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+
+  <h2><span data-lang="es" class="is-active-lang">Derecho aplicable</span><span data-lang="fr">Droit applicable</span><span data-lang="en">Applicable law</span></h2>
+
+  <p data-lang="es" class="is-active-lang">El presente aviso legal se rige por el derecho francés. Sin embargo, conforme a las disposiciones del Reglamento (CE) n.º 593/2008 («Roma&nbsp;I»), un consumidor residente en otro Estado miembro de la Unión Europea (en particular España) goza de la protección de las disposiciones imperativas de la ley de su residencia habitual, cuando estas son más protectoras que la ley francesa.</p>
+  <p data-lang="fr">Les présentes mentions légales sont régies par le droit français. Toutefois, conformément aux dispositions du Règlement (CE) n°&nbsp;593/2008 («&nbsp;Rome&nbsp;I&nbsp;»), un consommateur résidant dans un autre État membre de l’Union européenne (notamment l’Espagne) bénéficie de la protection des dispositions impératives de la loi de sa résidence habituelle, lorsque celles-ci sont plus protectrices que la loi française.</p>
+  <p data-lang="en">This legal notice is governed by French law. However, in accordance with the provisions of Regulation (EC) No 593/2008 ("Rome I"), a consumer residing in another EU Member State (in particular Spain) benefits from the protection of the mandatory provisions of the law of their habitual residence, when these are more protective than French law.</p>
+
+  <h2><span data-lang="es" class="is-active-lang">Contacto</span><span data-lang="fr">Contact</span><span data-lang="en">Contact</span></h2>
+
+  <p data-lang="es" class="is-active-lang">Para cualquier solicitud relativa al presente aviso legal, le invitamos a contactarnos en: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="fr">Pour toute demande relative aux présentes mentions légales, nous vous invitons à nous contacter à : <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+  <p data-lang="en">For any request relating to this legal notice, please contact us at: <a href="mailto:zalihata@lifeandlearning.fr">zalihata@lifeandlearning.fr</a>.</p>
+
+</main>
+
+<footer class="cgv-footer">
+  <div class="container">
+    <p>
+      <span data-lang="es" class="is-active-lang">Sitgesmorzart es una marca comercial explotada por la SASU Life and Learning.<br>© 2026 Life and Learning · <a href="/">sitgesmorzart-taller.vercel.app</a> · <a href="/cgv.html">Términos y condiciones</a></span>
+      <span data-lang="fr">Sitgesmorzart est une marque commerciale exploitée par la SASU Life and Learning.<br>© 2026 Life and Learning · <a href="/">sitgesmorzart-taller.vercel.app</a> · <a href="/cgv.html">CGV</a></span>
+      <span data-lang="en">Sitgesmorzart is a trade name operated by the SASU Life and Learning.<br>© 2026 Life and Learning · <a href="/">sitgesmorzart-taller.vercel.app</a> · <a href="/cgv.html">Terms &amp; Conditions</a></span>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  // Same localStorage key as the home page → langue partagée
+  const STORAGE_KEY = 'sitgesmorzart-lang';
+  const DEFAULT_LANG = 'es';
+  const SUPPORTED = ['es', 'fr', 'en'];
+
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  }
+
+  // Init from localStorage or default
+  let initial = DEFAULT_LANG;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && SUPPORTED.includes(stored)) initial = stored;
+  } catch (e) {}
+  setLang(initial);
+
+  // Wire up buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLang(btn.getAttribute('data-switch'));
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
