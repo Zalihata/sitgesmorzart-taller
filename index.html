@@ -1224,8 +1224,25 @@ footer {
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding-top: var(--spacing-6);
-  text-align: center;
   font-size: var(--body-small-size);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2) var(--spacing-3);
+}
+
+.footer-bottom a {
+  color: var(--neutral-grey-300);
+  transition: color 0.2s;
+}
+
+.footer-bottom a:hover {
+  color: var(--brand-turquoise-300);
+}
+
+.footer-bottom-sep {
+  opacity: 0.5;
 }
 
 /* ============================================================================
@@ -2131,7 +2148,15 @@ footer {
     </div>
 
     <div class="footer-bottom">
-      © 2026 Sitgesmorzart · Taller Creativo
+      <span>© 2026 Sitgesmorzart · Taller Creativo</span>
+      <span class="footer-bottom-sep" aria-hidden="true">·</span>
+      <a href="/mentions-legales.html" data-lang="es">Aviso legal</a>
+      <a href="/mentions-legales.html" data-lang="fr">Mentions légales</a>
+      <a href="/mentions-legales.html" data-lang="en">Legal notice</a>
+      <span class="footer-bottom-sep" aria-hidden="true">·</span>
+      <a href="/cgv.html" data-lang="es">Términos y condiciones</a>
+      <a href="/cgv.html" data-lang="fr">CGV</a>
+      <a href="/cgv.html" data-lang="en">Terms &amp; Conditions</a>
     </div>
   </div>
 </footer>
