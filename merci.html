@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="¡Gracias! Tu reserva del taller creativo Sitgesmorzart está confirmada.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="noindex, nofollow">
+
+<title>¡Gracias! · Sitgesmorzart</title>
+
+<link rel="canonical" href="https://sitgesmorzart-taller.vercel.app/merci.html">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Foundations DS -->
+<link rel="stylesheet" href="foundations.css">
+
+<!-- Vercel Web Analytics (cookieless, GDPR compliant) -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+/* ============================================================================
+   MERCI PAGE STYLES — Sitgesmorzart
+   Page de confirmation post-paiement Stripe.
+   ============================================================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-default);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-lang]:not(.is-active-lang) { display: none !important; }
+
+/* --- Header ----------------------------------------------------------- */
+.page-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--spacing-4) 0;
+}
+
+.page-header .container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+  flex-wrap: wrap;
+}
+
+.page-brand {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.page-brand img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 0;
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--body-medium-size);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  opacity: 0.45;
+  transition: opacity 0.2s, background-color 0.2s;
+  line-height: 1;
+}
+
+.lang-btn:hover { opacity: 0.8; background: var(--brand-turquoise-100); }
+.lang-btn.is-active { opacity: 1; }
+
+/* --- Main ------------------------------------------------------------- */
+.page-main {
+  flex: 1;
+  max-width: 640px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-12) var(--spacing-6) var(--spacing-16);
+  text-align: center;
+}
+
+/* --- Icône check animée ----------------------------------------------- */
+.success-mark {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto var(--spacing-6);
+  position: relative;
+}
+
+.success-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.success-mark .circle {
+  fill: var(--brand-green-100);
+  stroke: var(--brand-green-500);
+  stroke-width: 3;
+  stroke-dasharray: 280;
+  stroke-dashoffset: 280;
+  animation: drawCircle 0.6s ease-out forwards;
+}
+
+.success-mark .check {
+  fill: none;
+  stroke: var(--brand-green-700);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 36;
+  stroke-dashoffset: 36;
+  animation: drawCheck 0.4s ease-out 0.5s forwards;
+}
+
+@keyframes drawCircle {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .success-mark .circle,
+  .success-mark .check {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+}
+
+/* --- Headings --------------------------------------------------------- */
+.merci-title {
+  font-family: var(--font-display);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  margin-bottom: var(--spacing-3);
+  letter-spacing: -0.02em;
+}
+
+.merci-lead {
+  color: var(--text-secondary);
+  font-size: var(--body-large-size);
+  margin-bottom: var(--spacing-12);
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Récap booking (si dispo via localStorage) ------------------------ */
+.booking-recap {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-12);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  min-width: 280px;
+}
+
+.booking-recap[hidden] { display: none; }
+
+.booking-recap-label {
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: var(--weight-semibold);
+}
+
+.booking-recap-amount {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.booking-recap-amount .currency {
+  font-size: 1.25rem;
+  vertical-align: top;
+  margin-right: 2px;
+  position: relative;
+  top: 4px;
+}
+
+.booking-recap-detail {
+  color: var(--text-primary);
+  font-size: var(--body-medium-size);
+}
+
+/* --- Section Next Steps ----------------------------------------------- */
+.next-steps {
+  text-align: left;
+  margin-bottom: var(--spacing-12);
+}
+
+.next-steps-title {
+  font-family: var(--font-display);
+  font-size: var(--h5-size);
+  line-height: var(--h5-line);
+  margin-bottom: var(--spacing-6);
+  text-align: center;
+}
+
+.next-steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.next-step {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: flex-start;
+  padding: var(--spacing-4);
+  background: var(--surface-default);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.next-step:hover {
+  border-color: var(--border-brand);
+  box-shadow: var(--shadow-sm);
+}
+
+.next-step-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: var(--brand-turquoise-100);
+  color: var(--brand-turquoise-700);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.next-step-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.next-step-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.next-step-title {
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.next-step-desc {
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.next-step-desc a {
+  color: var(--brand-turquoise-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.next-step-desc a:hover { text-decoration-thickness: 2px; }
+
+/* --- CTA retour ------------------------------------------------------- */
+.merci-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  justify-content: center;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-6);
+  background: var(--action-primary-bg);
+  color: var(--action-primary-text);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--action-primary-bg-hover);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-6);
+  background: transparent;
+  color: var(--brand-turquoise-700);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.btn-ghost:hover {
+  background: var(--brand-turquoise-100);
+}
+
+/* --- Footer ----------------------------------------------------------- */
+.page-footer {
+  border-top: 1px solid var(--border-default);
+  padding: var(--spacing-6) 0;
+  text-align: center;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.page-footer .container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2) var(--spacing-3);
+}
+
+.page-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.page-footer a:hover { color: var(--brand-turquoise-700); text-decoration: underline; }
+
+.footer-sep { opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="page-brand">
+      <img src="/images/logo-header.png" alt="" aria-hidden="true">
+      <span>Sitgesmorzart</span>
+    </a>
+    <nav class="lang-switcher" aria-label="Idioma / Langue / Language">
+      <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+      <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+      <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+    </nav>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <div class="success-mark" aria-hidden="true">
+    <svg viewBox="0 0 100 100">
+      <circle class="circle" cx="50" cy="50" r="45"></circle>
+      <path class="check" d="M30 52 L45 67 L72 36"></path>
+    </svg>
+  </div>
+
+  <h1 class="merci-title">
+    <span data-lang="es" class="is-active-lang">¡Reserva confirmada!</span>
+    <span data-lang="fr">Réservation confirmée !</span>
+    <span data-lang="en">Booking confirmed!</span>
+  </h1>
+
+  <p class="merci-lead">
+    <span data-lang="es" class="is-active-lang">Tu pago se ha realizado con éxito. Recibirás un correo de confirmación en breve con todos los detalles. ¡Gracias por confiar en nosotros, hasta pronto en el taller!</span>
+    <span data-lang="fr">Ton paiement a bien été pris en compte. Tu vas recevoir un email de confirmation dans quelques instants avec tous les détails. Merci de ta confiance, à très vite à l'atelier !</span>
+    <span data-lang="en">Your payment was successful. You'll receive a confirmation email shortly with all the details. Thank you for trusting us, see you soon at the workshop!</span>
+  </p>
+
+  <!-- Récap (si dispo via localStorage) -->
+  <div id="booking-recap" class="booking-recap" hidden>
+    <div class="booking-recap-label">
+      <span data-lang="es" class="is-active-lang">Total pagado</span>
+      <span data-lang="fr">Total payé</span>
+      <span data-lang="en">Total paid</span>
+    </div>
+    <div class="booking-recap-amount">
+      <span class="currency">€</span><span id="recap-amount">0</span>
+    </div>
+    <div class="booking-recap-detail">
+      <span data-lang="es" class="is-active-lang"><span id="recap-seats-es">0</span> personas</span>
+      <span data-lang="fr"><span id="recap-seats-fr">0</span> personnes</span>
+      <span data-lang="en"><span id="recap-seats-en">0</span> people</span>
+    </div>
+  </div>
+
+  <!-- Próximos pasos -->
+  <section class="next-steps">
+
+    <h2 class="next-steps-title">
+      <span data-lang="es" class="is-active-lang">¿Y ahora qué?</span>
+      <span data-lang="fr">Et maintenant ?</span>
+      <span data-lang="en">What's next?</span>
+    </h2>
+
+    <ul class="next-steps-list">
+
+      <li class="next-step">
+        <div class="next-step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </div>
+        <div class="next-step-body">
+          <div class="next-step-title">
+            <span data-lang="es" class="is-active-lang">Revisa tu correo</span>
+            <span data-lang="fr">Vérifie tes emails</span>
+            <span data-lang="en">Check your inbox</span>
+          </div>
+          <div class="next-step-desc">
+            <span data-lang="es" class="is-active-lang">Recibirás dos correos: uno de Stripe (recibo de pago) y otro de Cal.com (confirmación de reserva con la fecha y hora).</span>
+            <span data-lang="fr">Tu vas recevoir deux emails : un de Stripe (reçu de paiement) et un de Cal.com (confirmation de réservation avec la date et l'heure).</span>
+            <span data-lang="en">You'll receive two emails: one from Stripe (payment receipt) and one from Cal.com (booking confirmation with date and time).</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="next-step">
+        <div class="next-step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+        </div>
+        <div class="next-step-body">
+          <div class="next-step-title">
+            <span data-lang="es" class="is-active-lang">Dirección del taller</span>
+            <span data-lang="fr">Adresse de l'atelier</span>
+            <span data-lang="en">Workshop address</span>
+          </div>
+          <div class="next-step-desc">
+            <span data-lang="es" class="is-active-lang">Studio Quedarte, Carrer Sant Damià 7, 08870 Sitges. Llega 5 minutos antes para preparar el espacio con calma.</span>
+            <span data-lang="fr">Studio Quedarte, Carrer Sant Damià 7, 08870 Sitges. Arrive 5 minutes en avance pour t'installer tranquillement.</span>
+            <span data-lang="en">Studio Quedarte, Carrer Sant Damià 7, 08870 Sitges. Arrive 5 minutes early to settle in.</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="next-step">
+        <div class="next-step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"></path>
+          </svg>
+        </div>
+        <div class="next-step-body">
+          <div class="next-step-title">
+            <span data-lang="es" class="is-active-lang">Qué llevar</span>
+            <span data-lang="fr">Quoi apporter</span>
+            <span data-lang="en">What to bring</span>
+          </div>
+          <div class="next-step-desc">
+            <span data-lang="es" class="is-active-lang">Nada obligatorio: todo el material está incluido. Te aconsejamos ropa que pueda mancharse o un delantal. Si tienes alergias que no nos hayas comunicado, avísanos.</span>
+            <span data-lang="fr">Rien d'obligatoire : tout le matériel est inclus. On te conseille des vêtements qui peuvent se tacher ou un tablier. Si tu as des allergies que tu ne nous as pas signalées, préviens-nous.</span>
+            <span data-lang="en">Nothing required: all materials are included. We recommend clothes that can get a bit messy or an apron. If you have allergies you haven't told us about, please let us know.</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="next-step">
+        <div class="next-step-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+        </div>
+        <div class="next-step-body">
+          <div class="next-step-title">
+            <span data-lang="es" class="is-active-lang">¿Alguna duda?</span>
+            <span data-lang="fr">Une question ?</span>
+            <span data-lang="en">Any questions?</span>
+          </div>
+          <div class="next-step-desc">
+            <span data-lang="es" class="is-active-lang">Escríbenos por WhatsApp al <a href="https://wa.me/33679827387">+33 6 79 82 73 87</a> o por Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a>.</span>
+            <span data-lang="fr">Écris-nous sur WhatsApp au <a href="https://wa.me/33679827387">+33 6 79 82 73 87</a> ou sur Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a>.</span>
+            <span data-lang="en">Reach us on WhatsApp at <a href="https://wa.me/33679827387">+33 6 79 82 73 87</a> or on Instagram <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">@sitgesmorzart</a>.</span>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <div class="merci-cta-row">
+    <a href="/" class="btn-primary">
+      <span data-lang="es" class="is-active-lang">Volver al inicio</span>
+      <span data-lang="fr">Retour à l'accueil</span>
+      <span data-lang="en">Back to home</span>
+    </a>
+    <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener" class="btn-ghost">
+      <span data-lang="es" class="is-active-lang">Ver nuestras creaciones</span>
+      <span data-lang="fr">Voir nos créations</span>
+      <span data-lang="en">See our creations</span>
+    </a>
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <div class="container">
+    <span>© 2026 Sitgesmorzart</span>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/mentions-legales.html" data-lang="es">Aviso legal</a>
+    <a href="/mentions-legales.html" data-lang="fr">Mentions légales</a>
+    <a href="/mentions-legales.html" data-lang="en">Legal notice</a>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/cgv.html" data-lang="es">Términos y condiciones</a>
+    <a href="/cgv.html" data-lang="fr">CGV</a>
+    <a href="/cgv.html" data-lang="en">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+
+  const STORAGE_KEY_LANG    = 'sitgesmorzart-lang';
+  const STORAGE_KEY_BOOKING = 'sitgesmorzart-booking';
+  const DEFAULT_LANG = 'es';
+  const SUPPORTED = ['es', 'fr', 'en'];
+
+
+  /* ==========================================================================
+     I18N
+     ========================================================================== */
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem(STORAGE_KEY_LANG, lang); } catch (e) {}
+  }
+
+  let initialLang = DEFAULT_LANG;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY_LANG);
+    if (stored && SUPPORTED.includes(stored)) initialLang = stored;
+  } catch (e) {}
+  setLang(initialLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-switch')));
+  });
+
+
+  /* ==========================================================================
+     RECAP — affiche le récap si on a la donnée en localStorage
+     (Stripe ne renvoie aucun param, donc on lit ce qu'on avait stocké sur /pago.html)
+     Si pas de donnée (refresh tardif, lien direct), on affiche pas le récap.
+     L'utilisateur a quand même le message principal qui fonctionne sans.
+     ========================================================================== */
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY_BOOKING);
+    if (raw) {
+      const booking = JSON.parse(raw);
+      // On n'affiche le recap que si la donnée est récente (< 24h)
+      // pour éviter d'afficher une vieille réservation à un visiteur qui revient
+      const ageMs = Date.now() - (booking.timestamp || 0);
+      const ONE_DAY = 24 * 60 * 60 * 1000;
+
+      if (booking.seats && booking.total && ageMs < ONE_DAY) {
+        document.getElementById('recap-amount').textContent = booking.total;
+        SUPPORTED.forEach(lang => {
+          document.getElementById('recap-seats-' + lang).textContent = booking.seats;
+        });
+        document.getElementById('booking-recap').hidden = false;
+      }
+    }
+  } catch (e) {
+    // En cas d'erreur, on n'affiche pas le récap, c'est OK
+  }
+
+})();
+</script>
+
+</body>
+</html>
