@@ -380,6 +380,53 @@ h6 { font-size: var(--h6-size); line-height: var(--h6-line); }
   cursor: not-allowed;
 }
 
+/* ============================================================================
+   15. BRAND ASSETS — Logo Sitgesmorzart
+   ============================================================================
+   Logo S calligraphique manuscrit (Posca) de Guillaume.
+   6 variantes de couleur disponibles, chacune fournie en pack complet
+   (favicon + icons + logo header + Stripe).
+
+   USAGE PAR CONTEXTE
+   ------------------
+   Favicon (onglet navigateur, défaut)   → A · noir/transparent   (21:1   ✅ AAA)
+   Favicon avec fond explicite blanc     → B · noir/blanc         (21:1   ✅ AAA)
+   Logo header sur fond blanc            → A · noir/transparent   (21:1   ✅ AAA)
+                                         OU G · turquoise-700/blanc (4.52:1 ✅ AA)
+   Logo sur surface-subtle (turq-100)    → H · grey-900/turq-100  (10.16:1 ✅ AAA)
+   Logo sur fond brand foncé (turq-700)  → E · blanc/turq-700     (4.52:1 ✅ AA)
+   Image Stripe / OG cover / brand pop   → C · noir/turq-500      (10.33:1 ✅ AAA)
+
+   ❌ NE PAS UTILISER POUR USAGE FONCTIONNEL — contraste sous 3:1
+   - Blanc / turquoise-500   (2.03:1)
+   - Blanc / gradient        (2.03-2.07:1)
+   Ces variantes restent acceptables pour usage purement décoratif grand
+   format (hero, marketing) mais jamais pour favicon ni élément cliquable.
+
+   STATUT WCAG / RGAA
+   ------------------
+   Les logos sont strictement exemptés du critère de contraste WCAG 1.4.3.
+   MAIS : un favicon a une fonction d'identification (élément fonctionnel),
+   et notre engagement RGAA / éco-conception nous impose de viser ≥ 3:1
+   minimum partout, et 4.5:1 pour cohérence avec le reste de l'UI.
+   → Les 6 variantes ci-dessus respectent toutes ce seuil.
+
+   FICHIERS
+   --------
+   Chaque variante est dans un dossier dédié avec :
+   - favicon.ico                    (multi-résolution 16/32/48)
+   - favicon-{16,32,48,64,96}.png
+   - icon-{180,192,512}.png         (Apple touch / Android / PWA)
+   - logo-header-{80,160,240}.png   (1×, 2×, 3× retina, ratio naturel ~0.88)
+   - stripe-icon-512.png            (carré 512 pour dashboard Stripe)
+
+   PRÉSERVATION DE L'AUTHENTICITÉ
+   ------------------------------
+   Le tracé Posca conserve volontairement ses bavures et irrégularités.
+   Pas de version vectorisée SVG : la vectorisation lisserait le tracé et
+   ferait perdre la signature manuelle, qui est le sens même du choix de
+   ce logo (vs un logo généré).
+   ============================================================================ */
 
 /* ============================================================================
    FIN — foundations.css
