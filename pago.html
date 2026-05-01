@@ -873,11 +873,15 @@ body {
   if (!booking) {
     renderError();
   } else {
-    // Détecter le mode de paiement choisi sur Cal.com
+    // Détecter le mode de paiement choisi sur Cal.com.
+    // Cal.com Free/Teams transmet le label affiché complet (pas de "value
+    // technique" séparée). Donc on détecte "espèces" par mot-clé dans la
+    // chaîne reçue, en couvrant les 3 langues + accents.
     const params = new URLSearchParams(window.location.search);
     const pagoPref = (params.get('pago_pref') || '').toLowerCase();
+    const isCash = /efectivo|esp[èe]ces|cash/i.test(pagoPref);
 
-    if (pagoPref === 'efectivo' || pagoPref === 'cash') {
+    if (isCash) {
       renderCash(booking);
     } else {
       // Par défaut (online ou vide) → flow Stripe
