@@ -1379,6 +1379,19 @@ footer {
    ============================================================================ */
 [data-lang]:not(.is-active-lang) { display: none !important; }
 
+[data-lang].is-active-lang {
+  animation: langFadeIn 0.3s ease;
+}
+
+@keyframes langFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-lang].is-active-lang { animation: none; }
+}
+
 </style>
 <!-- Schema.org : entreprise locale -->
 <script type="application/ld+json">
