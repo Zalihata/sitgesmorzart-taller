@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "sitgesmorzart-taller.vercel.app"
+        }
+      ],
+      "destination": "https://sitgesmorzart.com/$1",
+      "permanent": true
+    }
+  ]
+}
