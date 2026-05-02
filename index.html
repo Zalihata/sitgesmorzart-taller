@@ -1285,6 +1285,28 @@ footer {
 /* ============================================================================
    UTILITIES
    ============================================================================ */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: var(--spacing-4);
+  background: var(--brand-turquoise-700);
+  color: var(--neutral-white);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size);
+  text-decoration: none;
+  z-index: 999;
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: var(--spacing-4);
+  outline: 3px solid var(--brand-turquoise-500);
+  outline-offset: 2px;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1397,6 +1419,13 @@ footer {
 </script>
 </head>
 <body>
+
+<!-- Skip to main content (accessibilité WCAG 2.4.1) -->
+<a href="#main-content" class="skip-to-content">
+  <span data-lang="es" class="is-active-lang">Ir al contenido principal</span>
+  <span data-lang="fr">Aller au contenu principal</span>
+  <span data-lang="en">Skip to main content</span>
+</a>
 
 <!-- ============================================================================
      SITE HEADER — sticky navigation
