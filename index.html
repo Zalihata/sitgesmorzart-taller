@@ -1307,6 +1307,42 @@ footer {
   outline-offset: 2px;
 }
 
+.back-to-top {
+  position: fixed;
+  bottom: var(--spacing-6);
+  right: var(--spacing-6);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--brand-turquoise-500);
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: var(--weight-bold);
+  box-shadow: var(--shadow-md);
+  z-index: 80;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease;
+}
+
+.back-to-top:hover {
+  background: var(--brand-turquoise-700);
+  color: var(--neutral-white);
+  transform: translateY(-2px);
+}
+
+.back-to-top:focus-visible {
+  outline: 3px solid var(--brand-turquoise-700);
+  outline-offset: 2px;
+}
+
+.back-to-top[hidden] {
+  display: none;
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -2310,6 +2346,12 @@ footer {
 </main>
 
 
+<!-- Back to top button -->
+<button class="back-to-top" id="back-to-top" aria-label="Volver arriba" hidden>
+  <span aria-hidden="true">↑</span>
+</button>
+
+
 <!-- ============================================================================
      LIGHTBOX (gallery zoom on click)
      ============================================================================ -->
@@ -2688,6 +2730,23 @@ footer {
     if (e.key === 'ArrowLeft') showPrev();
     if (e.key === 'ArrowRight') showNext();
   });
+
+
+  /* ==========================================================================
+     BACK TO TOP — bouton flottant pour remonter rapidement
+     ========================================================================== */
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    // Afficher le bouton après 600px de scroll
+    window.addEventListener('scroll', () => {
+      backToTop.hidden = window.scrollY < 600;
+    });
+
+    // Click → scroll smooth vers le haut
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
 })();
 </script>
