@@ -333,6 +333,61 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+  /* Texte d'aide avant les actions */
+.error-help {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  margin: var(--spacing-6) 0 var(--spacing-3);
+  font-weight: 500;
+}
+
+/* Container pour les 2 boutons côte à côte */
+.error-actions {
+  display: flex;
+  gap: var(--spacing-3);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--spacing-2);
+}
+
+/* Bouton WhatsApp dans state-error */
+.btn-whatsapp-error {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-whatsapp-error:hover {
+  background: #1fb858;
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp-error:focus-visible {
+  outline: 3px solid #25D366;
+  outline-offset: 2px;
+}
+
+/* Sur très petit écran, les boutons s'empilent */
+@media (max-width: 480px) {
+  .error-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .error-actions a {
+    width: 100%;
+  }
+} 
 
 .btn-secondary {
   display: inline-flex;
@@ -851,11 +906,23 @@ body {
       <span data-lang="en">You seem to have arrived on this page without going through the booking calendar. Go back to the pricing page and choose the number of participants.</span>
     </p>
 
-    <a href="/#tarifas" class="btn-secondary">
-      <span data-lang="es" class="is-active-lang">Volver a las tarifas</span>
-      <span data-lang="fr">Retour aux tarifs</span>
-      <span data-lang="en">Back to pricing</span>
-    </a>
+    <p class="error-help">
+      <span data-lang="es" class="is-active-lang">¿Necesitas ayuda? Contáctanos directamente:</span>
+      <span data-lang="fr">Besoin d'aide ? Contacte-nous directement :</span>
+      <span data-lang="en">Need help? Reach out directly:</span>
+    </p>
+
+    <div class="error-actions">
+      <a href="/#tarifas" class="btn-secondary">
+        <span data-lang="es" class="is-active-lang">Volver a las tarifas</span>
+        <span data-lang="fr">Retour aux tarifs</span>
+        <span data-lang="en">Back to pricing</span>
+      </a>
+
+      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20tengo%20un%20problema%20con%20mi%20reserva" target="_blank" rel="noopener" class="btn-whatsapp-error">
+        💬 WhatsApp Guillaume
+      </a>
+    </div>
 
   </div>
 
