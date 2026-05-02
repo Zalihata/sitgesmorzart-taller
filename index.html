@@ -24,6 +24,12 @@
 <!-- Canonical URL -->
 <link rel="canonical" href="https://sitgesmorzart.com/">
 
+<!-- Hreflang (multilingue) -->
+<link rel="alternate" hreflang="es" href="https://sitgesmorzart.com/">
+<link rel="alternate" hreflang="fr" href="https://sitgesmorzart.com/">
+<link rel="alternate" hreflang="en" href="https://sitgesmorzart.com/">
+<link rel="alternate" hreflang="x-default" href="https://sitgesmorzart.com/">
+   
 <!-- Open Graph (Facebook, WhatsApp, Insta DM, LinkedIn, Slack, etc.) -->
 <!-- 💡 Pour switcher l'image preview : remplacer "og-cover-atelier.jpg" par "og-cover.jpg" (variante Marvel) dans les 3 lignes ci-dessous + dans twitter:image -->
 <meta property="og:type" content="website">
@@ -1270,6 +1276,98 @@ footer {
 [data-lang]:not(.is-active-lang) { display: none !important; }
 
 </style>
+<!-- Schema.org : entreprise locale -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Sitgesmorzart · Taller Creativo",
+  "description": "Talleres creativos de madera y creaciones personalizadas en Sitges, Barcelona.",
+  "image": "https://sitgesmorzart.com/images/og-cover-atelier.jpg",
+  "url": "https://sitgesmorzart.com/",
+  "telephone": "+33679827387",
+  "priceRange": "€20-€30",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Carrer Sant Damià, 7",
+    "addressLocality": "Sitges",
+    "postalCode": "08870",
+    "addressRegion": "Barcelona",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 41.2364,
+    "longitude": 1.8120
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Friday",
+      "opens": "10:30",
+      "closes": "19:30"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "10:30",
+      "closes": "18:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/sitgesmorzart"
+  ]
+}
+</script>
+<!-- Schema.org : FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿A partir de qué edad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A partir de 6 años. Los talleres también están abiertos a adultos al mismo precio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué hay que traer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nada. Todos los materiales (madera, pinturas, pinceles, barniz) están incluidos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se reserva?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Por WhatsApp al +33 6 79 82 73 87 o directamente en línea desde nuestro sitio web."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hablan otros idiomas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí: español, catalán, inglés y francés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Y para cumpleaños o eventos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, organizamos talleres privados para grupos. Hasta 10 personas."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1414,7 +1512,7 @@ footer {
       <div class="hero-image">
         <picture>
           <source srcset="images/atelier.webp" type="image/webp">
-          <img src="images/atelier.jpg" alt="Niños creando en el taller" loading="eager" width="900" height="1200">
+          <img src="images/atelier.jpg" alt="Niños creando objetos de madera en el taller Sitgesmorzart en Sitges" loading="eager" width="900" height="1200">
         </picture>
       </div>
 
@@ -1573,7 +1671,7 @@ footer {
       <div class="gallery-item">
         <picture>
           <source srcset="images/mister-marvel.webp" type="image/webp">
-          <img src="images/mister-marvel.jpg" alt="Personnages Marvel en bois" loading="lazy" width="900" height="900">
+          <img src="images/mister-marvel.jpg" alt="Personajes de Marvel hechos en madera durante un taller creativo" loading="lazy" width="900" height="900">
         </picture>
         <div class="gallery-caption" data-lang="es">Marvel</div>
         <div class="gallery-caption" data-lang="fr">Marvel</div>
@@ -1582,7 +1680,7 @@ footer {
       <div class="gallery-item">
         <picture>
           <source srcset="images/petit-lapin.webp" type="image/webp">
-          <img src="images/petit-lapin.jpg" alt="Lapin en bois peint" loading="lazy" width="900" height="1200">
+          <img src="images/petit-lapin.jpg" alt="Conejo de madera pintado a mano en el taller Sitgesmorzart" loading="lazy" width="900" height="1200">
         </picture>
         <div class="gallery-caption" data-lang="es">Conejo</div>
         <div class="gallery-caption" data-lang="fr">Lapin</div>
@@ -1772,7 +1870,7 @@ footer {
       <div class="gallery-item">
         <picture>
           <source srcset="images/quedarte-studio.webp" type="image/webp">
-          <img src="images/quedarte-studio.jpg" alt="Studio Quedarte" loading="lazy" width="900" height="1200">
+          <img src="images/quedarte-studio.jpg" alt="Studio Quedarte en Sitges, sede del taller creativo Sitgesmorzart" loading="lazy" width="900" height="1200">
         </picture>
         <div class="gallery-caption" data-lang="es">El estudio</div>
         <div class="gallery-caption" data-lang="fr">L'atelier</div>
