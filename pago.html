@@ -483,6 +483,123 @@ body {
   text-align: center;
 }
 
+/* --- Choose state (mode de paiement) ---------------------------------- */
+.choose-recap {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-5) var(--spacing-6);
+  margin: var(--spacing-6) auto var(--spacing-8);
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.choose-recap-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-1);
+}
+
+.choose-recap-label {
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: var(--weight-semibold);
+}
+
+.choose-recap-value {
+  font-family: var(--font-display);
+  font-weight: var(--weight-bold);
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.choose-recap-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-default);
+}
+
+.choose-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-6);
+}
+
+@media (max-width: 600px) {
+  .choose-buttons {
+    grid-template-columns: 1fr;
+  }
+}
+
+.choose-btn {
+  background: var(--surface-default);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-6) var(--spacing-4);
+  cursor: pointer;
+  font-family: var(--font-body);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  transition: all 0.2s ease;
+}
+
+.choose-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-turquoise-500);
+}
+
+.choose-btn:focus-visible {
+  outline: 3px solid var(--brand-turquoise-500);
+  outline-offset: 2px;
+}
+
+.choose-btn-online:hover {
+  background: var(--brand-turquoise-100);
+}
+
+.choose-btn-cash:hover {
+  background: var(--brand-green-100);
+  border-color: var(--brand-green-500);
+}
+
+.choose-btn-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: var(--spacing-2);
+}
+
+.choose-btn-title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-large-size);
+  color: var(--text-primary);
+}
+
+.choose-btn-detail {
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.choose-help {
+  text-align: center;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
 /* --- Footer ----------------------------------------------------------- */
 .page-footer {
   border-top: 1px solid var(--border-default);
@@ -531,6 +648,88 @@ body {
 </header>
 
 <main class="page-main">
+
+  <!-- ===================== STATE: CHOOSE (mode de paiement) ===================== -->
+  <div id="state-choose" class="state-block" hidden>
+
+    <span class="pago-eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span data-lang="es" class="is-active-lang">Plaza apartada en el calendario</span>
+      <span data-lang="fr">Place réservée dans le calendrier</span>
+      <span data-lang="en">Slot held in the calendar</span>
+    </span>
+
+    <h1 class="pago-title">
+      <span data-lang="es" class="is-active-lang">¿Cómo prefieres pagar?</span>
+      <span data-lang="fr">Comment préfères-tu payer ?</span>
+      <span data-lang="en">How would you like to pay?</span>
+    </h1>
+
+    <p class="pago-lead">
+      <span data-lang="es" class="is-active-lang">Tu reserva está apartada. Elige tu método de pago para confirmarla.</span>
+      <span data-lang="fr">Ta réservation est bloquée. Choisis ton mode de paiement pour la confirmer.</span>
+      <span data-lang="en">Your booking is held. Pick your payment method to confirm it.</span>
+    </p>
+
+    <!-- Récap réservation -->
+    <div class="choose-recap">
+      <div class="choose-recap-item">
+        <span class="choose-recap-label">
+          <span data-lang="es" class="is-active-lang">Personas</span>
+          <span data-lang="fr">Personnes</span>
+          <span data-lang="en">People</span>
+        </span>
+        <span class="choose-recap-value" id="choose-seats">0</span>
+      </div>
+      <div class="choose-recap-divider" aria-hidden="true"></div>
+      <div class="choose-recap-item">
+        <span class="choose-recap-label">
+          <span data-lang="es" class="is-active-lang">Total</span>
+          <span data-lang="fr">Total</span>
+          <span data-lang="en">Total</span>
+        </span>
+        <span class="choose-recap-value"><span id="choose-total">0</span> €</span>
+      </div>
+    </div>
+
+    <!-- 2 boutons côte à côte -->
+    <div class="choose-buttons">
+      <button type="button" class="choose-btn choose-btn-online" id="btn-pay-online">
+        <span class="choose-btn-icon" aria-hidden="true">💳</span>
+        <span class="choose-btn-title">
+          <span data-lang="es" class="is-active-lang">Pagar online</span>
+          <span data-lang="fr">Payer en ligne</span>
+          <span data-lang="en">Pay online</span>
+        </span>
+        <span class="choose-btn-detail">
+          <span data-lang="es" class="is-active-lang">Tarjeta segura · Stripe</span>
+          <span data-lang="fr">Carte sécurisée · Stripe</span>
+          <span data-lang="en">Secure card · Stripe</span>
+        </span>
+      </button>
+
+      <button type="button" class="choose-btn choose-btn-cash" id="btn-pay-cash">
+        <span class="choose-btn-icon" aria-hidden="true">💵</span>
+        <span class="choose-btn-title">
+          <span data-lang="es" class="is-active-lang">Pagar en efectivo</span>
+          <span data-lang="fr">Payer en espèces</span>
+          <span data-lang="en">Pay in cash</span>
+        </span>
+        <span class="choose-btn-detail">
+          <span data-lang="es" class="is-active-lang">El día del taller</span>
+          <span data-lang="fr">Le jour de l'atelier</span>
+          <span data-lang="en">On the day of the workshop</span>
+        </span>
+      </button>
+    </div>
+
+    <p class="choose-help">
+      <span data-lang="es" class="is-active-lang">Tu plaza está apartada. Si cambias de opinión, contáctanos por WhatsApp.</span>
+      <span data-lang="fr">Ta place est bloquée. Si tu changes d'avis, contacte-nous sur WhatsApp.</span>
+      <span data-lang="en">Your slot is held. If you change your mind, message us on WhatsApp.</span>
+    </p>
+
+  </div>
 
   <!-- ===================== STATE: OK ===================== -->
   <div id="state-ok" class="state-block" hidden>
@@ -866,27 +1065,45 @@ body {
       }));
     } catch (e) {}
 
+    // Cacher le state-choose et afficher state-cash
+    document.getElementById('state-choose').hidden = true;
     document.getElementById('state-cash').hidden = false;
+
+    // Scroll en haut pour bien voir la confirmation
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderChoose(booking) {
+    // Pré-remplir le récap
+    document.getElementById('choose-seats').textContent = booking.seats;
+    document.getElementById('choose-total').textContent = booking.total;
+
+    // Afficher le state-choose
+    document.getElementById('state-choose').hidden = false;
+
+    // Listener bouton "Pagar online"
+    document.getElementById('btn-pay-online').addEventListener('click', function() {
+      // Cacher state-choose et afficher state-ok (Stripe)
+      document.getElementById('state-choose').hidden = true;
+      renderOk(booking);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Listener bouton "Pagar en efectivo"
+    document.getElementById('btn-pay-cash').addEventListener('click', function() {
+      renderCash(booking);
+    });
   }
 
   const booking = getBookingFromContext();
   if (!booking) {
     renderError();
   } else {
-    // Détecter le mode de paiement choisi sur Cal.com.
-    // Cal.com Free/Teams transmet le label affiché complet (pas de "value
-    // technique" séparée). Donc on détecte "espèces" par mot-clé dans la
-    // chaîne reçue, en couvrant les 3 langues + accents.
-    const params = new URLSearchParams(window.location.search);
-    const pagoPref = (params.get('pago_pref') || '').toLowerCase();
-    const isCash = /efectivo|esp[èe]ces|cash/i.test(pagoPref);
-
-    if (isCash) {
-      renderCash(booking);
-    } else {
-      // Par défaut (online ou vide) → flow Stripe
-      renderOk(booking);
-    }
+    // Architecture simplifiée : on affiche le choix du mode de paiement,
+    // puis on route vers state-ok (Stripe) ou state-cash selon le clic.
+    // Plus de dépendance à une question Cal.com pago_pref (qui ne
+    // transmettait pas la réponse via successRedirectUrl pour les radios).
+    renderChoose(booking);
   }
 
 })();
