@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Reserva tu plaza para un taller creativo Sitgesmorzart en Sitges.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Reservar · Sitgesmorzart</title>
+
+<link rel="canonical" href="https://sitgesmorzart-taller.vercel.app/reservar.html">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Foundations DS -->
+<link rel="stylesheet" href="foundations.css">
+
+<!-- Vercel Web Analytics (cookieless, GDPR compliant) -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+/* ============================================================================
+   RESERVAR PAGE STYLES — Sitgesmorzart
+   Page d'embed Cal.com pour la réservation de créneaux.
+   Click-to-load pour respecter l'éco-design (Cal.com chargé seulement au clic).
+   ============================================================================ */
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-default);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-lang]:not(.is-active-lang) { display: none !important; }
+
+/* --- Header (identique aux autres pages) ---------------------------- */
+.page-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--spacing-4) 0;
+  background: var(--surface-default);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.page-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-4);
+}
+
+.page-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.page-brand img {
+  height: 36px;
+  width: auto;
+}
+
+.page-brand span {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+}
+
+.lang-switcher {
+  display: flex;
+  gap: var(--spacing-1);
+}
+
+.lang-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--body-medium-size);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-btn:hover {
+  background: var(--surface-subtle);
+}
+
+.lang-btn.is-active {
+  background: var(--brand-turquoise-100);
+  border-color: var(--brand-turquoise-500);
+}
+
+/* --- Main ------------------------------------------------------------ */
+.page-main {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-8) var(--spacing-6);
+  width: 100%;
+}
+
+.reservar-intro {
+  text-align: center;
+  margin-bottom: var(--spacing-8);
+}
+
+.reservar-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  background: var(--brand-turquoise-100);
+  color: var(--brand-turquoise-700);
+  padding: var(--spacing-1) var(--spacing-3);
+  border-radius: var(--radius-full);
+  font-size: var(--body-small-size);
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--spacing-4);
+}
+
+.reservar-title {
+  font-family: var(--font-display);
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  margin-bottom: var(--spacing-3);
+  letter-spacing: -0.02em;
+}
+
+.reservar-lead {
+  color: var(--text-secondary);
+  font-size: var(--body-large-size);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.reservar-summary {
+  background: var(--surface-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-4) var(--spacing-6);
+  margin: var(--spacing-6) auto;
+  max-width: 480px;
+  text-align: center;
+  font-size: var(--body-medium-size);
+}
+
+.reservar-summary strong {
+  color: var(--brand-turquoise-700);
+  font-weight: var(--weight-semibold);
+}
+
+/* --- Click-to-load placeholder (éco-design) ------------------------- */
+.cal-placeholder {
+  background: var(--surface-subtle);
+  border: 2px dashed var(--border-default);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-12) var(--spacing-6);
+  text-align: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.cal-placeholder-icon {
+  font-size: 3rem;
+  margin-bottom: var(--spacing-4);
+  display: block;
+}
+
+.cal-placeholder p {
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-6);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-load-cal {
+  background: var(--brand-turquoise-500);
+  color: var(--text-on-brand);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-3) var(--spacing-6);
+  font-family: var(--font-body);
+  font-weight: var(--weight-semibold);
+  font-size: var(--body-medium-size);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.btn-load-cal:hover {
+  background: var(--brand-turquoise-700);
+  transform: translateY(-1px);
+}
+
+/* --- Cal.com embed container ---------------------------------------- */
+.cal-embed-container {
+  min-height: 700px;
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--surface-default);
+}
+
+@media (max-width: 768px) {
+  .cal-embed-container {
+    min-height: 600px;
+  }
+}
+
+/* Lien WhatsApp en bas */
+.cal-fallback {
+  text-align: center;
+  margin-top: var(--spacing-6);
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.cal-fallback a {
+  color: var(--brand-turquoise-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* --- Footer ---------------------------------------------------------- */
+.page-footer {
+  border-top: 1px solid var(--border-default);
+  padding: var(--spacing-6) 0;
+  text-align: center;
+  font-size: var(--body-small-size);
+  color: var(--text-secondary);
+}
+
+.page-footer .container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-2) var(--spacing-3);
+}
+
+.page-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.page-footer a:hover { color: var(--brand-turquoise-700); text-decoration: underline; }
+
+.footer-sep { opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="container">
+    <a href="/" class="page-brand">
+      <img src="/images/logo-header.png" alt="" aria-hidden="true">
+      <span>Sitgesmorzart</span>
+    </a>
+    <nav class="lang-switcher" aria-label="Idioma / Langue / Language">
+      <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+      <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+      <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+    </nav>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <div class="reservar-intro">
+    <span class="reservar-eyebrow">
+      <span data-lang="es" class="is-active-lang">Reserva tu plaza</span>
+      <span data-lang="fr">Réserve ta place</span>
+      <span data-lang="en">Book your spot</span>
+    </span>
+    <h1 class="reservar-title">
+      <span data-lang="es" class="is-active-lang">Elige tu horario</span>
+      <span data-lang="fr">Choisis ton créneau</span>
+      <span data-lang="en">Choose your slot</span>
+    </h1>
+    <p class="reservar-lead">
+      <span data-lang="es" class="is-active-lang">Selecciona el día y la hora que prefieres. Después podrás confirmar el pago.</span>
+      <span data-lang="fr">Sélectionne le jour et l'heure qui te conviennent. Tu pourras ensuite confirmer le paiement.</span>
+      <span data-lang="en">Pick the day and time that suits you. You'll then be able to confirm the payment.</span>
+    </p>
+  </div>
+
+  <div class="reservar-summary" id="reservar-summary" hidden>
+    <span data-lang="es" class="is-active-lang">Reservación para <strong><span class="summary-seats">0</span> personas</strong> · Total <strong><span class="summary-total">0</span> €</strong></span>
+    <span data-lang="fr">Réservation pour <strong><span class="summary-seats">0</span> personnes</strong> · Total <strong><span class="summary-total">0</span> €</strong></span>
+    <span data-lang="en">Booking for <strong><span class="summary-seats">0</span> people</strong> · Total <strong><span class="summary-total">0</span> €</strong></span>
+  </div>
+
+  <!-- Click-to-load placeholder (éco-design : Cal.com chargé seulement au clic) -->
+  <div class="cal-placeholder" id="cal-placeholder">
+    <span class="cal-placeholder-icon" aria-hidden="true">📅</span>
+    <p>
+      <span data-lang="es" class="is-active-lang">El calendario Cal.com se cargará al hacer clic. Esto evita cargar recursos innecesarios y respeta tu privacidad.</span>
+      <span data-lang="fr">Le calendrier Cal.com se chargera au clic. Cela évite de charger des ressources inutiles et respecte ta vie privée.</span>
+      <span data-lang="en">The Cal.com calendar will load on click. This avoids loading unnecessary resources and respects your privacy.</span>
+    </p>
+    <button type="button" class="btn-load-cal" id="btn-load-cal">
+      <span data-lang="es" class="is-active-lang">📅 Ver disponibilidad</span>
+      <span data-lang="fr">📅 Voir les disponibilités</span>
+      <span data-lang="en">📅 See availability</span>
+    </button>
+  </div>
+
+  <!-- Cal.com embed container (vide initialement, rempli au clic) -->
+  <div class="cal-embed-container" id="cal-embed-container" hidden></div>
+
+  <p class="cal-fallback">
+    <span data-lang="es" class="is-active-lang">¿Problemas con el calendario? <a href="https://wa.me/33679827387">Contáctanos por WhatsApp</a></span>
+    <span data-lang="fr">Problème avec le calendrier ? <a href="https://wa.me/33679827387">Contacte-nous sur WhatsApp</a></span>
+    <span data-lang="en">Trouble with the calendar? <a href="https://wa.me/33679827387">Message us on WhatsApp</a></span>
+  </p>
+
+</main>
+
+<footer class="page-footer">
+  <div class="container">
+    <span>© 2026 Sitgesmorzart</span>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/mentions-legales.html">
+      <span data-lang="es" class="is-active-lang">Aviso legal</span>
+      <span data-lang="fr">Mentions légales</span>
+      <span data-lang="en">Legal notice</span>
+    </a>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/cgv.html">
+      <span data-lang="es" class="is-active-lang">CGV</span>
+      <span data-lang="fr">CGV</span>
+      <span data-lang="en">Terms</span>
+    </a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ==========================================================================
+     LANGUAGE SWITCHER
+     ========================================================================== */
+  const SUPPORTED = ['es', 'fr', 'en'];
+  const STORAGE_KEY_LANG = 'sitgesmorzart-lang';
+  const STORAGE_KEY_BOOKING = 'sitgesmorzart-booking';
+
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = 'es';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
+    });
+    try { localStorage.setItem(STORAGE_KEY_LANG, lang); } catch (e) {}
+  }
+
+  // Init langue depuis localStorage ou défaut "es"
+  let initLang = 'es';
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY_LANG);
+    if (stored && SUPPORTED.includes(stored)) initLang = stored;
+  } catch (e) {}
+  setLang(initLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-switch')));
+  });
+
+  /* ==========================================================================
+     LIRE LE CONTEXTE DE RÉSERVATION (depuis URL ou localStorage)
+     ========================================================================== */
+  const params = new URLSearchParams(window.location.search);
+  let personas = parseInt(params.get('personas') || '', 10);
+
+  // Fallback localStorage si pas en URL
+  if (!personas || isNaN(personas) || personas < 1 || personas > 10) {
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORAGE_KEY_BOOKING) || '{}');
+      if (stored.seats && Date.now() - (stored.timestamp || 0) < 24 * 60 * 60 * 1000) {
+        personas = stored.seats;
+      }
+    } catch (e) {}
+  }
+
+  if (!personas || personas < 1 || personas > 10) personas = 1;
+
+  // Calcul du total
+  const PRICES = {
+    1: 30, 2: 50, 3: 75, 4: 100, 5: 100,
+    6: 120, 7: 140, 8: 160, 9: 180, 10: 200
+  };
+  const total = PRICES[personas] || 30;
+
+  // Affichage du résumé
+  document.querySelectorAll('.summary-seats').forEach(el => el.textContent = personas);
+  document.querySelectorAll('.summary-total').forEach(el => el.textContent = total);
+  document.getElementById('reservar-summary').hidden = false;
+
+  /* ==========================================================================
+     CAL.COM EMBED — CLICK-TO-LOAD (éco-design)
+     L'embed Cal.com officiel est chargé seulement au clic utilisateur.
+     ========================================================================== */
+  document.getElementById('btn-load-cal').addEventListener('click', function() {
+    // Hide placeholder, show container
+    document.getElementById('cal-placeholder').hidden = true;
+    document.getElementById('cal-embed-container').hidden = false;
+
+    // Charger le script Cal.com embed officiel
+    (function (C, A, L) {
+      let p = function (a, ar) { a.q.push(ar); };
+      let d = C.document;
+      C.Cal = C.Cal || function () {
+        let cal = C.Cal, ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          const api = function () { p(api, arguments); };
+          const namespace = ar[1];
+          api.q = api.q || [];
+          if(typeof namespace === "string"){
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else p(cal, ar);
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "taller-sitgesmorzart", {
+      origin: "https://cal.com"
+    });
+
+    Cal.ns["taller-sitgesmorzart"]("inline", {
+      elementOrSelector: "#cal-embed-container",
+      config: {
+        layout: "month_view",
+        personas: String(personas)  // pre-fill du nombre de participants
+      },
+      calLink: "sitgesmorzart/taller-sitgesmorzart"
+    });
+
+    Cal.ns["taller-sitgesmorzart"]("ui", {
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
