@@ -358,6 +358,18 @@ section { padding: var(--spacing-16) 0; }
 
 .btn-lg { padding: var(--spacing-4) var(--spacing-12); font-size: var(--body-large-size); }
 
+@media (max-width: 480px) {
+  .btn-lg { 
+    padding: var(--spacing-4) var(--spacing-6); 
+    font-size: var(--body-medium-size);
+  }
+}
+
+.creations-cta .btn-lg {
+  max-width: 100%;
+  white-space: normal;
+}
+
 /* --- Section heads ----------------------------------------------------- */
 .section-head { text-align: center; max-width: 720px; margin: 0 auto var(--spacing-12); }
 
@@ -1233,7 +1245,7 @@ footer {
 
 .footer-tagline { color: var(--neutral-grey-300); font-size: var(--body-small-size); }
 
-.footer-section h4 {
+.footer-section h3 {
   color: var(--text-inverse);
   font-size: var(--body-small-size);
   text-transform: uppercase;
@@ -1268,6 +1280,21 @@ footer {
 
 .footer-bottom-sep {
   opacity: 0.5;
+}
+
+/* ============================================================================
+   UTILITIES
+   ============================================================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* ============================================================================
@@ -1374,7 +1401,7 @@ footer {
 <!-- ============================================================================
      SITE HEADER — sticky navigation
      ============================================================================ -->
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="container">
 
     <a href="#" class="site-brand" aria-label="Sitgesmorzart Taller Creativo">
@@ -1524,14 +1551,16 @@ footer {
 </section>
 
 
-<main>
-
-
 <!-- ============================================================================
      ACTIVITIES OVERVIEW
      ============================================================================ -->
-<section class="activities">
+<section class="activities" aria-labelledby="activities-heading">
   <div class="container">
+    <h2 id="activities-heading" class="visually-hidden">
+      <span data-lang="es" class="is-active-lang">Nuestras actividades</span>
+      <span data-lang="fr">Nos activités</span>
+      <span data-lang="en">Our activities</span>
+    </h2>
     <div class="activities-grid">
 
       <a href="#talleres" class="activity-card">
@@ -2132,6 +2161,16 @@ footer {
       <span class="kicker" data-lang="es">Dónde estamos</span>
       <span class="kicker" data-lang="fr">Où nous trouver</span>
       <span class="kicker" data-lang="en">Find us</span>
+
+      <div data-lang="es" class="is-active-lang">
+        <h2>Nos encontrarás en el corazón de Sitges</h2>
+      </div>
+      <div data-lang="fr">
+        <h2>Retrouve-nous au cœur de Sitges</h2>
+      </div>
+      <div data-lang="en">
+        <h2>Find us in the heart of Sitges</h2>
+      </div>
     </div>
 
     <div class="location-card">
@@ -2248,7 +2287,7 @@ footer {
   <button class="lightbox-close" id="lightbox-close" aria-label="Fermer" type="button">×</button>
   <button class="lightbox-prev" id="lightbox-prev" aria-label="Image précédente" type="button">‹</button>
   <button class="lightbox-next" id="lightbox-next" aria-label="Image suivante" type="button">›</button>
-  <img class="lightbox-img" id="lightbox-img" src="" alt="">
+  <img class="lightbox-img" id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
   <div class="lightbox-caption" id="lightbox-caption"></div>
 </div>
 
@@ -2268,9 +2307,9 @@ footer {
       </div>
 
       <div class="footer-section">
-        <h4 data-lang="es">Contacto</h4>
-        <h4 data-lang="fr">Contact</h4>
-        <h4 data-lang="en">Contact</h4>
+        <h3 data-lang="es">Contacto</h3>
+        <h3 data-lang="fr">Contact</h3>
+        <h3 data-lang="en">Contact</h3>
         <ul>
           <li><a href="https://wa.me/33679827387">WhatsApp +33 6 79 82 73 87</a></li>
           <li><a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">Instagram @sitgesmorzart</a></li>
@@ -2278,9 +2317,9 @@ footer {
       </div>
 
       <div class="footer-section">
-        <h4 data-lang="es">Estudio</h4>
-        <h4 data-lang="fr">Atelier</h4>
-        <h4 data-lang="en">Studio</h4>
+        <h3 data-lang="es">Estudio</h3>
+        <h3 data-lang="fr">Atelier</h3>
+        <h3 data-lang="en">Studio</h3>
         <ul>
           <li>Studio Quedarte</li>
           <li>Carrer Sant Damià, 7</li>
