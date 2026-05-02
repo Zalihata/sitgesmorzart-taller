@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Pages techniques à ne pas indexer
+Disallow: /pago.html
+Disallow: /merci.html
+Disallow: /reservar.html
+
+# Sitemap
+Sitemap: https://sitgesmorzart.com/sitemap.xml
