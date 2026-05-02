@@ -475,6 +475,23 @@ section { padding: var(--spacing-16) 0; }
   .hero-image { aspect-ratio: 3 / 4; max-height: 500px; }
 }
 
+.scroll-indicator {
+  text-align: center;
+  margin-top: var(--spacing-8);
+  font-size: 1.5rem;
+  color: var(--brand-turquoise-500);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator { animation: none; }
+}
+
 
 /* ============================================================================
    ACTIVITY INTRO (2 cards : ateliers + créations)
@@ -1547,6 +1564,11 @@ footer {
       </div>
 
     </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>↓</span>
+    </div>
+
   </div>
 </section>
 
