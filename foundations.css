@@ -10,6 +10,7 @@
    
    STRUCTURE
    ---------
+   0. Fonts (self-hosted Fontsource)
    1. Primitives           — valeurs brutes (couleurs, tailles, etc.)
    2. Semantic — Surface   — fonds
    3. Semantic — Text      — couleurs de texte
@@ -33,7 +34,87 @@
    - Exemple :
      ✅ background: var(--surface-default);
      ❌ background: var(--neutral-white);
+   - Toujours utiliser var(--token) dans les composants
+   - Aucune valeur hardcodée dans les composants
    ============================================================================ */
+
+
+/* ============================================================================
+   0. FONTS — Self-hosted Fontsource
+   ============================================================================
+   Pourquoi self-hosted plutôt que Google Fonts CDN ?
+   - RGPD : pas de transmission d'IP des visiteurs à Google
+   - Performance : plus de connexion DNS supplémentaire
+   - Éco-design : data servie depuis le même CDN que le HTML
+   - Indépendance : fonctionne même si Google Fonts est down
+   ============================================================================ */
+
+/* Poppins (titres) */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/poppins-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/poppins-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/poppins-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/poppins-700.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/poppins-800.woff2') format('woff2');
+}
+
+/* Inter (corps de texte) */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-500.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-600.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-700.woff2') format('woff2');
+}
 
 
 /* ============================================================================
