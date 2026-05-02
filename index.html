@@ -2475,7 +2475,19 @@ footer {
   }
 
   let initialLang = DEFAULT_LANG;
-  try { initialLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG; } catch(e) {}
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && SUPPORTED.includes(stored)) {
+      // Langue déjà choisie : on respecte le choix
+      initialLang = stored;
+    } else {
+      // Premier visit : on détecte la langue du navigateur
+      const browserLang = (navigator.language || 'es').slice(0, 2).toLowerCase();
+      if (SUPPORTED.includes(browserLang)) {
+        initialLang = browserLang;
+      }
+    }
+  } catch(e) {}
   setLang(initialLang);
 
   document.querySelectorAll('.lang-btn').forEach(btn => {
