@@ -280,6 +280,13 @@
   --spacing-12: 48px;
   --spacing-16: 64px;
 
+  /* --- Tokens sémantiques (à formaliser dans un design system complet) ---
+     Ces tokens définissent les patterns d'espacement pour les containers.
+     Provisoire : sera étendu dans le projet design system principal. */
+  --padding-card:        var(--spacing-8);  /* Padding interne d'un card (32px) */
+  --padding-card-inner:  var(--spacing-6);  /* Padding interne d'un sous-élément dans un card (24px) */
+  --gap-card-stack:      var(--spacing-6);  /* Espacement vertical entre éléments empilés dans un card (24px) */
+
 
   /* ==========================================================================
      11. SHADOW
