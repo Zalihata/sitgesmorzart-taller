@@ -943,15 +943,11 @@ section { padding: var(--spacing-16) 0; }
 .calculator {
   background: var(--surface-default);
   border-radius: var(--radius-2xl);
-  padding: var(--spacing-8) var(--spacing-6) var(--spacing-10);
+  padding: var(--padding-card);
   max-width: 720px;
   margin: 0 auto;
   box-shadow: var(--shadow-md);
   text-align: center;
-}
-
-@media (min-width: 769px) {
-  .calculator { padding: var(--spacing-10) var(--spacing-8) var(--spacing-12); }
 }
 
 .calculator-question {
@@ -1007,8 +1003,8 @@ section { padding: var(--spacing-16) 0; }
 .calc-result {
   background: var(--brand-turquoise-100);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-5);
-  margin: 0 var(--spacing-6) var(--spacing-5);
+  padding: var(--padding-card-inner);
+  margin-bottom: var(--gap-card-stack);
 }
 
 .calc-total {
