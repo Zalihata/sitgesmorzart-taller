@@ -544,7 +544,7 @@ section { padding: var(--spacing-16) 0; }
 
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3.5rem);
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: var(--spacing-5);
 }
 
@@ -934,24 +934,33 @@ section { padding: var(--spacing-16) 0; }
    ============================================================================ */
 .pricing {
   background: var(--surface-subtle);
+  padding: var(--spacing-12) 0;
+}
+
+@media (max-width: 768px) {
+  .pricing { padding: var(--spacing-10) 0; }
 }
 
 .calculator {
   background: var(--surface-default);
   border-radius: var(--radius-2xl);
-  padding: var(--spacing-12) var(--spacing-8);
+  padding: var(--spacing-8) var(--spacing-6);
   max-width: 720px;
   margin: 0 auto;
   box-shadow: var(--shadow-md);
   text-align: center;
 }
 
+@media (min-width: 769px) {
+  .calculator { padding: var(--spacing-10) var(--spacing-8); }
+}
+
 .calculator-question {
   font-family: var(--font-display);
   font-weight: var(--weight-semibold);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
 }
 
 .calculator-hint {
@@ -960,7 +969,7 @@ section { padding: var(--spacing-16) 0; }
   font-weight: var(--weight-regular);
   font-size: var(--body-small-size);
   color: var(--text-secondary);
-  margin-top: var(--spacing-2);
+  margin-top: var(--spacing-1);
 }
 
 .calc-buttons {
@@ -968,7 +977,7 @@ section { padding: var(--spacing-16) 0; }
   justify-content: center;
   gap: var(--spacing-2);
   flex-wrap: wrap;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
 }
 
 .calc-btn {
@@ -999,14 +1008,14 @@ section { padding: var(--spacing-16) 0; }
 .calc-result {
   background: var(--brand-turquoise-100);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-6);
-  margin-bottom: var(--spacing-6);
+  padding: var(--spacing-5);
+  margin-bottom: var(--spacing-5);
 }
 
 .calc-total {
   font-family: var(--font-display);
   font-weight: var(--weight-bold);
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: var(--text-primary);
   line-height: 1;
 }
@@ -1048,7 +1057,7 @@ section { padding: var(--spacing-16) 0; }
 /* --- Tableau dégressif clair ------------------------------------------ */
 .pricing-table {
   max-width: 720px;
-  margin: var(--spacing-8) auto 0;
+  margin: var(--spacing-6) auto 0;
   background: var(--surface-default);
   border-radius: var(--radius-xl);
   overflow: hidden;
