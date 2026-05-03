@@ -568,6 +568,25 @@ section { padding: var(--spacing-16) 0; }
   gap: var(--spacing-3);
 }
 
+.hero-ctas .btn span[aria-hidden] {
+  display: inline-block;
+  margin-left: var(--spacing-1);
+  transition: transform 0.2s ease;
+}
+
+.hero-ctas .btn:hover span[aria-hidden] {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ctas .btn span[aria-hidden] {
+    transition: none;
+  }
+  .hero-ctas .btn:hover span[aria-hidden] {
+    transform: none;
+  }
+}
+
 .hero-image {
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-2xl);
@@ -1720,8 +1739,8 @@ footer {
           <h1>Creaciones en madera para <span class="accent">pequeños y grandes artistas</span></h1>
           <p class="hero-tagline">Talleres creativos en Sitges, y creaciones personalizadas a medida. Tú lo diseñas, nosotros lo cortamos, te lo llevas a casa.</p>
           <div class="hero-ctas">
-            <a href="#talleres" class="btn btn-primary btn-lg">Talleres creativos</a>
-            <a href="#creaciones" class="btn btn-secondary btn-lg">Nuestras creaciones</a>
+            <a href="#tarifas" class="btn btn-primary btn-lg">Reserva un taller <span aria-hidden="true">→</span></a>
+            <a href="#creaciones" class="btn btn-secondary btn-lg">Descubre nuestras creaciones <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -1730,8 +1749,8 @@ footer {
           <h1>Créations sur bois pour <span class="accent">petits et grands artistes</span></h1>
           <p class="hero-tagline">Ateliers créatifs à Sitges, et créations personnalisées sur mesure. Tu dessines, nous découpons, tu repars avec.</p>
           <div class="hero-ctas">
-            <a href="#talleres" class="btn btn-primary btn-lg">Ateliers créatifs</a>
-            <a href="#creaciones" class="btn btn-secondary btn-lg">Nos créations</a>
+            <a href="#tarifas" class="btn btn-primary btn-lg">Réserve un atelier <span aria-hidden="true">→</span></a>
+            <a href="#creaciones" class="btn btn-secondary btn-lg">Découvre nos créations <span aria-hidden="true">→</span></a>
           </div>
         </div>
 
@@ -1740,11 +1759,10 @@ footer {
           <h1>Wood creations for <span class="accent">young and grown-up artists</span></h1>
           <p class="hero-tagline">Creative workshops in Sitges, and custom creations on demand. You design it, we cut it, you take it home.</p>
           <div class="hero-ctas">
-            <a href="#talleres" class="btn btn-primary btn-lg">Creative workshops</a>
-            <a href="#creaciones" class="btn btn-secondary btn-lg">Our creations</a>
+            <a href="#tarifas" class="btn btn-primary btn-lg">Book a workshop <span aria-hidden="true">→</span></a>
+            <a href="#creaciones" class="btn btn-secondary btn-lg">Discover our creations <span aria-hidden="true">→</span></a>
           </div>
         </div>
-      </div>
 
       <div class="hero-image">
         <picture>
