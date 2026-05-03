@@ -393,21 +393,11 @@ section { padding: var(--spacing-16) 0; }
 .lang-btn:hover { background: var(--surface-default); }
 .lang-btn.is-active { background: var(--action-primary-bg); transform: scale(1.05); }
 
-/* Sur écrans étroits (< 480px) : codes plus petits */
-@media (max-width: 480px) {
-  .lang-btn { 
-    min-width: 40px; 
-    height: 28px; 
-    padding: 0 6px;
-  }
-  .lang-code { font-size: 0.6875rem; }
-}
-
-/* Sur très petits écrans (< 360px) : on cache les codes et garde juste les drapeaux */
-@media (max-width: 360px) {
+/* Sur mobile (< 768px) : on cache les codes et on garde les drapeaux seuls */
+@media (max-width: 768px) {
   .lang-btn {
     min-width: 32px;
-    padding: 0 4px;
+    padding: 0 var(--spacing-1);
   }
   .lang-code {
     /* Visuellement caché mais accessible aux lecteurs d'écran */
