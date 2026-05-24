@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sitgesmorzart · Talleres de Verano en Sitges. Semanas creativas y talleres de tarde. Del 6 de julio al 28 de agosto de 2026.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="author" content="Sitgesmorzart - Guillaume">
+
+<title>Talleres de Verano 2026 · Sitgesmorzart</title>
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://sitgesmorzart.com/verano/">
+
+<!-- Hreflang -->
+<link rel="alternate" hreflang="es" href="https://sitgesmorzart.com/verano/">
+<link rel="alternate" hreflang="fr" href="https://sitgesmorzart.com/verano/">
+<link rel="alternate" hreflang="en" href="https://sitgesmorzart.com/verano/">
+<link rel="alternate" hreflang="x-default" href="https://sitgesmorzart.com/verano/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sitgesmorzart · Taller Creativo">
+<meta property="og:title" content="Talleres de Verano 2026 · Sitgesmorzart">
+<meta property="og:description" content="Semanas creativas y talleres de tarde en Sitges. Del 6 de julio al 28 de agosto. A partir de 5 años, máximo 6 personas.">
+<meta property="og:url" content="https://sitgesmorzart.com/verano/">
+<meta property="og:image" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
+<meta property="og:image:secure_url" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="en_GB">
+
+<!-- Twitter/X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Talleres de Verano 2026 · Sitgesmorzart">
+<meta name="twitter:description" content="Semanas creativas y talleres de tarde en Sitges. Del 6 de julio al 28 de agosto.">
+<meta name="twitter:image" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
+
+<!-- Fonts (self-hosted) -->
+<link rel="preload" href="/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Design system -->
+<link rel="stylesheet" href="../foundations.css">
+
+<style>
+/* Self-hosted fonts */
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/poppins-400.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/poppins-500.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/poppins-600.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/poppins-700.woff2') format('woff2'); }
+@font-face { font-family: 'Poppins'; font-style: normal; font-weight: 800; font-display: swap; src: url('/fonts/poppins-800.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('/fonts/inter-400.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url('/fonts/inter-500.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('/fonts/inter-600.woff2') format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url('/fonts/inter-700.woff2') format('woff2'); }
+
+/* ============================================================
+   VERANO — Override tokens turquoise → orange
+   Scoped à cette page uniquement. Option A : textes en gris-900
+   (pas d'orange-700 dans le DS), éléments graphiques en orange.
+   ============================================================ */
+:root {
+  --brand-turquoise-100: var(--semantic-orange-100);
+  --brand-turquoise-200: var(--semantic-orange-200);
+  --brand-turquoise-300: var(--semantic-orange-300);
+  --brand-turquoise-500: var(--semantic-orange-500);
+  --brand-turquoise-700: var(--neutral-grey-900);
+  /* surface-subtle → orange-100 (fonds sections pricing, testimonial) */
+  --surface-subtle: var(--semantic-orange-100);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+html { scroll-padding-top: 80px; }
+body { padding-top: 72px; }
+@media (max-width: 768px) { html { scroll-padding-top: 72px; } body { padding-top: 64px; } }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+section { padding: var(--spacing-16) 0; }
+@media (max-width: 768px) { section { padding: var(--spacing-12) 0; } }
+
+/* ============================================================
+   SITE HEADER
+   ============================================================ */
+.site-header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border-default);
+  height: 72px; display: flex; align-items: center;
+}
+@media (max-width: 768px) { .site-header { height: 64px; } }
+
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--spacing-4); width: 100%;
+}
+
+.site-brand {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: var(--body-medium-size); color: var(--text-primary);
+  text-decoration: none; white-space: nowrap;
+  display: flex; align-items: center; gap: var(--spacing-2);
+}
+.site-brand-mark { width: 28px; height: 28px; flex-shrink: 0; display: block; }
+
+.site-nav { display: flex; align-items: center; gap: var(--spacing-1); }
+.site-nav-link {
+  padding: var(--spacing-2) var(--spacing-3); border-radius: var(--radius-md);
+  font-family: var(--font-body); font-size: var(--body-small-size);
+  font-weight: var(--weight-medium); color: var(--text-secondary);
+  text-decoration: none; transition: color 0.2s, background-color 0.2s;
+  white-space: nowrap;
+}
+.site-nav-link:hover { color: var(--text-primary); background: var(--brand-turquoise-100); }
+.site-nav-link.is-current {
+  color: var(--brand-turquoise-700); font-weight: var(--weight-semibold);
+  background: var(--brand-turquoise-100);
+}
+
+.site-actions { display: flex; align-items: center; gap: var(--spacing-2); }
+.site-cta {
+  padding: var(--spacing-2) var(--spacing-4); background: var(--action-primary-bg);
+  color: var(--action-primary-text); border-radius: var(--radius-full);
+  font-family: var(--font-body); font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size); text-decoration: none;
+  white-space: nowrap; transition: background-color 0.2s, transform 0.2s;
+}
+.site-cta:hover { background: var(--action-primary-bg-hover); transform: translateY(-1px); }
+
+.site-burger {
+  display: none; width: 40px; height: 40px; border-radius: var(--radius-md);
+  background: transparent; align-items: center; justify-content: center;
+}
+.site-burger:hover { background: var(--brand-turquoise-100); }
+.site-burger-icon { width: 20px; height: 14px; position: relative; display: block; }
+.site-burger-icon::before, .site-burger-icon::after, .site-burger-icon span {
+  content: ""; position: absolute; left: 0; right: 0; height: 2px;
+  background: var(--text-primary); border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.site-burger-icon::before { top: 0; }
+.site-burger-icon span { top: 50%; transform: translateY(-50%); }
+.site-burger-icon::after { bottom: 0; }
+.site-burger.is-open .site-burger-icon::before { transform: translateY(6px) rotate(45deg); }
+.site-burger.is-open .site-burger-icon span { opacity: 0; }
+.site-burger.is-open .site-burger-icon::after { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 1024px) { .site-nav, .site-cta { display: none; } .site-burger { display: flex; } }
+
+.site-mobile-panel {
+  position: fixed; top: 64px; left: 0; right: 0;
+  background: var(--surface-default); border-bottom: 1px solid var(--border-default);
+  box-shadow: var(--shadow-md); padding: var(--spacing-4) var(--spacing-6);
+  transform: translateY(-110%); transition: transform 0.3s ease;
+  z-index: 89; max-height: calc(100vh - 64px); overflow-y: auto;
+}
+.site-mobile-panel.is-open { transform: translateY(0); }
+.site-mobile-panel .site-nav-link {
+  display: block; padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--body-medium-size); border-radius: var(--radius-lg); margin-bottom: var(--spacing-1);
+}
+.site-mobile-panel .site-cta {
+  display: block; text-align: center;
+  margin-top: var(--spacing-4); padding: var(--spacing-3); font-size: var(--body-medium-size);
+}
+@media (min-width: 1025px) { .site-mobile-panel { display: none; } }
+
+.lang-switcher {
+  display: flex; gap: 2px; background: var(--brand-turquoise-100);
+  padding: 3px; border-radius: var(--radius-full);
+}
+.lang-btn {
+  min-width: 32px; height: 32px; padding: 0 var(--spacing-2);
+  border-radius: var(--radius-full); display: flex; align-items: center;
+  justify-content: center; gap: 4px; font-size: 0.875rem;
+  transition: background-color 0.2s ease, transform 0.2s ease; color: var(--text-primary);
+}
+.lang-flag { font-size: 1rem; line-height: 1; }
+.lang-code { font-family: var(--font-body); font-weight: var(--weight-semibold); font-size: 0.75rem; letter-spacing: 0.05em; }
+.lang-btn:hover { background: var(--surface-default); }
+.lang-btn.is-active { background: var(--action-primary-bg); transform: scale(1.05); }
+@media (max-width: 768px) {
+  .lang-btn { min-width: 32px; padding: 0 var(--spacing-1); }
+  .lang-code { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--spacing-2); padding: var(--spacing-3) var(--spacing-8);
+  border-radius: var(--radius-full); font-family: var(--font-body);
+  font-weight: var(--weight-semibold); font-size: var(--body-medium-size);
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border: 2px solid transparent; min-height: 48px;
+}
+.btn-primary { background: var(--action-primary-bg); color: var(--action-primary-text); }
+.btn-primary:hover { background: var(--action-primary-bg-hover); transform: translateY(-2px); }
+.btn-secondary { background: var(--action-secondary-bg); color: var(--action-secondary-text); border-color: var(--action-secondary-border); }
+.btn-secondary:hover { background: var(--action-secondary-bg-hover); transform: translateY(-2px); }
+.btn-whatsapp { background: #25D366; color: var(--neutral-white); }
+.btn-whatsapp:hover { background: #1fb858; transform: translateY(-2px); }
+.btn-lg { padding: var(--spacing-4) var(--spacing-12); font-size: var(--body-large-size); }
+@media (max-width: 480px) {
+  .btn-lg { padding: var(--spacing-4) var(--spacing-6); font-size: var(--body-medium-size); }
+}
+
+/* ============================================================
+   SECTION HEADS
+   ============================================================ */
+.section-head { text-align: center; max-width: 720px; margin: 0 auto var(--spacing-12); }
+.kicker {
+  display: inline-block; font-family: var(--font-body); font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size); letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--brand-turquoise-700); margin-bottom: var(--spacing-3);
+}
+.section-head h2 { margin-bottom: var(--spacing-4); }
+.section-head p { font-size: var(--body-large-size); color: var(--text-secondary); }
+
+/* ============================================================
+   HERO VERANO
+   ============================================================ */
+.hero-verano {
+  background-image: linear-gradient(rgba(255,255,255,0.62), rgba(255,255,255,0.62)), url('/images/hero-verano.webp');
+  background-size: cover;
+  background-position: center;
+  padding: var(--spacing-16) 0 var(--spacing-14);
+  padding-top: calc(var(--spacing-16) + 16px);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-verano-dates {
+  display: inline-flex; align-items: center; gap: var(--spacing-2);
+  background: var(--brand-turquoise-500); color: var(--text-primary);
+  padding: var(--spacing-1) var(--spacing-4); border-radius: var(--radius-full);
+  font-family: var(--font-display); font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size); margin-bottom: var(--spacing-6);
+}
+
+.hero-verano h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15;
+  letter-spacing: 0.01em;
+  margin-bottom: var(--spacing-4);
+  max-width: 800px; margin-left: auto; margin-right: auto;
+}
+.hero-verano h1 .accent { color: var(--brand-turquoise-700); font-style: italic; }
+
+.hero-verano-tagline {
+  font-size: var(--body-large-size); color: var(--text-secondary);
+  max-width: 560px; margin: 0 auto var(--spacing-8); line-height: 1.6;
+}
+
+.hero-verano-ctas {
+  display: flex; justify-content: center; flex-wrap: wrap; gap: var(--spacing-3);
+}
+@media (max-width: 480px) {
+  .hero-verano-ctas { flex-direction: column; align-items: stretch; padding: 0 var(--spacing-4); }
+}
+
+/* ============================================================
+   FORMATS
+   ============================================================ */
+.formats { background: var(--surface-default); }
+
+.formats-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-6); max-width: 900px; margin: 0 auto;
+}
+@media (max-width: 768px) { .formats-grid { grid-template-columns: 1fr; } }
+
+.format-card {
+  background: var(--surface-default); border: 2px solid var(--border-default);
+  border-radius: var(--radius-2xl); padding: var(--spacing-8);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: flex; flex-direction: column; gap: var(--spacing-3);
+}
+.format-card:hover { border-color: var(--border-brand); transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+.format-icon {
+  width: 56px; height: 56px; border-radius: var(--radius-lg);
+  background: var(--brand-turquoise-100); display: flex;
+  align-items: center; justify-content: center; font-size: 1.75rem;
+}
+
+.format-card h3 { font-size: 1.375rem; margin-bottom: 0; }
+
+.format-schedule {
+  display: inline-flex; align-items: center; gap: var(--spacing-2);
+  background: var(--brand-turquoise-100); color: var(--brand-turquoise-700);
+  padding: var(--spacing-1) var(--spacing-3); border-radius: var(--radius-full);
+  font-size: var(--body-small-size); font-weight: var(--weight-semibold);
+  width: fit-content;
+}
+
+.format-card p { color: var(--text-secondary); font-size: var(--body-medium-size); line-height: 1.6; flex: 1; }
+
+.format-price-preview {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: 1.75rem; color: var(--text-primary);
+}
+.format-price-preview small {
+  font-size: var(--body-small-size); font-weight: var(--weight-regular);
+  color: var(--text-secondary);
+}
+
+/* ============================================================
+   CALCULATOR
+   ============================================================ */
+.pricing-verano { background: var(--surface-subtle); }
+
+.calc-toggle {
+  display: flex; background: var(--surface-default);
+  border: 2px solid var(--border-default); border-radius: var(--radius-full);
+  padding: 4px; max-width: 540px; margin: 0 auto var(--spacing-8);
+}
+.calc-toggle-btn {
+  flex: 1; padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-full);
+  font-family: var(--font-display); font-weight: var(--weight-semibold);
+  font-size: var(--body-small-size); color: var(--text-secondary);
+  transition: all 0.2s ease; text-align: center; cursor: pointer;
+  border: none; background: transparent;
+}
+.calc-toggle-btn.is-active { background: var(--action-primary-bg); color: var(--action-primary-text); }
+
+.calculator {
+  background: var(--surface-default); border-radius: var(--radius-2xl);
+  padding: var(--padding-card);
+  max-width: 720px; margin: 0 auto; box-shadow: var(--shadow-md); text-align: center;
+}
+
+.calculator-question {
+  font-family: var(--font-display); font-weight: var(--weight-semibold);
+  font-size: 1.125rem; color: var(--text-primary); margin-bottom: var(--spacing-4);
+}
+.calculator-hint {
+  display: block; font-family: var(--font-body); font-weight: var(--weight-regular);
+  font-size: var(--body-small-size); color: var(--text-secondary); margin-top: var(--spacing-1);
+}
+
+.calc-buttons {
+  display: flex; justify-content: center; gap: var(--spacing-2);
+  flex-wrap: wrap; margin-bottom: var(--spacing-6);
+}
+.calc-btn {
+  width: 56px; height: 56px; border-radius: var(--radius-full);
+  background: var(--surface-default); border: 2px solid var(--border-default);
+  color: var(--text-primary); font-family: var(--font-display);
+  font-weight: var(--weight-bold); font-size: 1.125rem;
+  transition: all 0.2s ease; cursor: pointer;
+}
+.calc-btn:hover { border-color: var(--border-brand); color: var(--brand-turquoise-700); }
+.calc-btn.is-active {
+  background: var(--action-primary-bg); border-color: var(--action-primary-bg);
+  color: var(--action-primary-text); transform: scale(1.05);
+}
+
+.calc-result {
+  background: var(--brand-turquoise-100); border-radius: var(--radius-xl);
+  padding: var(--padding-card-inner); margin-bottom: var(--gap-card-stack);
+}
+.calc-total {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: 3rem; color: var(--text-primary); line-height: 1.2;
+}
+.calc-total .currency { font-size: 1.5rem; vertical-align: super; margin-right: 4px; }
+.calc-detail { margin-top: var(--spacing-2); color: var(--text-secondary); font-size: var(--body-medium-size); }
+
+.calc-savings {
+  display: inline-block; margin-top: var(--spacing-3);
+  padding: var(--spacing-1) var(--spacing-3); background: var(--brand-green-100);
+  color: var(--brand-green-700); border-radius: var(--radius-full);
+  font-weight: var(--weight-semibold); font-size: var(--body-small-size);
+  opacity: 0; transition: opacity 0.3s ease;
+}
+.calc-savings.is-visible { opacity: 1; }
+
+.calc-cta { display: flex; gap: var(--spacing-3); justify-content: center; flex-wrap: wrap; }
+
+/* Format card différenciation */
+.format-card {
+  position: relative;
+  overflow: hidden;
+}
+.format-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+}
+.format-card--morning::before { background: var(--semantic-orange-300); }
+.format-card--afternoon::before { background: var(--semantic-orange-500); }
+.format-card--morning .format-icon { background: var(--semantic-orange-100); }
+.format-card--afternoon .format-icon { background: var(--semantic-orange-200); }
+.format-card--morning .format-schedule { background: var(--semantic-orange-100); color: var(--neutral-grey-900); }
+.format-card--afternoon .format-schedule { background: var(--semantic-orange-200); color: var(--neutral-grey-900); }
+.pricing-table {
+  max-width: 720px; margin: var(--spacing-6) auto 0;
+  background: var(--surface-default); border-radius: var(--radius-xl);
+  overflow: hidden; border: 1px solid var(--border-default);
+}
+.pricing-table-row {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: center; padding: var(--spacing-4) var(--spacing-6);
+  border-bottom: 1px solid var(--border-default);
+}
+.pricing-table-row:last-child { border-bottom: none; }
+.pricing-table-row.is-header {
+  background: var(--surface-subtle); font-family: var(--font-display);
+  font-weight: var(--weight-semibold); font-size: var(--body-small-size);
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-turquoise-700);
+}
+.pricing-table-label { color: var(--text-primary); font-weight: var(--weight-medium); }
+.pricing-table-price {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: 1.125rem; color: var(--text-primary);
+}
+
+/* ============================================================
+   DISCIPLINES
+   ============================================================ */
+.disciplines { background: var(--surface-default); }
+
+.disciplines-list {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: var(--spacing-8); max-width: 780px; margin: 0 auto;
+}
+.discipline-item {
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--spacing-2); text-align: center; min-width: 100px;
+}
+.discipline-icon { font-size: 2.5rem; line-height: 1; display: block; }
+.discipline-label { font-size: var(--body-medium-size); font-weight: var(--weight-medium); color: var(--text-secondary); }
+
+/* Disciplines — liste simple */
+.disciplines-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-8);
+  max-width: 780px;
+  margin: 0 auto;
+}
+.discipline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
+  text-align: center;
+  min-width: 100px;
+}
+.discipline-icon { font-size: 2.5rem; line-height: 1; display: block; }
+.discipline-label { font-size: var(--body-medium-size); font-weight: var(--weight-medium); color: var(--text-secondary); }
+.testimonial-section { background: var(--surface-subtle); padding: var(--spacing-16) 0; }
+
+.testimonial-card {
+  max-width: 720px; margin: 0 auto; background: var(--surface-default);
+  border-radius: var(--radius-2xl); padding: var(--spacing-6) var(--spacing-8);
+  box-shadow: var(--shadow-sm); position: relative;
+}
+.testimonial-card::before {
+  content: "\201C"; position: absolute; top: var(--spacing-4); left: var(--spacing-6);
+  font-family: var(--font-display); font-size: 5rem; line-height: 1;
+  color: var(--brand-turquoise-200); font-weight: var(--weight-bold); pointer-events: none;
+}
+.testimonial-quote {
+  font-size: var(--body-large-size); color: var(--text-primary);
+  line-height: 1.6; font-style: italic;
+  margin-bottom: var(--spacing-5); padding-top: var(--spacing-6);
+}
+.testimonial-author { display: flex; align-items: center; gap: var(--spacing-3); }
+.testimonial-avatar {
+  width: 44px; height: 44px; border-radius: var(--radius-full);
+  background: var(--brand-turquoise-200); display: flex;
+  align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0;
+}
+.testimonial-name { font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: var(--body-medium-size); color: var(--text-primary); }
+.testimonial-meta { font-size: var(--body-small-size); color: var(--text-secondary); }
+
+/* ============================================================
+   INSTAGRAM (Behold.so) + galerie photos verano
+   ============================================================ */
+.instagram-section { background: var(--surface-default); }
+
+.verano-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-8);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.verano-gallery-item {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--semantic-orange-100);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+}
+
+.verano-gallery-item:hover { transform: scale(1.03); }
+
+.verano-gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+
+.verano-gallery-item:hover img { transform: scale(1.08); }
+
+/* ============================================================
+   CTA FINAL
+   ============================================================ */
+.cta-section {
+  background: var(--surface-emphasis);
+  padding: var(--spacing-16) 0;
+  text-align: center;
+}
+.cta-section h2 { color: var(--text-inverse); margin-bottom: var(--spacing-3); }
+.cta-section p { color: var(--neutral-grey-300); font-size: var(--body-large-size); margin-bottom: var(--spacing-6); }
+.cta-buttons { display: flex; justify-content: center; flex-wrap: wrap; gap: var(--spacing-3); }
+@media (max-width: 480px) { .cta-buttons { flex-direction: column; align-items: stretch; padding: 0 var(--spacing-4); } }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); padding: var(--spacing-12) 0 var(--spacing-6); }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: var(--spacing-8); margin-bottom: var(--spacing-8); }
+@media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; gap: var(--spacing-6); } }
+.footer-brand { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 1.25rem; color: var(--text-inverse); margin-bottom: var(--spacing-3); }
+.footer-tagline { color: var(--neutral-grey-300); font-size: var(--body-small-size); }
+.footer-section h3 { color: var(--text-inverse); font-size: var(--body-small-size); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: var(--spacing-3); }
+.footer-section ul { list-style: none; }
+.footer-section li { margin-bottom: var(--spacing-2); }
+.footer-section a { color: var(--neutral-grey-300); font-size: var(--body-small-size); transition: color 0.2s; }
+.footer-section a:hover { color: var(--brand-turquoise-300); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--spacing-6); font-size: var(--body-small-size); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--spacing-2) var(--spacing-3); }
+.footer-bottom a { color: var(--neutral-grey-300); transition: color 0.2s; }
+.footer-bottom a:hover { color: var(--brand-turquoise-300); }
+.footer-bottom-sep { opacity: 0.5; }
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.skip-to-content { position: absolute; top: -100px; left: var(--spacing-4); background: var(--brand-turquoise-700); color: var(--neutral-white); padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-md); font-family: var(--font-body); font-weight: var(--weight-semibold); font-size: var(--body-small-size); text-decoration: none; z-index: 999; transition: top 0.2s ease; }
+.skip-to-content:focus { top: var(--spacing-4); outline: 3px solid var(--brand-turquoise-500); outline-offset: 2px; }
+
+.back-to-top { position: fixed; bottom: var(--spacing-6); right: var(--spacing-6); width: 48px; height: 48px; border-radius: var(--radius-full); background: var(--brand-turquoise-500); color: var(--text-primary); font-size: 1.5rem; font-weight: var(--weight-bold); box-shadow: var(--shadow-md); z-index: 80; cursor: pointer; border: none; display: flex; align-items: center; justify-content: center; transition: opacity 0.3s ease, transform 0.2s ease, background-color 0.2s ease; }
+.back-to-top:hover { background: var(--brand-turquoise-700); color: var(--neutral-white); transform: translateY(-2px); }
+.back-to-top[hidden] { display: none; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+[data-lang]:not(.is-active-lang) { display: none !important; }
+[data-lang].is-active-lang { animation: langFadeIn 0.3s ease; }
+@keyframes langFadeIn { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { [data-lang].is-active-lang { animation: none; } }
+</style>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Talleres de Verano Sitgesmorzart 2026",
+  "description": "Talleres creativos de madera en Sitges durante el verano. Semanas creativas y talleres de tarde.",
+  "startDate": "2026-07-06",
+  "endDate": "2026-08-28",
+  "location": {
+    "@type": "Place",
+    "name": "Studio Quedarte",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrer Sant Damià, 7",
+      "addressLocality": "Sitges",
+      "postalCode": "08870",
+      "addressRegion": "Barcelona",
+      "addressCountry": "ES"
+    }
+  },
+  "organizer": {
+    "@type": "Organization",
+    "name": "Sitgesmorzart",
+    "url": "https://sitgesmorzart.com"
+  },
+  "url": "https://sitgesmorzart.com/verano/"
+}
+</script>
+</head>
+<body>
+
+<a href="#main-content" class="skip-to-content">
+  <span data-lang="es" class="is-active-lang">Ir al contenido principal</span>
+  <span data-lang="fr">Aller au contenu principal</span>
+  <span data-lang="en">Skip to main content</span>
+</a>
+
+<!-- ============================================================
+     SITE HEADER
+     ============================================================ -->
+<header class="site-header">
+  <div class="container">
+
+    <a href="/" class="site-brand" aria-label="Sitgesmorzart Taller Creativo — Inicio">
+      <img class="site-brand-mark" src="/images/logo-header.png" alt="" aria-hidden="true">
+      <span class="site-brand-name">Sitgesmorzart</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      <a href="/#talleres" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Talleres</span>
+        <span data-lang="fr">Ateliers</span>
+        <span data-lang="en">Workshops</span>
+      </a>
+      <a href="/#tarifas" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Tarifas</span>
+        <span data-lang="fr">Tarifs</span>
+        <span data-lang="en">Pricing</span>
+      </a>
+      <a href="/#horarios" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Horarios</span>
+        <span data-lang="fr">Horaires</span>
+        <span data-lang="en">Schedule</span>
+      </a>
+      <a href="/verano/" class="site-nav-link is-current" aria-current="page">
+        <span data-lang="es" class="is-active-lang">🌞 Verano</span>
+        <span data-lang="fr">🌞 Été</span>
+        <span data-lang="en">🌞 Summer</span>
+      </a>
+      <a href="/#creaciones" class="site-nav-link">
+        <span data-lang="es" class="is-active-lang">Creaciones</span>
+        <span data-lang="fr">Créations</span>
+        <span data-lang="en">Creations</span>
+      </a>
+    </nav>
+
+    <div class="site-actions">
+      <nav class="lang-switcher" aria-label="Sélecteur de langue">
+        <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">
+          <span class="lang-flag" aria-hidden="true">🇪🇸</span>
+          <span class="lang-code">ES</span>
+        </button>
+        <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">
+          <span class="lang-flag" aria-hidden="true">🇫🇷</span>
+          <span class="lang-code">FR</span>
+        </button>
+        <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">
+          <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+          <span class="lang-code">EN</span>
+        </button>
+      </nav>
+      <a href="#calculadora" class="site-cta">
+        <span data-lang="es" class="is-active-lang">Reservar</span>
+        <span data-lang="fr">Réserver</span>
+        <span data-lang="en">Book</span>
+      </a>
+      <button class="site-burger" id="site-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="site-mobile-panel">
+        <span class="site-burger-icon" aria-hidden="true"><span></span></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile panel -->
+<div class="site-mobile-panel" id="site-mobile-panel">
+  <a href="/#talleres" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Talleres</span>
+    <span data-lang="fr">Ateliers</span>
+    <span data-lang="en">Workshops</span>
+  </a>
+  <a href="/#tarifas" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Tarifas</span>
+    <span data-lang="fr">Tarifs</span>
+    <span data-lang="en">Pricing</span>
+  </a>
+  <a href="/#horarios" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Horarios</span>
+    <span data-lang="fr">Horaires</span>
+    <span data-lang="en">Schedule</span>
+  </a>
+  <a href="/verano/" class="site-nav-link is-current" aria-current="page">
+    <span data-lang="es" class="is-active-lang">🌞 Verano</span>
+    <span data-lang="fr">🌞 Été</span>
+    <span data-lang="en">🌞 Summer</span>
+  </a>
+  <a href="/#creaciones" class="site-nav-link">
+    <span data-lang="es" class="is-active-lang">Creaciones</span>
+    <span data-lang="fr">Créations</span>
+    <span data-lang="en">Creations</span>
+  </a>
+  <a href="#calculadora" class="site-cta">
+    <span data-lang="es" class="is-active-lang">Reservar</span>
+    <span data-lang="fr">Réserver</span>
+    <span data-lang="en">Book</span>
+  </a>
+</div>
+
+
+<main id="main-content">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero-verano">
+  <div class="container">
+
+    <div class="hero-verano-dates" aria-label="Fechas del taller de verano">
+      ☀️ 6 julio — 29 agosto 2026
+    </div>
+
+    <div data-lang="es" class="is-active-lang">
+      <h1>Talleres de <span class="accent">verano</span> en Sitges</h1>
+      <p class="hero-verano-tagline">Arte y creatividad para niños y adultos. Dos formatos para un verano creativo en Sitges.</p>
+    </div>
+    <div data-lang="fr">
+      <h1>Ateliers d'<span class="accent">été</span> à Sitges</h1>
+      <p class="hero-verano-tagline">Deux formats pour passer un été créatif à Sitges.</p>
+    </div>
+    <div data-lang="en">
+      <h1><span class="accent">Summer</span> workshops in Sitges</h1>
+      <p class="hero-verano-tagline">Two formats for a creative summer in Sitges.</p>
+    </div>
+
+    <div class="hero-verano-ctas">
+      <a href="#calculadora" class="btn btn-primary btn-lg">
+        <span data-lang="es" class="is-active-lang">Reservar ahora →</span>
+        <span data-lang="fr">Réserver maintenant →</span>
+        <span data-lang="en">Book now →</span>
+      </a>
+      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20me%20interesa%20un%20taller%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+        💬 WhatsApp Guillaume
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FORMATS
+     ============================================================ -->
+<section class="formats" id="formatos">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Dos formatos</span>
+      <span class="kicker" data-lang="fr">Deux formats</span>
+      <span class="kicker" data-lang="en">Two formats</span>
+      <div data-lang="es" class="is-active-lang">
+        <h2>Elige tu fórmula de verano</h2>
+        <p>Semana completa por la mañana, o taller suelto por la tarde. A partir de 5 años, máximo 6 personas.</p>
+      </div>
+      <div data-lang="fr">
+        <h2>Choisis ta formule d'été</h2>
+        <p>Semaine complète le matin, ou atelier à la séance l'après-midi. À partir de 5 ans, maximum 6 personnes.</p>
+      </div>
+      <div data-lang="en">
+        <h2>Choose your summer format</h2>
+        <p>Full week in the morning, or drop-in afternoon session. Ages 5+, maximum 6 people.</p>
+      </div>
+    </div>
+
+    <div class="formats-grid">
+
+      <!-- Semana creativa -->
+      <div class="format-card format-card--morning">
+        <div class="format-icon" aria-hidden="true">🎨</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Taller Verano · Semana Creativa</h3>
+        </div>
+        <div data-lang="fr">
+          <h3>Stage Verano · Semaine Créative</h3>
+        </div>
+        <div data-lang="en">
+          <h3>Creative Workshop · Summer Week</h3>
+        </div>
+        <div class="format-schedule" data-lang="es">🎨 Lun–Vie · 10:30–12:30</div>
+        <div class="format-schedule" data-lang="fr">🎨 Lun–Ven · 10h30–12h30</div>
+        <div class="format-schedule" data-lang="en">🎨 Mon–Fri · 10:30–12:30</div>
+        <div data-lang="es" class="is-active-lang">
+          <p>Una semana entera de creación. Un proyecto o varios, según las ganas de cada uno.</p>
+        </div>
+        <div data-lang="fr">
+          <p>Une semaine entière de création. Un projet ou plusieurs, selon les envies de chacun.</p>
+        </div>
+        <div data-lang="en">
+          <p>A full week of creativity. One project or more, whatever each person feels like making.</p>
+        </div>
+        <div class="format-price-preview">
+          <span data-lang="es" class="is-active-lang">desde 100 € <small>/ pers. / semana</small></span>
+          <span data-lang="fr">à partir de 100 € <small>/ pers. / semaine</small></span>
+          <span data-lang="en">from €100 <small>/ person / week</small></span>
+        </div>
+      </div>
+
+      <!-- Taller de tarde -->
+      <div class="format-card format-card--afternoon">
+        <div class="format-icon" aria-hidden="true">🌅</div>
+        <div data-lang="es" class="is-active-lang">
+          <h3>Taller de Tarde · 3h</h3>
+        </div>
+        <div data-lang="fr">
+          <h3>Atelier de l'après-midi · 3h</h3>
+        </div>
+        <div data-lang="en">
+          <h3>Afternoon Workshop · 3h</h3>
+        </div>
+        <div class="format-schedule" data-lang="es">🌅 Lun–Sáb · 15:00–18:00</div>
+        <div class="format-schedule" data-lang="fr">🌅 Lun–Sam · 15h00–18h00</div>
+        <div class="format-schedule" data-lang="en">🌅 Mon–Sat · 3pm–6pm</div>
+        <div data-lang="es" class="is-active-lang">
+          <p>Un taller de 3 horas para crear tu propio objeto de madera. Ideal para combinar con la playa por la mañana.</p>
+        </div>
+        <div data-lang="fr">
+          <p>Un atelier de 3 heures pour créer ton propre objet en bois. Parfait pour combiner avec la plage le matin.</p>
+        </div>
+        <div data-lang="en">
+          <p>A 3-hour session to create your own wooden piece. Great to pair with a morning at the beach.</p>
+        </div>
+        <div class="format-price-preview">
+          <span data-lang="es" class="is-active-lang">desde 20 € <small>/ pers.</small></span>
+          <span data-lang="fr">à partir de 20 € <small>/ pers.</small></span>
+          <span data-lang="en">from €20 <small>/ person</small></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CALCULATOR
+     ============================================================ -->
+<section class="pricing-verano" id="calculadora">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Tarifas</span>
+      <span class="kicker" data-lang="fr">Tarifs</span>
+      <span class="kicker" data-lang="en">Pricing</span>
+      <div data-lang="es" class="is-active-lang">
+        <h2>Calcula el precio de tu taller</h2>
+        <p>Cuanto más grande es el grupo, menor es el precio por persona.</p>
+      </div>
+      <div data-lang="fr">
+        <h2>Calcule le prix de ton atelier</h2>
+        <p>Plus le groupe est grand, plus le prix par personne baisse.</p>
+      </div>
+      <div data-lang="en">
+        <h2>Calculate your workshop price</h2>
+        <p>The bigger the group, the lower the price per person.</p>
+      </div>
+    </div>
+
+    <!-- Toggle format -->
+    <div class="calc-toggle" role="tablist" aria-label="Format de taller">
+      <button class="calc-toggle-btn is-active" id="toggle-semana" role="tab" aria-selected="true" aria-controls="panel-calculadora">
+        <span data-lang="es" class="is-active-lang">🎨 Semana creativa</span>
+        <span data-lang="fr">🎨 Semaine créative</span>
+        <span data-lang="en">🎨 Summer week</span>
+      </button>
+      <button class="calc-toggle-btn" id="toggle-tarde" role="tab" aria-selected="false" aria-controls="panel-calculadora">
+        <span data-lang="es" class="is-active-lang">🌅 Taller de tarde</span>
+        <span data-lang="fr">🌅 Atelier après-midi</span>
+        <span data-lang="en">🌅 Afternoon session</span>
+      </button>
+    </div>
+
+    <div class="calculator" id="panel-calculadora" role="tabpanel">
+
+      <div class="calculator-question" data-lang="es">¿Cuántos seréis?
+        <span class="calculator-hint">Selecciona para ver el precio</span>
+      </div>
+      <div class="calculator-question" data-lang="fr">Vous serez combien ?
+        <span class="calculator-hint">Sélectionne pour voir le prix</span>
+      </div>
+      <div class="calculator-question" data-lang="en">How many will you be?
+        <span class="calculator-hint">Select to see the price</span>
+      </div>
+
+      <div class="calc-buttons" id="calc-buttons" role="radiogroup" aria-label="Número de participantes"></div>
+
+      <div class="calc-result">
+        <div class="calc-total"><span class="currency">€</span><span id="calc-amount">150</span></div>
+        <div class="calc-detail">
+          <span data-lang="es" class="is-active-lang"><span id="calc-people-es">1 persona</span> · <span id="calc-perperson-es">150 € por persona / semana</span></span>
+          <span data-lang="fr"><span id="calc-people-fr">1 personne</span> · <span id="calc-perperson-fr">150 € par personne / semaine</span></span>
+          <span data-lang="en"><span id="calc-people-en">1 person</span> · <span id="calc-perperson-en">€150 per person / week</span></span>
+        </div>
+        <div class="calc-savings" id="calc-savings">
+          <span data-lang="es" class="is-active-lang"><span id="calc-savings-es"></span></span>
+          <span data-lang="fr"><span id="calc-savings-fr"></span></span>
+          <span data-lang="en"><span id="calc-savings-en"></span></span>
+        </div>
+      </div>
+
+      <div class="calc-cta">
+        <a href="https://cal.com/sitgesmorzart/taller-verano-semana-creativa" id="cta-online" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+          <span data-lang="es" class="is-active-lang">Reservar online · <span id="cta-online-amount-es">150</span> €</span>
+          <span data-lang="fr">Réserver en ligne · <span id="cta-online-amount-fr">150</span> €</span>
+          <span data-lang="en">Book online · <span id="cta-online-amount-en">150</span> €</span>
+        </a>
+        <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20me%20interesa%20reservar%20un%20taller%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+          <span data-lang="es" class="is-active-lang">Reservar por WhatsApp</span>
+          <span data-lang="fr">Réserver par WhatsApp</span>
+          <span data-lang="en">Book via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Table semana (visible par défaut) -->
+    <div id="table-semana" class="pricing-table">
+      <div class="pricing-table-row is-header">
+        <div data-lang="es" class="is-active-lang">Grupo</div>
+        <div data-lang="fr">Groupe</div>
+        <div data-lang="en">Group</div>
+        <div data-lang="es" class="is-active-lang">€ / pers. / semana</div>
+        <div data-lang="fr">€ / pers. / semaine</div>
+        <div data-lang="en">€ / person / week</div>
+      </div>
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">1 persona</span>
+          <span data-lang="fr">1 personne</span>
+          <span data-lang="en">1 person</span>
+        </div>
+        <div class="pricing-table-price">150 €</div>
+      </div>
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">2 a 3 personas</span>
+          <span data-lang="fr">2 à 3 personnes</span>
+          <span data-lang="en">2 to 3 people</span>
+        </div>
+        <div class="pricing-table-price">120 € / pers.</div>
+      </div>
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">4 a 6 personas</span>
+          <span data-lang="fr">4 à 6 personnes</span>
+          <span data-lang="en">4 to 6 people</span>
+        </div>
+        <div class="pricing-table-price">100 € / pers.</div>
+      </div>
+    </div>
+
+    <!-- Table tarde (masquée par défaut) -->
+    <div id="table-tarde" class="pricing-table" style="display: none;">
+      <div class="pricing-table-row is-header">
+        <div data-lang="es" class="is-active-lang">Grupo</div>
+        <div data-lang="fr">Groupe</div>
+        <div data-lang="en">Group</div>
+        <div data-lang="es" class="is-active-lang">€ / persona</div>
+        <div data-lang="fr">€ / personne</div>
+        <div data-lang="en">€ / person</div>
+      </div>
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">1 persona</span>
+          <span data-lang="fr">1 personne</span>
+          <span data-lang="en">1 person</span>
+        </div>
+        <div class="pricing-table-price">30 €</div>
+      </div>
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">2 a 3 personas</span>
+          <span data-lang="fr">2 à 3 personnes</span>
+          <span data-lang="en">2 to 3 people</span>
+        </div>
+        <div class="pricing-table-price">25 € / pers.</div>
+      </div>
+      <div class="pricing-table-row">
+        <div class="pricing-table-label">
+          <span data-lang="es" class="is-active-lang">4 a 6 personas</span>
+          <span data-lang="fr">4 à 6 personnes</span>
+          <span data-lang="en">4 to 6 people</span>
+        </div>
+        <div class="pricing-table-price">20 € / pers.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     DISCIPLINES
+     ============================================================ -->
+<section class="disciplines">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Técnicas</span>
+      <span class="kicker" data-lang="fr">Techniques</span>
+      <span class="kicker" data-lang="en">Techniques</span>
+      <div data-lang="es" class="is-active-lang">
+        <h2>¿Qué vas a aprender?</h2>
+        <p>Cada taller es diferente. Eliges tu técnica al reservar o en el momento.</p>
+      </div>
+      <div data-lang="fr">
+        <h2>Qu'est-ce que tu vas apprendre ?</h2>
+        <p>Chaque atelier est différent. Tu choisis ta technique en réservant ou sur place.</p>
+      </div>
+      <div data-lang="en">
+        <h2>What will you learn?</h2>
+        <p>Every session is different. Pick your technique when booking or on the day.</p>
+      </div>
+    </div>
+
+    <div class="disciplines-list">
+      <div class="discipline-item">
+        <span class="discipline-icon" aria-hidden="true">🪵</span>
+        <span class="discipline-label is-active-lang" data-lang="es">Arte en madera</span>
+        <span class="discipline-label" data-lang="fr">Art sur bois</span>
+        <span class="discipline-label" data-lang="en">Wood art</span>
+      </div>
+      <div class="discipline-item">
+        <span class="discipline-icon" aria-hidden="true">✍️</span>
+        <span class="discipline-label is-active-lang" data-lang="es">Graffiti</span>
+        <span class="discipline-label" data-lang="fr">Graffiti</span>
+        <span class="discipline-label" data-lang="en">Graffiti</span>
+      </div>
+      <div class="discipline-item">
+        <span class="discipline-icon" aria-hidden="true">🖊️</span>
+        <span class="discipline-label is-active-lang" data-lang="es">Lettering</span>
+        <span class="discipline-label" data-lang="fr">Lettering</span>
+        <span class="discipline-label" data-lang="en">Lettering</span>
+      </div>
+      <div class="discipline-item">
+        <span class="discipline-icon" aria-hidden="true">🖌️</span>
+        <span class="discipline-label is-active-lang" data-lang="es">Caligrafía</span>
+        <span class="discipline-label" data-lang="fr">Calligraphie</span>
+        <span class="discipline-label" data-lang="en">Calligraphy</span>
+      </div>
+      <div class="discipline-item">
+        <span class="discipline-icon" aria-hidden="true">🧑‍🎨</span>
+        <span class="discipline-label is-active-lang" data-lang="es">Personajes</span>
+        <span class="discipline-label" data-lang="fr">Personnages</span>
+        <span class="discipline-label" data-lang="en">Characters</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIAL
+     ============================================================ -->
+<section class="testimonial-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker" data-lang="es">Lo que dicen las familias</span>
+      <span class="kicker" data-lang="fr">Ce que disent les familles</span>
+      <span class="kicker" data-lang="en">What families say</span>
+    </div>
+    <div class="testimonial-card">
+      <blockquote>
+        <p class="testimonial-quote">
+          <span data-lang="es" class="is-active-lang">Me encantó ver lo concentrados que estuvieron los niños durante tanto tiempo en una actividad creativa. ¡Fue perfecto, volveríamos sin dudarlo!</span>
+          <span data-lang="fr">J'ai adoré voir les enfants aussi concentrés aussi longtemps sur une activité créative. C'était parfait, on reviendra sans hésiter !</span>
+          <span data-lang="en">I loved how engaged the kids were for so long in a creative activity. It was perfect — we'll definitely be back!</span>
+        </p>
+      </blockquote>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" aria-hidden="true">👩</div>
+        <div>
+          <div class="testimonial-name">Clemmie</div>
+          <div class="testimonial-meta">
+            <span data-lang="es" class="is-active-lang">Mamá de 3 niños</span>
+            <span data-lang="fr">Maman de 3 enfants</span>
+            <span data-lang="en">Mum of 3</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     INSTAGRAM — Behold.so
+     ============================================================ -->
+<section class="instagram-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Instagram</span>
+      <div data-lang="es" class="is-active-lang">
+        <h2>Mira lo que se crea en el taller</h2>
+        <p>Síguenos en <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener" style="color: var(--brand-turquoise-700); font-weight: 600;">@sitgesmorzart</a></p>
+      </div>
+      <div data-lang="fr">
+        <h2>Vois ce qui se crée à l'atelier</h2>
+        <p>Suis-nous sur <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener" style="color: var(--brand-turquoise-700); font-weight: 600;">@sitgesmorzart</a></p>
+      </div>
+      <div data-lang="en">
+        <h2>See what gets made at the studio</h2>
+        <p>Follow us on <a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener" style="color: var(--brand-turquoise-700); font-weight: 600;">@sitgesmorzart</a></p>
+      </div>
+    </div>
+
+    <!-- Quand Behold.so est dispo, remplacer ce bloc par l'embed -->
+    <div class="verano-gallery">
+      <div class="verano-gallery-item">
+        <picture>
+          <source srcset="/images/verano-1.webp" type="image/webp">
+          <img src="/images/verano-1.webp" alt="Atelier de verano Sitgesmorzart — création en bois" loading="lazy" width="800" height="800">
+        </picture>
+      </div>
+      <div class="verano-gallery-item">
+        <picture>
+          <source srcset="/images/verano-2.webp" type="image/webp">
+          <img src="/images/verano-2.webp" alt="Atelier de verano Sitgesmorzart — peinture sur bois" loading="lazy" width="800" height="800">
+        </picture>
+      </div>
+      <div class="verano-gallery-item">
+        <picture>
+          <source srcset="/images/verano-3.webp" type="image/webp">
+          <img src="/images/verano-3.webp" alt="Atelier de verano Sitgesmorzart — résultat final" loading="lazy" width="800" height="800">
+        </picture>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA FINAL
+     ============================================================ -->
+<section class="cta-section">
+  <div class="container">
+    <div data-lang="es" class="is-active-lang">
+      <h2>¿Listo para crear este verano?</h2>
+      <p>Plazas limitadas · Máximo 6 personas · A partir de 5 años</p>
+    </div>
+    <div data-lang="fr">
+      <h2>Prêt·e à créer cet été ?</h2>
+      <p>Places limitées · Maximum 6 personnes · À partir de 5 ans</p>
+    </div>
+    <div data-lang="en">
+      <h2>Ready to create this summer?</h2>
+      <p>Limited spots · Maximum 6 people · Ages 5+</p>
+    </div>
+    <div class="cta-buttons">
+      <a href="#calculadora" class="btn btn-primary btn-lg">
+        <span data-lang="es" class="is-active-lang">Reservar online →</span>
+        <span data-lang="fr">Réserver en ligne →</span>
+        <span data-lang="en">Book online →</span>
+      </a>
+      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20me%20interesa%20un%20taller%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+        💬 WhatsApp Guillaume
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<button class="back-to-top" id="back-to-top" aria-label="Volver arriba" hidden>
+  <span aria-hidden="true">↑</span>
+</button>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Sitgesmorzart · Taller Creativo</div>
+        <p class="footer-tagline" data-lang="es">Creaciones en madera para pequeños y grandes artistas. Sitges, Barcelona.</p>
+        <p class="footer-tagline" data-lang="fr">Créations sur bois pour petits et grands artistes. Sitges, Barcelone.</p>
+        <p class="footer-tagline" data-lang="en">Wood creations for young and grown-up artists. Sitges, Barcelona.</p>
+      </div>
+      <div class="footer-section">
+        <h3 data-lang="es">Contacto</h3>
+        <h3 data-lang="fr">Contact</h3>
+        <h3 data-lang="en">Contact</h3>
+        <ul>
+          <li><a href="https://wa.me/33679827387" target="_blank" rel="noopener">WhatsApp +33 6 79 82 73 87</a></li>
+          <li><a href="https://www.instagram.com/sitgesmorzart" target="_blank" rel="noopener">Instagram @sitgesmorzart</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 data-lang="es">Talleres de verano</h3>
+        <h3 data-lang="fr">Ateliers d'été</h3>
+        <h3 data-lang="en">Summer workshops</h3>
+        <ul>
+          <li>C/ Salvador Olivella, 12</li>
+          <li>08870 Sitges</li>
+          <li data-lang="es">6 julio — 29 agosto 2026</li>
+          <li data-lang="fr">6 juillet — 29 août 2026</li>
+          <li data-lang="en">6 July — 29 August 2026</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Sitgesmorzart · Taller Creativo</span>
+      <span class="footer-bottom-sep" aria-hidden="true">·</span>
+      <a href="/mentions-legales.html" data-lang="es">Aviso legal</a>
+      <a href="/mentions-legales.html" data-lang="fr">Mentions légales</a>
+      <a href="/mentions-legales.html" data-lang="en">Legal notice</a>
+      <span class="footer-bottom-sep" aria-hidden="true">·</span>
+      <a href="/cgv.html" data-lang="es">Términos y condiciones</a>
+      <a href="/cgv.html" data-lang="fr">CGV</a>
+      <a href="/cgv.html" data-lang="en">Terms &amp; Conditions</a>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+(function() {
+
+  /* === LANGUAGE SWITCHER === */
+  const STORAGE_KEY = 'sitgesmorzart-lang';
+  const DEFAULT_LANG = 'es';
+  const SUPPORTED = ['es', 'fr', 'en'];
+
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+  }
+
+  let initialLang = DEFAULT_LANG;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && SUPPORTED.includes(stored)) initialLang = stored;
+    else {
+      const browserLang = (navigator.language || 'es').slice(0, 2).toLowerCase();
+      if (SUPPORTED.includes(browserLang)) initialLang = browserLang;
+    }
+  } catch(e) {}
+  setLang(initialLang);
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-switch')));
+  });
+
+
+  /* === CALCULATOR === */
+  const PRICES = {
+    semana: { 1: 150, 2: 120, 3: 120, 4: 100, 5: 100, 6: 100 },
+    tarde:  { 1: 30,  2: 25,  3: 25,  4: 20,  5: 20,  6: 20  }
+  };
+
+  const CAL_LINKS = {
+    semana: 'https://cal.com/sitgesmorzart/taller-verano-semana-creativa',
+    tarde:  'https://cal.com/sitgesmorzart/taller-de-tarde-3h'
+  };
+
+  const SAVINGS = {
+    semana: {
+      es: { tier2: '¡Ahorras 30 €/persona!', tier3: '¡Ahorras 50 €/persona!' },
+      fr: { tier2: 'Vous économisez 30 €/personne !', tier3: 'Vous économisez 50 €/personne !' },
+      en: { tier2: 'You save €30/person!', tier3: 'You save €50/person!' }
+    },
+    tarde: {
+      es: { tier2: '¡Ahorras 5 €/persona!', tier3: '¡Ahorras 10 €/persona!' },
+      fr: { tier2: 'Vous économisez 5 €/personne !', tier3: 'Vous économisez 10 €/personne !' },
+      en: { tier2: 'You save €5/person!', tier3: 'You save €10/person!' }
+    }
+  };
+
+  const PEOPLE = {
+    es: n => n === 1 ? '1 persona' : n + ' personas',
+    fr: n => n === 1 ? '1 personne' : n + ' personnes',
+    en: n => n === 1 ? '1 person' : n + ' people'
+  };
+
+  const PERPERSON = {
+    semana: {
+      es: p => p + ' € por persona / semana',
+      fr: p => p + ' € par personne / semaine',
+      en: p => '€' + p + ' per person / week'
+    },
+    tarde: {
+      es: p => p + ' € por persona',
+      fr: p => p + ' € par personne',
+      en: p => '€' + p + ' per person'
+    }
+  };
+
+  let currentMode = 'semana';
+  let currentCount = 1;
+
+  function buildButtons() {
+    const wrap = document.getElementById('calc-buttons');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    for (let i = 1; i <= 6; i++) {
+      const btn = document.createElement('button');
+      btn.className = 'calc-btn' + (i === currentCount ? ' is-active' : '');
+      btn.textContent = i;
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-checked', i === currentCount ? 'true' : 'false');
+      btn.setAttribute('aria-label', i + (i === 1 ? ' persona' : ' personas'));
+      btn.addEventListener('click', () => updateCalc(i));
+      wrap.appendChild(btn);
+    }
+  }
+
+  function updateCalc(count) {
+    currentCount = count;
+    const perPerson = PRICES[currentMode][count];
+    const total = perPerson * count;
+
+    document.getElementById('calc-amount').textContent = total;
+
+    SUPPORTED.forEach(lang => {
+      const peopleEl   = document.getElementById('calc-people-' + lang);
+      const ppEl       = document.getElementById('calc-perperson-' + lang);
+      const savingsEl  = document.getElementById('calc-savings-' + lang);
+      const ctaAmtEl   = document.getElementById('cta-online-amount-' + lang);
+
+      if (peopleEl)  peopleEl.textContent  = PEOPLE[lang](count);
+      if (ppEl)      ppEl.textContent      = PERPERSON[currentMode][lang](perPerson);
+      if (ctaAmtEl)  ctaAmtEl.textContent  = total;
+
+      let savText = '';
+      if (count >= 4) savText = SAVINGS[currentMode][lang].tier3;
+      else if (count >= 2) savText = SAVINGS[currentMode][lang].tier2;
+      if (savingsEl) savingsEl.textContent = savText;
+    });
+
+    const savBlock = document.getElementById('calc-savings');
+    if (count >= 2) savBlock.classList.add('is-visible');
+    else savBlock.classList.remove('is-visible');
+
+    document.querySelectorAll('.calc-btn').forEach((btn, idx) => {
+      const active = (idx + 1) === count;
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-checked', active ? 'true' : 'false');
+    });
+
+    // Update Cal.com CTA link
+    const ctaOnline = document.getElementById('cta-online');
+    if (ctaOnline) ctaOnline.href = CAL_LINKS[currentMode];
+  }
+
+  function setMode(mode) {
+    currentMode = mode;
+    document.getElementById('toggle-semana').classList.toggle('is-active', mode === 'semana');
+    document.getElementById('toggle-tarde').classList.toggle('is-active', mode === 'tarde');
+    document.getElementById('toggle-semana').setAttribute('aria-selected', mode === 'semana');
+    document.getElementById('toggle-tarde').setAttribute('aria-selected', mode === 'tarde');
+    document.getElementById('table-semana').style.display = mode === 'semana' ? '' : 'none';
+    document.getElementById('table-tarde').style.display  = mode === 'tarde'  ? '' : 'none';
+    currentCount = 1;
+    buildButtons();
+    updateCalc(1);
+  }
+
+  document.getElementById('toggle-semana').addEventListener('click', () => setMode('semana'));
+  document.getElementById('toggle-tarde').addEventListener('click',  () => setMode('tarde'));
+  setMode('semana');
+
+
+  /* === BURGER === */
+  const burger = document.getElementById('site-burger');
+  const panel  = document.getElementById('site-mobile-panel');
+
+  function closePanel() {
+    burger.classList.remove('is-open');
+    panel.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+  }
+  function togglePanel() {
+    const isOpen = panel.classList.toggle('is-open');
+    burger.classList.toggle('is-open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  if (burger && panel) {
+    burger.addEventListener('click', togglePanel);
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closePanel));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && panel.classList.contains('is-open')) closePanel();
+    });
+  }
+
+
+  /* === BACK TO TOP === */
+  const backToTop = document.getElementById('back-to-top');
+  if (backToTop) {
+    window.addEventListener('scroll', () => { backToTop.hidden = window.scrollY < 600; });
+    backToTop.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
+
+})();
+</script>
+
+</body>
+</html>

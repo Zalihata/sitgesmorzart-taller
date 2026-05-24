@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Confirma tu pago para la Semana Creativa de Verano Sitgesmorzart en Sitges.">
+<meta name="theme-color" content="#FFFFFF">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Confirma tu pago · Semana Creativa · Sitgesmorzart</title>
+
+<link rel="canonical" href="https://sitgesmorzart.com/pago-verano.html">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/icon-180.png">
+
+<!-- Fonts (self-hosted, RGPD compliant, éco-design) -->
+<link rel="preload" href="/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Foundations DS -->
+<link rel="stylesheet" href="foundations.css">
+
+<!-- Vercel Web Analytics (cookieless, GDPR compliant) -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+<style>
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--surface-default);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-lang]:not(.is-active-lang) { display: none !important; }
+
+.page-header {
+  border-bottom: 1px solid var(--border-default);
+  padding: var(--spacing-4) 0;
+}
+
+.page-header .container {
+  max-width: 720px; margin: 0 auto; padding: 0 var(--spacing-6);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--spacing-4); flex-wrap: wrap;
+}
+
+.page-brand {
+  font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: var(--body-medium-size); color: var(--text-primary);
+  text-decoration: none; display: inline-flex; align-items: center; gap: var(--spacing-2);
+}
+
+.page-brand img { width: 24px; height: 24px; display: block; }
+
+.lang-switcher { display: flex; align-items: center; gap: var(--spacing-1); }
+
+.lang-btn {
+  background: transparent; border: 0; padding: var(--spacing-1) var(--spacing-2);
+  font-size: var(--body-medium-size); cursor: pointer; border-radius: var(--radius-md);
+  opacity: 0.45; transition: opacity 0.2s, background-color 0.2s; line-height: 1;
+}
+.lang-btn:hover { opacity: 0.8; background: var(--semantic-orange-100); }
+.lang-btn.is-active { opacity: 1; }
+
+.page-main {
+  flex: 1; max-width: 640px; width: 100%;
+  margin: 0 auto; padding: var(--spacing-12) var(--spacing-6) var(--spacing-16);
+}
+
+.state-block { text-align: center; }
+.state-block[hidden] { display: none; }
+
+/* Badge verano */
+.verano-badge {
+  display: inline-flex; align-items: center; gap: var(--spacing-2);
+  background: var(--semantic-orange-100); color: #8B3A0A;
+  padding: var(--spacing-1) var(--spacing-3); border-radius: var(--radius-full);
+  font-family: var(--font-body); font-size: var(--body-small-size);
+  font-weight: var(--weight-semibold); margin-bottom: var(--spacing-3);
+}
+
+.pago-eyebrow {
+  display: inline-flex; align-items: center; gap: var(--spacing-2);
+  background: var(--brand-green-100); color: var(--brand-green-700);
+  padding: var(--spacing-1) var(--spacing-3); border-radius: var(--radius-full);
+  font-family: var(--font-body); font-size: var(--body-small-size);
+  font-weight: var(--weight-semibold); margin-bottom: var(--spacing-4);
+}
+.pago-eyebrow svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.pago-title {
+  font-family: var(--font-display); font-size: var(--h3-size);
+  line-height: var(--h3-line); margin-bottom: var(--spacing-3); letter-spacing: -0.02em;
+}
+
+.pago-lead {
+  color: var(--text-secondary); font-size: var(--body-large-size);
+  margin-bottom: var(--spacing-8); max-width: 480px;
+  margin-left: auto; margin-right: auto;
+}
+
+.payment-card {
+  background: var(--semantic-orange-100);
+  border-radius: var(--radius-2xl); padding: var(--spacing-12) var(--spacing-6);
+  margin-bottom: var(--spacing-8); position: relative; overflow: hidden;
+}
+
+.payment-card::before {
+  content: ""; position: absolute; top: -50%; right: -20%;
+  width: 60%; height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 70%);
+  pointer-events: none;
+}
+
+.payment-label {
+  position: relative; font-size: var(--body-small-size); color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.1em; font-weight: var(--weight-semibold);
+  margin-bottom: var(--spacing-3);
+}
+
+.payment-total {
+  position: relative; font-family: var(--font-display); font-weight: var(--weight-bold);
+  font-size: 5rem; line-height: 1; color: var(--text-primary);
+  letter-spacing: -0.04em; margin-bottom: var(--spacing-4);
+}
+
+.payment-total .currency {
+  font-size: 2rem; vertical-align: top; margin-right: 4px;
+  font-weight: var(--weight-semibold); position: relative; top: 12px;
+}
+
+.payment-detail { position: relative; color: var(--text-primary); font-size: var(--body-medium-size); }
+.payment-detail strong { font-weight: var(--weight-semibold); }
+
+@media (max-width: 540px) {
+  .payment-total { font-size: 4rem; }
+  .payment-card { padding: var(--spacing-8) var(--spacing-4); }
+}
+
+.cta-stripe {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--spacing-2); width: 100%; max-width: 420px;
+  padding: var(--spacing-4) var(--spacing-6);
+  background: var(--semantic-orange-500); color: var(--neutral-white);
+  border-radius: var(--radius-full); font-family: var(--font-body);
+  font-weight: var(--weight-semibold); font-size: var(--body-large-size);
+  text-decoration: none; transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-md); margin-bottom: var(--spacing-4);
+}
+
+.cta-stripe:hover {
+  background: var(--semantic-orange-300); transform: translateY(-2px); box-shadow: var(--shadow-lg);
+}
+
+.cta-stripe svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+.cta-secure {
+  display: inline-flex; align-items: center; gap: var(--spacing-2);
+  font-size: var(--body-small-size); color: var(--text-secondary); margin-bottom: var(--spacing-8);
+}
+.cta-secure svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.payment-notice {
+  background: var(--semantic-yellow-100); border-left: 4px solid var(--semantic-yellow-500);
+  padding: var(--spacing-4) var(--spacing-6); border-radius: var(--radius-md);
+  text-align: left; margin-bottom: var(--spacing-8);
+  font-size: var(--body-small-size); color: var(--text-primary);
+}
+.payment-notice strong { font-weight: var(--weight-semibold); }
+
+.link-back {
+  display: inline-block; color: var(--text-secondary); font-size: var(--body-small-size);
+  text-decoration: none; padding: var(--spacing-2); transition: color 0.2s;
+}
+.link-back:hover { color: var(--text-primary); text-decoration: underline; }
+
+.cash-option { margin-top: var(--spacing-6); font-size: var(--body-small-size); color: var(--text-secondary); }
+.cash-option a { color: var(--text-primary); text-decoration: underline; text-underline-offset: 3px; }
+
+/* Error */
+.error-icon { width: 64px; height: 64px; margin: 0 auto var(--spacing-4); display: block; color: var(--feedback-warning); }
+.error-title { font-family: var(--font-display); font-size: var(--h4-size); line-height: var(--h4-line); margin-bottom: var(--spacing-3); }
+.error-message { color: var(--text-secondary); font-size: var(--body-medium-size); margin-bottom: var(--spacing-8); max-width: 440px; margin-left: auto; margin-right: auto; }
+.error-help { font-size: 0.9375rem; color: var(--text-secondary); margin: var(--spacing-6) 0 var(--spacing-3); font-weight: 500; }
+.error-actions { display: flex; gap: var(--spacing-3); justify-content: center; flex-wrap: wrap; margin-top: var(--spacing-2); }
+.btn-whatsapp-error { display: inline-flex; align-items: center; justify-content: center; gap: var(--spacing-2); padding: var(--spacing-3) var(--spacing-6); background: #25D366; color: #FFFFFF; border-radius: 999px; font-family: var(--font-body); font-weight: 600; font-size: 0.9375rem; text-decoration: none; transition: background-color 0.2s ease, transform 0.2s ease; white-space: nowrap; }
+.btn-whatsapp-error:hover { background: #1fb858; transform: translateY(-2px); }
+@media (max-width: 480px) { .error-actions { flex-direction: column; align-items: stretch; } .error-actions a { width: 100%; } }
+.btn-secondary { display: inline-flex; align-items: center; justify-content: center; padding: var(--spacing-3) var(--spacing-6); background: var(--action-primary-bg); color: var(--action-primary-text); border-radius: var(--radius-full); font-family: var(--font-body); font-weight: var(--weight-semibold); font-size: var(--body-medium-size); text-decoration: none; transition: background-color 0.2s, transform 0.2s; }
+.btn-secondary:hover { background: var(--action-primary-bg-hover); transform: translateY(-1px); }
+
+/* Cash state */
+.success-mark { width: 96px; height: 96px; margin: 0 auto var(--spacing-6); position: relative; }
+.success-mark svg { width: 100%; height: 100%; }
+.success-mark .circle { fill: var(--brand-green-100); stroke: var(--brand-green-500); stroke-width: 3; stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawCircle 0.6s ease-out forwards; }
+.success-mark .check { fill: none; stroke: var(--brand-green-700); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 100; stroke-dashoffset: 100; animation: drawCheck 0.4s ease-out 0.5s forwards; }
+@keyframes drawCircle { to { stroke-dashoffset: 0; } }
+@keyframes drawCheck { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .success-mark .circle, .success-mark .check { stroke-dashoffset: 0; animation: none; } }
+
+.cash-title { font-family: var(--font-display); font-size: var(--h3-size); line-height: var(--h3-line); margin-bottom: var(--spacing-3); letter-spacing: -0.02em; text-align: center; }
+.cash-lead { color: var(--text-secondary); font-size: var(--body-large-size); margin-bottom: var(--spacing-8); max-width: 520px; margin-left: auto; margin-right: auto; text-align: center; }
+.cash-card { background: var(--semantic-orange-100); border-radius: var(--radius-2xl); padding: var(--spacing-8) var(--spacing-6); margin: 0 auto var(--spacing-8); display: inline-flex; flex-direction: column; align-items: center; gap: var(--spacing-2); min-width: 280px; }
+.cash-card-label { font-size: var(--body-small-size); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.1em; font-weight: var(--weight-semibold); }
+.cash-card-amount { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 3.5rem; line-height: 1; color: var(--text-primary); letter-spacing: -0.04em; }
+.cash-card-amount .currency { font-size: 1.5rem; vertical-align: top; margin-right: 4px; font-weight: var(--weight-semibold); position: relative; top: 8px; }
+.cash-card-detail { color: var(--text-primary); font-size: var(--body-medium-size); }
+.cash-info { background: var(--surface-default); border: 1px solid var(--border-default); border-radius: var(--radius-lg); padding: var(--spacing-4) var(--spacing-6); margin: 0 auto var(--spacing-8); text-align: left; font-size: var(--body-small-size); color: var(--text-secondary); display: inline-block; max-width: 480px; }
+.cash-cta { text-align: center; }
+
+/* Choose state */
+.choose-recap { background: var(--semantic-orange-100); border-radius: var(--radius-2xl); padding: var(--spacing-5) var(--spacing-6); margin: var(--spacing-6) auto var(--spacing-8); max-width: 420px; display: flex; align-items: center; justify-content: space-around; }
+.choose-recap-item { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-1); }
+.choose-recap-label { font-size: var(--body-small-size); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em; font-weight: var(--weight-semibold); }
+.choose-recap-value { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: 2rem; line-height: 1; color: var(--text-primary); letter-spacing: -0.02em; }
+.choose-recap-divider { width: 1px; height: 40px; background: var(--border-default); }
+.choose-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); max-width: 600px; margin: 0 auto var(--spacing-6); }
+@media (max-width: 600px) { .choose-buttons { grid-template-columns: 1fr; } }
+.choose-btn { background: var(--surface-default); border: 2px solid var(--border-default); border-radius: var(--radius-xl); padding: var(--spacing-6) var(--spacing-4); cursor: pointer; font-family: var(--font-body); text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--spacing-2); transition: all 0.2s ease; }
+.choose-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.choose-btn-online:hover { background: var(--semantic-orange-100); border-color: var(--semantic-orange-500); }
+.choose-btn-cash:hover { background: var(--brand-green-100); border-color: var(--brand-green-500); }
+.choose-btn-icon { font-size: 2.5rem; line-height: 1; margin-bottom: var(--spacing-2); }
+.choose-btn-title { font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: var(--body-large-size); color: var(--text-primary); }
+.choose-btn-detail { font-size: var(--body-small-size); color: var(--text-secondary); }
+.choose-help { text-align: center; font-size: var(--body-small-size); color: var(--text-secondary); max-width: 480px; margin: 0 auto; }
+
+/* Footer */
+.page-footer { border-top: 1px solid var(--border-default); padding: var(--spacing-6) 0; text-align: center; font-size: var(--body-small-size); color: var(--text-secondary); }
+.page-footer .container { max-width: 720px; margin: 0 auto; padding: 0 var(--spacing-6); display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: var(--spacing-2) var(--spacing-3); }
+.page-footer a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; }
+.page-footer a:hover { color: var(--text-primary); text-decoration: underline; }
+.footer-sep { opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<noscript>
+  <div style="background: #FFD33C; color: #28374B; padding: 12px 20px; text-align: center; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.5;">
+    <strong>JavaScript necesario / requis / required.</strong>
+    Para más información, contáctanos por WhatsApp
+    <a href="https://wa.me/33679827387" target="_blank" rel="noopener" style="color: #28374B; text-decoration: underline; font-weight: 600;">+33 6 79 82 73 87</a>.
+  </div>
+</noscript>
+
+<header class="page-header">
+  <div class="container">
+    <a href="/verano/" class="page-brand">
+      <img src="/images/logo-header.png" alt="" aria-hidden="true">
+      <span>Sitgesmorzart</span>
+    </a>
+    <nav class="lang-switcher" aria-label="Idioma / Langue / Language">
+      <button class="lang-btn is-active" data-switch="es" aria-label="Español" aria-pressed="true">🇪🇸</button>
+      <button class="lang-btn" data-switch="fr" aria-label="Français" aria-pressed="false">🇫🇷</button>
+      <button class="lang-btn" data-switch="en" aria-label="English" aria-pressed="false">🇬🇧</button>
+    </nav>
+  </div>
+</header>
+
+<main class="page-main">
+
+  <!-- STATE: CHOOSE -->
+  <div id="state-choose" class="state-block" hidden>
+
+    <div class="verano-badge">☀️ Semana Creativa · Verano 2026</div>
+
+    <span class="pago-eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span data-lang="es" class="is-active-lang">Semana apartada en el calendario</span>
+      <span data-lang="fr">Semaine réservée dans le calendrier</span>
+      <span data-lang="en">Week held in the calendar</span>
+    </span>
+
+    <h1 class="pago-title">
+      <span data-lang="es" class="is-active-lang">¿Cómo prefieres pagar?</span>
+      <span data-lang="fr">Comment préfères-tu payer ?</span>
+      <span data-lang="en">How would you like to pay?</span>
+    </h1>
+
+    <p class="pago-lead">
+      <span data-lang="es" class="is-active-lang">Tu semana creativa está apartada. Elige tu método de pago para confirmarla.</span>
+      <span data-lang="fr">Ta semaine créative est bloquée. Choisis ton mode de paiement pour la confirmer.</span>
+      <span data-lang="en">Your creative week is held. Pick your payment method to confirm it.</span>
+    </p>
+
+    <div class="choose-recap">
+      <div class="choose-recap-item">
+        <span class="choose-recap-label">
+          <span data-lang="es" class="is-active-lang">Personas</span>
+          <span data-lang="fr">Personnes</span>
+          <span data-lang="en">People</span>
+        </span>
+        <span class="choose-recap-value" id="choose-seats">0</span>
+      </div>
+      <div class="choose-recap-divider" aria-hidden="true"></div>
+      <div class="choose-recap-item">
+        <span class="choose-recap-label">Total</span>
+        <span class="choose-recap-value"><span id="choose-total">0</span> €</span>
+      </div>
+    </div>
+
+    <div class="choose-buttons">
+      <button type="button" class="choose-btn choose-btn-online" id="btn-pay-online">
+        <span class="choose-btn-icon" aria-hidden="true">💳</span>
+        <span class="choose-btn-title">
+          <span data-lang="es" class="is-active-lang">Pagar online</span>
+          <span data-lang="fr">Payer en ligne</span>
+          <span data-lang="en">Pay online</span>
+        </span>
+        <span class="choose-btn-detail">
+          <span data-lang="es" class="is-active-lang">Tarjeta segura · Stripe</span>
+          <span data-lang="fr">Carte sécurisée · Stripe</span>
+          <span data-lang="en">Secure card · Stripe</span>
+        </span>
+      </button>
+
+      <button type="button" class="choose-btn choose-btn-cash" id="btn-pay-cash">
+        <span class="choose-btn-icon" aria-hidden="true">💵</span>
+        <span class="choose-btn-title">
+          <span data-lang="es" class="is-active-lang">Pagar en efectivo</span>
+          <span data-lang="fr">Payer en espèces</span>
+          <span data-lang="en">Pay in cash</span>
+        </span>
+        <span class="choose-btn-detail">
+          <span data-lang="es" class="is-active-lang">El primer día del taller</span>
+          <span data-lang="fr">Le premier jour de l'atelier</span>
+          <span data-lang="en">On the first day</span>
+        </span>
+      </button>
+    </div>
+
+    <p class="choose-help">
+      <span data-lang="es" class="is-active-lang">Tu plaza está apartada. Si cambias de opinión, contáctanos por WhatsApp.</span>
+      <span data-lang="fr">Ta place est bloquée. Si tu changes d'avis, contacte-nous sur WhatsApp.</span>
+      <span data-lang="en">Your slot is held. If you change your mind, message us on WhatsApp.</span>
+    </p>
+
+  </div>
+
+  <!-- STATE: OK (paiement Stripe) -->
+  <div id="state-ok" class="state-block" hidden>
+
+    <div class="verano-badge">☀️ Semana Creativa · Verano 2026</div>
+
+    <span class="pago-eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <span data-lang="es" class="is-active-lang">Semana apartada en el calendario</span>
+      <span data-lang="fr">Semaine réservée dans le calendrier</span>
+      <span data-lang="en">Week held in the calendar</span>
+    </span>
+
+    <h1 class="pago-title">
+      <span data-lang="es" class="is-active-lang">Confirma tu pago</span>
+      <span data-lang="fr">Confirme ton paiement</span>
+      <span data-lang="en">Confirm your payment</span>
+    </h1>
+
+    <p class="pago-lead">
+      <span data-lang="es" class="is-active-lang">Tu semana creativa está apartada. Para confirmarla, completa el pago seguro a continuación.</span>
+      <span data-lang="fr">Ta semaine créative est bloquée. Pour la confirmer, complète le paiement sécurisé ci-dessous.</span>
+      <span data-lang="en">Your creative week is held. To confirm it, complete the secure payment below.</span>
+    </p>
+
+    <div class="payment-card">
+      <div class="payment-label">
+        <span data-lang="es" class="is-active-lang">Total a pagar</span>
+        <span data-lang="fr">Total à payer</span>
+        <span data-lang="en">Total to pay</span>
+      </div>
+      <div class="payment-total">
+        <span class="currency">€</span><span id="amount-total">0</span>
+      </div>
+      <div class="payment-detail">
+        <span data-lang="es" class="is-active-lang">
+          <strong><span id="seats-es">0</span> personas</strong> · <span id="perperson-es">0</span> € por persona / semana
+        </span>
+        <span data-lang="fr">
+          <strong><span id="seats-fr">0</span> personnes</strong> · <span id="perperson-fr">0</span> € par personne / semaine
+        </span>
+        <span data-lang="en">
+          <strong><span id="seats-en">0</span> people</strong> · €<span id="perperson-en">0</span> per person / week
+        </span>
+      </div>
+    </div>
+
+    <a id="cta-stripe" class="cta-stripe" href="#" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+      </svg>
+      <span data-lang="es" class="is-active-lang">Pagar <span id="cta-amount-es">0</span> € de forma segura</span>
+      <span data-lang="fr">Payer <span id="cta-amount-fr">0</span> € en toute sécurité</span>
+      <span data-lang="en">Pay <span id="cta-amount-en">0</span> € securely</span>
+    </a>
+
+    <div class="cta-secure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+      </svg>
+      <span data-lang="es" class="is-active-lang">Pago 100% seguro vía Stripe</span>
+      <span data-lang="fr">Paiement 100% sécurisé via Stripe</span>
+      <span data-lang="en">100% secure payment via Stripe</span>
+    </div>
+
+    <div class="payment-notice">
+      <span data-lang="es" class="is-active-lang">
+        <strong>⏱ Importante :</strong> si no realizas el pago en las próximas <strong>2 horas</strong>, tu reserva se cancelará automáticamente y tu plaza se liberará.
+      </span>
+      <span data-lang="fr">
+        <strong>⏱ Important :</strong> si tu n'effectues pas le paiement dans les <strong>2 prochaines heures</strong>, ta réservation sera annulée et ta place libérée.
+      </span>
+      <span data-lang="en">
+        <strong>⏱ Important:</strong> if you don't complete the payment within <strong>2 hours</strong>, your booking will be automatically cancelled.
+      </span>
+    </div>
+
+    <a href="javascript:history.back()" class="link-back">
+      <span data-lang="es" class="is-active-lang">← Volver atrás</span>
+      <span data-lang="fr">← Retour</span>
+      <span data-lang="en">← Go back</span>
+    </a>
+
+    <p class="cash-option">
+      <span data-lang="es" class="is-active-lang">¿Prefieres pagar en efectivo? <a href="https://wa.me/33679827387">Escríbenos por WhatsApp</a></span>
+      <span data-lang="fr">Tu préfères payer en espèces ? <a href="https://wa.me/33679827387">Écris-nous sur WhatsApp</a></span>
+      <span data-lang="en">Prefer to pay in cash? <a href="https://wa.me/33679827387">Message us on WhatsApp</a></span>
+    </p>
+
+  </div>
+
+  <!-- STATE: ERROR -->
+  <div id="state-error" class="state-block" hidden>
+
+    <svg class="error-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10"></circle>
+      <line x1="12" y1="8" x2="12" y2="12"></line>
+      <line x1="12" y1="16" x2="12.01" y2="16"></line>
+    </svg>
+
+    <h1 class="error-title">
+      <span data-lang="es" class="is-active-lang">No encontramos tu reserva</span>
+      <span data-lang="fr">Réservation introuvable</span>
+      <span data-lang="en">Booking not found</span>
+    </h1>
+
+    <p class="error-message">
+      <span data-lang="es" class="is-active-lang">Parece que llegaste aquí sin pasar por el calendario. Vuelve a la página de verano y reserva tu semana.</span>
+      <span data-lang="fr">Il semble que tu sois arrivée·e ici sans passer par le calendrier. Retourne à la page été et réserve ta semaine.</span>
+      <span data-lang="en">You seem to have arrived here without going through the calendar. Go back to the summer page and book your week.</span>
+    </p>
+
+    <p class="error-help">
+      <span data-lang="es" class="is-active-lang">¿Necesitas ayuda? Contáctanos directamente:</span>
+      <span data-lang="fr">Besoin d'aide ? Contacte-nous directement :</span>
+      <span data-lang="en">Need help? Reach out directly:</span>
+    </p>
+
+    <div class="error-actions">
+      <a href="/verano/" class="btn-secondary">
+        <span data-lang="es" class="is-active-lang">Volver a verano</span>
+        <span data-lang="fr">Retour à l'été</span>
+        <span data-lang="en">Back to summer</span>
+      </a>
+      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20tengo%20un%20problema%20con%20mi%20reserva%20de%20verano" target="_blank" rel="noopener" class="btn-whatsapp-error">
+        💬 WhatsApp Guillaume
+      </a>
+    </div>
+
+  </div>
+
+  <!-- STATE: CASH -->
+  <div id="state-cash" class="state-block" hidden>
+
+    <div class="success-mark" aria-hidden="true">
+      <svg viewBox="0 0 100 100">
+        <circle class="circle" cx="50" cy="50" r="45" pathLength="100"></circle>
+        <path class="check" d="M30 52 L45 67 L72 36" pathLength="100"></path>
+      </svg>
+    </div>
+
+    <h1 class="cash-title">
+      <span data-lang="es" class="is-active-lang">¡Semana confirmada!</span>
+      <span data-lang="fr">Semaine confirmée !</span>
+      <span data-lang="en">Week confirmed!</span>
+    </h1>
+
+    <p class="cash-lead">
+      <span data-lang="es" class="is-active-lang">Tu semana creativa está apartada. Pagarás directamente el primer día del taller.</span>
+      <span data-lang="fr">Ta semaine créative est bloquée. Tu paieras directement le premier jour de l'atelier.</span>
+      <span data-lang="en">Your creative week is held. You'll pay on the first day of the workshop.</span>
+    </p>
+
+    <div class="cash-card">
+      <div class="cash-card-label">
+        <span data-lang="es" class="is-active-lang">A pagar el primer día</span>
+        <span data-lang="fr">À payer le premier jour</span>
+        <span data-lang="en">To pay on the first day</span>
+      </div>
+      <div class="cash-card-amount">
+        <span class="currency">€</span><span id="cash-amount">0</span>
+      </div>
+      <div class="cash-card-detail">
+        <span data-lang="es" class="is-active-lang"><span id="cash-seats-es">0</span> personas</span>
+        <span data-lang="fr"><span id="cash-seats-fr">0</span> personnes</span>
+        <span data-lang="en"><span id="cash-seats-en">0</span> people</span>
+      </div>
+    </div>
+
+    <div class="cash-info">
+      <span data-lang="es" class="is-active-lang">📍 C/ Salvador Olivella 12, 08870 Sitges<br>📧 Recibirás un correo de confirmación con todos los detalles.</span>
+      <span data-lang="fr">📍 C/ Salvador Olivella 12, 08870 Sitges<br>📧 Tu vas recevoir un email de confirmation avec tous les détails.</span>
+      <span data-lang="en">📍 C/ Salvador Olivella 12, 08870 Sitges<br>📧 You'll receive a confirmation email with all the details.</span>
+    </div>
+
+    <div class="cash-cta">
+      <a href="/verano/" class="btn-secondary">
+        <span data-lang="es" class="is-active-lang">Volver a verano</span>
+        <span data-lang="fr">Retour à l'été</span>
+        <span data-lang="en">Back to summer</span>
+      </a>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="page-footer">
+  <div class="container">
+    <span>© 2026 Sitgesmorzart</span>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/mentions-legales.html" data-lang="es">Aviso legal</a>
+    <a href="/mentions-legales.html" data-lang="fr">Mentions légales</a>
+    <a href="/mentions-legales.html" data-lang="en">Legal notice</a>
+    <span class="footer-sep" aria-hidden="true">·</span>
+    <a href="/cgv.html" data-lang="es">Términos y condiciones</a>
+    <a href="/cgv.html" data-lang="fr">CGV</a>
+    <a href="/cgv.html" data-lang="en">Terms &amp; Conditions</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+
+  /* ==========================================================================
+     CONFIG — Stripe Payment Links semaine créative verano 2026
+     ========================================================================== */
+  const STRIPE_LINKS = {
+    1: 'https://buy.stripe.com/8x214n70ke3z8KEfWPgfu0a',
+    2: 'https://buy.stripe.com/5kQeVdfwQ2kR8KE25Zgfu0b',
+    3: 'https://buy.stripe.com/4gMfZh5Wg3oV0e8h0Tgfu0c',
+    4: 'https://buy.stripe.com/dRmcN50BW8Jf1icaCvgfu0d',
+    5: 'https://buy.stripe.com/00w5kDckEe3z4uoaCvgfu0e',
+    6: 'https://buy.stripe.com/6oU7sLfwQ8JfaSMaCvgfu0f'
+  };
+
+  // Totaux : 1p=150 | 2-3p=120/p | 4-6p=100/p
+  const PRICE_TABLE = {
+    1: 150,
+    2: 240,
+    3: 360,
+    4: 400,
+    5: 500,
+    6: 600
+  };
+
+  const STORAGE_KEY_LANG    = 'sitgesmorzart-lang';
+  const STORAGE_KEY_BOOKING = 'sitgesmorzart-booking-verano';
+  const DEFAULT_LANG = 'es';
+  const SUPPORTED = ['es', 'fr', 'en'];
+
+
+  /* ==========================================================================
+     I18N
+     ========================================================================== */
+  function setLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = DEFAULT_LANG;
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('is-active-lang', el.getAttribute('data-lang') === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const isActive = btn.getAttribute('data-switch') === lang;
+      btn.classList.toggle('is-active', isActive);
+      btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+    try { localStorage.setItem(STORAGE_KEY_LANG, lang); } catch (e) {}
+  }
+
+  let initialLang = DEFAULT_LANG;
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY_LANG);
+    if (stored && SUPPORTED.includes(stored)) initialLang = stored;
+  } catch (e) {}
+  setLang(initialLang);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => setLang(btn.getAttribute('data-switch')));
+  });
+
+
+  /* ==========================================================================
+     BOOKING LOOKUP
+     ========================================================================== */
+  function getBookingFromContext() {
+    const params = new URLSearchParams(window.location.search);
+    let seats = parseInt(params.get('seats'), 10);
+
+    if (!seats || isNaN(seats)) {
+      try {
+        const backup = JSON.parse(localStorage.getItem(STORAGE_KEY_BOOKING) || '{}');
+        seats = parseInt(backup.seats, 10);
+      } catch (e) {}
+    }
+
+    if (!seats || isNaN(seats) || seats < 1 || seats > 6) return null;
+    if (!STRIPE_LINKS[seats] || !PRICE_TABLE[seats]) return null;
+
+    const total = PRICE_TABLE[seats];
+    const perPerson = Math.round(total / seats);
+
+    return { seats, total, perPerson, stripeLink: STRIPE_LINKS[seats] };
+  }
+
+
+  /* ==========================================================================
+     RENDER
+     ========================================================================== */
+  function renderOk(booking) {
+    document.getElementById('amount-total').textContent = booking.total;
+    SUPPORTED.forEach(lang => {
+      document.getElementById('seats-' + lang).textContent = booking.seats;
+      document.getElementById('perperson-' + lang).textContent = booking.perPerson;
+      document.getElementById('cta-amount-' + lang).textContent = booking.total;
+    });
+    document.getElementById('cta-stripe').setAttribute('href', booking.stripeLink);
+    try {
+      localStorage.setItem(STORAGE_KEY_BOOKING, JSON.stringify({
+        seats: booking.seats, total: booking.total,
+        perPerson: booking.perPerson, timestamp: Date.now()
+      }));
+    } catch (e) {}
+    document.getElementById('state-ok').hidden = false;
+  }
+
+  function renderError() {
+    document.getElementById('state-error').hidden = false;
+  }
+
+  function renderCash(booking) {
+    document.getElementById('cash-amount').textContent = booking.total;
+    SUPPORTED.forEach(lang => {
+      document.getElementById('cash-seats-' + lang).textContent = booking.seats;
+    });
+    try {
+      localStorage.setItem(STORAGE_KEY_BOOKING, JSON.stringify({
+        seats: booking.seats, total: booking.total,
+        perPerson: booking.perPerson, paymentMode: 'efectivo', timestamp: Date.now()
+      }));
+    } catch (e) {}
+    document.getElementById('state-choose').hidden = true;
+    document.getElementById('state-cash').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderChoose(booking) {
+    document.getElementById('choose-seats').textContent = booking.seats;
+    document.getElementById('choose-total').textContent = booking.total;
+    document.getElementById('state-choose').hidden = false;
+
+    document.getElementById('btn-pay-online').addEventListener('click', function() {
+      document.getElementById('state-choose').hidden = true;
+      renderOk(booking);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('btn-pay-cash').addEventListener('click', function() {
+      renderCash(booking);
+    });
+  }
+
+  const booking = getBookingFromContext();
+  if (!booking) renderError();
+  else renderChoose(booking);
+
+})();
+</script>
+
+</body>
+</html>
