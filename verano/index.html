@@ -1389,6 +1389,26 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
     }
   }
 
+  /* Garantir la sauvegarde localStorage au clic — même pattern que homepage */
+  const ctaBtn = document.getElementById('cta-online');
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const storageKey = currentMode === 'semana'
+        ? 'sitgesmorzart-booking-verano'
+        : 'sitgesmorzart-booking';
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({
+          seats: currentCount,
+          total: PRICES[currentMode][currentCount] * currentCount,
+          perPerson: PRICES[currentMode][currentCount],
+          timestamp: Date.now()
+        }));
+      } catch(err) {}
+      window.location.href = ctaBtn.href;
+    });
+  }
+
   function setMode(mode) {
     currentMode = mode;
     document.getElementById('toggle-semana').classList.toggle('is-active', mode === 'semana');
