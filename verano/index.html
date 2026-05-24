@@ -769,15 +769,15 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
       <span class="kicker" data-lang="en">Two formats</span>
       <div data-lang="es" class="is-active-lang">
         <h2>Elige tu fórmula de verano</h2>
-        <p>Semana completa por la mañana, o taller suelto por la tarde. A partir de 5 años, máximo 6 personas.</p>
+        <p>Semana completa por la mañana, o taller suelto por la tarde. A partir de 5 años. Semanas creativas: máximo 6 personas · Talleres de tarde: hasta 10 personas.</p>
       </div>
       <div data-lang="fr">
         <h2>Choisis ta formule d'été</h2>
-        <p>Semaine complète le matin, ou atelier à la séance l'après-midi. À partir de 5 ans, maximum 6 personnes.</p>
+        <p>Semaine complète le matin, ou atelier à la séance l'après-midi. À partir de 5 ans. Semaines créatives : 6 personnes max · Ateliers de l'après-midi : jusqu'à 10 personnes.</p>
       </div>
       <div data-lang="en">
         <h2>Choose your summer format</h2>
-        <p>Full week in the morning, or drop-in afternoon session. Ages 5+, maximum 6 people.</p>
+        <p>Full week in the morning, or drop-in afternoon session. Ages 5+. Creative weeks: max 6 people · Afternoon sessions: up to 10 people.</p>
       </div>
     </div>
 
@@ -986,17 +986,17 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
       </div>
       <div class="pricing-table-row">
         <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">2 a 3 personas</span>
-          <span data-lang="fr">2 à 3 personnes</span>
-          <span data-lang="en">2 to 3 people</span>
+          <span data-lang="es" class="is-active-lang">2 a 4 personas</span>
+          <span data-lang="fr">2 à 4 personnes</span>
+          <span data-lang="en">2 to 4 people</span>
         </div>
         <div class="pricing-table-price">25 € / pers.</div>
       </div>
       <div class="pricing-table-row">
         <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">4 a 6 personas</span>
-          <span data-lang="fr">4 à 6 personnes</span>
-          <span data-lang="en">4 to 6 people</span>
+          <span data-lang="es" class="is-active-lang">5 a 10 personas</span>
+          <span data-lang="fr">5 à 10 personnes</span>
+          <span data-lang="en">5 to 10 people</span>
         </div>
         <div class="pricing-table-price">20 € / pers.</div>
       </div>
@@ -1276,7 +1276,7 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
   /* === CALCULATOR === */
   const PRICES = {
     semana: { 1: 150, 2: 120, 3: 120, 4: 100, 5: 100, 6: 100 },
-    tarde:  { 1: 30,  2: 25,  3: 25,  4: 20,  5: 20,  6: 20  }
+    tarde:  { 1: 30,  2: 25,  3: 25,  4: 25,  5: 20,  6: 20,  7: 20,  8: 20,  9: 20,  10: 20 }
   };
 
   const CAL_LINKS = {
@@ -1323,7 +1323,8 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
     const wrap = document.getElementById('calc-buttons');
     if (!wrap) return;
     wrap.innerHTML = '';
-    for (let i = 1; i <= 6; i++) {
+    const max = currentMode === 'tarde' ? 10 : 6;
+    for (let i = 1; i <= max; i++) {
       const btn = document.createElement('button');
       btn.className = 'calc-btn' + (i === currentCount ? ' is-active' : '');
       btn.textContent = i;
@@ -1368,9 +1369,24 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
       btn.setAttribute('aria-checked', active ? 'true' : 'false');
     });
 
-    // Update Cal.com CTA link
+    // Stocker en localStorage avant redirection Cal.com (backup si URL param non transmis)
     const ctaOnline = document.getElementById('cta-online');
-    if (ctaOnline) ctaOnline.href = CAL_LINKS[currentMode];
+    if (ctaOnline) {
+      const total = PRICES[currentMode][count] * count;
+      const storageKey = currentMode === 'semana' ? 'sitgesmorzart-booking-verano' : 'sitgesmorzart-booking';
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({
+          seats: count, total: total,
+          perPerson: PRICES[currentMode][count],
+          timestamp: Date.now()
+        }));
+      } catch(e) {}
+      if (currentMode === 'tarde') {
+        ctaOnline.href = CAL_LINKS.tarde;
+      } else {
+        ctaOnline.href = CAL_LINKS.semana;
+      }
+    }
   }
 
   function setMode(mode) {
