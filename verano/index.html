@@ -1426,23 +1426,6 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
   document.getElementById('toggle-tarde').addEventListener('click',  () => setMode('tarde'));
   setMode('semana');
 
-  /* Sauvegarde localStorage au clic sur "Reservar online" */
-  const ctaBtn = document.getElementById('cta-online');
-  if (ctaBtn) {
-    ctaBtn.addEventListener('click', () => {
-      const storageKey = currentMode === 'semana' ? 'sitgesmorzart-booking-verano' : 'sitgesmorzart-booking';
-      try {
-        localStorage.setItem(storageKey, JSON.stringify({
-          seats: currentCount,
-          total: PRICES[currentMode][currentCount] * currentCount,
-          perPerson: PRICES[currentMode][currentCount],
-          timestamp: Date.now()
-        }));
-      } catch(e) {}
-    });
-  }
-
-
   /* === BURGER === */
   const burger = document.getElementById('site-burger');
   const panel  = document.getElementById('site-mobile-panel');
