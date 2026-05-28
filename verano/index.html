@@ -30,8 +30,8 @@
 <meta property="og:title" content="Talleres de Verano 2026 · Sitgesmorzart">
 <meta property="og:description" content="Semanas creativas y talleres de tarde en Sitges. Del 6 de julio al 28 de agosto. A partir de 5 años, máximo 6 personas.">
 <meta property="og:url" content="https://sitgesmorzart.com/verano/">
-<meta property="og:image" content="https://sitgesmorzart.com/images/og-cover-verano.jpg">
-<meta property="og:image:secure_url" content="https://sitgesmorzart.com/images/og-cover-verano.jpg">
+<meta property="og:image" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
+<meta property="og:image:secure_url" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -43,7 +43,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Talleres de Verano 2026 · Sitgesmorzart">
 <meta name="twitter:description" content="Semanas creativas y talleres de tarde en Sitges. Del 6 de julio al 28 de agosto.">
-<meta name="twitter:image" content="https://sitgesmorzart.com/images/og-cover-verano.jpg">
+<meta name="twitter:image" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
 
 <!-- Fonts (self-hosted) -->
 <link rel="preload" href="/fonts/poppins-700.woff2" as="font" type="font/woff2" crossorigin>
@@ -269,6 +269,7 @@ section { padding: var(--spacing-16) 0; }
 
 .hero-verano-ctas {
   display: flex; justify-content: center; flex-wrap: wrap; gap: var(--spacing-3);
+  margin-bottom: var(--spacing-8);
 }
 @media (max-width: 480px) {
   .hero-verano-ctas { flex-direction: column; align-items: stretch; padding: 0 var(--spacing-4); }
@@ -1389,26 +1390,6 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
     }
   }
 
-  /* Garantir la sauvegarde localStorage au clic — même pattern que homepage */
-  const ctaBtn = document.getElementById('cta-online');
-  if (ctaBtn) {
-    ctaBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      const storageKey = currentMode === 'semana'
-        ? 'sitgesmorzart-booking-verano'
-        : 'sitgesmorzart-booking';
-      try {
-        localStorage.setItem(storageKey, JSON.stringify({
-          seats: currentCount,
-          total: PRICES[currentMode][currentCount] * currentCount,
-          perPerson: PRICES[currentMode][currentCount],
-          timestamp: Date.now()
-        }));
-      } catch(err) {}
-      window.location.href = ctaBtn.href;
-    });
-  }
-
   function setMode(mode) {
     currentMode = mode;
     document.getElementById('toggle-semana').classList.toggle('is-active', mode === 'semana');
@@ -1425,6 +1406,23 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
   document.getElementById('toggle-semana').addEventListener('click', () => setMode('semana'));
   document.getElementById('toggle-tarde').addEventListener('click',  () => setMode('tarde'));
   setMode('semana');
+
+  /* Sauvegarde localStorage au clic sur "Reservar online" */
+  const ctaBtn = document.getElementById('cta-online');
+  if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+      const storageKey = currentMode === 'semana' ? 'sitgesmorzart-booking-verano' : 'sitgesmorzart-booking';
+      try {
+        localStorage.setItem(storageKey, JSON.stringify({
+          seats: currentCount,
+          total: PRICES[currentMode][currentCount] * currentCount,
+          perPerson: PRICES[currentMode][currentCount],
+          timestamp: Date.now()
+        }));
+      } catch(e) {}
+    });
+  }
+
 
   /* === BURGER === */
   const burger = document.getElementById('site-burger');
