@@ -1355,7 +1355,8 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
       if (ctaAmtEl)  ctaAmtEl.textContent  = total;
 
       let savText = '';
-      if (count >= 4) savText = SAVINGS[currentMode][lang].tier3;
+      const tier3Threshold = currentMode === 'tarde' ? 5 : 4;
+      if (count >= tier3Threshold) savText = SAVINGS[currentMode][lang].tier3;
       else if (count >= 2) savText = SAVINGS[currentMode][lang].tier2;
       if (savingsEl) savingsEl.textContent = savText;
     });
