@@ -5,7 +5,7 @@
       "has": [
         {
           "type": "host",
-          "value": "sitgesmorzart-taller.vercel.app"
+          "value": "sitgesmorzart.com"
         }
       ],
       "destination": "https://sitgesmorzart.com/$1",
