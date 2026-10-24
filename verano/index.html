@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Sitgesmorzart · Talleres de Verano en Sitges. Semanas creativas y talleres de tarde. Del 6 de julio al 28 de agosto de 2026.">
+<meta name="description" content="Sitgesmorzart · Talleres de Verano en Sitges. La temporada 2026 ha terminado. Volvemos el próximo verano. El taller sigue abierto todo el año.">
 <meta name="theme-color" content="#FFFFFF">
 <meta name="author" content="Sitgesmorzart - Guillaume">
 
-<title>Talleres de Verano 2026 · Sitgesmorzart</title>
+<title>Talleres de Verano · Sitgesmorzart</title>
 
 <!-- Favicon -->
 <link rel="icon" href="/favicon.ico" sizes="any">
@@ -27,8 +27,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sitgesmorzart · Taller Creativo">
-<meta property="og:title" content="Talleres de Verano 2026 · Sitgesmorzart">
-<meta property="og:description" content="Semanas creativas y talleres de tarde en Sitges. Del 6 de julio al 28 de agosto. A partir de 5 años, máximo 6 personas.">
+<meta property="og:title" content="Talleres de Verano · Sitgesmorzart">
+<meta property="og:description" content="La temporada de verano 2026 ha terminado. Volvemos el próximo verano. Mientras tanto, el taller sigue abierto todo el año en Sitges.">
 <meta property="og:url" content="https://sitgesmorzart.com/verano/">
 <meta property="og:image" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
 <meta property="og:image:secure_url" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
@@ -41,8 +41,8 @@
 
 <!-- Twitter/X -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Talleres de Verano 2026 · Sitgesmorzart">
-<meta name="twitter:description" content="Semanas creativas y talleres de tarde en Sitges. Del 6 de julio al 28 de agosto.">
+<meta name="twitter:title" content="Talleres de Verano · Sitgesmorzart">
+<meta name="twitter:description" content="La temporada de verano 2026 ha terminado. Volvemos el próximo verano.">
 <meta name="twitter:image" content="https://sitgesmorzart.com/images/og-cover-atelier.jpg">
 
 <!-- Fonts (self-hosted) -->
@@ -276,164 +276,6 @@ section { padding: var(--spacing-16) 0; }
 }
 
 /* ============================================================
-   FORMATS
-   ============================================================ */
-.formats { background: var(--surface-default); }
-
-.formats-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-6); max-width: 900px; margin: 0 auto;
-}
-@media (max-width: 768px) { .formats-grid { grid-template-columns: 1fr; } }
-
-.format-card {
-  background: var(--surface-default); border: 2px solid var(--border-default);
-  border-radius: var(--radius-2xl); padding: var(--spacing-8);
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  display: flex; flex-direction: column; gap: var(--spacing-3);
-}
-.format-card:hover { border-color: var(--border-brand); transform: translateY(-4px); box-shadow: var(--shadow-md); }
-
-.format-icon {
-  width: 56px; height: 56px; border-radius: var(--radius-lg);
-  background: var(--brand-turquoise-100); display: flex;
-  align-items: center; justify-content: center; font-size: 1.75rem;
-}
-
-.format-card h3 { font-size: 1.375rem; margin-bottom: 0; }
-
-.format-schedule {
-  display: inline-flex; align-items: center; gap: var(--spacing-2);
-  background: var(--brand-turquoise-100); color: var(--brand-turquoise-700);
-  padding: var(--spacing-1) var(--spacing-3); border-radius: var(--radius-full);
-  font-size: var(--body-small-size); font-weight: var(--weight-semibold);
-  width: fit-content;
-}
-
-.format-card p { color: var(--text-secondary); font-size: var(--body-medium-size); line-height: 1.6; flex: 1; }
-
-.format-price-preview {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: 1.75rem; color: var(--text-primary);
-}
-.format-price-preview small {
-  font-size: var(--body-small-size); font-weight: var(--weight-regular);
-  color: var(--text-secondary);
-}
-
-/* ============================================================
-   CALCULATOR
-   ============================================================ */
-.pricing-verano { background: var(--surface-subtle); }
-
-.calc-toggle {
-  display: flex; background: var(--surface-default);
-  border: 2px solid var(--border-default); border-radius: var(--radius-full);
-  padding: 4px; max-width: 540px; margin: 0 auto var(--spacing-8);
-}
-.calc-toggle-btn {
-  flex: 1; padding: var(--spacing-3) var(--spacing-4); border-radius: var(--radius-full);
-  font-family: var(--font-display); font-weight: var(--weight-semibold);
-  font-size: var(--body-small-size); color: var(--text-secondary);
-  transition: all 0.2s ease; text-align: center; cursor: pointer;
-  border: none; background: transparent;
-}
-.calc-toggle-btn.is-active { background: var(--action-primary-bg); color: var(--action-primary-text); }
-
-.calculator {
-  background: var(--surface-default); border-radius: var(--radius-2xl);
-  padding: var(--padding-card);
-  max-width: 720px; margin: 0 auto; box-shadow: var(--shadow-md); text-align: center;
-}
-
-.calculator-question {
-  font-family: var(--font-display); font-weight: var(--weight-semibold);
-  font-size: 1.125rem; color: var(--text-primary); margin-bottom: var(--spacing-4);
-}
-.calculator-hint {
-  display: block; font-family: var(--font-body); font-weight: var(--weight-regular);
-  font-size: var(--body-small-size); color: var(--text-secondary); margin-top: var(--spacing-1);
-}
-
-.calc-buttons {
-  display: flex; justify-content: center; gap: var(--spacing-2);
-  flex-wrap: wrap; margin-bottom: var(--spacing-6);
-}
-.calc-btn {
-  width: 56px; height: 56px; border-radius: var(--radius-full);
-  background: var(--surface-default); border: 2px solid var(--border-default);
-  color: var(--text-primary); font-family: var(--font-display);
-  font-weight: var(--weight-bold); font-size: 1.125rem;
-  transition: all 0.2s ease; cursor: pointer;
-}
-.calc-btn:hover { border-color: var(--border-brand); color: var(--brand-turquoise-700); }
-.calc-btn.is-active {
-  background: var(--action-primary-bg); border-color: var(--action-primary-bg);
-  color: var(--action-primary-text); transform: scale(1.05);
-}
-
-.calc-result {
-  background: var(--brand-turquoise-100); border-radius: var(--radius-xl);
-  padding: var(--padding-card-inner); margin-bottom: var(--gap-card-stack);
-}
-.calc-total {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: 3rem; color: var(--text-primary); line-height: 1.2;
-}
-.calc-total .currency { font-size: 1.5rem; vertical-align: super; margin-right: 4px; }
-.calc-detail { margin-top: var(--spacing-2); color: var(--text-secondary); font-size: var(--body-medium-size); }
-
-.calc-savings {
-  display: inline-block; margin-top: var(--spacing-3);
-  padding: var(--spacing-1) var(--spacing-3); background: var(--brand-green-100);
-  color: var(--brand-green-700); border-radius: var(--radius-full);
-  font-weight: var(--weight-semibold); font-size: var(--body-small-size);
-  opacity: 0; transition: opacity 0.3s ease;
-}
-.calc-savings.is-visible { opacity: 1; }
-
-.calc-cta { display: flex; gap: var(--spacing-3); justify-content: center; flex-wrap: wrap; }
-
-/* Format card différenciation */
-.format-card {
-  position: relative;
-  overflow: hidden;
-}
-.format-card::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 5px;
-}
-.format-card--morning::before { background: var(--semantic-orange-300); }
-.format-card--afternoon::before { background: var(--semantic-orange-500); }
-.format-card--morning .format-icon { background: var(--semantic-orange-100); }
-.format-card--afternoon .format-icon { background: var(--semantic-orange-200); }
-.format-card--morning .format-schedule { background: var(--semantic-orange-100); color: var(--neutral-grey-900); }
-.format-card--afternoon .format-schedule { background: var(--semantic-orange-200); color: var(--neutral-grey-900); }
-.pricing-table {
-  max-width: 720px; margin: var(--spacing-6) auto 0;
-  background: var(--surface-default); border-radius: var(--radius-xl);
-  overflow: hidden; border: 1px solid var(--border-default);
-}
-.pricing-table-row {
-  display: grid; grid-template-columns: 1fr auto;
-  align-items: center; padding: var(--spacing-4) var(--spacing-6);
-  border-bottom: 1px solid var(--border-default);
-}
-.pricing-table-row:last-child { border-bottom: none; }
-.pricing-table-row.is-header {
-  background: var(--surface-subtle); font-family: var(--font-display);
-  font-weight: var(--weight-semibold); font-size: var(--body-small-size);
-  text-transform: uppercase; letter-spacing: 0.1em; color: var(--brand-turquoise-700);
-}
-.pricing-table-label { color: var(--text-primary); font-weight: var(--weight-medium); }
-.pricing-table-price {
-  font-family: var(--font-display); font-weight: var(--weight-bold);
-  font-size: 1.125rem; color: var(--text-primary);
-}
-
-/* ============================================================
    DISCIPLINES
    ============================================================ */
 .disciplines { background: var(--surface-default); }
@@ -578,35 +420,6 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
 @media (prefers-reduced-motion: reduce) { [data-lang].is-active-lang { animation: none; } }
 </style>
 
-<!-- Schema.org -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Event",
-  "name": "Talleres de Verano Sitgesmorzart 2026",
-  "description": "Talleres creativos de madera en Sitges durante el verano. Semanas creativas y talleres de tarde.",
-  "startDate": "2026-07-06",
-  "endDate": "2026-08-28",
-  "location": {
-    "@type": "Place",
-    "name": "Studio Quedarte",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Carrer Sant Damià, 7",
-      "addressLocality": "Sitges",
-      "postalCode": "08870",
-      "addressRegion": "Barcelona",
-      "addressCountry": "ES"
-    }
-  },
-  "organizer": {
-    "@type": "Organization",
-    "name": "Sitgesmorzart",
-    "url": "https://sitgesmorzart.com"
-  },
-  "url": "https://sitgesmorzart.com/verano/"
-}
-</script>
 </head>
 <body>
 
@@ -670,7 +483,7 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
           <span class="lang-code">EN</span>
         </button>
       </nav>
-      <a href="#calculadora" class="site-cta">
+      <a href="/#calculadora" class="site-cta">
         <span data-lang="es" class="is-active-lang">Reservar</span>
         <span data-lang="fr">Réserver</span>
         <span data-lang="en">Book</span>
@@ -710,7 +523,7 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
     <span data-lang="fr">Créations</span>
     <span data-lang="en">Creations</span>
   </a>
-  <a href="#calculadora" class="site-cta">
+  <a href="/#calculadora" class="site-cta">
     <span data-lang="es" class="is-active-lang">Reservar</span>
     <span data-lang="fr">Réserver</span>
     <span data-lang="en">Book</span>
@@ -726,286 +539,38 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
 <section class="hero-verano">
   <div class="container">
 
-    <div class="hero-verano-dates" aria-label="Fechas del taller de verano">
-      ☀️ 6 julio — 29 agosto 2026
+    <div class="hero-verano-dates">
+      <span data-lang="es" class="is-active-lang">☀️ Temporada 2026 terminada</span>
+      <span data-lang="fr">☀️ Saison 2026 terminée</span>
+      <span data-lang="en">☀️ 2026 season is over</span>
     </div>
 
     <div data-lang="es" class="is-active-lang">
       <h1>Talleres de <span class="accent">verano</span> en Sitges</h1>
-      <p class="hero-verano-tagline">Arte y creatividad para niños y adultos. Dos formatos para un verano creativo en Sitges.</p>
+      <p class="hero-verano-tagline">Los talleres de verano 2026 han terminado. ¡Gracias a todas las familias! Volvemos el próximo verano. Mientras tanto, el taller sigue abierto todo el año.</p>
     </div>
     <div data-lang="fr">
       <h1>Ateliers d'<span class="accent">été</span> à Sitges</h1>
-      <p class="hero-verano-tagline">Deux formats pour passer un été créatif à Sitges.</p>
+      <p class="hero-verano-tagline">Les ateliers d'été 2026 sont terminés. Merci à toutes les familles ! On revient l'été prochain. En attendant, l'atelier reste ouvert toute l'année.</p>
     </div>
     <div data-lang="en">
       <h1><span class="accent">Summer</span> workshops in Sitges</h1>
-      <p class="hero-verano-tagline">Two formats for a creative summer in Sitges.</p>
+      <p class="hero-verano-tagline">Our 2026 summer workshops are over. Thank you to all the families! We'll be back next summer. Meanwhile, the studio is open all year round.</p>
     </div>
 
     <div class="hero-verano-ctas">
-      <a href="#calculadora" class="btn btn-primary btn-lg">
-        <span data-lang="es" class="is-active-lang">Reservar ahora →</span>
-        <span data-lang="fr">Réserver maintenant →</span>
-        <span data-lang="en">Book now →</span>
+      <a href="/#calculadora" class="btn btn-primary btn-lg">
+        <span data-lang="es" class="is-active-lang">Ver los talleres del año →</span>
+        <span data-lang="fr">Voir les ateliers de l'année →</span>
+        <span data-lang="en">See year-round workshops →</span>
       </a>
-      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20me%20interesa%20un%20taller%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20av%C3%ADsame%20cuando%20abran%20los%20talleres%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
         💬 WhatsApp Guillaume
       </a>
     </div>
 
   </div>
 </section>
-
-
-<!-- ============================================================
-     FORMATS
-     ============================================================ -->
-<section class="formats" id="formatos">
-  <div class="container">
-
-    <div class="section-head">
-      <span class="kicker" data-lang="es">Dos formatos</span>
-      <span class="kicker" data-lang="fr">Deux formats</span>
-      <span class="kicker" data-lang="en">Two formats</span>
-      <div data-lang="es" class="is-active-lang">
-        <h2>Elige tu fórmula de verano</h2>
-        <p>Semana completa por la mañana, o taller suelto por la tarde. A partir de 5 años. Semanas creativas: máximo 6 personas · Talleres de tarde: hasta 10 personas.</p>
-      </div>
-      <div data-lang="fr">
-        <h2>Choisis ta formule d'été</h2>
-        <p>Semaine complète le matin, ou atelier à la séance l'après-midi. À partir de 5 ans. Semaines créatives : 6 personnes max · Ateliers de l'après-midi : jusqu'à 10 personnes.</p>
-      </div>
-      <div data-lang="en">
-        <h2>Choose your summer format</h2>
-        <p>Full week in the morning, or drop-in afternoon session. Ages 5+. Creative weeks: max 6 people · Afternoon sessions: up to 10 people.</p>
-      </div>
-    </div>
-
-    <div class="formats-grid">
-
-      <!-- Semana creativa -->
-      <div class="format-card format-card--morning">
-        <div class="format-icon" aria-hidden="true">🎨</div>
-        <div data-lang="es" class="is-active-lang">
-          <h3>Taller Verano · Semana Creativa</h3>
-        </div>
-        <div data-lang="fr">
-          <h3>Stage Verano · Semaine Créative</h3>
-        </div>
-        <div data-lang="en">
-          <h3>Creative Workshop · Summer Week</h3>
-        </div>
-        <div class="format-schedule" data-lang="es">🎨 Lun–Vie · 10:30–12:30</div>
-        <div class="format-schedule" data-lang="fr">🎨 Lun–Ven · 10h30–12h30</div>
-        <div class="format-schedule" data-lang="en">🎨 Mon–Fri · 10:30–12:30</div>
-        <div data-lang="es" class="is-active-lang">
-          <p>Una semana entera de creación. Un proyecto o varios, según las ganas de cada uno.</p>
-        </div>
-        <div data-lang="fr">
-          <p>Une semaine entière de création. Un projet ou plusieurs, selon les envies de chacun.</p>
-        </div>
-        <div data-lang="en">
-          <p>A full week of creativity. One project or more, whatever each person feels like making.</p>
-        </div>
-        <div class="format-price-preview">
-          <span data-lang="es" class="is-active-lang">desde 100 € <small>/ pers. / semana</small></span>
-          <span data-lang="fr">à partir de 100 € <small>/ pers. / semaine</small></span>
-          <span data-lang="en">from €100 <small>/ person / week</small></span>
-        </div>
-      </div>
-
-      <!-- Taller de tarde -->
-      <div class="format-card format-card--afternoon">
-        <div class="format-icon" aria-hidden="true">🌅</div>
-        <div data-lang="es" class="is-active-lang">
-          <h3>Taller de Tarde · 3h</h3>
-        </div>
-        <div data-lang="fr">
-          <h3>Atelier de l'après-midi · 3h</h3>
-        </div>
-        <div data-lang="en">
-          <h3>Afternoon Workshop · 3h</h3>
-        </div>
-        <div class="format-schedule" data-lang="es">🌅 Lun–Sáb · 15:00–18:00</div>
-        <div class="format-schedule" data-lang="fr">🌅 Lun–Sam · 15h00–18h00</div>
-        <div class="format-schedule" data-lang="en">🌅 Mon–Sat · 3pm–6pm</div>
-        <div data-lang="es" class="is-active-lang">
-          <p>Un taller de 3 horas para crear tu propio objeto de madera. Ideal para combinar con la playa por la mañana.</p>
-        </div>
-        <div data-lang="fr">
-          <p>Un atelier de 3 heures pour créer ton propre objet en bois. Parfait pour combiner avec la plage le matin.</p>
-        </div>
-        <div data-lang="en">
-          <p>A 3-hour session to create your own wooden piece. Great to pair with a morning at the beach.</p>
-        </div>
-        <div class="format-price-preview">
-          <span data-lang="es" class="is-active-lang">desde 20 € <small>/ pers.</small></span>
-          <span data-lang="fr">à partir de 20 € <small>/ pers.</small></span>
-          <span data-lang="en">from €20 <small>/ person</small></span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     CALCULATOR
-     ============================================================ -->
-<section class="pricing-verano" id="calculadora">
-  <div class="container">
-
-    <div class="section-head">
-      <span class="kicker" data-lang="es">Tarifas</span>
-      <span class="kicker" data-lang="fr">Tarifs</span>
-      <span class="kicker" data-lang="en">Pricing</span>
-      <div data-lang="es" class="is-active-lang">
-        <h2>Calcula el precio de tu taller</h2>
-        <p>Cuanto más grande es el grupo, menor es el precio por persona.</p>
-      </div>
-      <div data-lang="fr">
-        <h2>Calcule le prix de ton atelier</h2>
-        <p>Plus le groupe est grand, plus le prix par personne baisse.</p>
-      </div>
-      <div data-lang="en">
-        <h2>Calculate your workshop price</h2>
-        <p>The bigger the group, the lower the price per person.</p>
-      </div>
-    </div>
-
-    <!-- Toggle format -->
-    <div class="calc-toggle" role="tablist" aria-label="Format de taller">
-      <button class="calc-toggle-btn is-active" id="toggle-semana" role="tab" aria-selected="true" aria-controls="panel-calculadora">
-        <span data-lang="es" class="is-active-lang">🎨 Semana creativa</span>
-        <span data-lang="fr">🎨 Semaine créative</span>
-        <span data-lang="en">🎨 Summer week</span>
-      </button>
-      <button class="calc-toggle-btn" id="toggle-tarde" role="tab" aria-selected="false" aria-controls="panel-calculadora">
-        <span data-lang="es" class="is-active-lang">🌅 Taller de tarde</span>
-        <span data-lang="fr">🌅 Atelier après-midi</span>
-        <span data-lang="en">🌅 Afternoon session</span>
-      </button>
-    </div>
-
-    <div class="calculator" id="panel-calculadora" role="tabpanel">
-
-      <div class="calculator-question" data-lang="es">¿Cuántos seréis?
-        <span class="calculator-hint">Selecciona para ver el precio</span>
-      </div>
-      <div class="calculator-question" data-lang="fr">Vous serez combien ?
-        <span class="calculator-hint">Sélectionne pour voir le prix</span>
-      </div>
-      <div class="calculator-question" data-lang="en">How many will you be?
-        <span class="calculator-hint">Select to see the price</span>
-      </div>
-
-      <div class="calc-buttons" id="calc-buttons" role="radiogroup" aria-label="Número de participantes"></div>
-
-      <div class="calc-result">
-        <div class="calc-total"><span class="currency">€</span><span id="calc-amount">150</span></div>
-        <div class="calc-detail">
-          <span data-lang="es" class="is-active-lang"><span id="calc-people-es">1 persona</span> · <span id="calc-perperson-es">150 € por persona / semana</span></span>
-          <span data-lang="fr"><span id="calc-people-fr">1 personne</span> · <span id="calc-perperson-fr">150 € par personne / semaine</span></span>
-          <span data-lang="en"><span id="calc-people-en">1 person</span> · <span id="calc-perperson-en">€150 per person / week</span></span>
-        </div>
-        <div class="calc-savings" id="calc-savings">
-          <span data-lang="es" class="is-active-lang"><span id="calc-savings-es"></span></span>
-          <span data-lang="fr"><span id="calc-savings-fr"></span></span>
-          <span data-lang="en"><span id="calc-savings-en"></span></span>
-        </div>
-      </div>
-
-      <div class="calc-cta">
-        <a href="https://cal.com/lifeandlearning/taller-verano-semana-creativa" id="cta-online" class="btn btn-primary btn-lg" target="_blank" rel="noopener">
-          <span data-lang="es" class="is-active-lang">Reservar online · <span id="cta-online-amount-es">150</span> €</span>
-          <span data-lang="fr">Réserver en ligne · <span id="cta-online-amount-fr">150</span> €</span>
-          <span data-lang="en">Book online · <span id="cta-online-amount-en">150</span> €</span>
-        </a>
-        <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20me%20interesa%20reservar%20un%20taller%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
-          <span data-lang="es" class="is-active-lang">Reservar por WhatsApp</span>
-          <span data-lang="fr">Réserver par WhatsApp</span>
-          <span data-lang="en">Book via WhatsApp</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Table semana (visible par défaut) -->
-    <div id="table-semana" class="pricing-table">
-      <div class="pricing-table-row is-header">
-        <div data-lang="es" class="is-active-lang">Grupo</div>
-        <div data-lang="fr">Groupe</div>
-        <div data-lang="en">Group</div>
-        <div data-lang="es" class="is-active-lang">€ / pers. / semana</div>
-        <div data-lang="fr">€ / pers. / semaine</div>
-        <div data-lang="en">€ / person / week</div>
-      </div>
-      <div class="pricing-table-row">
-        <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">1 persona</span>
-          <span data-lang="fr">1 personne</span>
-          <span data-lang="en">1 person</span>
-        </div>
-        <div class="pricing-table-price">150 €</div>
-      </div>
-      <div class="pricing-table-row">
-        <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">2 a 3 personas</span>
-          <span data-lang="fr">2 à 3 personnes</span>
-          <span data-lang="en">2 to 3 people</span>
-        </div>
-        <div class="pricing-table-price">120 € / pers.</div>
-      </div>
-      <div class="pricing-table-row">
-        <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">4 a 6 personas</span>
-          <span data-lang="fr">4 à 6 personnes</span>
-          <span data-lang="en">4 to 6 people</span>
-        </div>
-        <div class="pricing-table-price">100 € / pers.</div>
-      </div>
-    </div>
-
-    <!-- Table tarde (masquée par défaut) -->
-    <div id="table-tarde" class="pricing-table" style="display: none;">
-      <div class="pricing-table-row is-header">
-        <div data-lang="es" class="is-active-lang">Grupo</div>
-        <div data-lang="fr">Groupe</div>
-        <div data-lang="en">Group</div>
-        <div data-lang="es" class="is-active-lang">€ / persona</div>
-        <div data-lang="fr">€ / personne</div>
-        <div data-lang="en">€ / person</div>
-      </div>
-      <div class="pricing-table-row">
-        <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">1 persona</span>
-          <span data-lang="fr">1 personne</span>
-          <span data-lang="en">1 person</span>
-        </div>
-        <div class="pricing-table-price">30 €</div>
-      </div>
-      <div class="pricing-table-row">
-        <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">2 a 4 personas</span>
-          <span data-lang="fr">2 à 4 personnes</span>
-          <span data-lang="en">2 to 4 people</span>
-        </div>
-        <div class="pricing-table-price">25 € / pers.</div>
-      </div>
-      <div class="pricing-table-row">
-        <div class="pricing-table-label">
-          <span data-lang="es" class="is-active-lang">5 a 10 personas</span>
-          <span data-lang="fr">5 à 10 personnes</span>
-          <span data-lang="en">5 to 10 people</span>
-        </div>
-        <div class="pricing-table-price">20 € / pers.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 
 <!-- ============================================================
      DISCIPLINES
@@ -1153,24 +718,24 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
 <section class="cta-section">
   <div class="container">
     <div data-lang="es" class="is-active-lang">
-      <h2>¿Listo para crear este verano?</h2>
-      <p>Plazas limitadas · Máximo 6 personas · A partir de 5 años</p>
+      <h2>¿Te avisamos para el próximo verano?</h2>
+      <p>Escríbenos por WhatsApp y te avisamos cuando abran las reservas.</p>
     </div>
     <div data-lang="fr">
-      <h2>Prêt·e à créer cet été ?</h2>
-      <p>Places limitées · Maximum 6 personnes · À partir de 5 ans</p>
+      <h2>On te prévient pour l'été prochain ?</h2>
+      <p>Écris-nous sur WhatsApp et on te prévient dès l'ouverture des réservations.</p>
     </div>
     <div data-lang="en">
-      <h2>Ready to create this summer?</h2>
-      <p>Limited spots · Maximum 6 people · Ages 5+</p>
+      <h2>Want a heads-up for next summer?</h2>
+      <p>Message us on WhatsApp and we'll let you know when bookings open.</p>
     </div>
     <div class="cta-buttons">
-      <a href="#calculadora" class="btn btn-primary btn-lg">
-        <span data-lang="es" class="is-active-lang">Reservar online →</span>
-        <span data-lang="fr">Réserver en ligne →</span>
-        <span data-lang="en">Book online →</span>
+      <a href="/#calculadora" class="btn btn-primary btn-lg">
+        <span data-lang="es" class="is-active-lang">Ver los talleres del año →</span>
+        <span data-lang="fr">Voir les ateliers de l'année →</span>
+        <span data-lang="en">See year-round workshops →</span>
       </a>
-      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20me%20interesa%20un%20taller%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+      <a href="https://wa.me/33679827387?text=Hola%20Guillaume%2C%20av%C3%ADsame%20cuando%20abran%20los%20talleres%20de%20verano" class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
         💬 WhatsApp Guillaume
       </a>
     </div>
@@ -1207,15 +772,12 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
         </ul>
       </div>
       <div class="footer-section">
-        <h3 data-lang="es">Talleres de verano</h3>
-        <h3 data-lang="fr">Ateliers d'été</h3>
-        <h3 data-lang="en">Summer workshops</h3>
+        <h3 data-lang="es">Estudio</h3>
+        <h3 data-lang="fr">Atelier</h3>
+        <h3 data-lang="en">Studio</h3>
         <ul>
           <li>C/ Salvador Olivella, 12</li>
           <li>08870 Sitges</li>
-          <li data-lang="es">6 julio — 29 agosto 2026</li>
-          <li data-lang="fr">6 juillet — 29 août 2026</li>
-          <li data-lang="en">6 July — 29 August 2026</li>
         </ul>
       </div>
     </div>
@@ -1272,158 +834,6 @@ footer { background: var(--surface-emphasis); color: var(--neutral-grey-300); pa
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.addEventListener('click', () => setLang(btn.getAttribute('data-switch')));
   });
-
-
-  /* === CALCULATOR === */
-  const PRICES = {
-    semana: { 1: 150, 2: 120, 3: 120, 4: 100, 5: 100, 6: 100 },
-    tarde:  { 1: 30,  2: 25,  3: 25,  4: 25,  5: 20,  6: 20,  7: 20,  8: 20,  9: 20,  10: 20 }
-  };
-
-  const CAL_LINKS = {
-    semana: 'https://cal.com/lifeandlearning/taller-verano-semana-creativa',
-    tarde:  'https://cal.com/lifeandlearning/taller-de-tarde-3h'
-  };
-
-  const SAVINGS = {
-    semana: {
-      es: { tier2: '¡Ahorras 30 €/persona!', tier3: '¡Ahorras 50 €/persona!' },
-      fr: { tier2: 'Vous économisez 30 €/personne !', tier3: 'Vous économisez 50 €/personne !' },
-      en: { tier2: 'You save €30/person!', tier3: 'You save €50/person!' }
-    },
-    tarde: {
-      es: { tier2: '¡Ahorras 5 €/persona!', tier3: '¡Ahorras 10 €/persona!' },
-      fr: { tier2: 'Vous économisez 5 €/personne !', tier3: 'Vous économisez 10 €/personne !' },
-      en: { tier2: 'You save €5/person!', tier3: 'You save €10/person!' }
-    }
-  };
-
-  const PEOPLE = {
-    es: n => n === 1 ? '1 persona' : n + ' personas',
-    fr: n => n === 1 ? '1 personne' : n + ' personnes',
-    en: n => n === 1 ? '1 person' : n + ' people'
-  };
-
-  const PERPERSON = {
-    semana: {
-      es: p => p + ' € por persona / semana',
-      fr: p => p + ' € par personne / semaine',
-      en: p => '€' + p + ' per person / week'
-    },
-    tarde: {
-      es: p => p + ' € por persona',
-      fr: p => p + ' € par personne',
-      en: p => '€' + p + ' per person'
-    }
-  };
-
-  let currentMode = 'semana';
-  let currentCount = 1;
-
-  function buildButtons() {
-    const wrap = document.getElementById('calc-buttons');
-    if (!wrap) return;
-    wrap.innerHTML = '';
-    const max = currentMode === 'tarde' ? 10 : 6;
-    for (let i = 1; i <= max; i++) {
-      const btn = document.createElement('button');
-      btn.className = 'calc-btn' + (i === currentCount ? ' is-active' : '');
-      btn.textContent = i;
-      btn.setAttribute('role', 'radio');
-      btn.setAttribute('aria-checked', i === currentCount ? 'true' : 'false');
-      btn.setAttribute('aria-label', i + (i === 1 ? ' persona' : ' personas'));
-      btn.addEventListener('click', () => updateCalc(i));
-      wrap.appendChild(btn);
-    }
-  }
-
-  function updateCalc(count) {
-    currentCount = count;
-    const perPerson = PRICES[currentMode][count];
-    const total = perPerson * count;
-
-    document.getElementById('calc-amount').textContent = total;
-
-    SUPPORTED.forEach(lang => {
-      const peopleEl   = document.getElementById('calc-people-' + lang);
-      const ppEl       = document.getElementById('calc-perperson-' + lang);
-      const savingsEl  = document.getElementById('calc-savings-' + lang);
-      const ctaAmtEl   = document.getElementById('cta-online-amount-' + lang);
-
-      if (peopleEl)  peopleEl.textContent  = PEOPLE[lang](count);
-      if (ppEl)      ppEl.textContent      = PERPERSON[currentMode][lang](perPerson);
-      if (ctaAmtEl)  ctaAmtEl.textContent  = total;
-
-      let savText = '';
-      const tier3Threshold = currentMode === 'tarde' ? 5 : 4;
-      if (count >= tier3Threshold) savText = SAVINGS[currentMode][lang].tier3;
-      else if (count >= 2) savText = SAVINGS[currentMode][lang].tier2;
-      if (savingsEl) savingsEl.textContent = savText;
-    });
-
-    const savBlock = document.getElementById('calc-savings');
-    if (count >= 2) savBlock.classList.add('is-visible');
-    else savBlock.classList.remove('is-visible');
-
-    document.querySelectorAll('.calc-btn').forEach((btn, idx) => {
-      const active = (idx + 1) === count;
-      btn.classList.toggle('is-active', active);
-      btn.setAttribute('aria-checked', active ? 'true' : 'false');
-    });
-
-    // Stocker en localStorage avant redirection Cal.com (backup si URL param non transmis)
-    const ctaOnline = document.getElementById('cta-online');
-    if (ctaOnline) {
-      const total = PRICES[currentMode][count] * count;
-      const storageKey = currentMode === 'semana' ? 'sitgesmorzart-booking-verano' : 'sitgesmorzart-booking';
-      try {
-        localStorage.setItem(storageKey, JSON.stringify({
-          seats: count, total: total,
-          perPerson: PRICES[currentMode][count],
-          timestamp: Date.now()
-        }));
-      } catch(e) {}
-      if (currentMode === 'tarde') {
-        ctaOnline.href = CAL_LINKS.tarde;
-      } else {
-        ctaOnline.href = CAL_LINKS.semana;
-      }
-    }
-  }
-
-  function setMode(mode) {
-    currentMode = mode;
-    document.getElementById('toggle-semana').classList.toggle('is-active', mode === 'semana');
-    document.getElementById('toggle-tarde').classList.toggle('is-active', mode === 'tarde');
-    document.getElementById('toggle-semana').setAttribute('aria-selected', mode === 'semana');
-    document.getElementById('toggle-tarde').setAttribute('aria-selected', mode === 'tarde');
-    document.getElementById('table-semana').style.display = mode === 'semana' ? '' : 'none';
-    document.getElementById('table-tarde').style.display  = mode === 'tarde'  ? '' : 'none';
-    currentCount = 1;
-    buildButtons();
-    updateCalc(1);
-  }
-
-  document.getElementById('toggle-semana').addEventListener('click', () => setMode('semana'));
-  document.getElementById('toggle-tarde').addEventListener('click',  () => setMode('tarde'));
-  setMode('semana');
-
-  /* Sauvegarde localStorage au clic sur "Reservar online" */
-  const ctaBtn = document.getElementById('cta-online');
-  if (ctaBtn) {
-    ctaBtn.addEventListener('click', () => {
-      const storageKey = currentMode === 'semana' ? 'sitgesmorzart-booking-verano' : 'sitgesmorzart-booking';
-      try {
-        localStorage.setItem(storageKey, JSON.stringify({
-          seats: currentCount,
-          total: PRICES[currentMode][currentCount] * currentCount,
-          perPerson: PRICES[currentMode][currentCount],
-          timestamp: Date.now()
-        }));
-      } catch(e) {}
-    });
-  }
-
 
   /* === BURGER === */
   const burger = document.getElementById('site-burger');

@@ -8,8 +8,8 @@
 <meta name="author" content="Sitgesmorzart - Guillaume">
 <meta name="geo.region" content="ES-CT">
 <meta name="geo.placename" content="Sitges">
-<meta name="geo.position" content="41.2364;1.8120">
-<meta name="ICBM" content="41.2364, 1.8120">
+<meta name="geo.position" content="41.2390;1.8040">
+<meta name="ICBM" content="41.2390, 1.8040">
 
 <title>Sitgesmorzart · Taller Creativo en Sitges</title>
 
@@ -1525,37 +1525,6 @@ footer {
   [data-lang].is-active-lang { animation: none; }
 }
 
-/* Bandeau verano défilant */
-.verano-banner {
-  background: var(--semantic-orange-100);
-  overflow: hidden;
-  white-space: nowrap;
-  padding: var(--spacing-2) 0;
-  position: relative;
-  z-index: 89;
-}
-.verano-banner-track {
-  display: inline-flex;
-  gap: 0;
-  animation: bannerScroll 28s linear infinite;
-}
-.verano-banner:hover .verano-banner-track { animation-play-state: paused; }
-@media (prefers-reduced-motion: reduce) {
-  .verano-banner-track { animation: none; }
-}
-.verano-banner-item {
-  display: inline-flex; align-items: center; gap: var(--spacing-3);
-  padding: 0 var(--spacing-8);
-  font-family: var(--font-display); font-weight: var(--weight-semibold);
-  font-size: var(--body-small-size); color: var(--text-primary);
-  text-decoration: none; white-space: nowrap;
-}
-.verano-banner-item:hover { text-decoration: underline; }
-.verano-banner-sep { opacity: 0.4; }
-@keyframes bannerScroll {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
 /* Testimonial section */
 .testimonial-section { background: var(--surface-subtle); padding: var(--spacing-16) 0; }
 .testimonial-card { max-width: 720px; margin: 0 auto; background: var(--surface-default); border-radius: var(--radius-2xl); padding: var(--spacing-6) var(--spacing-8); box-shadow: var(--shadow-sm); position: relative; }
@@ -1581,7 +1550,7 @@ footer {
   "priceRange": "€20-€30",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Carrer Sant Damià, 7",
+    "streetAddress": "C/ Salvador Olivella, 12",
     "addressLocality": "Sitges",
     "postalCode": "08870",
     "addressRegion": "Barcelona",
@@ -1589,8 +1558,8 @@ footer {
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 41.2364,
-    "longitude": 1.8120
+    "latitude": 41.2390,
+    "longitude": 1.8040
   },
   "openingHoursSpecification": [
     {
@@ -1706,11 +1675,6 @@ footer {
         <span data-lang="fr">Horaires</span>
         <span data-lang="en">Schedule</span>
       </a>
-      <a href="/verano/" class="site-nav-link">
-        <span data-lang="es" class="is-active-lang">🌞 Verano</span>
-        <span data-lang="fr">🌞 Été</span>
-        <span data-lang="en">🌞 Summer</span>
-      </a>
   <a href="#creaciones" class="site-nav-link">
     <span data-lang="es" class="is-active-lang">Creaciones</span>
     <span data-lang="fr">Créations</span>
@@ -1739,7 +1703,7 @@ footer {
         </button>
       </nav>
 
-<a href="#calculadora" class="site-cta">
+<a href="/#calculadora" class="site-cta">
         <span data-lang="es" class="is-active-lang">Reservar</span>
         <span data-lang="fr">Réserver</span>
         <span data-lang="en">Book</span>
@@ -1780,7 +1744,7 @@ footer {
     <span data-lang="fr">Où nous trouver</span>
     <span data-lang="en">Find us</span>
   </a>
-  <a href="#calculadora" class="site-cta">
+  <a href="/#calculadora" class="site-cta">
     <span data-lang="es" class="is-active-lang">Reservar</span>
     <span data-lang="fr">Réserver</span>
     <span data-lang="en">Book</span>
@@ -1789,30 +1753,6 @@ footer {
 
 
 <main id="main-content">
-
-<!-- BANDEAU VERANO -->
-<div class="verano-banner" role="complementary" aria-label="Talleres de verano">
-  <div class="verano-banner-track" aria-hidden="true">
-    <!-- Bloc ES (dupliqué pour le scroll infini) -->
-    <a href="/verano/" class="verano-banner-item" data-lang="es">☀️ Talleres de Verano · 6 jul — 29 ago 2026 · Reservar →</a>
-    <span class="verano-banner-sep" data-lang="es">·</span>
-    <a href="/verano/" class="verano-banner-item" data-lang="fr">☀️ Ateliers d'été · 6 jul — 29 août 2026 · Réserver →</a>
-    <span class="verano-banner-sep" data-lang="fr">·</span>
-    <a href="/verano/" class="verano-banner-item" data-lang="en">☀️ Summer Workshops · 6 Jul — 29 Aug 2026 · Book now →</a>
-    <span class="verano-banner-sep" data-lang="en">·</span>
-    <!-- Duplicate pour scroll infini -->
-    <a href="/verano/" class="verano-banner-item" data-lang="es">☀️ Talleres de Verano · 6 jul — 29 ago 2026 · Reservar →</a>
-    <span class="verano-banner-sep" data-lang="es">·</span>
-    <a href="/verano/" class="verano-banner-item" data-lang="fr">☀️ Ateliers d'été · 6 jul — 29 août 2026 · Réserver →</a>
-    <span class="verano-banner-sep" data-lang="fr">·</span>
-    <a href="/verano/" class="verano-banner-item" data-lang="en">☀️ Summer Workshops · 6 Jul — 29 Aug 2026 · Book now →</a>
-    <span class="verano-banner-sep" data-lang="en">·</span>
-  </div>
-  <!-- Lien accessible (visible uniquement pour lecteurs d'écran) -->
-  <a href="/verano/" class="visually-hidden" data-lang="es">Talleres de Verano 2026 — Reservar</a>
-  <a href="/verano/" class="visually-hidden" data-lang="fr">Ateliers d'été 2026 — Réserver</a>
-  <a href="/verano/" class="visually-hidden" data-lang="en">Summer Workshops 2026 — Book now</a>
-</div>
 
 
 <!-- ============================================================================
@@ -1832,7 +1772,7 @@ footer {
           <h1>Creaciones en madera para <span class="accent">pequeños y grandes artistas</span></h1>
           <p class="hero-tagline">Talleres creativos en Sitges, y creaciones personalizadas a medida. Tú lo diseñas, nosotros lo cortamos, te lo llevas a casa.</p>
           <div class="hero-ctas">
-            <a href="#calculadora" class="btn btn-primary btn-lg">Reserva un taller <span aria-hidden="true">→</span></a>
+            <a href="/#calculadora" class="btn btn-primary btn-lg">Reserva un taller <span aria-hidden="true">→</span></a>
             <a href="#creaciones" class="btn btn-secondary btn-lg">Descubre nuestras creaciones <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -1842,7 +1782,7 @@ footer {
           <h1>Créations sur bois pour <span class="accent">petits et grands artistes</span></h1>
           <p class="hero-tagline">Ateliers créatifs à Sitges, et créations personnalisées sur mesure. Tu dessines, nous découpons, tu repars avec.</p>
           <div class="hero-ctas">
-            <a href="#calculadora" class="btn btn-primary btn-lg">Réserve un atelier <span aria-hidden="true">→</span></a>
+            <a href="/#calculadora" class="btn btn-primary btn-lg">Réserve un atelier <span aria-hidden="true">→</span></a>
             <a href="#creaciones" class="btn btn-secondary btn-lg">Découvre nos créations <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -1852,7 +1792,7 @@ footer {
           <h1>Wood creations for <span class="accent">young and grown-up artists</span></h1>
           <p class="hero-tagline">Creative workshops in Sitges, and custom creations on demand. You design it, we cut it, you take it home.</p>
           <div class="hero-ctas">
-            <a href="#calculadora" class="btn btn-primary btn-lg">Book a workshop <span aria-hidden="true">→</span></a>
+            <a href="/#calculadora" class="btn btn-primary btn-lg">Book a workshop <span aria-hidden="true">→</span></a>
             <a href="#creaciones" class="btn btn-secondary btn-lg">Discover our creations <span aria-hidden="true">→</span></a>
           </div>
         </div>
@@ -2222,7 +2162,7 @@ footer {
       <div class="gallery-item">
         <picture>
           <source srcset="images/quedarte-studio.webp" type="image/webp">
-          <img src="images/quedarte-studio.jpg" alt="Studio Quedarte en Sitges, sede del taller creativo Sitgesmorzart" loading="lazy" width="900" height="1200">
+          <img src="images/quedarte-studio.jpg" alt="Un taller creativo" loading="lazy" width="900" height="1200">
         </picture>
         <div class="gallery-caption" data-lang="es">El estudio</div>
         <div class="gallery-caption" data-lang="fr">L'atelier</div>
@@ -2495,9 +2435,8 @@ footer {
 
     <div class="location-card">
       <div class="location-icon" aria-hidden="true">📍</div>
-      <div class="location-name">Studio Quedarte</div>
-      <div class="location-address">Carrer Sant Damià, 7<br>08870 Sitges, Barcelona</div>
-      <a href="https://www.google.com/maps/place/QuedArte+Studio/@41.2364958,1.8094729,17z/data=!3m1!4b1!4m6!3m5!1s0x12a381cccb92f5ff:0x52dd97cdaaa13646!8m2!3d41.2364918!4d1.8120478!16s%2Fg%2F11x_cjyxdv" class="location-link" target="_blank" rel="noopener">
+      <div class="location-address">C/ Salvador Olivella, 12<br>08870 Sitges, Barcelona</div>
+      <a href="https://maps.app.goo.gl/pFmpB72CnXWKYrPx7" class="location-link" target="_blank" rel="noopener">
         <span data-lang="es" class="is-active-lang">Ver en Google Maps</span>
         <span data-lang="fr">Voir sur Google Maps</span>
         <span data-lang="en">Open in Google Maps</span>
@@ -2686,8 +2625,7 @@ footer {
         <h3 data-lang="fr">Atelier</h3>
         <h3 data-lang="en">Studio</h3>
         <ul>
-          <li>Studio Quedarte</li>
-          <li>Carrer Sant Damià, 7</li>
+          <li>C/ Salvador Olivella, 12</li>
           <li>08870 Sitges</li>
         </ul>
       </div>
